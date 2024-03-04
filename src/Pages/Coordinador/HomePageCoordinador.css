@@ -1,0 +1,94 @@
+.homePageCoordinador {
+  display: flex;
+  flex-grow: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
+  padding: 5px;
+  background-color: white;
+  flex-direction: column;
+  overflow: auto;
+  height: 100vh;
+  padding-top: 40px;
+}
+.homePageCoordinador .contenedorArriba {
+  width: 100%;
+  height: 50%;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: auto;
+}
+.homePageCoordinador .contenedorArriba .tarjetaTotalEstudiantes {
+  width: 100%;
+  border-radius: 15px;
+  margin: 5px 50px 5px 50px;
+  
+}
+
+.homePageCoordinador .contenedorArriba .tarjetaTotalEstudiantes .titulo{
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5px;
+  color: black;
+  height: 20%;
+}
+
+.homePageCoordinador .contenedorArriba .tarjetaTotalEstudiantes .contenido{
+  display: flex;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-top: 0px;
+  height: 70%;
+  background-color:#9dc5c2;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  align-items: center;
+  justify-content: center;
+}
+
+.homePageCoordinador .contenedorArriba .tarjetaTotalEstudiantes .contenido:hover{
+  background-color:#135585; 
+  color: white;
+}
+
+
+
+.homePageCoordinador .contenedorArriba .contenedorTarjeta {
+  display: flex;
+  /* background-color: white; */
+  width: 33%;
+  margin: 1px;
+  justify-content: center;
+}
+
+.homePageCoordinador .contenedorAbajo {
+  width: 100%;
+  height: 50%;
+  overflow: auto;
+  /* background-color: green; */
+}
+
+.homePageCoordinador .graficaProgramas {
+  width: 150%;
+  height: 230%;
+  overflow: auto;
+  /* background-color: green; */
+}
+
+.homePageCoordinador .graficaProgramasE {
+  width: 110%;
+  height: 110%;
+  overflow: auto;
+  /* background-color: green; */
+}
+
+@media (max-width: 768px) {
+  .cargando {
+    font-size: 14px;
+  }
+  .homePageCoordinador .contenedorArriba .contenedorTarjeta {
+    width: 100%;
+  }
+}

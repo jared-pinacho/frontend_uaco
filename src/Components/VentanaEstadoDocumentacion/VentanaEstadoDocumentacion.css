@@ -1,0 +1,129 @@
+.ventanaDocumentacioPrincipal{
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  
+}
+
+.ventanaDocumentacioPrincipal.open {
+    display: flex;
+    flex-direction: column;
+    background: #E0E0E0;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    height: 60%;
+    overflow: hidden;
+    /* Ajusta el ancho al 60% del tamaño de la pantalla */
+  }
+
+  .tituloVentana{ 
+    width: 100%;
+    height: 15%;
+    background-color: #135A7A;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  .datosEstudiante{
+    background-color: #135A7A;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .opcionesDocumentacion{
+    display: flex;
+    width: 100%;
+    height: 75%;
+    overflow: auto;
+  }
+
+  .opcionesDocumentacion .contenedor{
+    overflow: auto;
+    width: 100%;
+  }
+  .opcionesDocumentacion .tablita thead{
+    position: sticky;
+    top: 0;
+    text-align: center;
+  }
+  
+
+
+  .botonesDocumentacion{
+    display: flex;
+    justify-content: space-around;
+  }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 25%;
+    height: 10%;
+    background-color: #fff;
+  }
+  
+  /* Estilos del fondo del interruptor */
+  .switch::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #b9b7b7; 
+    border-radius: 15px; 
+    transition: background-color 0.3s;
+  }
+  
+  /* Estilos del botón del interruptor */
+  .switch::after {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: #fff; /* Color del botón del interruptor */
+    border-radius: 50%;
+    top: 8px;
+    left: 18px;
+    transition: transform 0.3s;
+  }
+  
+  /* Estilos para el estado activado del interruptor */
+  .switch.on::before {
+    background-color: #135585; /* Color de fondo cuando está activado */
+    
+  }
+  
+  .switch.on::after {
+    transform: translateX(20px); /* Mover el botón a la derecha cuando está activado */
+    
+  }
+  
+  /* Estilos para el estado desactivado del interruptor */
+  .switch.off::before {
+    background-color: #ccc; /* Puedes ajustar el color según tus preferencias */
+  }
+  
+  .switch.off::after {
+    transform: translateX(0); /* Mover el botón a la posición inicial cuando está desactivado */
+  }
+  
+  .botonesDocumentacion .confirmar {
+    background: #135585;
+    color: #fff;
+    border: none;
+  }
+  
+  .botonesDocumentacion .cancelar {
+    background: #9dc5c2;
+    color: #333;
+    border: none;
+  }
+
+  

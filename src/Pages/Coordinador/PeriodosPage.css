@@ -1,0 +1,59 @@
+.periodosPage {
+    flex-grow: 1;
+    /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+}
+
+.periodosPage .contenidoDinamico {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.periodosPage .BtnOpciones {
+    align-items: center;
+    padding-left: 0px;
+    /* Agrega espacio interno si es necesario */
+    margin-top: 10px;
+
+}
+
+.periodosPage .barraBusqueda {
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+}
+
+.periodosPage .tituloPeriodos {
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 8px #9dc5c2;
+    color: #135a7a;
+}
+
+.tabla {
+    height: 60%;
+    overflow: auto;
+}
+
+.cargando{
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .periodosPage {
+        padding: 5px;
+    }
+    .cargando{ 
+        font-size: 14px;
+    }
+
+}

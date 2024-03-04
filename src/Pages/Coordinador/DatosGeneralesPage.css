@@ -1,0 +1,147 @@
+.generalPage{
+    flex-grow: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    
+}
+.generalPage .contenidoDinamico{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.generalPage .BtnOpciones{
+    align-items: center;
+    padding-left: 0px; /* Agrega espacio interno si es necesario */
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.generalPage .barraBusqueda{
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+}
+.generalPage .titulogeneral{
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 8px #9dc5c2;
+    color: #135a7a;
+}
+.generalPage .tabla{
+    height: 80%;
+    overflow: auto;
+    
+}
+
+.generalPage .filtro{
+    width: 100%;
+    margin-bottom: 5px;
+    
+}
+.generalPage .filtro label {
+    width: 35%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: white;
+    background-color: #135a7a;
+    padding: 5px;
+  }
+  
+  .generalPage .filtro select {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 0px;
+    font-size: 12px;
+  }
+  .generalPage .filtroMultiple {
+    
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+  }
+.generalPage .filtroMultiple .opcion {
+    width: 33%;
+  }
+
+  .generalPage .filtroMultiple .opcion label {
+    width: 35%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: white;
+    background-color: #135a7a;
+    padding: 5px;
+  }
+
+  .generalPage .filtroMultiple .opcion select {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 0px;
+    font-size: 12px;
+  }
+  
+  .claseEstudiantePage .opcionesIniciales .opcion.valido select {
+    /* background-color: #BEECC3; */
+    border: 2px solid green;
+  }
+  
+  .claseEstudiantePage .opcionesIniciales .opcion.vacio select {
+    /* background-color: #F99A96 ; */
+    border: 2px solid red;
+  }
+  
+  .claseEstudiantePage .opcionesIniciales .orden {
+    /* background-color: #F99A96 ; */
+    color: #135a7a;
+    font-size: 14px;
+  }
+  
+.generalPage .cargando{
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .generalPage{
+    padding: 5px;
+  }
+.generalPage .filtro label {
+    font-size: 12px;
+   width: 100%;
+  }
+  
+  .generalPage .filtro select {   
+    font-size: 10px;
+    width: 100%;
+  }
+  .generalPage .filtroMultiple  {
+    width: 100%;
+    flex-direction: column;
+    
+  }
+  .generalPage .filtroMultiple .opcion {
+    width: 100%;
+  }
+
+  .generalPage .filtroMultiple .opcion label {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .generalPage .filtroMultiple .opcion select {
+    font-size: 12px;
+    width: 100%;
+  }
+    .cargando{ 
+        font-size: 14px;
+    }
+
+}

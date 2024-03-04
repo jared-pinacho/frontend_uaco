@@ -1,0 +1,27 @@
+.contenedorTablaGrupos{
+  overflow: auto;
+  max-height: 100%;
+}
+.contenedorTablaGrupos .tablita thead{
+  position: sticky;
+  top: 0;
+}
+
+.contenedorTablaGrupos .tablita thead th {
+    background-color: #135A7A;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    
+  
+    .table, .table tbody, .table tr, .table td, .table th {
+      width: 100%;
+    }
+  
+    .table td, .table th {
+      text-align: left;
+      padding: 8px; /* Reduce el espacio entre el contenido y los bordes en dispositivos móviles */
+      font-size: 12px;
+    }
+  }

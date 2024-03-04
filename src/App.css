@@ -1,0 +1,49 @@
+
+@import url('./fonts/style.css');
+
+.app {
+  display: flex;
+  background-color: #E0E0E0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Myriad Pro Regular', sans-serif;
+  /* font-family: "MyriadPro"; */
+}
+
+
+h1 {
+  font-family: 'Myriad Pro Bold', sans-serif; /* Negritas */
+}
+emphasized-text {
+  font-family: 'Myriad Pro Italic', sans-serif; /* Cursivas */
+}
+
+/* Otras variantes de fuente */
+h2 {
+  font-family: 'Myriad Pro Light', sans-serif; /* Fuente ligera */
+}
+
+.bold-text {
+  font-family: 'Myriad Pro Semibold', sans-serif; /* Negrita semibold */
+}
+
+.italic-bold {
+  font-family: 'Myriad Pro Bold Italic', sans-serif; /* Negrita cursiva */
+}
+/* @font-face {
+  font-family: 'MyriadPro';
+  src: url('./fonts/MyriadPro-Regular.otf') format('opentype');
+  
+  font-weight: normal;
+  font-style: normal;
+} */
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,141 @@
+.Ffacilitadores {
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+  margin: 30px auto;
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 1px 1px 10px #135a7a;
+  background-color: #9dc5c2;
+}
+
+.Ffacilitadores h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #135a7a;
+}
+
+.Ffacilitadores label {
+  width: 35%;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: white;
+  background-color: #135a7a;
+  padding: 5px;
+}
+
+.Ffacilitadores input[type="text"],
+.Ffacilitadores input[type="number"],
+.Ffacilitadores input[type="date"] {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+.Ffacilitadores p {
+  color: red;
+  font-weight: bold;
+}
+
+.Ffacilitadores select {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+.Ffacilitadores button {
+  background-color: #135a7a;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Ffacilitadores .btnCp {
+  width: 25%;
+
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.Ffacilitadores utton:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para la tabla de Carreras Registradas */
+.Ffacilitadores table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.Ffacilitadores table th,
+.Ffacilitadores table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.Ffacilitadores table th {
+  background-color: #135a7a;
+  color: white;
+}
+
+.Ffacilitadores table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.Ffacilitadores table tbody tr:hover {
+  background-color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
+  .Ffacilitadores {
+    width: 100%;
+    font-size: 14px;
+    overflow: scroll;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .Ffacilitadores table {
+    max-width: 100px;
+    font-size: 6px;
+  }
+
+  .Ffacilitadores label {
+    width: 100%;
+    /* Ocupar el ancho completo en pantallas pequeñas */
+    margin-bottom: 5px;
+    /* Espacio menor para pantallas pequeñas */
+    font-size: 12px;
+  }
+  .Ffacilitadores input[type="text"],
+  .Ffacilitadores input[type="number"],
+  .Ffacilitadores input[type="date"] {
+    width: 100%;
+    padding: 2px;
+    font-size: 12px;
+  }
+
+  .Ffacilitadores .btnCp{
+    width: 100%;
+    
+    margin-top: 0;
+    margin-bottom: 3px;
+  }
+  .Ffacilitadores select {
+    width: 100%;
+    font-size: 12px;
+    padding: 2px;
+  }
+}

@@ -1,0 +1,192 @@
+.EstudianteClase {
+  width: 100%;
+  max-width: 95%;
+  margin-left: 30px;
+  overflow: hidden;
+
+}
+
+.EstudianteClase .opcionesIniciales {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.EstudianteClase .tablaClaseSeleccion {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 14px;
+
+}
+
+
+.EstudianteClase .tablaEstudiantes {
+
+  margin-top: 8px;
+  font-size: 14px;
+  overflow: auto;
+
+}
+
+.EstudianteClase .tablaEstudiantes .campoBusqueda {
+  width: 20%;
+  font-size: 14px;
+}
+
+.EstudianteClase .opcionesIniciales .opcion {
+  width: 25%;
+}
+
+.EstudianteClase .opcionesIniciales .opcion label {
+  width: 35%;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 0px;
+  color: white;
+  background-color: #135a7a;
+  padding: 5px;
+}
+
+.EstudianteClase .opcionesIniciales select {
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 0px;
+  font-size: 12px;
+}
+
+.EstudianteClase .opcionesIniciales .opcion.valido select {
+  /* background-color: #BEECC3; */
+  border: 2px solid green;
+}
+
+.EstudianteClase .opcionesIniciales .opcion.vacio select {
+  /* background-color: #F99A96 ; */
+  border: 2px solid red;
+}
+
+.EstudianteClase .opcionesIniciales .orden {
+  /* background-color: #F99A96 ; */
+  color: #135a7a;
+  font-size: 14px;
+}
+
+.cargando {
+  font-weight: bold;
+  color: red;
+  font-size: 20px;
+}
+
+.EstudianteClase h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #135a7a;
+}
+
+.EstudianteClase label {
+  width: 25%;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: white;
+  background-color: #135a7a;
+  padding: 5px;
+}
+
+.EstudianteClase input[type="text"],
+.EstudianteClase input[type="number"] {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+.EstudianteClase p {
+  color: red;
+  font-weight: bold;
+}
+
+.EstudianteClase select {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+.EstudianteClase button {
+  background-color: #135a7a;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.EstudianteClase button:hover {
+  background-color: #0056b3;
+}
+
+.EstudianteClase .opcionesDias {
+  overflow: auto;
+
+
+}
+
+
+@media (max-width: 768px) {
+
+  /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
+  .EstudianteClase {
+    width: 100%;
+    font-size: 14px;
+    overflow: scroll;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .EstudianteClase .opcionesIniciales .opcion {
+    width: 100%;
+  }
+
+  .EstudianteClase .opcionesIniciales .opcion label {
+    width: 100%;
+    /* Ocupar el ancho completo en pantallas pequeñas */
+    margin-bottom: 5px;
+    /* Espacio menor para pantallas pequeñas */
+    font-size: 12px;
+  }
+
+
+  .EstudianteClase .tablaEstudiantes .campoBusqueda {
+    width: 100%;
+    font-size: 12px;
+  }
+
+
+
+  .EstudianteClase input[type="text"],
+  .EstudianteClase input[type="number"] {
+    width: 100%;
+    padding: 2px;
+    font-size: 12px;
+  }
+
+  .EstudianteClase .opcionesIniciales select {
+    width: 100%;
+    font-size: 12px;
+    padding: 2px;
+  }
+
+  .EstudianteClase .opcionesIniciales .orden {
+    font-size: 10px;
+  }
+
+  .cargando {
+    font-size: 14px;
+  }
+}

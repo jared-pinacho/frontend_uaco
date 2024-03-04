@@ -1,0 +1,54 @@
+.carrerasPage {
+    flex-grow: 1;
+    /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+}
+
+.contenidoDinamico {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.BtnOpciones {
+    align-items: center;
+    padding-left: 30px;
+    /* Agrega espacio interno si es necesario */
+    margin-top: 10px;
+
+}
+
+.barraBusqueda {
+    align-items: center;
+    padding-left: 30px;
+    margin-top: 10px;
+}
+
+.tituloCucs {
+    align-items: center;
+    padding-left: 30px;
+    margin-top: 10px;
+}
+
+.tabla {
+    height: 60%;
+    overflow: auto;
+}
+
+.cargando{
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .cargando{ 
+        font-size: 14px;
+    }
+
+}

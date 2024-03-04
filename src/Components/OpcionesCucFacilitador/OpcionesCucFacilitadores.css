@@ -1,0 +1,16 @@
+.OpcionesCucFacilitadores select {
+    width: 22%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+}
+
+.OpcionesCucFacilitadores button {
+    background-color: #FFA500;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

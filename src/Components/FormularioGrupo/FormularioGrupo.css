@@ -1,0 +1,128 @@
+.Fgrupos {
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    margin: 30px auto;
+    border-radius: 10px;
+    overflow: auto;
+    box-shadow: 1px 1px 10px #135a7a;
+    background-color: #9dc5c2;
+}
+
+.Fgrupos h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #135A7A;
+}
+
+.Fgrupos label {
+    width: 35%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #135A7A;
+    padding: 5px;
+}
+
+.Fgrupos input[type="text"],
+.Fgrupos input[type="number"] {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+}
+
+.Fgrupos p {
+    color: red;
+    font-weight: bold;
+}
+
+.Fgrupos select {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+}
+
+.Fgrupos button {
+    background-color: #135A7A;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Fgrupos utton:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para la tabla de Carreras Registradas */
+.Fgrupos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.Fgrupos table th,
+.Fgrupos table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.Fgrupos table th {
+    background-color: #135A7A;
+    color: white;
+}
+
+.Fgrupos table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.Fgrupos table tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+
+    /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
+    .Fgrupos {
+        width: 100%;
+        font-size: 14px;
+        overflow: scroll;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .Fgrupos table {
+        max-width: 100px;
+        font-size: 6px;
+
+    }
+
+    .Fgrupos label {
+        width: 100%;
+        /* Ocupar el ancho completo en pantallas pequeñas */
+        margin-bottom: 5px;
+        /* Espacio menor para pantallas pequeñas */
+        font-size: 12px;
+    }
+
+    .Fgrupos input[type="text"],
+  .Fgrupos input[type="number"] {
+    width: 100%;
+    padding: 2px;
+    font-size: 12px;
+  }
+  .Fgrupos select {
+    width: 100%;
+    font-size: 12px;
+    padding: 2px;
+  }
+}

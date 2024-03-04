@@ -1,0 +1,42 @@
+.seleccionCarreras{
+    flex-grow: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    
+}
+
+.contenidoD{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.seleccionCarreras .BtnOpciones{
+    align-items: center;
+    padding-left: 0px; /* Agrega espacio interno si es necesario */
+    margin-top: 0px;
+
+}
+
+.tituloC{
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;
+    text-shadow: 1px 1px 8px #9dc5c2;
+    color: #135a7a;
+}
+
+.tablaC{
+    height: 50%;
+    overflow: auto;
+}
+
+@media (max-width: 768px) {
+    .seleccionCarreras{
+        padding: 5px;
+    }
+
+}

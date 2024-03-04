@@ -1,0 +1,99 @@
+.contenedor{
+    overflow: auto;
+    max-height: 100%;
+    
+  }
+  .tablita thead{
+    position: sticky;
+    top: 0;
+  }
+  
+  .tablita thead th {
+      background-color: #135A7A;
+      color: white;
+  }
+
+  .opcionesBusqueda{
+    display: flex;
+    flex-direction: row;
+   
+    width: 100%;
+    
+  }
+  .opcionesBusqueda .divCampoBusqueda{
+    width: 50%;
+  }
+  
+  .opcionesBusqueda .divCampoBusqueda .campoBusqueda{
+    background-color: #BFF7C6;
+   width: 55%;
+  }
+
+  .opcionesBusqueda .eliminarEstudiante{
+    width: 50%;
+  }
+
+  .opcionesBusqueda .eliminarEstudiante label{
+    width: 70%;
+    font-size: 14px;
+    
+  }
+
+  .opcionesBusqueda .eliminarEstudiante input{
+    width: 70%;
+    font-size: 14px;
+    
+  }
+
+  
+  @media (max-width: 768px) {
+      
+    
+      .table, .table tbody, .table tr, .table td, .table th {
+        width: 100%;
+      }
+    
+      .table td, .table th {
+        text-align: left;
+        padding: 8px; /* Reduce el espacio entre el contenido y los bordes en dispositivos móviles */
+        font-size: 12px;
+      }
+      .opcionesBusqueda{
+        display: flex;
+        flex-direction: column;
+       
+        
+      }
+    
+      .opcionesBusqueda .divCampoBusqueda{
+        width: 100%;
+      }
+      
+      .opcionesBusqueda .divCampoBusqueda .campoBusqueda{
+        background-color: #BFF7C6;
+       width: 100%;
+      }
+    
+      .opcionesBusqueda .eliminarEstudiante{
+        width: 100%;
+        margin-left: 0;
+      }
+    
+      .opcionesBusqueda .eliminarEstudiante label{
+        width: 50%;
+        font-size: 12px;
+       
+      }
+    
+      .opcionesBusqueda .eliminarEstudiante input{
+        width: 100%;
+        font-size: 12px;
+        
+      }
+
+      .opcionesBusqueda .eliminarEstudiante .btnE{
+        font-size: 10px;
+        background-color: blue;
+        width: 30%;
+      }
+    }

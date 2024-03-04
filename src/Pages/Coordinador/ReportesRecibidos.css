@@ -1,0 +1,128 @@
+.ReporteRecibidoGrupoPage {
+    flex-grow: 1;
+    /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+  
+  .ReporteRecibidoGrupoPage .tituloReporteRecibidoGrupo {
+    align-items: center;
+    padding-left: 18px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 8px #9dc5c2;
+    color: #135a7a;
+  }
+  
+  .ReporteRecibidoGrupoPage .opcionesIniciales {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .ReporteRecibidoGrupoPage .tablaClaseSeleccionada {
+    width: 100%;
+    margin-top: 8px;
+  }
+  
+  .ReporteRecibidoGrupoPage .opcionesIniciales .opcion {
+    width: 33%;
+    margin: 10px 0px 10px 0px;
+  }
+  .ReporteRecibidoGrupoPage .opcionesIniciales .opcion label {
+    width: 30%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0px;
+    color: white;
+    background-color: #135a7a;
+    padding: 5px;
+  }
+  
+  .ReporteRecibidoGrupoPage .opcionesIniciales select {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 0px;
+    font-size: 18px;
+  }
+  
+  .ReporteRecibidoGrupoPage .opcionesIniciales .opcion.valido select {
+    /* background-color: #BEECC3; */
+    border: 2px solid green;
+  }
+  
+  .ReporteRecibidoGrupoPage .opcionesIniciales .opcion.vacio select {
+    /* background-color: #F99A96 ; */
+    border: 2px solid red;
+  }
+  
+  .ReporteRecibidoGrupoPage .opcionesIniciales .orden {
+    /* background-color: #F99A96 ; */
+    color: #135a7a;
+    font-size: 18px;
+  }
+  
+  .cargando {
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+  }
+  .tablaCalificarEstudiantes {
+    height: 70%;
+    overflow: auto;
+  }
+  .btnEnviar button{
+    background-color:#135585;
+    font-weight: bold;
+  }
+  
+  .btnObtenerEstudiantes{
+    border-radius: 5px;
+    background-color: #135585 ;
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .ReporteRecibidoGrupoPage {
+      width: 100%;
+      font-size: 14px;
+      overflow: scroll;
+      margin: 0px;
+      padding: 5px;
+    }
+    .ReporteRecibidoGrupoPage .opcionesIniciales .opcion {
+      width: 100%;
+    }
+    .ReporteRecibidoGrupoPage .opcionesIniciales .opcion label {
+      width: 100%;
+      /* Ocupar el ancho completo en pantallas pequeñas */
+      margin-bottom: 5px;
+      /* Espacio menor para pantallas pequeñas */
+      font-size: 12px;
+    }
+  
+    .ReporteRecibidoGrupoPage input[type="text"],
+    .ReporteRecibidoGrupoPage input[type="number"] {
+      width: 100%;
+      padding: 2px;
+      font-size: 12px;
+    }
+    .ReporteRecibidoGrupoPage .opcionesIniciales select {
+      width: 100%;
+      font-size: 12px;
+      padding: 2px;
+    }
+    .ReporteRecibidoGrupoPage .opcionesIniciales .orden {
+      font-size: 10px;
+    }
+    .cargando {
+      font-size: 14px;
+    }
+  }
+  

@@ -1,0 +1,67 @@
+.ventanaKardexPrincipal{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    
+  }
+  
+  .ventanaKardexPrincipal.open {
+      display: flex;
+      flex-direction: column;
+      background: #E0E0E0;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      
+    }
+  
+    .ventanaKardexPrincipal.open .tituloVentana{ 
+      width: 100%;
+      height: 8%;
+      background-color: #135A7A;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      font-size: 20px;
+      padding: 10px;
+    }
+  
+    .ventanaKardexPrincipal.open .datosEstudiante{
+      background-color: #135A7A;
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+    }
+    
+    .ventanaKardexPrincipal.open .opcionesKardex{
+      width: 100%;
+      height: 80%;
+      overflow: auto;
+      
+    }
+  
+    .ventanaKardexPrincipal.open .botonesKardex{
+      display: flex;
+      justify-content: space-around;
+    }
+  
+    
+    .ventanaKardexPrincipal.open .botonesKardex .confirmar {
+      background: #135585;
+      color: #fff;
+      border: none;
+    }
+    
+    .ventanaKardexPrincipal.open .botonesKardex .cancelar {
+      background: #135585;
+      color: #fff;
+      border: none;
+    }
+  
+    

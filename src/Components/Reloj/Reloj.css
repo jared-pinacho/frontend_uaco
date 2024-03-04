@@ -1,0 +1,17 @@
+.Reloj {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background-color: transparent;
+    padding: 10px;
+    color: #135A7A;
+    font-size: 18px;
+}
+.Reloj p{
+    text-align: right;
+}
+@media (max-width: 768px) {
+    .Reloj{
+        display: none;
+    }
+}

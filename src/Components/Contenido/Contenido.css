@@ -1,0 +1,5 @@
+.contenido{
+    flex-grow: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #E0E0E0;
+}

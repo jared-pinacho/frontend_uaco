@@ -1,0 +1,96 @@
+.boletasPage {
+    flex-grow: 1;
+    /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+  
+  .boletasPage .tituloboletas {
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 8px #9dc5c2;
+    color: #135a7a;
+  }
+  
+  .boletasPage .opcionesIniciales {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  
+  .boletasPage .opcionesIniciales .opcion {
+    width: 50%;
+    margin: 10px 0px 10px 0px;
+  }
+
+  .boletasPage .opcionesIniciales .opcion label {
+    width: 30%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0px;
+    color: white;
+    background-color: #135a7a;
+    padding: 5px;
+  }
+  
+  .boletasPage .opcionesIniciales select {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 0px;
+    font-size: 18px;
+  }
+  
+  .btnEnviar button{
+    background-color:#135585;
+    font-weight: bold;
+  }
+
+  .btnEnviar button:disabled {
+    cursor: not-allowed;
+  }
+
+  .tablaBoleta {
+    height: 70%;
+    overflow: auto;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .boletasPage {
+      width: 90%;
+      overflow: scroll;
+      margin: 0px;
+      padding: 5px;
+    }
+    .boletasPage .opcionesIniciales .opcion {
+      width: 100%;
+    }
+    .cargando {
+      font-size: 14px;
+    }
+    .boletasPage .opcionesIniciales .opcion label {
+      width: 50%;
+      padding: 5px;
+      margin-bottom: 0px;
+      font-size: 12px;
+    }
+    .boletasPage .opcionesIniciales select {
+      width: 50%;
+      padding: 5px;
+      margin-bottom: 0px;
+      font-size: 12px;
+    }
+    .btnEnviar button{
+      background-color:#135585;
+      font-weight: bold;
+      font-size: 12px;
+    }
+  }

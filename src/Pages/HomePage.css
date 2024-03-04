@@ -1,0 +1,122 @@
+.contenedorMain {
+  background-color: white;
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  overflow: auto;
+}
+.contenedorMain .titulo {
+  margin-top: 2px;
+  border-radius: 10px;
+  width: 60%;
+  display: inline-block;
+  background-color: #135a7a;
+  box-shadow: 0px 0px 15px #135a7a;
+  text-align: center;
+}
+
+
+.contenedorMain .titulo h1 {
+  color: #135a7a;
+  font-weight: bold;
+  font-size: 60px;
+  color: white;
+}
+
+.contenedorSecundario {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.contenedorSecundario .contenedorImagen {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin-top: 20px;
+  
+  
+ 
+}
+
+.contenedorSecundario .contenedorImagen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 1s ease-in-out;
+ 
+}
+.contenedorSecundario .contenedorImagen img:hover {
+    transform: rotateY(180deg);
+  }
+
+.contenedorTexto {
+  width: 60%;
+}
+
+.contenedorTexto .mision,
+.contenedorTexto .vision {
+  margin-top: 20px;
+  text-align: justify;
+  background-color: #9dc5c2;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 15px #135a7a;
+ 
+}
+
+
+.contenedorTexto .mision h1,
+.contenedorTexto .vision h1 {
+  font-weight: bold;
+  color: #135a7a;
+  text-align: center;
+  transition: transform 0.5s ease-in-out;
+  
+}
+.contenedorTexto .mision h1:hover,
+.contenedorTexto .vision h1:hover {
+    transform: scale(1.05);
+    color: red;
+}
+
+.contenedorTexto .mision,
+.contenedorTexto .vision p {
+  font-weight: bold;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .contenedorMain {
+    padding: 5px;
+  }
+  .contenedorMain .titulo {
+    margin-top: 0px;
+    width: 100%;
+  }
+  .contenedorMain .titulo h1 {
+    font-size: 15px;
+  }
+
+  .contenedorTexto {
+    width: 100%;
+  }
+
+  .contenedorTexto .mision h2,
+  .contenedorTexto .vision h2 {
+    font-size: 14px;
+  }
+  .contenedorTexto .mision,
+  .contenedorTexto .vision p {
+    
+    font-size: 12px;
+  }
+  .contenedorSecundario .contenedorImagen {
+    display: none;
+  }
+}

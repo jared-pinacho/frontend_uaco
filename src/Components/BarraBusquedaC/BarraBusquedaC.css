@@ -1,0 +1,33 @@
+.BusquedaCuc input[type="text"] {
+  width: 22%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  background-color: #BFF7C6;
+}
+
+.BusquedaCuc button {
+  background-color: #ffa500;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .BusquedaCuc input[type="text"] {
+    width: 100%; /* Ajustar el ancho al 100% del contenedor */
+    padding: 8px; /* Reducir el espaciado para dispositivos móviles */
+    font-size: 12px; /* Reducir el tamaño de fuente para dispositivos móviles */
+    margin-bottom: 5px;
+  }
+
+  .BusquedaCuc button {
+    width: 50%; /* Ajustar el ancho al 100% del contenedor */
+    padding: 8px; /* Mantener el espaciado original */
+    font-size: 14px; /* Mantener el tamaño de fuente original */
+    margin-bottom: 5px;
+  }
+}

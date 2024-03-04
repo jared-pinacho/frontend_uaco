@@ -1,0 +1,61 @@
+.materiasCursandoPage {
+    flex-grow: 1;
+    /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+  
+  .materiasCursandoPage .titulomateriasCursando {
+    align-items: center;
+    padding-left: 18px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 8px #9dc5c2;
+    color: #135a7a;
+  }
+
+  .materiasCursandoPage .Horario {
+    align-items: center;
+    padding-left: 18px;
+    margin-top: 10px;
+  }
+
+  .materiasCursandoPage .Horario .btnHorario{
+    background-color:#135585;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .materiasCursandoPage .opcionesIniciales {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  
+  .materiasCursandoPage .opcionesIniciales .opcion {
+    width: 30%;
+    margin: 10px 0px 10px 0px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .materiasCursandoPage {
+      width: 90%;
+      font-size: 14px;
+      overflow: scroll;
+      margin: 5px;
+      padding: 0px;
+    }
+    .materiasCursandoPage .opcionesIniciales .opcion {
+      width: 100%;
+    }
+    .cargando {
+      font-size: 14px;
+    }
+  }
+  

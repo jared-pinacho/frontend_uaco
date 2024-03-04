@@ -1,0 +1,20 @@
+.btn-opcion {
+    border-radius: 10px;
+    margin-right: 5px;
+    transform: translateY(0);
+    transition:transform .5s;
+}
+
+
+.btn-opcion:hover{
+    transform: translateY(-4px);
+}
+
+@media (max-width: 767px) {
+    .btn-opcion {
+        width: 50%; /* Ajusta el ancho al 100% del contenedor */
+        margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
+        font-size: 12px;
+        margin-top: 2px;
+    }
+}

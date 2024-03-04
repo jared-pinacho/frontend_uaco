@@ -1,0 +1,19 @@
+.btn-logout {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #9dc5c2;
+  color: #135A7A;
+  border-radius: 15px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+@media (max-width: 768px) {
+  .btn-logout {
+    font-size: 12px;
+  }
+}

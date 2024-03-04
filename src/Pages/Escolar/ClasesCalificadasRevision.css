@@ -1,0 +1,149 @@
+.revisionClasePage {
+    flex-grow: 1;
+    /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+  
+  .revisionClasePage .titulocalificarClase {
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 8px #9dc5c2;
+    color: #135a7a;
+  }
+  
+  .revisionClasePage .opcionesIniciales {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    flex-wrap: wrap;
+  }
+  
+  .revisionClasePage .tablaClaseSeleccionada {
+    width: 100%;
+    margin-top: 8px;
+  }
+  
+  .revisionClasePage .opcionesIniciales .opcion {
+    width: 25%;
+    
+  }
+  .revisionClasePage .opcionesIniciales .opcion label {
+    width: 35%;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 0px;
+  color: white;
+  background-color: #135a7a;
+  padding: 5px;
+  }
+
+  .revisionClasePage .opcionesIniciales .calificado {
+    width: 100%;
+  }
+  .revisionClasePage .opcionesIniciales .calificado label {
+    width: 35%;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 0px;
+  color: white;
+  padding: 7px;
+  }
+  
+  .revisionClasePage .opcionesIniciales select {
+    width: 60%;
+  padding: 10px;
+  margin-bottom: 0px;
+  font-size: 12px;
+  }
+  
+  .revisionClasePage .opcionesIniciales .opcion.valido select {
+    /* background-color: #BEECC3; */
+    border: 2px solid green;
+  }
+  
+  .revisionClasePage .opcionesIniciales .opcion.vacio select {
+    /* background-color: #F99A96 ; */
+    border: 2px solid red;
+  }
+  
+  .revisionClasePage .opcionesIniciales .orden {
+    /* background-color: #F99A96 ; */
+    color: #135a7a;
+    font-size: 14px;
+  }
+  
+  .cargando {
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+  }
+  .tablaCalificarEstudiantes {
+    height: 70%;
+    overflow: auto;
+  }
+  .btnEnviar button{
+    background-color:#135585;
+    font-weight: bold;
+  }
+  
+  .btnObtenerEstudiantes{
+    border-radius: 5px;
+    background-color: #135585 ;
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .revisionClasePage {
+      width: 100%;
+      font-size: 14px;
+      overflow: scroll;
+      margin: 0px;
+      padding: 5px;
+    }
+    .revisionClasePage .opcionesIniciales .opcion {
+      width: 100%;
+    }
+    .revisionClasePage .opcionesIniciales .opcion label {
+      width: 100%;
+      /* Ocupar el ancho completo en pantallas pequeñas */
+      margin-bottom: 5px;
+      /* Espacio menor para pantallas pequeñas */
+      font-size: 12px;
+    }
+
+    .revisionClasePage .opcionesIniciales .calificado {
+      width: 100%;
+    }
+    .revisionClasePage .opcionesIniciales .calificado label {
+    font-size: 14px; 
+    }
+  
+    .revisionClasePage input[type="text"],
+    .revisionClasePage input[type="number"] {
+      width: 100%;
+      padding: 2px;
+      font-size: 12px;
+    }
+    .revisionClasePage .opcionesIniciales select {
+      width: 100%;
+      font-size: 12px;
+      padding: 2px;
+    }
+    .revisionClasePage .opcionesIniciales .orden {
+      font-size: 10px;
+    }
+    .cargando {
+      font-size: 14px;
+    }
+  }
+  
