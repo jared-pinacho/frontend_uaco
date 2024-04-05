@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../LeftSideBar/LeftSideBar.css";
 import Cookies from "js-cookie";
 import { NavLink } from "react-router-dom";
@@ -7,8 +7,12 @@ import { useAuthContext } from "../../context/AuthContext";
 import logo2 from "../../assets/img/Logo2.svg";
 import { enc, AES } from "crypto-js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+import { URL_API } from "../../Services/Const";
+
 
 import {
+  faSchoolFlag,
   faHome,
   faEyeSlash,
   faEye,
@@ -33,11 +37,88 @@ import {
   faFile,
 } from "@fortawesome/free-solid-svg-icons";
 
+const fetchMatricula = async (token, apiUrl, setMat, setIsLoading) => {
+  try {
+    const response = await axios.get(`${apiUrl}estudiantes/matricula/propia`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const matricula = response.data.data;
+    setMat(matricula);
+    setIsLoading(false);
+  } catch (error) {
+    console.error("Error al obtener matricula", error);
+    setIsLoading(false);
+  }
+};
+
+const fetchData = async (
+  mate,
+  token,
+  apiUrl,
+  setServicioEstatus,
+  setIsLoading
+) => {
+  try {
+    const response = await axios.get(`${apiUrl}estudiantes/servicio/${mate}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const estatus = response.data.data;
+    console.log("servicio", estatus);
+    setServicioEstatus(estatus);
+    setIsLoading(false);
+  } catch (error) {
+    console.error("Error al obtener estatus servicio", error);
+    setIsLoading(false);
+  }
+};
+
 const MY_AUTH_APP = "DoFA45-M0pri";
 
 export const LeftSideBar = () => {
   const { isAuthenticated, userData, logout } = useAuthContext();
   const [sidebarVisible, setSidebarVisible] = useState(true);
+  const [servicioEstatus, setServicioEstatus] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingo, setIsLoadingo] = useState(true);
+  const apiUrl = URL_API;
+  const token = Cookies.get("tok");
+  const [mat, setMat] = useState(null);
+
+  const [menuVisible, setMenuVisible] = useState(false);
+
+  const handleMenuClick = () => {
+    setMenuVisible(true);
+  };
+
+  const handle= () => {
+    setMenuVisible(false);
+  };
+
+  useEffect(() => {
+    if (isAuthenticated && userData && userData.rol === "estudiante") {
+      fetchMatricula(token, apiUrl, setMat, setIsLoading);
+      console.log("funcion_matricula", mat);
+    }
+  }, [token]); // Agrega token como dependencia
+
+  useEffect(() => {
+    if (
+      isAuthenticated &&
+      userData &&
+      userData.rol === "estudiante" &&
+      isAuthenticated &&
+      mat
+    ) {
+      fetchData(mat, token, apiUrl, setServicioEstatus, setIsLoading);
+    }
+  }, [mat]);
+
+  // El segundo argumento vacío indica que se debe ejecutar una vez al montar el componente
+
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
   };
@@ -53,7 +134,10 @@ export const LeftSideBar = () => {
   try {
     if (isAuthenticated) {
       const rol = decrypt(Cookies.get("rol"));
+      //const nombre =Cookies.get("id");
       const nombre = Cookies.get("nombre");
+      var estado = servicioEstatus;
+
       return (
         <>
           <div className="sidebar-container">
@@ -102,7 +186,10 @@ export const LeftSideBar = () => {
                 {rol === "coordinador" && (
                   <>
                     <li>
-                      <NavLink to="/homePageCoordinador" activeclassname="active">
+                      <NavLink
+                        to="/homePageCoordinador"
+                        activeclassname="active"
+                      >
                         <div className="item">
                           <FontAwesomeIcon
                             className="icono"
@@ -162,6 +249,21 @@ export const LeftSideBar = () => {
                       </NavLink>
                     </li>
                     <li>
+                      <NavLink
+                        to="/servicioCoordinador"
+                        activeclassname="active"
+                      >
+                        <div className="item">
+                          <FontAwesomeIcon
+                            className="icono"
+                            icon={faSchoolFlag}
+                            color="#135585"
+                          />
+                          <span className="texto-opcion">Servicio social</span>
+                        </div>
+                      </NavLink>
+                    </li>
+                    <li>
                       <NavLink to="/datosGenerales" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -181,7 +283,9 @@ export const LeftSideBar = () => {
                             icon={faFile}
                             color="#135585"
                           />
-                          <span className="texto-opcion">Reportes de grupos</span>
+                          <span className="texto-opcion">
+                            Reportes de grupos
+                          </span>
                         </div>
                       </NavLink>
                     </li>
@@ -240,7 +344,7 @@ export const LeftSideBar = () => {
                 {/* Escolares */}
                 {rol === "escolar" && (
                   <>
-                    <li>
+                    <li onClick={handle}>
                       <NavLink to="/homePageEscolar" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -252,7 +356,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
+                    <li onClick={handle}>
                       <NavLink to="/grupos" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -264,7 +368,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
+                    <li onClick={handle}>
                       <NavLink to="/estudiantes" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -276,7 +380,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
+                    <li onClick={handle}>
                       <NavLink to="/clases" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -288,7 +392,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
+                    <li onClick={handle}>
                       <NavLink
                         to="/asignarClaseEstudiante"
                         activeclassname="active"
@@ -322,7 +426,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
+                    <li onClick={handle}>
                       <NavLink
                         to="/validarGrupoParaReporte"
                         activeclassname="active"
@@ -339,6 +443,62 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
+                    <li onClick={handleMenuClick}>
+                      <NavLink
+                        to="/servicioEscolar"
+                        activeclassname="active"
+                      >
+                        <div className="item">
+                          <FontAwesomeIcon
+                            className="icono"
+                            icon={faSchoolFlag}
+                            color="#135585"
+                          />
+                          <span className="texto-opcion">
+                            Servicio social comunitario
+                          </span>
+                        </div>
+                      </NavLink>
+                    </li>
+                    
+                    {menuVisible && (
+                   
+                     <div className="menu">   
+                     
+                       <NavLink
+                     to="/escolaresEstudiantes"
+                     activeclassname="active"
+                     style={{ textDecoration: "none" }}
+                   >
+
+                          <div className="subitem">
+                            <span className="texto-subopcion">
+                              Estudiantes
+                            </span>
+                          </div>
+                          
+                          </NavLink>
+                          
+
+
+                          <NavLink
+                     to="/escolarForaneos"
+                     activeclassname="active"
+                     style={{ textDecoration: "none" }}
+                   >
+
+                          <div className="subitem">
+                            <span className="texto-subopcion">
+                              Preestadores foráneos
+                            </span>
+                          </div>
+                          
+                          </NavLink>
+
+                          
+                        
+                      </div>
+                    )}
                   </>
                 )}
 
@@ -428,7 +588,7 @@ export const LeftSideBar = () => {
                 )}
 
                 {/* estudiante */}
-                {rol === "estudiante" && (
+                {rol === "estudiante" && estado === 0 && (
                   <>
                     <li>
                       <NavLink to="/homePage" activeclassname="active">
@@ -476,14 +636,128 @@ export const LeftSideBar = () => {
                             icon={faRectangleList}
                             color="#135585"
                           />
-                          <span className="texto-opcion">
-                            Kardex
-                          </span>
+                          <span className="texto-opcion">Kardex</span>
                         </div>
                       </NavLink>
                     </li>
                   </>
                 )}
+
+                {/* estudiante preestador */}
+                {rol === "estudiante" && estado === 1 && (
+                  <>
+                    <li onClick={handle}>
+                      <NavLink to="/homePage" activeclassname="active">
+                        <div className="item">
+                          <FontAwesomeIcon
+                            className="icono"
+                            icon={faHome}
+                            color="#135585"
+                          />
+                          <span className="texto-opcion">Inicio</span>
+                        </div>
+                      </NavLink>
+                    </li>
+                    <li onClick={handle}>
+                      <NavLink to="/materiasCursando" activeclassname="active">
+                        <div className="item">
+                          <FontAwesomeIcon
+                            className="icono"
+                            icon={faBook}
+                            color="#135585"
+                          />
+                          <span className="texto-opcion">Carga Academica</span>
+                        </div>
+                      </NavLink>
+                    </li>
+                    <li onClick={handle}>
+                      <NavLink to="/boletas" activeclassname="active">
+                        <div className="item">
+                          <FontAwesomeIcon
+                            className="icono"
+                            icon={faRectangleList}
+                            color="#135585"
+                          />
+                          <span className="texto-opcion">
+                            Consultar boletas
+                          </span>
+                        </div>
+                      </NavLink>
+                    </li>
+                    <li onClick={handle}>
+                      <NavLink to="/kardex" activeclassname="active">
+                        <div className="item">
+                          <FontAwesomeIcon
+                            className="icono"
+                            icon={faRectangleList}
+                            color="#135585"
+                          />
+                          <span className="texto-opcion">Kardex</span>
+                        </div>
+                      </NavLink>
+                    </li>
+
+
+
+                    <li onClick={handleMenuClick}>
+                      <NavLink
+                        to="/servicioEstudiante"
+                        activeclassname="active"
+                      >
+                        <div className="item">
+                          <FontAwesomeIcon
+                            className="icono"
+                            icon={faSchoolFlag}
+                            color="#135585"
+                          />
+                          <span className="texto-opcion">
+                            Servicio social comunitario
+                          </span>
+                        </div>
+                      </NavLink>
+                    </li>
+                    
+                    {menuVisible && (
+                   
+                     <div className="menu">   
+                     
+                       <NavLink
+                     to="/servicioInfo"
+                     activeclassname="active"
+                     style={{ textDecoration: "none" }}
+                   >
+
+                          <div className="subitem">
+                            <span className="texto-subopcion">
+                              Información personal
+                            </span>
+                          </div>
+                          
+                          </NavLink>
+                          
+
+
+                          <NavLink
+                     to="/servicioTramite"
+                     activeclassname="active"
+                     style={{ textDecoration: "none" }}
+                   >
+
+                          <div className="subitem">
+                            <span className="texto-subopcion">
+                              Tramite servicio
+                            </span>
+                          </div>
+                          
+                          </NavLink>
+
+                          
+                        
+                      </div>
+                    )}
+                  </>
+                )}
+
                 <br />
                 <li>
                   <button onClick={toggleSidebar}>
