@@ -239,7 +239,9 @@ hr {
     font-size: 12px;
   }
 
- 
+  .texto-subopcion {
+    font-size: 10px;
+  }
 
   li button {
     font-size: 12px;
@@ -268,37 +270,27 @@ hr {
 }
 
 .subitem:hover {
-  transform: translateY(-5px);
+  transform: translateY(-1px);
 }
 .active .subitem {
   background-color: #e23131;
 
 }
 
-.active .item .texto-opcion{
+.active .subitem .texto-subopcion{
   color: #9dc5c2;
 }
 
-.item .texto-opcion{
+.subitem .texto-subopcion{
   transform: translateY(0);
   transition:transform .5s;
   
 }
-.item:hover .texto-opcion {
-  transform: translateY(-5px);
+.subitem:hover .texto-subopcion {
+  transform: translateY(-2px);
 }
 
-.item .icono{
-  transform: translateY(0);
-  transition:transform .5s;
-}
-.item:hover .icono {
-  transform: translateY(-5px);
-}
 
-.active .item .icono{
-  animation:jump 2s infinite;
-}
 @keyframes jump {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0); /* El elemento está en su posición normal */

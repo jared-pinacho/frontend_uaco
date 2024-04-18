@@ -1,0 +1,67 @@
+.VentanaRevisar {
+  width: 100%; 
+  overflow: auto;
+  background-color: #9dc5c2;
+  margin-top: 0%;
+
+}
+
+
+.VentanaRevisar label {
+  background-color: #9dc5c2;
+  color: #135a7a;
+  font-size: bold;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+
+.VentanaRevisar textarea {
+  background-color: none;
+  font-size: large;
+  margin-top: 0%;
+  width: 85%;
+}
+
+.clase{
+  margin-left: 71%;
+}
+
+.VentanaRevisar button {
+  background-color: #135a7a;
+  color: #fff;
+  padding: 1% 5%;
+  margin-left: 5%;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 69%;
+ 
+}
+
+
+@media (max-width: 768px) {
+ 
+
+  .VentanaRevisar textarea {
+   
+    font-size: small;
+  
+    width: 100%;
+  }
+ 
+  
+  .VentanaRevisar button {
+    background-color: #135a7a;
+    color: #fff;
+    padding: 4px 10px;
+   margin-bottom: 14%;
+    margin-left: 2%;
+    border-radius: 5px;
+    cursor: pointer;
+      
+  }
+  
+.clase{
+  margin-left: 2%;
+}
+
+}

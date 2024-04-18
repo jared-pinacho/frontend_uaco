@@ -1,0 +1,139 @@
+.sidebaro-containero {
+  display: flex;
+  flex-direction:column;
+  position: relative;
+  height: 8vh;
+  margin-top: -12%;
+  margin-bottom: 2%;
+  margin-left: 0%;
+  width: 52%;
+  border-radius: 0%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agregar sombra */
+}
+
+/* Estilo base para el sidebar */
+.sidebaro {
+  width: 192%;
+  background-color: white;
+  padding: 7px;
+  height: 98%;
+  overflow: auto;
+  transition: width 0.3s ease-in-out;
+  border: 2px solid #fff; /* Ejemplo de propiedad border con ancho y color */
+  border-radius: 10px; /* Radio de borde para todas las esquinas */
+  overflow: hidden;
+}
+
+
+
+.encabezadi {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  background-color: none;
+  /*D34646 este color lo usaremos cuando la opcion este seleccionada*/
+}
+
+.itemo {
+  display: flex;
+  align-items: center;
+  padding: 13px;
+  width: 136px;
+  border-radius: 10px;
+  margin-right: 9px;
+  margin-left: -8px;
+  background-color: white;
+  /*D34646 este color lo usaremos cuando la opcion este seleccionada*/
+  margin-bottom: 0%;
+  transition:transform .5s;
+  margin-top: -5%;
+  height: 48px;
+  
+}
+
+.itemo:hover {
+  transform: translateY(-3px);
+}
+.active .itemo {
+  background-color: #135585;
+
+}
+
+.active .itemo .texto-opciono{
+  color: white;
+}
+
+
+.texto-opciono {
+  font-size: 16px;
+  color: #135585;
+  font-weight: bold;
+
+}
+
+
+@media (max-width: 768px) {
+
+  .sidebar-containero {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 10%;
+    margin-top: -28%; /* Ajusta el margen superior según tus necesidades */
+    margin-left: 0%;
+    width: 300px; /* Ancho inicial de la barra lateral */
+    
+  }
+  
+  .sidebaro {
+    width: 70%;
+    background-color: white;
+    padding: 10px;
+    overflow: auto;
+    border-radius: 10px;
+    height: 80%;
+    border-radius:0%;
+  }
+  
+  .encabezado {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección a columna para apilar elementos */
+    align-items: center;
+  }
+  
+  .itemo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Espacio entre elementos */
+    background-color: white;
+    width:auto; /* Ancho del elemento ajustado automáticamente */
+    margin-top: -6%;
+    margin-left: auto;
+    
+  }
+  
+  .itemo:hover {
+    transform: translateY(-3px);
+  }
+  
+  .activo .itemo {
+    background-color: #135585;
+  }
+  
+  .activo .itemo .texto-opciono {
+    color: white;
+  }
+  
+  .texto-opciono {
+    font-size: 10px;
+    color: #135585;
+    font-weight: bold;
+  }
+
+
+
+}

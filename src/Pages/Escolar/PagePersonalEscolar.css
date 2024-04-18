@@ -1,0 +1,62 @@
+.PagePersonalEscolar {
+    flex-grow: 1;
+    /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.PagePersonalEscolar.contenidoDinamico {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.PagePersonalEscolar .BtnOpciones {
+    align-items: center;
+    padding-left: 0px;
+    /* Agrega espacio interno si es necesario */
+    margin-top: 10px;
+
+}
+
+.PagePersonalEscolar .barraBusqueda {
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+}
+
+.PagePersonalEscolar .tituloEstudiantes {
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 8px #9dc5c2;
+    color: #7a1313;
+}
+
+.tablaEstudiante {
+    height: 70%;
+    overflow: auto;
+    
+    
+}
+
+.cargando{
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+@media (max-width: 768px) {
+    .PagePersonalEscolar {
+        padding: 5px;
+    }
+    .cargando{ 
+        font-size: 14px;
+    }
+
+}

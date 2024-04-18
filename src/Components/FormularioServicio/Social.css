@@ -1,0 +1,173 @@
+.Festudiante {
+  width: 100%;
+  max-width: 950px;
+  height: 1500px;
+  padding: 30px;
+  margin: 1px auto;
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 1px 1px 10px #135a7a;
+  background-color: #9dc5c2;
+}
+
+.Festudiante h1 {
+  font-size: 20px;
+  margin-bottom: -10px;
+  margin-top: 5px;
+  color: #135a7a;
+}
+
+.Festudiante h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #135a7a;
+  font-weight: 900; 
+
+}
+
+
+.Festudiante label {
+  width: 38%;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: white;
+  background-color: #135a7a;
+  padding: 5px;
+  margin-right: 0%;
+}
+
+.Festudiante input[type="text"],
+.Festudiante input[type="number"],
+.Festudiante input[type="date"] {
+  width: 50%;
+  padding: 7px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border: 0px solid #ccc;
+}
+
+.Festudiante p {
+  color: red;
+  font-weight: bold;
+}
+
+.Festudiante select {
+  width: 50%;
+  padding: 8px;
+  margin-bottom: 0px;
+  font-size: 17px;
+  border: 0px solid #ccc;
+  
+}
+
+.Festudiante button {
+  background-color: #135a7a;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Festudiante .btnCp {
+  width: 25%;
+
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.Festudiante utton:hover {
+  background-color: #0056b3;
+}
+
+.estudiante {
+  font-size: 18px;
+  color: black;
+  padding: 10px;
+  margin-bottom: 15px;
+  position: relative; /* Establece posicionamiento relativo */
+  top: -20px; /* Mueve el h5 hacia arriba */
+  right: 200px; /* Mueve el h5 hacia la derecha */
+}
+
+.Festudiante .estado {
+  width: 77%;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 20px;
+  color: #135a7a;
+  background-color: #9dc5c2;
+  padding: 5px;
+  position: relative; /* Establece posicionamiento relativo */
+  top: 3px; /* Mueve el h5 hacia arriba */
+
+}
+
+
+
+
+@media (max-width: 768px) {
+  /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
+  .Festudiante {
+    width: 100%;
+    font-size: 14px;
+    overflow: scroll;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .Festudiante table {
+    max-width: 100px;
+    font-size: 6px;
+  }
+
+  .Festudiante label {
+    width: 100%;
+    /* Ocupar el ancho completo en pantallas pequeñas */
+    margin-bottom: 5px;
+    /* Espacio menor para pantallas pequeñas */
+    font-size: 12px;
+  }
+
+  .Festudiante input[type="text"],
+  .Festudiante input[type="number"],
+  .Festudiante input[type="date"] {
+    width: 100%;
+    padding: 2px;
+    font-size: 12px;
+  }
+
+  .Festudiante .btnCp{
+    width: 100%;
+    
+    margin-bottom: 3px;
+  }
+  .Festudiante select {
+    width: 100%;
+    font-size: 12px;
+    padding: 2px;
+  }
+
+  
+.Festudiante .estado {
+  width: 100%;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom:1%;
+  position: relative; /* Establece posicionamiento relativo */
+  top: 3px; /* Mueve el h5 hacia arriba */
+  margin-left: 3px; /* Mueve el h5 hacia la derecha */
+}
+
+.Festudiante button {
+  padding: 6px 15px;
+  margin-bottom: 39px;
+  margin-left: 1%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+}

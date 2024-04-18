@@ -37,6 +37,7 @@ import {
   faFile,
 } from "@fortawesome/free-solid-svg-icons";
 
+
 const fetchMatricula = async (token, apiUrl, setMat, setIsLoading) => {
   try {
     const response = await axios.get(`${apiUrl}estudiantes/matricula/propia`, {
@@ -47,6 +48,7 @@ const fetchMatricula = async (token, apiUrl, setMat, setIsLoading) => {
     const matricula = response.data.data;
     setMat(matricula);
     setIsLoading(false);
+    console.log(matricula);
   } catch (error) {
     console.error("Error al obtener matricula", error);
     setIsLoading(false);
@@ -67,9 +69,10 @@ const fetchData = async (
       },
     });
     const estatus = response.data.data;
-    console.log("servicio", estatus);
     setServicioEstatus(estatus);
     setIsLoading(false);
+    console.log(estatus);
+    
   } catch (error) {
     console.error("Error al obtener estatus servicio", error);
     setIsLoading(false);
@@ -83,11 +86,10 @@ export const LeftSideBar = () => {
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const [servicioEstatus, setServicioEstatus] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isLoadingo, setIsLoadingo] = useState(true);
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
   const [mat, setMat] = useState(null);
-
+ 
   const [menuVisible, setMenuVisible] = useState(false);
 
   const handleMenuClick = () => {
@@ -101,7 +103,7 @@ export const LeftSideBar = () => {
   useEffect(() => {
     if (isAuthenticated && userData && userData.rol === "estudiante") {
       fetchMatricula(token, apiUrl, setMat, setIsLoading);
-      console.log("funcion_matricula", mat);
+     //
     }
   }, [token]); // Agrega token como dependencia
 
@@ -116,6 +118,8 @@ export const LeftSideBar = () => {
       fetchData(mat, token, apiUrl, setServicioEstatus, setIsLoading);
     }
   }, [mat]);
+
+  var a = servicioEstatus; 
 
   // El segundo argumento vacío indica que se debe ejecutar una vez al montar el componente
 
@@ -132,11 +136,35 @@ export const LeftSideBar = () => {
   // const nombre = Cookies.get("nombre");
   // const rol = Cookies.get("rol");
   try {
+    var estado = servicioEstatus;
+  
+    if(estado == null ){
+      
+      if(servicioEstatus == 0){
+        estado=0;
+      }if( servicioEstatus != 0){
+        estado=1;
+      }}
+
+if(estado == null ){
+      
+      if(servicioEstatus == 0){
+        estado=0;
+      }if( servicioEstatus != 0){
+        estado=1;
+      }}
+
+
+    
     if (isAuthenticated) {
       const rol = decrypt(Cookies.get("rol"));
       //const nombre =Cookies.get("id");
       const nombre = Cookies.get("nombre");
-      var estado = servicioEstatus;
+  
+    //console.log(estado) 
+    
+        
+    
 
       return (
         <>
@@ -697,8 +725,6 @@ export const LeftSideBar = () => {
                       </NavLink>
                     </li>
 
-
-
                     <li onClick={handleMenuClick}>
                       <NavLink
                         to="/servicioEstudiante"
@@ -722,7 +748,7 @@ export const LeftSideBar = () => {
                      <div className="menu">   
                      
                        <NavLink
-                     to="/servicioInfo"
+                     to="/personalInfo"
                      activeclassname="active"
                      style={{ textDecoration: "none" }}
                    >
@@ -733,10 +759,7 @@ export const LeftSideBar = () => {
                             </span>
                           </div>
                           
-                          </NavLink>
-                          
-
-
+                          </NavLink>                         
                           <NavLink
                      to="/servicioTramite"
                      activeclassname="active"
@@ -750,9 +773,6 @@ export const LeftSideBar = () => {
                           </div>
                           
                           </NavLink>
-
-                          
-                        
                       </div>
                     )}
                   </>
