@@ -35,7 +35,9 @@ import { EscolaresEstudiantes } from "../Pages/Escolar/EscolaresEstudiantes";
 import { TramiteServicio } from "../Pages/Estudiante/TramiteServicio";
 import { InfoPersonal } from "../Pages/Estudiante/InfoPersonal";
 import { ServicioPage } from "../Pages/Estudiante/ServicioPage";
-import { PagePersonalEscolar } from "../Pages/Escolar/PagePersonalEscolar";
+import { PanelTramite } from "../../src/Components/TramiteServicio/PanelTramite";
+import { PanelTramiteEstudiante } from "../Components/TramiteServicio/PanelTramiteEstudiante";
+import { ForaneosPage } from "../Pages/Escolar/ForaneosPage";
 
 
 //import { EstudianteInfo } from "../Pages/Escolar/EscolaresEstudiantes"
@@ -248,11 +250,21 @@ export const AppRoutes = () => {
         path="/escolarInfoPersonal"
         element={
           <PrivateRoutes
-            element={<PagePersonalEscolar />}
+            element={<PanelTramite />}
             requiredRole="escolar"
           />
         }
       />
+      <Route
+        path="/escolarForaneos"
+        element={
+          <PrivateRoutes element={<ForaneosPage />} requiredRole="escolar" />
+        }
+      />
+
+
+
+
 
       {/* facilitador*/}
       <Route
@@ -298,7 +310,7 @@ export const AppRoutes = () => {
 <Route
         path="/servicioTramite"
         element={
-          <PrivateRoutes element={<TramiteServicio/>} requiredRole="estudiante" />
+          <PrivateRoutes element={<PanelTramiteEstudiante/>} requiredRole="estudiante" />
         }
       />
 

@@ -1,11 +1,13 @@
 .estudiantesPage {
     flex-grow: 1;
     /* Hace que el contenido principal ocupe todo el espacio restante */
-    padding: 20px;
+    padding: 0px;
     background-color: #E0E0E0;
     display: flex;
     flex-direction: column;
     overflow: auto;
+    height: 100%;
+    margin-top: 0%;
 }
 
 .estudiantesPage .contenidoDinamico {

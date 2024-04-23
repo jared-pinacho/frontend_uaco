@@ -2,26 +2,28 @@
   display: flex;
   flex-direction:column;
   position: relative;
-  height: 8vh;
-  margin-top: -12%;
-  margin-bottom: 2%;
-  margin-left: 0%;
-  width: 52%;
+  height: 55px;
+  margin-top: 5%;
+  margin-bottom: -10%;
+  margin-left: 8%;
+  width: 80%;
   border-radius: 0%;
+  
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agregar sombra */
 }
 
 /* Estilo base para el sidebar */
 .sidebaro {
-  width: 192%;
+  width: 100%;
   background-color: white;
-  padding: 7px;
+  padding: 0px;
   height: 98%;
-  overflow: auto;
+ 
   transition: width 0.3s ease-in-out;
   border: 2px solid #fff; /* Ejemplo de propiedad border con ancho y color */
   border-radius: 10px; /* Radio de borde para todas las esquinas */
-  overflow: hidden;
+  overflow-y: hidden; /* Permitir el desplazamiento vertical */
+    overflow-x: auto; 
 }
 
 
@@ -29,8 +31,9 @@
 .encabezadi {
   display: flex;
   align-items: center;
-  margin-bottom: 0px;
+  margin-bottom: 0%;
   background-color: none;
+  height: 100%;
   /*D34646 este color lo usaremos cuando la opcion este seleccionada*/
 }
 
@@ -38,21 +41,37 @@
   display: flex;
   align-items: center;
   padding: 13px;
-  width: 136px;
+  width: 100%;
   border-radius: 10px;
-  margin-right: 9px;
-  margin-left: -8px;
-  background-color: white;
+  margin-right: 1px;
+  margin-left: 0px;
+  background-color: #ffffff;
   /*D34646 este color lo usaremos cuando la opcion este seleccionada*/
   margin-bottom: 0%;
   transition:transform .5s;
-  margin-top: -5%;
-  height: 48px;
-  
+  margin-top: 0px;
+  height: 100%;}
+
+.activo{
+
+  display: flex;
+  align-items: center;
+  padding: 13px;
+  width: 138px;
+  border-radius: 10px;
+  margin-right: 1px;
+  margin-left: 0px;
+  background-color: #135585;
+  /*D34646 este color lo usaremos cuando la opcion este seleccionada*/
+  margin-bottom: 0%;
+  transition:transform .5s;
+  margin-top: 0px;
+  height: 100%;
 }
 
+
 .itemo:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 .active .itemo {
   background-color: #135585;
@@ -64,41 +83,53 @@
 }
 
 
+.texto-opciono.activo {
+  /* Estilos para el texto de la opción activa */
+  color: rgb(238, 238, 243); /* Cambia el color a azul cuando está activo */
+  font-weight: bold; /* Texto en negrita cuando está activo */
+}
+
 .texto-opciono {
   font-size: 16px;
   color: #135585;
   font-weight: bold;
-
+  margin-top: -6%;
+text-align: center;
 }
-
 
 @media (max-width: 768px) {
 
-  .sidebar-containero {
+
+  .sidebaro-containero {
     display: flex;
-    flex-direction: column;
+    flex-direction: fill;
     position: relative;
-    height: 10%;
-    margin-top: -28%; /* Ajusta el margen superior según tus necesidades */
-    margin-left: 0%;
-    width: 300px; /* Ancho inicial de la barra lateral */
+    height: 45px;
+    margin-top: 5%; /* Ajusta el margen superior según tus necesidades */
+    margin-left: 5%;
+    margin-bottom: -70px;
+    width: 90%; /* Ancho inicial de la barra lateral */
     
   }
   
   .sidebaro {
-    width: 70%;
+    width: 65%;
     background-color: white;
-    padding: 10px;
-    overflow: auto;
+    padding: 0px;
+    overflow-y: hidden; /* Permitir el desplazamiento vertical */
+    overflow-x: auto; /* Ocultar el desplazamiento horizontal */
     border-radius: 10px;
-    height: 80%;
+    height: 100%;
     border-radius:0%;
+    scrollbar-width: auto; /* Ancho de la barra de desplazamiento */
+    
   }
   
-  .encabezado {
+  .encabezadi {
     display: flex;
-    flex-direction: column; /* Cambia la dirección a columna para apilar elementos */
+    flex-direction:fill; /* Cambia la dirección a columna para apilar elementos */
     align-items: center;
+    
   }
   
   .itemo {
@@ -106,19 +137,42 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 10px; /* Espacio entre elementos */
-    background-color: white;
-    width:auto; /* Ancho del elemento ajustado automáticamente */
-    margin-top: -6%;
-    margin-left: auto;
-    
+    padding: 3px;
+    border-radius: 5px;
+    margin-bottom: 1px; /* Espacio entre elementos */
+    background-color: #9dc5c2;
+    width:50%; /* Ancho del elemento ajustado automáticamente */
+    margin-top: 0%;
+    margin-left: -5px;
+    margin-right: 15px;
+    height: 105%;
   }
   
   .itemo:hover {
-    transform: translateY(-3px);
+    transform: translateY(2px);
   }
+
+
+  .activo{
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    border-radius: 5px;
+    margin-bottom: 0px; /* Espacio entre elementos */
+    background-color: #135585;
+    width:100%; /* Ancho del elemento ajustado automáticamente */
+    margin-top: 0%;
+    margin-left: -5px;
+    margin-right: 15px;
+    height: 100%;
+    border-radius: 8px;
+  }
+
+
+
   
   .activo .itemo {
     background-color: #135585;
@@ -129,10 +183,14 @@
   }
   
   .texto-opciono {
-    font-size: 10px;
+    font-size: 11px;
     color: #135585;
-    font-weight: bold;
+    font-weight:bold;
+    margin-left: 5px;
+    
   }
+
+
 
 
 

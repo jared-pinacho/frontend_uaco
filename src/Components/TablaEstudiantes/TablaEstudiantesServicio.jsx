@@ -3,6 +3,9 @@ import "../TablaEstudiantes/TablaEstudiantes.css";
 import Loader from "../Loader/Loader";
 import { useState } from 'react';
 
+
+
+
 export const TablaEstudiantesServicio = ({
   estudiantes,
   isLoading,
@@ -11,12 +14,13 @@ export const TablaEstudiantesServicio = ({
   const [datoAPasar, setDatoAPasar] = useState(null);
   const filasFiltradas = estudiantes.filter((estudiante) => {
     const termino = filtro.toLowerCase();
+    const nombreCompleto = `${estudiante.nombre} ${estudiante.apellido_paterno} ${estudiante.apellido_materno}`.toLowerCase();
     return (
       estudiante.matricula.toLowerCase().includes(termino) ||
       estudiante.nombre.toLowerCase().includes(termino) ||
       estudiante.apellido_paterno.toLowerCase().includes(termino) ||
       estudiante.apellido_materno.toLowerCase().includes(termino) ||
-      nombreCompleto.includes(termino) |    
+      nombreCompleto.includes(termino) ||
       estudiante.usuario.email.toLowerCase().includes(termino) ||
       estudiante.telefono.includes(termino) 
     );

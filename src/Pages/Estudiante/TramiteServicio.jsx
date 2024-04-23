@@ -57,13 +57,11 @@ export const TramiteServicio = () => {
     <div className="estudiantesPage">
       <div className="contenidoDinamico"></div>
       
-    <UpSideBar
-    
-    />
+   
 
       <div className="barraBusqueda">
         {isLoading ? (
-          <div className="cargando">Obteniendo datos, por favor espere...</div>
+          <div className="cargando-letra">Obteniendo datos, por favor espere...</div>
         ) : null}
       </div>
 

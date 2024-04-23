@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../Escolar/PagePersonalEscolar.css";
 import axios from "axios";
-import { BarraBusquedaC } from "../../Components/BarraBusquedaC/BarraBusquedaC";
-import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
-import { EscolarPersonal } from "../../Components/Servicio/EscolarPersonal";
-import { UpSideBarEscolar } from "../../Components/BarraFases/UpSideBarEscolar ";
+import { EscolarSocial } from "../../Components/Servicio/EscolarSocial";
 
-export const PagePersonalEscolar = ({dato}) => {
+export const PageServicioEscolar = ({dato}) => {
 
   const [estudianteAEditar, setEstudianteAEditar] = useState("");
   const apiUrl = URL_API;
@@ -35,11 +32,11 @@ export const PagePersonalEscolar = ({dato}) => {
   };
 
 
-  const handleBuscarEstudiante = (clave) => {
-    
+  const handleBuscarEstudiante = () => {
     setIsLoading(true);
+    
     axios
-      .get(`${apiUrl}estudiantes/${dato}`, {
+      .get(`${apiUrl}obten/servicio/info/${dato}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -48,15 +45,15 @@ export const PagePersonalEscolar = ({dato}) => {
         // console.log(response);
         setEstudianteAEditar(response.data.data);
         setIsLoading(false);
+        console.log(response.data.data);
       })
       .catch((error) => {
         //Para limpiar el formulario cuando no se encuentre la clave ingresada
         setIsLoading(false);
         setEstudianteAEditar("");
-        
+     //   toast.error("Verifique los datos ingresados");
       });
-  };
-
+  }; 
 
 
 
@@ -72,7 +69,7 @@ export const PagePersonalEscolar = ({dato}) => {
         ) : null}
       </div>
 
-      <EscolarPersonal
+      <EscolarSocial
       isLoading={isLoading}
       estudianteAEditar={estudianteAEditar}
       actualizarTabla={forceReloadChild} // Pasar la función para forzar re-rend

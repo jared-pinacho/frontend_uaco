@@ -5,10 +5,10 @@ import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 import { SelectInput } from "../SelecInput/SelectInput";
-import "./Social.css";
-import { VentanaConfirmacion } from "../../Components/VentanaConfirmacion/VentanaConfirmacion";
+import "../FormularioServicio/Social.css";
+import { VentanaRevisarSocial } from "../VentanaRevisar/VentanaRevisarSocial";
 
-export const FormInfoSocial = ({
+export const EscolarSocial = ({
   modo,
   estudianteAEditar,
   actualizarTabla,
@@ -22,7 +22,8 @@ export const FormInfoSocial = ({
   const [colonias, setColonias] = useState([]);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [estatus_envio, setEstatus_envio] = useState(0);
-  const [comentario, setComentario] = useState([]);
+  const [mostrarComponente, setMostrarComponente] = useState(false);
+  const [mostrarBoton, setMostrarBoton] = useState(true);
   const [matricula, setMatricula] = useState(true);
 
   const [formData, setFormData] = useState({
@@ -68,8 +69,7 @@ export const FormInfoSocial = ({
         municipio: estudianteAEditar.direccion.colonia.municipio.nombre || "",
         num_exterior: estudianteAEditar.direccion.num_exterior || "",
         cp: estudianteAEditar.direccion.colonia.cp.id_cp || "",
-        estado:
-          estudianteAEditar.direccion.colonia.municipio.estado.nombre || "",
+        estado:estudianteAEditar.direccion.colonia.municipio.estado.nombre || ""
       });
 
       setEstatus_envio(estudianteAEditar.estatus_envio);
@@ -78,49 +78,39 @@ export const FormInfoSocial = ({
       // Si no estamos en modo "edición" o no se proporciona un objeto estudianteAEditar, restablecer el formulario.
       setFormData({
         modalidad: "",
-        tipo_dep: "",
-        nombre_dep: "",
-        titular_dep: "",
-        cargo_tit: "",
-        grado_tit: "",
-        responsable: "",
-        programa: "",
-        actividad: "",
-        calle: "",
-        fecha_inicio: "",
-        fecha_final: "",
-        horas: "",
-        colonia: "",
-        municipio: "",
-        num_exterior: "",
-        cp: "",
-        estado: "",
+    tipo_dep: "",
+    nombre_dep: "cargando...",
+    titular_dep: "cargando...",
+    cargo_tit: "cargando...",
+    grado_tit: "",
+    responsable: "cargando...",
+    programa: "cargando",
+    actividad: "cargando",
+    calle: "",
+    fecha_inicio: "",
+    fecha_final: "",
+    horas: "cargando",
+    colonia: "",
+    municipio: "",
+    num_exterior: "",
+    cp: "cargando",
+    estado: "",
       });
       setEstatus_envio(0);
       setColonias([]);
     }
+   
   }, [modo, estudianteAEditar]);
 
   useEffect(() => {
+ 
+    
     obtenerEstados();
-    obtenerComentarios();
-  }, []);
+  
+  
+  }, [estatus_envio]);
 
-  const obtenerComentarios = () => {
-    axios
-      .get(`${apiUrl}comentario/social`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        setComentario(response.data.data);
-      })
-      .catch((error) => {
-        //alert(error.message);
-        // console.error("Error al obtener los datos", error);
-      });
-  };
+
 
   const obtenerEstados = () => {
     axios
@@ -130,10 +120,25 @@ export const FormInfoSocial = ({
         },
       })
       .then((response) => {
+        console.log(response.data.data);
         setEstados(response.data.data);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        //alert(error.message);
+        // console.error("Error al obtener los datos", error);
+        toast.error("Error al obtener los datos");
+      });
   };
+  
+  const handleMostrarComponente = () => {
+    setMostrarComponente(true); // Establece el estado para mostrar el componente
+  };
+
+
+  const handleMostrarBoton = () => {
+    setMostrarBoton(false); // Establece el estado para mostrar el componente
+  };
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -224,7 +229,7 @@ export const FormInfoSocial = ({
     let regexNameDir = /^.{1,100}$/;
     let regexNumeros = /^[0-9]+$/;
     let regexNumeroCP = /^[0-9]{5}$/;
-
+   
     // fin de modificacion
     // console.log(errors);
     return errors;
@@ -250,46 +255,51 @@ export const FormInfoSocial = ({
         }
       )
       .then((response) => {
-        console.log("actualizado a enviado");
+        console.log('actualizado a enviado');
+        actualizarTabla(); // Llamar a actualizarTabla después de activar el estado de enviado
       })
       .catch((error) => {
         toast.error(error.message);
-        console.error("Error al activar el enviado:", error);
+        console.error('Error al activar el enviado:', error);
       });
   };
 
-  const handleOcultar = () => {
-    setEstatus_envio(1); // Establece ocultarElementos en true al activar la función
-  };
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    
 
     // Mostrar ventana modal de confirmación
     setShowConfirmDialog(true);
   };
 
 
-  const handleConfirmSubmitEdit = () => {
-    // Enviar formulario
+
+  const cambiarEstado = (estado) => {
     axios
-      .put(`${apiUrl}actualiza/info/social/${matricula}`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .patch(
+        `${apiUrl}estado/social/${estudianteAEditar.matricula}/${estado}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
-        toast.success(response.data.message);
-        // Llamar a enviarInfo después de completar el envío del formulario
-        enviarInfo();
+        console.log('actualizado a enviado');
+
       })
       .catch((error) => {
-        // Manejo de errores
+        toast.error(error.message);
+        console.error('Error al activar el enviado:', error);
       });
-
-    // Cerrar la ventana modal después de enviar el formulario
-    setShowConfirmDialog(false);
   };
+
+
+
 
   const handleConfirmSubmit = () => {
     // Enviar formulario
@@ -318,10 +328,83 @@ export const FormInfoSocial = ({
 
 
 
+  const calcularEdad = (fechaNacimiento) => {
+    const fechaNacimientoDate = new Date(fechaNacimiento);
+    if (isNaN(fechaNacimientoDate.getTime())) {
+      return 0; // Devuelve 0 si la fecha de nacimiento no es válida
+    }
+    const fechaActual = new Date();
+    let edad = fechaActual.getFullYear() - fechaNacimientoDate.getFullYear();
+
+    // Verifica si el cumpleaños ya pasó este año
+    if (
+      fechaNacimientoDate.getMonth() > fechaActual.getMonth() ||
+      (fechaNacimientoDate.getMonth() === fechaActual.getMonth() &&
+        fechaNacimientoDate.getDate() > fechaActual.getDate())
+    ) {
+      edad--;
+    }
+    return edad;
+  };
+  const obtenerPrimeraConsonanteInterna = (palabra) => {
+    const vocales = ['a', 'e', 'i', 'o', 'u'];
+  
+    for (let i = 1; i < palabra.length; i++) {
+      if (!vocales.includes(palabra[i].toLowerCase())) {
+        return palabra[i].toUpperCase();
+      }
+    }
+  
+    return ''; // Devuelve una cadena vacía si no hay consonantes internas
+  };
+  const obtenerCodigoEstado = (codigo) => {
+    const estadosPorCodigo = {
+      1: { codigo: "AG", nombre: "Aguascalientes" },
+      2: { codigo: "BC", nombre: "Baja California" },
+      3: { codigo: "BS", nombre: "Baja California Sur" },
+      4: { codigo: "CM", nombre: "Campeche" },
+      5: { codigo: "CO", nombre: "Coahuila" },
+      6: { codigo: "CL", nombre: "Colima" },
+      7: { codigo: "CS", nombre: "Chiapas" },
+      8: { codigo: "CH", nombre: "Chihuahua" },
+      9: { codigo: "DF", nombre: "Ciudad de México" },
+      10: { codigo: "DG", nombre: "Durango" },
+      11: { codigo: "GT", nombre: "Guanajuato" },
+      12: { codigo: "GR", nombre: "Guerrero" },
+      13: { codigo: "HG", nombre: "Hidalgo" },
+      14: { codigo: "JC", nombre: "Jalisco" },
+      15: { codigo: "MC", nombre: "México" },
+      16: { codigo: "MN", nombre: "Michoacán" },
+      17: { codigo: "MS", nombre: "Morelos" },
+      18: { codigo: "NT", nombre: "Nayarit" },
+      19: { codigo: "NL", nombre: "Nuevo León" },
+      20: { codigo: "OC", nombre: "Oaxaca" },
+      21: { codigo: "PL", nombre: "Puebla" },
+      22: { codigo: "QT", nombre: "Querétaro" },
+      23: { codigo: "QR", nombre: "Quintana Roo" },
+      24: { codigo: "SP", nombre: "San Luis Potosí" },
+      25: { codigo: "SL", nombre: "Sinaloa" },
+      26: { codigo: "SR", nombre: "Sonora" },
+      27: { codigo: "TB", nombre: "Tabasco" },
+      28: { codigo: "TM", nombre: "Tamaulipas" },
+      29: { codigo: "TL", nombre: "Tlaxcala" },
+      30: { codigo: "VZ", nombre: "Veracruz" },
+      31: { codigo: "YN", nombre: "Yucatán" },
+      32: { codigo: "ZS", nombre: "Zacatecas" },
+    };
+  
+    const estado = estadosPorCodigo[codigo];
+    return estado ? estado.codigo : "Código de estado no encontrado";
+  };
+  const quitarAcentos=(cadena)=> {
+    return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+  
+
   return (
     <div className="Festudiante">
       <form onSubmit={handleSubmit}>
-        <div>
+          <div>
           <label>Modalidad:</label>
           <select
             name="modalidad"
@@ -329,33 +412,40 @@ export const FormInfoSocial = ({
             required
             onChange={handleChange}
             onBlur={handlBlur}
-            disabled={estatus_envio === 1 || estatus_envio === 2 ? true : false}
-          >
+            disabled={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+                ? true
+                : false
+            }
+             >
             <option value="">Seleccione</option>
             <option value="Interno">Interno</option>
             <option value="Externo">Externo</option>
           </select>
-        </div>
-
-        <div>
-          <div>
-            <label>Tipo dependencia:</label>
-            <select
-              name="tipo_dep"
-              value={formData.tipo_dep}
-              required
-              onChange={handleChange}
-              onBlur={handlBlur}
-              disabled={
-                estatus_envio === 1 || estatus_envio === 2 ? true : false
-              }
-            >
-              <option value="">Seleccione</option>
-              <option value="Municipal">Municipal</option>
-              <option value="Estatal">Estatal</option>
-              <option value="Federal">Federal</option>
-            </select>
           </div>
+     
+        <div>
+        <div>
+          <label>Tipo dependencia:</label>
+          <select
+            name="tipo_dep"
+            value={formData.tipo_dep}
+            required
+            onChange={handleChange}
+            onBlur={handlBlur}
+            disabled={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+                ? true
+                : false
+            }
+             >
+            <option value="">Seleccione</option>
+            <option value="Municipal">Municipal</option>
+            <option value="Estatal">Estatal</option>
+            <option value="Federal">Federal</option>
+          </select>
+          </div>
+
         </div>
         <div>
           <label>Nombre de la dependencia:</label>
@@ -364,11 +454,14 @@ export const FormInfoSocial = ({
             name="nombre_dep"
             value={formData.nombre_dep}
             required
-            maxLength="60"
+            maxLength= "70"
             onChange={handleChange}
             onBlur={handlBlur}
-            readOnly={estatus_envio === 1 || estatus_envio === 2}
+            readOnly={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+            }
           />
+   
         </div>
 
         <div>
@@ -378,13 +471,15 @@ export const FormInfoSocial = ({
             name="titular_dep"
             value={formData.titular_dep}
             required
+            
             onChange={handleChange}
             onBlur={handlBlur}
-            maxLength="60"
-            readOnly={estatus_envio === 1 || estatus_envio === 2}
+            readOnly={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+            }
           />
         </div>
-
+        
         <div>
           <label>Cargo del titular:</label>
           <input
@@ -394,10 +489,12 @@ export const FormInfoSocial = ({
             required
             onChange={handleChange}
             onBlur={handlBlur}
-            maxLength="70"
-            readOnly={estatus_envio === 1 || estatus_envio === 2}
+            readOnly={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+            }
           />
         </div>
+
 
         <div>
           <label>Grado del titular:</label>
@@ -407,30 +504,37 @@ export const FormInfoSocial = ({
             required
             onChange={handleChange}
             onBlur={handlBlur}
-            disabled={estatus_envio === 1 || estatus_envio === 2 ? true : false}
-          >
+            disabled={
+               estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+                ? true
+                : false
+            }
+             >
             <option value="">Seleccione</option>
             <option value="C">C</option>
             <option value="LIC">LIC</option>
+            <option value="MTRO">MTRO</option>
             <option value="ING">ING</option>
-            <option value="MTRO">MTR</option>
             <option value="DR">DR</option>
           </select>
-        </div>
+          </div>
 
-        <div>
+          <div>
           <label>Responsable de seguimiento:</label>
           <input
             type="text"
             name="responsable"
             value={formData.responsable}
             required
-            maxLength="60"
             onChange={handleChange}
             onBlur={handlBlur}
-            readOnly={estatus_envio === 1 || estatus_envio === 2}
+            readOnly={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+            }
           />
         </div>
+
+
 
         <div>
           <label>Programa o proyecto:</label>
@@ -441,10 +545,12 @@ export const FormInfoSocial = ({
             required
             onChange={handleChange}
             onBlur={handlBlur}
-            maxLength="60"
-            readOnly={estatus_envio === 1 || estatus_envio === 2}
+            readOnly={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+            }
           />
         </div>
+
 
         <div>
           <label>Actividades a realizar:</label>
@@ -455,34 +561,33 @@ export const FormInfoSocial = ({
             required
             onChange={handleChange}
             onBlur={handlBlur}
-            maxLength="70"
-            readOnly={estatus_envio === 1 || estatus_envio === 2}
+            readOnly={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+            }
           />
         </div>
 
         <div>
           <label>total de horas:</label>
           <input
-            type="text"
+            type="number"
             name="horas"
             value={formData.horas}
             required
-            onChange={(e) => {
-              const newValue = e.target.value.replace(/[^0-9]/g, ''); // Eliminar caracteres no numéricos
-              if (newValue.length <= 3) {
-                setFormData({ ...formData, horas: newValue });
-                e.target.value = newValue; // Actualizar valor interno
-              }
-            }}
-           
-            readOnly={estatus_envio === 1 || estatus_envio === 2}
+            onChange={handleChange}
+            onBlur={handlBlur}
+            readOnly={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+            }
           />
         </div>
+
+
 
         <div>
           <label>Fecha Inicio:</label>
           <input
-            min="2023-01-01"
+            min="2010-01-01"
             type="date"
             name="fecha_inicio"
             value={formData.fecha_inicio}
@@ -492,10 +597,11 @@ export const FormInfoSocial = ({
           />
         </div>
 
+
         <div>
           <label>Fecha de termino:</label>
           <input
-            min="2023-01-01"
+            min="2010-01-01"
             type="date"
             name="fecha_final"
             value={formData.fecha_final}
@@ -505,39 +611,36 @@ export const FormInfoSocial = ({
           />
         </div>
 
+       
+
         <div>
           <label>Codigo Postal:</label>
           <input
             className="inputCp"
-            type="text"
+            type="number"
             name="cp"
             value={formData.cp}
-            onChange={(e) => {
-              const newValue = e.target.value.replace(/[^0-9]/g, ''); // Eliminar caracteres no numéricos
-              if (newValue.length <= 5) {
-                setFormData({ ...formData, cp: newValue });
-                e.target.value = newValue; // Actualizar valor interno
-              }}}
-            
-            readOnly={estatus_envio === 1 || estatus_envio === 2}
+            onChange={handleChange}
+            onBlur={handlBlur}
+            readOnly={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+            }
           />
         </div>
 
-        {estatus_envio === 0 ||
-          (estatus_envio === 3 && (
-            <div>
-              <button
-                // onClick={prepararDatosAEnviar}
-                type="button"
-                className="btnCp"
-                onClick={obtenerDatosCp}
-                // disabled={!formData.cp}
-              >
-                Obtener datos
-              </button>
-              {errors.cp && <p>{errors.cp}</p>}
-            </div>
-          ))}
+        {estatus_envio === 0 && (
+        <div>
+          <button
+            // onClick={prepararDatosAEnviar}
+            type="button"
+            className="btnCp"
+            onClick={obtenerDatosCp}
+            // disabled={!formData.cp}
+          >
+            Obtener datos
+          </button>
+          {errors.cp && <p>{errors.cp}</p>}
+        </div> )}
 
         <div>
           <label>Estado:</label>
@@ -571,7 +674,11 @@ export const FormInfoSocial = ({
             required
             onChange={handleChange}
             onBlur={handlBlur}
-            disabled={estatus_envio === 1 || estatus_envio === 2 ? true : false}
+            disabled={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+                ? true
+                : false
+            }
           >
             <option value="">Seleccione </option>
             {colonias.map((option) => (
@@ -589,70 +696,89 @@ export const FormInfoSocial = ({
             value={formData.calle}
             onChange={handleChange}
             onBlur={handlBlur}
-            maxLength="40"
-            readOnly={estatus_envio === 1 || estatus_envio === 2}
+            readOnly={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+            }
           />
+         
         </div>
 
         <div>
           <label>Numero Exterior:</label>
           <input
-            type="text"
+            type="number"
             name="num_exterior"
             value={formData.num_exterior}
             onChange={handleChange}
             onBlur={handlBlur}
-            readOnly={estatus_envio === 1 || estatus_envio === 2}
+            readOnly={
+              estatus_envio === 1 || estatus_envio === 2 || estatus_envio === 3
+            }
           />
+         
         </div>
-
-        {estatus_envio === 0 && (
-          <div>
-            <button type="submit">Confirmar</button>
-            <span className="estado">ESTADO: SIN ACTUALIZAR</span>
+           
+   {estatus_envio === 1 && (
+     <div>
+      {!mostrarComponente && mostrarBoton && ( // Mostrar botones solo si mostrarComponente es false
+          <div className="botones">
+            
+           <button 
+           onClick={()=> {
+            handleMostrarComponente();
+            cambiarEstado(3);
+           
+           }
+          }
+           
+           className="button-cancelar">Rechazar</button>
+            
+      <button 
+           onClick={() => {
+            cambiarEstado(2);
+            handleMostrarBoton();
+           }}
+           className="button-afirmar">Aceptar</button>
           </div>
-        )}
-        {/* Ventana modal de confirmación */}
-        <VentanaConfirmacion
-          isOpen={showConfirmDialog}
-          message="¿Estás seguro de enviar los datos?"
-          onConfirm={handleConfirmSubmit}
-          onCancel={handleCancelSubmit}
-        />
+)}
 
-        {estatus_envio === 1 && (
+{!mostrarComponente && !mostrarBoton && (
+<h2>Informacion aprobada</h2>
+)}
+
+
+             {mostrarComponente && <VentanaRevisarSocial
+             
+             matricula={matricula}
+             
+             />}
+             </div>
+         
+        )}
+
+        
+     
+        {estatus_envio.envio === 1 && (
           <div>
-            <span className="estado">ESTADO: ENVIADO PARA REVISION</span>
+            <span className="estado">ESTADO: ENVIADO</span>
           </div>
         )}
 
         {estatus_envio === 2 && (
           <div>
-            <span className="estado">ESTADO: REVISADO APROBADO</span>
+            <span className="estado">ESTADO: REVISADO Y APROBADO</span>
           </div>
         )}
 
-        {estatus_envio === 3 && (
-          <div className="est">
-            <span className="estado-no">ESTADO: REVISADO NO APROBADO</span>
-            <button type="submit">Confirmar</button>
-            {/* Ventana modal de confirmación */}
-            <VentanaConfirmacion
-              isOpen={showConfirmDialog}
-              message="¿Estás seguro de enviar los datos?"
-              onConfirm={() => {
-                handleConfirmSubmitEdit();
-
-                handleOcultar();
-              }}
-              onCancel={handleCancelSubmit}
-            />
-
-            <h5 className="comen">Observaciones</h5>
-            <span>{comentario}</span>
+{estatus_envio === 3 && (
+          <div>
+            <span className="estado">ESTADO: REVISADO NO APROBADO</span>
           </div>
         )}
       </form>
+   
+     
+   
     </div>
   );
 };

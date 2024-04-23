@@ -7,6 +7,7 @@
   overflow: auto;
   box-shadow: 1px 1px 10px #135a7a;
   background-color: #9dc5c2;
+ 
 }
 
 .Festudiantes h1 {
@@ -190,7 +191,7 @@ width: 100%;
 
 }
 
-.Festudiantes .estado-no {
+.estado-no {
   width: 100%;
   display: inline-block;
   font-weight: bold;
@@ -223,9 +224,15 @@ width: 100%;
   font-size: 13px;
   margin-bottom: 0px;
   margin-left: 0%;
-  margin-bottom: 15%;
+  margin-bottom: 25%;
    
 
 }
+
+.est{
+  margin-bottom: 7%;
+  margin-left: 2px;
+}
+
 
 }

@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { URL_API } from "../../Services/Const";
 
-
 import {
   faSchoolFlag,
   faHome,
@@ -37,91 +36,45 @@ import {
   faFile,
 } from "@fortawesome/free-solid-svg-icons";
 
-
-const fetchMatricula = async (token, apiUrl, setMat, setIsLoading) => {
-  try {
-    const response = await axios.get(`${apiUrl}estudiantes/matricula/propia`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const matricula = response.data.data;
-    setMat(matricula);
-    setIsLoading(false);
-    console.log(matricula);
-  } catch (error) {
-    console.error("Error al obtener matricula", error);
-    setIsLoading(false);
-  }
-};
-
-const fetchData = async (
-  mate,
-  token,
-  apiUrl,
-  setServicioEstatus,
-  setIsLoading
-) => {
-  try {
-    const response = await axios.get(`${apiUrl}estudiantes/servicio/${mate}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const estatus = response.data.data;
-    setServicioEstatus(estatus);
-    setIsLoading(false);
-    console.log(estatus);
-    
-  } catch (error) {
-    console.error("Error al obtener estatus servicio", error);
-    setIsLoading(false);
-  }
-};
-
 const MY_AUTH_APP = "DoFA45-M0pri";
 
 export const LeftSideBar = () => {
   const { isAuthenticated, userData, logout } = useAuthContext();
   const [sidebarVisible, setSidebarVisible] = useState(true);
-  const [servicioEstatus, setServicioEstatus] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
-  const [mat, setMat] = useState(null);
- 
+  const [estado, setEstado] = useState(0);
   const [menuVisible, setMenuVisible] = useState(false);
+
+  const obtenerEstatusServicio = () => {
+    axios
+      .get(`${apiUrl}estado/servicio`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+      //  console.log(response.data.data);
+        setEstado(response.data.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+       // console.error("Error al obtener los datos", error);
+      });
+  };
 
   const handleMenuClick = () => {
     setMenuVisible(true);
   };
 
-  const handle= () => {
+  const handle = () => {
     setMenuVisible(false);
   };
 
   useEffect(() => {
-    if (isAuthenticated && userData && userData.rol === "estudiante") {
-      fetchMatricula(token, apiUrl, setMat, setIsLoading);
-     //
-    }
-  }, [token]); // Agrega token como dependencia
-
-  useEffect(() => {
-    if (
-      isAuthenticated &&
-      userData &&
-      userData.rol === "estudiante" &&
-      isAuthenticated &&
-      mat
-    ) {
-      fetchData(mat, token, apiUrl, setServicioEstatus, setIsLoading);
-    }
-  }, [mat]);
-
-  var a = servicioEstatus; 
-
-  // El segundo argumento vacío indica que se debe ejecutar una vez al montar el componente
+   obtenerEstatusServicio();
+  }, [token]); // Se ejecuta cada que el usuario que inicie sesion cambie
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
@@ -132,39 +85,11 @@ export const LeftSideBar = () => {
     return decryptedData;
   };
 
-  // const token = Cookies.get("token");
-  // const nombre = Cookies.get("nombre");
-  // const rol = Cookies.get("rol");
   try {
-    var estado = servicioEstatus;
-  
-    if(estado == null ){
-      
-      if(servicioEstatus == 0){
-        estado=0;
-      }if( servicioEstatus != 0){
-        estado=1;
-      }}
-
-if(estado == null ){
-      
-      if(servicioEstatus == 0){
-        estado=0;
-      }if( servicioEstatus != 0){
-        estado=1;
-      }}
-
-
-    
     if (isAuthenticated) {
       const rol = decrypt(Cookies.get("rol"));
       //const nombre =Cookies.get("id");
       const nombre = Cookies.get("nombre");
-  
-    //console.log(estado) 
-    
-        
-    
 
       return (
         <>
@@ -472,10 +397,7 @@ if(estado == null ){
                       </NavLink>
                     </li>
                     <li onClick={handleMenuClick}>
-                      <NavLink
-                        to="/servicioEscolar"
-                        activeclassname="active"
-                      >
+                      <NavLink to="/servicioEscolar" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
                             className="icono"
@@ -488,43 +410,30 @@ if(estado == null ){
                         </div>
                       </NavLink>
                     </li>
-                    
+
                     {menuVisible && (
-                   
-                     <div className="menu">   
-                     
-                       <NavLink
-                     to="/escolaresEstudiantes"
-                     activeclassname="active"
-                     style={{ textDecoration: "none" }}
-                   >
-
+                      <div className="menu">
+                        <NavLink
+                          to="/escolaresEstudiantes"
+                          activeclassname="active"
+                          style={{ textDecoration: "none" }}
+                        >
                           <div className="subitem">
-                            <span className="texto-subopcion">
-                              Estudiantes
-                            </span>
+                            <span className="texto-subopcion">Estudiantes</span>
                           </div>
-                          
-                          </NavLink>
-                          
+                        </NavLink>
 
-
-                          <NavLink
-                     to="/escolarForaneos"
-                     activeclassname="active"
-                     style={{ textDecoration: "none" }}
-                   >
-
+                        <NavLink
+                          to="/escolarForaneos"
+                          activeclassname="active"
+                          style={{ textDecoration: "none" }}
+                        >
                           <div className="subitem">
                             <span className="texto-subopcion">
                               Preestadores foráneos
                             </span>
                           </div>
-                          
-                          </NavLink>
-
-                          
-                        
+                        </NavLink>
                       </div>
                     )}
                   </>
@@ -742,37 +651,31 @@ if(estado == null ){
                         </div>
                       </NavLink>
                     </li>
-                    
-                    {menuVisible && (
-                   
-                     <div className="menu">   
-                     
-                       <NavLink
-                     to="/personalInfo"
-                     activeclassname="active"
-                     style={{ textDecoration: "none" }}
-                   >
 
+                    {menuVisible && (
+                      <div className="menu">
+                        <NavLink
+                          to="/personalInfo"
+                          activeclassname="active"
+                          style={{ textDecoration: "none" }}
+                        >
                           <div className="subitem">
                             <span className="texto-subopcion">
                               Información personal
                             </span>
                           </div>
-                          
-                          </NavLink>                         
-                          <NavLink
-                     to="/servicioTramite"
-                     activeclassname="active"
-                     style={{ textDecoration: "none" }}
-                   >
-
+                        </NavLink>
+                        <NavLink
+                          to="/servicioTramite"
+                          activeclassname="active"
+                          style={{ textDecoration: "none" }}
+                        >
                           <div className="subitem">
                             <span className="texto-subopcion">
                               Tramite servicio
                             </span>
                           </div>
-                          
-                          </NavLink>
+                        </NavLink>
                       </div>
                     )}
                   </>

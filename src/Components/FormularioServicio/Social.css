@@ -1,13 +1,15 @@
 .Festudiante {
-  width: 100%;
-  max-width: 950px;
-  height: 1500px;
+width: 85%;
+  
+  height: 500%;
   padding: 30px;
   margin: 1px auto;
   border-radius: 10px;
   overflow: auto;
   box-shadow: 1px 1px 10px #135a7a;
   background-color: #9dc5c2;
+  margin-bottom: 0%;
+  margin-top: 4%;
 }
 
 .Festudiante h1 {
@@ -153,11 +155,11 @@
 
   
 .Festudiante .estado {
-  width: 100%;
+  width: 30%;
   display: inline-block;
   font-weight: bold;
   font-size: 12px;
-  margin-bottom:1%;
+  margin-bottom:40px;
   position: relative; /* Establece posicionamiento relativo */
   top: 3px; /* Mueve el h5 hacia arriba */
   margin-left: 3px; /* Mueve el h5 hacia la derecha */

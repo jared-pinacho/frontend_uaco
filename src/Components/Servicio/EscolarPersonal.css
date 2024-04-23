@@ -2,12 +2,14 @@
     width: 100%;
     max-width: 800px;
     padding: 30px;
-    margin: 30px auto;
+    margin: 0px auto;
     border-radius: 10px;
     overflow: auto;
     box-shadow: 1px 1px 10px #135a7a;
     background-color: #9dc5c2;
-   
+    height: 450%;
+    margin-bottom: 0%;
+    margin-top: 4%;
   }
   
   
@@ -113,9 +115,9 @@ margin-left: 54%;
     width: 100%;
     display: inline-block;
     font-weight: bold;
-    font-size: 27px;
+    font-size: 25px;
     margin-bottom: 3%;
-    color: #f00808;
+    color: #135a7a;
     background-color: #9dc5c2;
     padding: 5px;
     position: relative; /* Establece posicionamiento relativo */
@@ -146,7 +148,7 @@ margin-left: 54%;
       width: 100%;
       font-size: 14px;
       overflow: scroll;
-      margin: 0px;
+      margin-top: 0%;
       padding: 0px;
     }
   
@@ -205,9 +207,11 @@ margin-left: 54%;
   
   }
 
-  .EscolarPersonal .estado {
 
-    font-size: medium;
+
+  .EscolarPersonal .estado {
+margin-bottom: 10%;
+    font-size: 12px;
   }
 
   .EscolarPersonal .estado-actualizado {
