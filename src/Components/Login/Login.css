@@ -131,6 +131,7 @@
 
 form .btn-primary {
   width: 100%;
+  margin-left: 0%;
 }
 form .btn-primary:hover {
   background-color: #135585;
@@ -261,6 +262,7 @@ form .btn-primary:hover {
 
   form .btn-primary {
      font-size: 15px;
+    
   }
 
   .formulario .txtOlvidoContra {

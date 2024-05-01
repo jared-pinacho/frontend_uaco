@@ -22,8 +22,7 @@ export const PagePersonalEscolar = ({dato}) => {
     handleBuscarEstudiante();
     // Mostrar el valor resultante
 
-  }, []); // El array vacío como segundo argumento asegura que el efecto se ejecute solo una vez, equivalente a componentDidMount
-
+  }, []); 
   
   const actualizarTabla = () => {
     handleBuscarEstudiante();

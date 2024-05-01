@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import "../BarraFases/BarraStyloEscolar.css";
-import { PagePersonalEscolar } from '../../Pages/Escolar/PagePersonalEscolar'
+import { PagePersonalEscolar } from '../../Pages/Escolar/PagePersonalEscolar';
 import { PageServicioEscolar } from "../../Pages/Escolar/PageServicioEscolar";
-
+import { Escolar } from '../../Components/FaseUno/Escolar';
+import Cookies from "js-cookie";
+import { URL_API } from "../../Services/Const";
+import axios from "axios";
 import { Contenido } from "../Contenido/Contenido";
 
 
@@ -10,10 +13,47 @@ const MY_AUTH_APP = "DoFA45-M0pri";
 
 export const UpSideBarEscolar = ({dato}) => {
   const [componenteActivo, setComponenteActivo] = useState(null);
+  const [informacion, setInformacion] = useState(null);
+  const apiUrl = URL_API;
+  const token = Cookies.get("tok");
+
 
   const handleClick = (componente) => {
     setComponenteActivo(componente);
   };
+
+  
+  
+  
+
+    const obtenerInformacion = () => {
+      axios.get(`${apiUrl}obten/info/general/${dato}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setInformacion(response.data.data);
+      console.log(response.data.data);
+        })
+        .catch((error) => {
+          console.error("Error al obtener los datos:", error);
+        });
+    };
+
+
+
+
+
+
+
+  useEffect(()=>{
+
+    obtenerInformacion();
+    
+},[]);
+
+
 
   // Función auxiliar para renderizar el componente activo
   const renderComponenteActivo = () => {
@@ -23,7 +63,7 @@ export const UpSideBarEscolar = ({dato}) => {
       case "informacionServicio":
         return <PageServicioEscolar dato={dato} />;
       case "momentoUno":
-        return <Contenido />;
+        return <Escolar informacion={informacion} />;
       case "momentoDos":
         return <Contenido />;
       case "momentoTres":
@@ -61,9 +101,15 @@ export const UpSideBarEscolar = ({dato}) => {
 
 
 
-            <div className="itemo" onClick={() => handleClick("momentoUno")}>
-              <span className="texto-opciono">MOMENTO 1</span>
+            <div  className={`itemo ${componenteActivo === "momentoUno" ? "activo" : ""}`}
+              onClick={() => handleClick("momentoUno")}
+            >
+               <span className={`texto-opciono ${componenteActivo === "momentoUno" ? "activo" : ""}`}     >MOMENTO 1</span>
             </div>
+
+
+
+
             <div className="itemo" onClick={() => handleClick("momentoDos")}>
               <span className="texto-opciono">MOMENTO 2</span>
             </div>

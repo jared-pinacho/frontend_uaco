@@ -4,6 +4,12 @@
 }
 
 
+.panel h3{
+    margin-top: 20%;
+    color: #135a7a;
+    font-size: bold;
+    }
+
 
 @media (max-width: 768px) {
     .panel {

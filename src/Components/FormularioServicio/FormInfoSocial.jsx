@@ -251,6 +251,7 @@ export const FormInfoSocial = ({
       )
       .then((response) => {
         console.log("actualizado a enviado");
+        setShowConfirmDialog(false);
       })
       .catch((error) => {
         toast.error(error.message);
@@ -306,9 +307,6 @@ export const FormInfoSocial = ({
       .catch((error) => {
         // Manejo de errores
       });
-
-    // Cerrar la ventana modal después de enviar el formulario
-    setShowConfirmDialog(false);
   };
 
   const handleCancelSubmit = () => {
@@ -616,7 +614,11 @@ export const FormInfoSocial = ({
         <VentanaConfirmacion
           isOpen={showConfirmDialog}
           message="¿Estás seguro de enviar los datos?"
-          onConfirm={handleConfirmSubmit}
+          onConfirm={() => {
+            handleConfirmSubmitEdit();
+
+            handleOcultar();
+          }}
           onCancel={handleCancelSubmit}
         />
 

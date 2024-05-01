@@ -17,9 +17,8 @@ export const PageServicioEscolar = ({dato}) => {
 
   useEffect(() => {
     handleBuscarEstudiante();
-    // Mostrar el valor resultante
 
-  }, []); // El array vacío como segundo argumento asegura que el efecto se ejecute solo una vez, equivalente a componentDidMount
+  }, []); // Se ejecuta la funcion al renderizar el componente
 
   
   const actualizarTabla = () => {
@@ -55,14 +54,10 @@ export const PageServicioEscolar = ({dato}) => {
       });
   }; 
 
-
-
   return (
     <div className="estudiantesPage">
       <div className="contenidoDinamico"></div>
-      
-    
-
+ 
       <div className="barraBusqueda">
         {isLoading ? (
           <div className="cargando">Obteniendo datos, por favor espere...</div>
@@ -74,10 +69,7 @@ export const PageServicioEscolar = ({dato}) => {
       estudianteAEditar={estudianteAEditar}
       actualizarTabla={forceReloadChild} // Pasar la función para forzar re-rend
 
-      key={reloadKey}
-    
-      
-       
+      key={reloadKey}  
       />
      
     </div>

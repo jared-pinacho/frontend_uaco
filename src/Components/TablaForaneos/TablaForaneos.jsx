@@ -37,7 +37,6 @@ export const TablaForaneos = ({ estudiantes, isLoading, abrirDocumentacion, abri
   const filas = filasFiltradas.map((estudiante, index) => (
     <tr key={index} >
       <td>{estudiante.id_foraneo}</td>  
-  
       <td>{estudiante.nombre}</td>
       <td>{estudiante.apellido_paterno}</td>
       <td>{estudiante.apellido_materno}</td>

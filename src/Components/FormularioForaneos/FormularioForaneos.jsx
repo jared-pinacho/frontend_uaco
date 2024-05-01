@@ -22,7 +22,7 @@ export const FormularioForaneos = ({
     nombre: "",
     apellido_paterno: "",
     apellido_materno: "",
-    edad: 0,
+    edad: "",
     sexo:"",
     telefono: "",
     correo: "",
@@ -36,7 +36,7 @@ export const FormularioForaneos = ({
     titular_dep:"",
     cargo_tit:"",
     grado_tit:"",
-    responsable:"",
+    resp_seg:"",
     fecha_inicio:"",
     fecha_final:"",
     horas:"",
@@ -49,7 +49,7 @@ export const FormularioForaneos = ({
         nombre: estudianteAEditar.nombre || "",
         apellido_paterno: estudianteAEditar.apellido_paterno || "",
         apellido_materno: estudianteAEditar.apellido_materno || "",
-        edad: estudianteAEditar.edad || 0,
+        edad: estudianteAEditar.edad || "",
         sexo: estudianteAEditar.sexo || "",
         telefono: estudianteAEditar.telefono || "",
         discapacidad: estudianteAEditar.discapacidad || "",
@@ -75,7 +75,7 @@ export const FormularioForaneos = ({
         nombre: "",
         apellido_paterno: "",
         apellido_materno: "",
-        edad: 0,
+        edad: "",
         sexo:"",
         telefono: "",
         correo: "",
@@ -89,7 +89,7 @@ export const FormularioForaneos = ({
         titular_dep:"",
         cargo_tit:"",
         grado_tit:"",
-        responsable:"",
+        resp_seg:"",
         fecha_inicio:"",
         fecha_final:"",
         horas:"",
@@ -248,52 +248,11 @@ export const FormularioForaneos = ({
   
     return ''; // Devuelve una cadena vacía si no hay consonantes internas
   };
-  const obtenerCodigoEstado = (codigo) => {
-    const estadosPorCodigo = {
-      1: { codigo: "AG", nombre: "Aguascalientes" },
-      2: { codigo: "BC", nombre: "Baja California" },
-      3: { codigo: "BS", nombre: "Baja California Sur" },
-      4: { codigo: "CM", nombre: "Campeche" },
-      5: { codigo: "CO", nombre: "Coahuila" },
-      6: { codigo: "CL", nombre: "Colima" },
-      7: { codigo: "CS", nombre: "Chiapas" },
-      8: { codigo: "CH", nombre: "Chihuahua" },
-      9: { codigo: "DF", nombre: "Ciudad de México" },
-      10: { codigo: "DG", nombre: "Durango" },
-      11: { codigo: "GT", nombre: "Guanajuato" },
-      12: { codigo: "GR", nombre: "Guerrero" },
-      13: { codigo: "HG", nombre: "Hidalgo" },
-      14: { codigo: "JC", nombre: "Jalisco" },
-      15: { codigo: "MC", nombre: "México" },
-      16: { codigo: "MN", nombre: "Michoacán" },
-      17: { codigo: "MS", nombre: "Morelos" },
-      18: { codigo: "NT", nombre: "Nayarit" },
-      19: { codigo: "NL", nombre: "Nuevo León" },
-      20: { codigo: "OC", nombre: "Oaxaca" },
-      21: { codigo: "PL", nombre: "Puebla" },
-      22: { codigo: "QT", nombre: "Querétaro" },
-      23: { codigo: "QR", nombre: "Quintana Roo" },
-      24: { codigo: "SP", nombre: "San Luis Potosí" },
-      25: { codigo: "SL", nombre: "Sinaloa" },
-      26: { codigo: "SR", nombre: "Sonora" },
-      27: { codigo: "TB", nombre: "Tabasco" },
-      28: { codigo: "TM", nombre: "Tamaulipas" },
-      29: { codigo: "TL", nombre: "Tlaxcala" },
-      30: { codigo: "VZ", nombre: "Veracruz" },
-      31: { codigo: "YN", nombre: "Yucatán" },
-      32: { codigo: "ZS", nombre: "Zacatecas" },
-    };
   
-    const estado = estadosPorCodigo[codigo];
-    return estado ? estado.codigo : "Código de estado no encontrado";
-  };
-  const quitarAcentos=(cadena)=> {
-    return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  }
   
 
   return (
-    <div className="Festudiantes">
+    <div className="Festudiantesu">
       <form onSubmit={handleSubmit}>
        
         <div>
@@ -303,9 +262,15 @@ export const FormularioForaneos = ({
             name="nombre"
             value={formData.nombre}
             required
-            onChange={handleChange}
            onBlur={handlBlur}
             disabled={modo === "eliminar" ? true : false}
+            onChange={(e) => {
+              const newValue = e.target.value.replace(/[^a-zA-ZñÑáéíóúÁÉÍÓÚ\s]/g, ''); // Eliminar caracteres no numéricos
+              if (newValue.length <= 39) {
+                setFormData({ ...formData, nombre: newValue });
+                e.target.value = newValue; // Actualizar valor interno
+              }
+            }}
           />
           {errors.nombre && <p>{errors.nombre}</p>}
         </div>
@@ -316,9 +281,16 @@ export const FormularioForaneos = ({
             name="apellido_paterno"
             value={formData.apellido_paterno}
             required
-            onChange={handleChange}
             onBlur={handlBlur}
             disabled={modo === "eliminar" ? true : false}
+            onChange={(e) => {
+              const newValue = e.target.value.replace(/[^a-zA-ZñÑáéíóúÁÉÍÓÚ\s]/g, ''); // Eliminar caracteres no numéricos
+              if (newValue.length <= 39) {
+                setFormData({ ...formData, apellido_paterno: newValue });
+                e.target.value = newValue; // Actualizar valor interno
+              }
+            }}
+
           />
           
         </div>
@@ -328,10 +300,16 @@ export const FormularioForaneos = ({
             type="text"
             name="apellido_materno"
             value={formData.apellido_materno}
-            required
-            onChange={handleChange}
+            require
             onBlur={handlBlur}
             disabled={modo === "eliminar" ? true : false}
+            onChange={(e) => {
+              const newValue = e.target.value.replace(/[^a-zA-ZñÑáéíóúÁÉÍÓÚ\s]/g, ''); // Eliminar caracteres no numéricos
+              if (newValue.length <= 39) {
+                setFormData({ ...formData, apellido_materno: newValue });
+                e.target.value = newValue; // Actualizar valor interno
+              }
+            }}
           />
      
         </div>
@@ -339,13 +317,19 @@ export const FormularioForaneos = ({
         <div>
           <label>Edad:</label>
           <input
-            type="number"
+            type="text"
             name="edad"
             value={formData.edad}
             required
-            onChange={handleChange}
             onBlur={handlBlur}
             disabled={false}
+            onChange={(e) => {
+              const newValue = e.target.value.replace(/[^0-9]/g, ''); // Eliminar caracteres no numéricos
+              if (newValue.length <= 3) {
+                setFormData({ ...formData, edad: newValue });
+                e.target.value = newValue; // Actualizar valor interno
+              }
+            }}
           />
         
         </div>
@@ -374,11 +358,16 @@ export const FormularioForaneos = ({
             type="text"
             name="telefono"
             value={formData.telefono}
-            onChange={handleChange}
             onBlur={handlBlur}
             disabled={modo === "eliminar" ? true : false}
+            onChange={(e) => {
+              const newValue = e.target.value.replace(/[^0-9]/g, ''); // Eliminar caracteres no numéricos
+              if (newValue.length <= 10) {
+                setFormData({ ...formData, telefono: newValue });
+                e.target.value = newValue; // Actualizar valor interno
+              }
+            }}
           />
-          
         </div>
 
   
@@ -391,10 +380,11 @@ export const FormularioForaneos = ({
             value={formData.correo}
             required
             onChange={handleChange}
-    
+            onBlur={handlBlur}
+            maxLength="40"
             disabled={modo === "eliminar" ? true : false}
           />
-         
+        
         </div>
 
 
@@ -409,23 +399,28 @@ export const FormularioForaneos = ({
             onBlur={handlBlur}
             disabled={modo === "eliminar" ? true : false}
             placeholder="Escribir 'Ninguno' en caso de no tener"
+            maxLength="60"
           />
-         
         </div>
       
 
         <div>
           <label>Semestre:</label>
           <input
-            type="number"
+            type="text"
             name="semestre"
             value={formData.semestre}
             required
-            onChange={handleChange}
             onBlur={handlBlur}
             disabled={modo === "eliminar" ? true : false}
+            onChange={(e) => {
+              const newValue = e.target.value.replace(/[^0-9]/g, ''); // Eliminar caracteres no numéricos
+              if (newValue.length <= 2) {
+                setFormData({ ...formData, semestre: newValue });
+                e.target.value = newValue; // Actualizar valor interno
+              }
+            }}
           />
-        
         </div>
        
 
@@ -454,7 +449,7 @@ export const FormularioForaneos = ({
               onBlur={handlBlur}
               disabled={modo === "eliminar" ? true : false}
             />
-            
+            {errors.otra_lengua && <p>{errors.otra_lengua}</p>}
           </div>
         ) : null}
         
@@ -468,6 +463,7 @@ export const FormularioForaneos = ({
             value={formData.institucion}
             required
             onChange={handleChange}
+            maxLength="60"
             onBlur={handlBlur}
             disabled={modo === "eliminar" ? true : false}
           />
@@ -483,6 +479,7 @@ export const FormularioForaneos = ({
             required
             onChange={handleChange}
             onBlur={handlBlur}
+            maxLength="20"
             disabled={modo === "eliminar" ? true : false}
           />
         </div>
@@ -497,6 +494,7 @@ export const FormularioForaneos = ({
             required
             onChange={handleChange}
             onBlur={handlBlur}
+            maxLength="60"
             disabled={modo === "eliminar" ? true : false}
           />
         </div>
@@ -509,9 +507,15 @@ export const FormularioForaneos = ({
             name="titular_dep"
             value={formData.titular_dep}
             required
-            onChange={handleChange}
             onBlur={handlBlur}
             disabled={modo === "eliminar" ? true : false}
+            onChange={(e) => {
+              const newValue = e.target.value.replace(/[^a-zA-ZñÑáéíóúÁÉÍÓÚ\s]/g, ''); // Eliminar caracteres no numéricos
+              if (newValue.length <= 69) {
+                setFormData({ ...formData, titular_dep: newValue });
+                e.target.value = newValue; // Actualizar valor interno
+              }
+            }}
           />
         </div>
 
@@ -525,6 +529,7 @@ export const FormularioForaneos = ({
             required
             onChange={handleChange}
             onBlur={handlBlur}
+            maxLength="70"
             disabled={modo === "eliminar" ? true : false}
           />
         </div>
@@ -556,10 +561,15 @@ export const FormularioForaneos = ({
             name="resp_seg"
             value={formData.resp_seg}
             required
-            maxLength="60"
-            onChange={handleChange}
             onBlur={handlBlur}
             readOnly={modo === "eliminar" ? true : false}
+            onChange={(e) => {
+              const newValue = e.target.value.replace(/[^a-zA-ZñÑáéíóúÁÉÍÓÚ\s]/g, ''); // Eliminar caracteres no numéricos
+              if (newValue.length <= 100) {
+                setFormData({ ...formData, resp_seg: newValue });
+                e.target.value = newValue; // Actualizar valor interno
+              }
+            }}
           />
         </div>
 
@@ -572,7 +582,7 @@ export const FormularioForaneos = ({
             required
             onChange={handleChange}
             onBlur={handlBlur}
-            maxLength="60"
+            maxLengt="60"
             readOnly={modo === "eliminar" ? true : false}
           />
         </div>

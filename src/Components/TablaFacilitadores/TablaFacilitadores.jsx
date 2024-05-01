@@ -26,7 +26,7 @@ export const TablaFacilitadores = ({ facilitadores, isLoading }) => {
   ));
 
   return (
-    <div className="table-responsive contenedor">
+    <div className="table-responsive contenedorTablaEstudiantes">
       <table className="table-responsive table tablita">
         <thead>
           <tr>

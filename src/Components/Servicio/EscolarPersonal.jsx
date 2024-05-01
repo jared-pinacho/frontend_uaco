@@ -18,13 +18,12 @@ export const EscolarPersonal = ({
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
   const [colonias, setColonias] = useState([]);
-  const [mostrarComponente, setMostrarComponente] = useState(false);
   const [matricula, setMatricula] = useState(true);
-
   const [pueblos_indigenas, setPueblosIndigenas] = useState([]);
   const [lenguas_indigenas, setLenguasIndigenas] = useState([]);
   const [carreras, setCarreras] = useState([]);
   const [estatus_envio, setEstatus_envio] = useState([]);
+  const [mostrarComponente, setMostrarComponente] = useState(false);
   const [mostrarBoton, setMostrarBoton] = useState(true);
   
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
@@ -108,7 +107,7 @@ export const EscolarPersonal = ({
         
       });
    
-        setEstatus_envio(estudianteAEditar.estatus_envio);
+      setEstatus_envio(estudianteAEditar.estatus_envio);
         setMatricula(estudianteAEditar.matricula);
     } 
   }, [estudianteAEditar]);
@@ -162,9 +161,7 @@ export const EscolarPersonal = ({
       });
   };
 
-  const handleMostrarComponente = () => {
-    setMostrarComponente(true); // Establece el estado para mostrar el componente
-  };
+  
 
 useEffect(()=>{
 
@@ -174,9 +171,15 @@ useEffect(()=>{
 },[]);
 
 
-const ocultarBoton = () => {
+const handleMostrarComponente = () => {
+  setMostrarComponente(true); // Establece el estado para mostrar el componente
+};
+
+
+const handleMostrarBoton = () => {
   setMostrarBoton(false); // Establece el estado para mostrar el componente
 };
+
 
 
 
@@ -282,9 +285,7 @@ const ocultarBoton = () => {
     setShowConfirmDialog(false);
   };
   
-  useEffect(()=>{
-console.log("eeo",formData.envio);
-  },[])
+  
 
 
   
@@ -536,7 +537,7 @@ console.log("eeo",formData.envio);
       
    {estatus_envio === 1 && (
      <div>
-      {!mostrarComponente && ( // Mostrar botones solo si mostrarComponente es false
+  {!mostrarComponente && mostrarBoton && ( // Mostrar botones solo si mostrarComponente es false
           <div className="botones">
             
            <button 
@@ -549,14 +550,22 @@ console.log("eeo",formData.envio);
            
            className="button-cancelar">Rechazar</button>
             
-      <button 
+            <button 
            onClick={() => {
             cambiarEstado(2);
-            ocultarBoton();
+            handleMostrarBoton();
            }}
            className="button-afirmar">Aceptar</button>
           </div>
 )}
+
+{!mostrarComponente && !mostrarBoton && (
+<h2>Información revisada y aprobada</h2>
+)}
+
+
+
+
              {mostrarComponente && <VentanaRevisar
              
              matricula={matricula}

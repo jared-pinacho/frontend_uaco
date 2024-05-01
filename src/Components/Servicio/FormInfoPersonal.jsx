@@ -29,7 +29,6 @@ export const FormInfoPersonal = ({
   const [comentario, setComentario] = useState([]);
   const [estatus_envio, setEstatus_envio] = useState([]);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
-  
 
   const [formData, setFormData] = useState({
     matricula: "",
@@ -147,8 +146,7 @@ export const FormInfoPersonal = ({
       });
   };
 
-
-
+ 
 
   const handleOcultar = () => {
     setEstatus_envio(1); // Establece ocultarElementos en true al activar la función
@@ -262,6 +260,7 @@ export const FormInfoPersonal = ({
       )
       .then((response) => {
         console.log('actualizado a enviado');
+        setShowConfirmDialog(false);
         
       })
       .catch((error) => {
@@ -611,14 +610,14 @@ export const FormInfoPersonal = ({
       .then((response) => {
         toast.success(response.data.message);
         enviarInfo(); // Llamar a enviarInfo después de completar el envío del formulario
-       
+        
       })
       .catch((error) => {
         // Manejo de errores
       });
 
     // Cerrar la ventana modal después de enviar el formulario
-    setShowConfirmDialog(false);
+   
   };
 
   const handleCancelSubmit = (event) => {
@@ -1256,17 +1255,28 @@ export const FormInfoPersonal = ({
         </div>
 
         {estatus_envio === 0 && (
+
+
+
           <div>
+
+
+        
             <button type="submit">Confirmar</button>
             <span className="estado">ESTADO: SIN ACTUALIZAR</span>
-          </div>
+            </div>
+
+
+
         )}
         {/* Ventana modal de confirmación */}
         <VentanaConfirmacion
           isOpen={showConfirmDialog}
           message="¿Estás seguro de enviar los datos?"
-          onConfirm={handleConfirmSubmit}
+          onConfirm={()=>{handleConfirmSubmit();
+            handleOcultar();}}
           onCancel={handleCancelSubmit}
+          
         />
 
         {estatus_envio === 1 && (

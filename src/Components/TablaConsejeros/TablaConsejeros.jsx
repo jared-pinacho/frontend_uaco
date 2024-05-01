@@ -15,7 +15,7 @@ export const TablaConsejeros = ({ consejeros, isLoading }) => {
       <td>{consejero.rfc}</td>
       <td>{consejero.nivel_educativo}</td>
       <td>{consejero.cuc.nombre}</td>
-      <td>{consejero.usuario.email}</td>
+    {/* {<td>{consejero.usuario.email}</td> } */}
       <td>{consejero.telefono}</td>
       <td>{consejero.telefono_emergencia}</td>
       <td>{consejero.tiposangre.nombre}</td>
@@ -28,7 +28,7 @@ export const TablaConsejeros = ({ consejeros, isLoading }) => {
   ));
 
   return (
-    <div className="table-responsive contenedor">
+    <div className="table-responsive contenedorTablaEstudiantes">
       <table className="table-responsive table tablita">
         <thead>
           <tr>
@@ -41,7 +41,6 @@ export const TablaConsejeros = ({ consejeros, isLoading }) => {
             <th>RFC</th>
             <th>Nivel Educativo</th>
             <th>CUC</th>
-            <th>Correo</th>
             <th>Teléfono</th>
             <th>Teléfono emergencia</th>
             <th>Tipo de sangre</th>

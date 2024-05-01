@@ -1,0 +1,446 @@
+.Festudian {
+  width: 100%;
+  height: 80%;
+  max-width: 890px;
+  padding: 30px;
+  margin-left: 95px;
+  margin-top: 140px;
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 1px 1px 10px #135a7a;
+  background-color: #9dc5c2;
+}
+
+.contenedor {
+  width: 85%;
+  height: 55%;
+  margin-left: 70px;
+  margin-top: 15px;
+  margin-bottom: 5%;
+  overflow:hidden;
+  background-color: #ffffff;
+  /* Estilos para centrar el contenido interno */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el contenido */
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.boton {
+  background-color: #1f92c7;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 40%;
+  cursor: pointer;
+  margin-top: 0%;
+margin-bottom: -3%;
+  width: 18%;
+  transition: background-color 0.3s ease; /* Transición suave de color */
+}
+
+.boton:hover {
+  background-color: #1e85ad; /* Color diferente al pasar el puntero */
+}
+
+
+.ver{
+  background-color: #22b336;
+  color: #fff;
+  border-radius: 5px;
+  margin-left:3% ;
+  cursor: pointer;
+  margin-top: 0%;
+  width: 10%;
+  padding: 0.3%;
+}
+
+
+.cal{
+  background-color: #135a7a;
+  color: #fff;
+  border-radius: 8px;
+  margin-left:50% ;
+  cursor: pointer;
+  margin-top: 2%;
+  width: 15%;
+  margin-bottom: 0%;
+  padding: 1%;
+}
+.calificar-no{
+  background-color: #135a7a;
+  color: #fff;
+  border-radius: 8px;
+  margin-left:10% ;
+  cursor: pointer;
+  margin-top: 2%;
+  width: 16%;
+  margin-bottom: 0%;
+}
+
+
+
+.es {
+ margin-left: -25%;
+ margin-bottom: 0%;
+ margin-right: 5%;
+}
+
+
+.Festudian h1 {
+  font-size: 22px;
+ text-align: center;
+ color: black;
+ margin-top: 0%;
+}
+
+
+
+.titul {
+  width: 100%;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 160%;
+  padding:0%;
+  margin-top: -50%;
+  color: #135a7a;
+  text-align: center;
+  margin-bottom: -10%;
+}
+
+.gg {
+  margin-top: 7%;
+  margin-left:23%;
+  width: 85%;
+}
+
+
+.gg2 {
+  margin-top: 0%;
+  margin-left:23%;
+  width: 85%;
+}
+
+.titulo-contenedor {
+  width: 100%;
+  font-weight: bold;
+  font-size: 120%;
+  margin-top: -1%;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 4%;
+  background-color: #135a7a;
+}
+.titulo-contenedor2 {
+  width: 100%;
+  font-weight: bold;
+  font-size: 120%;
+  margin-top: -5%;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 8%;
+  background-color: #135a7a;
+}
+
+
+
+.Festudian input[type="text"]
+ {
+  width: 30%;
+  padding: 1px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  margin-left: 1%;
+}
+
+
+
+.archivo{
+  margin-left:-20px;
+}
+
+.acciones{
+  width: 90%;
+  margin-top: 6%;
+  margin-bottom: 0%;
+}
+
+
+
+@media (min-width: 426px) and (max-width: 768px) {
+
+
+  .Festudian {
+    width: 100%;
+    height: 100%;
+    
+    margin-left: 0%;
+    margin-top: 88px;
+   
+    overflow: auto;
+    
+  }
+
+
+  .contenedor {
+    width: 120%;
+    height: 55%;
+    margin-left: -23px;
+    margin-top: -25px;
+  }
+
+  
+.titul {
+  width: 100%;
+ margin-left: -65px;
+  font-size: 100%;
+padding: 30px;
+ margin-top: -100%;
+  margin-bottom: 0%;
+}
+
+.titulo-contenedor {
+  width: 100%;
+  margin-left: 0%;
+  font-size: 100%;
+  margin-top: -1px;
+  margin-bottom: 6%;
+  
+}
+.titulo-contenedor2 {
+  width: 100%;
+  margin-left: 0%;
+  font-size: 100%;
+  margin-top:0%;
+  margin-bottom: 10%;
+  
+}
+
+
+.boton {
+ padding: 0.5%;
+  border-radius: 9px;
+  margin-left: 41%;
+  font-size: 100%;
+  margin-top: -2%;
+margin-bottom: -1%;
+  width: 120px;
+  
+}
+
+
+.gg {
+  margin-top: 5%;
+  margin-left:8%;
+  width: 100%;
+}
+
+
+.Festudian input[type="text"]
+ {
+  width: 30%;
+  font-size: 85%;
+  border: 1px solid #0639c5;
+  margin-left: -15px;
+}
+
+.archivo{
+  margin-left:0px;
+  margin-right: 12px;
+}
+
+.ver{
+ border-radius: 9px;
+  margin-left:5% ;
+  width: 10%;
+  padding: 0.6%;
+}
+
+
+.acciones{
+  width: 100%;
+  margin-top: 3%;
+  margin-bottom: 45px;
+  
+}
+
+
+.cal{
+  border-radius: 9px;
+  margin-left:0% ;
+  margin-right:8% ;
+  margin-top: 0%;
+  width: 15%;
+  font-size: 90%;
+  margin-bottom: 0%;
+ 
+}
+.calificar-no{
+
+ 
+  margin-left:0% ;
+  margin-right:8% ;
+  margin-top: 0%;
+  width: 15%;
+  font-size: 90%;
+  margin-bottom: 0%;
+ padding: 0.9%;
+}
+
+
+
+.es {
+  margin-left: -5%;
+  margin-bottom: 1%;
+  margin-right: 15%;
+  width: 20%;
+ }
+
+
+
+
+
+
+}
+
+
+
+
+
+@media (max-width: 425px) {
+  /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
+
+
+  .Festudian {
+    width: 100%;
+    height: 100%;
+    
+    margin-left: 0%;
+    margin-top: 88px;
+   
+    overflow: auto;
+    
+  }
+
+
+  .contenedor {
+    width: 120%;
+    height: 55%;
+    margin-left: -23px;
+    margin-top: -25px;
+  }
+
+  
+.titul {
+  width: 100%;
+ margin-left: -65px;
+  font-size: 100%;
+padding: 30px;
+ margin-top: -50%;
+  margin-bottom: 0%;
+}
+
+.titulo-contenedor {
+  width: 124%;
+  margin-left: -25%;
+  font-size: 90%;
+  margin-top: -62px;
+  margin-bottom: 4%;
+  
+}
+.titulo-contenedor2 {
+  width: 124%;
+  margin-left: -25%;
+  font-size: 90%;
+  margin-top: -8%;
+  color: #ffffff;
+  margin-bottom: 8%;
+}
+
+
+.boton {
+ padding: 0.5%;
+  border-radius: 9px;
+  margin-left: 20%;
+  font-size: 90%;
+  margin-top: 0%;
+margin-bottom: -3%;
+  width: 120px;
+  
+}
+
+
+.gg {
+  margin-top: 7%;
+  margin-left:6%;
+  width: 50%;
+}
+
+
+.Festudian input[type="text"]
+ {
+  width: 60%;
+  font-size: 85%;
+  border: 1px solid #0639c5;
+  margin-left: -15px;
+}
+
+.archivo{
+  margin-left:0px;
+  margin-right: 12px;
+}
+
+.ver{
+ 
+  margin-left:10% ;
+  width: 30%;
+  padding: 1%;
+}
+
+
+.gg2 {
+  margin-top: 5%;
+  margin-left:6%;
+  width: 50%;
+}
+
+.acciones{
+  width: 100%;
+  margin-top: 8%;
+  
+}
+
+
+.cal{
+  border-radius: 9px;
+  margin-left:0% ;
+  margin-right:8% ;
+  margin-top: 0%;
+  width: 40%;
+  font-size: 90%;
+  margin-bottom: 0%;
+ 
+}
+.calificar-no{
+
+  border-radius: 10px;
+  margin-left:0% ;
+  margin-right:8% ;
+  margin-top: 0%;
+  width: 40%;
+  font-size: 90%;
+  margin-bottom: 0%;
+ padding: 0.9%;
+}
+
+
+
+.es {
+  margin-left: -2%;
+  margin-bottom: 1%;
+  margin-right: 15%;
+  width: 100%;
+ }
+
+}

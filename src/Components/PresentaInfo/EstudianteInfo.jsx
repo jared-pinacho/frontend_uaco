@@ -39,19 +39,19 @@ export const EstudianteInfo = ({estudianteAEditar}) => {
         {/* Primera columna */}
         <div className="columna">
           <div>
-            <label className="titulo">Apellido paterno:</label>
+            <label className="titu">Apellido paterno:</label>
             <label className="text">{formData.apellidopaterno}</label>
           </div>
           <div>
-            <label className="titulo">Apellido materno:</label>
+            <label className="titu">Apellido materno:</label>
             <label className="text">{formData.apellidomaterno}</label>
           </div>
           <div>
-            <label className="titulo">Nombre(s):</label>
+            <label className="titu">Nombre(s):</label>
             <label className="text">{formData.nombre}</label>
           </div>
           <div>
-            <label className="titulo">Correo electrónico:</label>
+            <label className="titu">Correo electrónico:</label>
             <label className="text">{formData.email}</label>
           </div>
         </div>
@@ -59,20 +59,20 @@ export const EstudianteInfo = ({estudianteAEditar}) => {
         {/* Segunda columna */}
         <div className="columna">
           <div>
-            <label className="titulo">Matricula:</label>
+            <label className="titu">Matricula:</label>
             <label className="text-2">{formData.matricula}</label>
           </div>
           <div>
-          <label className="titulo">Semestre:</label>
+          <label className="titu">Semestre:</label>
             <label className="text-2">{formData.semestre}</label>
           </div>
           <div>
-            <label className="titulo">Carrera</label>
+            <label className="titu">Carrera</label>
             <label className="text-2">{formData.carrera}</label>
           </div>
           <div >
            
-            <label className="titulo">CUC:</label>
+            <label className="titu">CUC:</label>
             <label className="especial">{formData.cuc}</label>
           </div>
         </div>

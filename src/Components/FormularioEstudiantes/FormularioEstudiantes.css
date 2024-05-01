@@ -1,4 +1,4 @@
-.Festudiantes {
+.Festudiantesu {
   width: 100%;
   max-width: 800px;
   padding: 30px;
@@ -9,14 +9,14 @@
   background-color: #9dc5c2;
 }
 
-.Festudiantes h1 {
+.Festudiantesu h1 {
   font-size: 30px;
   margin-bottom: 20px;
   color: #135a7a;
 }
 
-.Festudiantes label {
-  width: 25%;
+.Festudiantesu label {
+  width: 39%;
   display: inline-block;
   font-weight: bold;
   font-size: 20px;
@@ -26,9 +26,9 @@
   padding: 5px;
 }
 
-.Festudiantes input[type="text"],
-.Festudiantes input[type="number"],
-.Festudiantes input[type="date"] {
+.Festudiantesu input[type="text"],
+.Festudiantesu input[type="number"],
+.Festudiantesu input[type="date"] {
   width: 50%;
   padding: 10px;
   margin-bottom: 15px;
@@ -36,12 +36,12 @@
   border: 1px solid #ccc;
 }
 
-.Festudiantes p {
+.Festudiantesu p {
   color: red;
   font-weight: bold;
 }
 
-.Festudiantes select {
+.Festudiantesu select {
   width: 50%;
   padding: 10px;
   margin-bottom: 15px;
@@ -49,7 +49,7 @@
   border: 1px solid #ccc;
 }
 
-.Festudiantes button {
+.Festudiantesu button {
   background-color: #135a7a;
   color: #fff;
   padding: 10px 15px;
@@ -58,20 +58,20 @@
   cursor: pointer;
 }
 
-.Festudiantes .btnCp {
+.Festudiantesu .btnCp {
   width: 25%;
 
   margin-top: 0;
   margin-bottom: 5px;
 }
 
-.Festudiantes utton:hover {
+.Festudiantesu utton:hover {
   background-color: #0056b3;
 }
 
 @media (max-width: 768px) {
   /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
-  .Festudiantes {
+  .Festudiantesu {
     width: 100%;
     font-size: 14px;
     overflow: scroll;
@@ -79,12 +79,12 @@
     padding: 0px;
   }
 
-  .Festudiantes table {
+  .Festudiantesu table {
     max-width: 100px;
     font-size: 6px;
   }
 
-  .Festudiantes label {
+  .Festudiantesu label {
     width: 100%;
     /* Ocupar el ancho completo en pantallas pequeñas */
     margin-bottom: 5px;
@@ -92,21 +92,21 @@
     font-size: 12px;
   }
 
-  .Festudiantes input[type="text"],
-  .Festudiantes input[type="number"],
-  .Festudiantes input[type="date"] {
+  .Festudiantesu input[type="text"],
+  .Festudiantesu input[type="number"],
+  .Festudiantesu input[type="date"] {
     width: 100%;
     padding: 2px;
     font-size: 12px;
   }
 
-  .Festudiantes .btnCp{
+  .Festudiantesu .btnCp{
     width: 100%;
     
     margin-top: 0;
     margin-bottom: 3px;
   }
-  .Festudiantes select {
+  .Festudiantesu select {
     width: 100%;
     font-size: 12px;
     padding: 2px;

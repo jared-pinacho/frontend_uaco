@@ -743,7 +743,7 @@ export const EscolarSocial = ({
 )}
 
 {!mostrarComponente && !mostrarBoton && (
-<h2>Informacion aprobada</h2>
+<h2>Información revisada y aprobada</h2>
 )}
 
 

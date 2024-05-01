@@ -4,7 +4,6 @@
 }
 .tablita thead{
   position: sticky;
-  top: 0;
 }
 
 .tablita thead th {

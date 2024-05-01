@@ -12,6 +12,7 @@ export const TablaEstudiantesServicio = ({
 }) => {
   const [filtro, setFiltro] = useState("");
   const [datoAPasar, setDatoAPasar] = useState(null);
+  
   const filasFiltradas = estudiantes.filter((estudiante) => {
     const termino = filtro.toLowerCase();
     const nombreCompleto = `${estudiante.nombre} ${estudiante.apellido_paterno} ${estudiante.apellido_materno}`.toLowerCase();
@@ -33,12 +34,18 @@ export const TablaEstudiantesServicio = ({
     window.location.href = fullUrl;
   }
   
+let estatus= "";
+
   const handleButtonClick = (mat) => {
     // Datos que deseas pasar al siguiente componente
     const dataToSend = mat;
     redirectTo('/escolarInfoPersonal', dataToSend);
   };
 
+
+
+
+ 
   
   const filas = filasFiltradas.map((estudiante, index) => (
     <tr
@@ -50,7 +57,7 @@ export const TablaEstudiantesServicio = ({
       <td>{estudiante.apellido_materno}</td>
       <td>{estudiante.usuario.email}</td>
       <td>{estudiante.telefono}</td>
-      <td>{estudiante.estatus}</td>
+      <td>{estudiante.estado_tramite}</td>
       <td>
         <button
         //to="/homePage"
@@ -82,7 +89,7 @@ export const TablaEstudiantesServicio = ({
             <th>Apellido materno</th>
             <th>Correo</th>
             <th>Telefono</th>
-            <th>Estatus</th>
+            <th>Momento aprobado</th>
             <th>Perfil</th>
           </tr>
         </thead>
