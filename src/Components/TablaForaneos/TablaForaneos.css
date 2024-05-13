@@ -26,12 +26,39 @@
 .contenedorTablaEstudiantes .campoBusqueda{
     background-color: #BFF7C6;
   }
-  .contenedorTablaEstudiantes .btnDoc{
+  .contenedorTablaEstudiantes .btnAcep{
     background-color: #135A7A;
-    width: 100%;
+    width: 80%;
     border-radius: 15px;
-  }
-  
+    transition: background-color 0.3s ease; /* Transición suave de color */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.contenedorTablaEstudiantes .btnTer{
+  background-color: #0eaa28;
+  width: 80%;
+  border-radius: 15px;
+  transition: background-color 0.3s ease; /* Transición suave de color */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.btnTer:hover {
+  background-color: #43da35; /* Color diferente al pasar el puntero */
+}
+
+
+
+  .btnAcep:hover {
+  background-color: #1e85ad; /* Color diferente al pasar el puntero */
+}
+
+
+
+
   @media (max-width: 768px) {
       
     

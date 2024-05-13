@@ -1,4 +1,4 @@
-.Festudiante {
+.Festudianteh {
 width: 85%;
   
   height: 500%;
@@ -9,17 +9,17 @@ width: 85%;
   box-shadow: 1px 1px 10px #135a7a;
   background-color: #9dc5c2;
   margin-bottom: 0%;
-  margin-top: -59%;
+  margin-top: 4%;
 }
 
-.Festudiante h1 {
+.Festudianteh h1 {
   font-size: 20px;
   margin-bottom: -10px;
   margin-top: 5px;
   color: #135a7a;
 }
 
-.Festudiante h2 {
+.Festudianteh h2 {
   font-size: 30px;
   margin-bottom: 20px;
   color: #135a7a;
@@ -28,7 +28,7 @@ width: 85%;
 }
 
 
-.Festudiante label {
+.Festudianteh label {
   width: 38%;
   display: inline-block;
   font-weight: bold;
@@ -40,9 +40,9 @@ width: 85%;
   margin-right: 0%;
 }
 
-.Festudiante input[type="text"],
-.Festudiante input[type="number"],
-.Festudiante input[type="date"] {
+.Festudianteh input[type="text"],
+.Festudianteh input[type="number"],
+.Festudianteh input[type="date"] {
   width: 50%;
   padding: 7px;
   margin-bottom: 15px;
@@ -50,12 +50,12 @@ width: 85%;
   border: 0px solid #ccc;
 }
 
-.Festudiante p {
+.Festudianteh p {
   color: red;
   font-weight: bold;
 }
 
-.Festudiante select {
+.Festudianteh select {
   width: 50%;
   padding: 8px;
   margin-bottom: 0px;
@@ -64,7 +64,7 @@ width: 85%;
   
 }
 
-.Festudiante button {
+.Festudianteh button {
   background-color: #135a7a;
   color: #fff;
   padding: 10px 15px;
@@ -73,18 +73,18 @@ width: 85%;
   cursor: pointer;
 }
 
-.Festudiante .btnCp {
+.Festudianteh .btnCp {
   width: 25%;
 
   margin-top: 0;
   margin-bottom: 5px;
 }
 
-.Festudiante utton:hover {
+.Festudianteh utton:hover {
   background-color: #0056b3;
 }
 
-.estudiante {
+.estudianteh {
   font-size: 18px;
   color: black;
   padding: 10px;
@@ -94,7 +94,7 @@ width: 85%;
   right: 200px; /* Mueve el h5 hacia la derecha */
 }
 
-.Festudiante .estado {
+.Festudianteh .estado {
   width: 77%;
   display: inline-block;
   font-weight: bold;
@@ -108,54 +108,11 @@ width: 85%;
 
 }
 
-
-
-
-.Festudiante .button-afirmar {
-  background-color: #135a7a;
-  color: #fff;
-  padding: 8px 25px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  
-}
-
-.Festudiante .button-cancelare {
-  background-color: #dd3131;
-  color: #fff;
-  padding: 8px 25px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 5%;
-  
-}
-
-.Festudiante .button-cancelare:hover {
-  background-color: #b31b00;
-}
-
-
-.Festudiante .button-afirmar:hover {
-  background-color: #2e6aeb;
-}
-
-
-
-
-
-
-
-
-
-
-
 @media (min-width: 1024px) and (max-width: 1028px) {
 
-  .Festudiante{
+  .Festudianteh{
    
-    margin-top: -550px;
+    margin-top: 0px;
     
   }
   }
@@ -163,22 +120,21 @@ width: 85%;
 
   @media (min-width: 426px) and (max-width: 768px) {
   /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
-  .Festudiante {
+  .Festudianteh {
     width: 100%;
     font-size: 14px;
     overflow: scroll;
     margin: 0px;
     padding: 0px;
-  
-    margin-top: -530px;
+    margin-top: 0%;
   }
 
-  .Festudiante table {
+  .Festudianteh table {
     max-width: 100px;
     font-size: 6px;
   }
 
-  .Festudiante label {
+  .Festudianteh label {
     width: 100%;
     /* Ocupar el ancho completo en pantallas pequeñas */
     margin-bottom: 5px;
@@ -186,27 +142,27 @@ width: 85%;
     font-size: 12px;
   }
 
-  .Festudiante input[type="text"],
-  .Festudiante input[type="number"],
-  .Festudiante input[type="date"] {
+  .Festudianteh input[type="text"],
+  .Festudianteh input[type="number"],
+  .Festudianteh input[type="date"] {
     width: 100%;
     padding: 2px;
     font-size: 12px;
   }
 
-  .Festudiante .btnCp{
+  .Festudianteh .btnCp{
     width: 100%;
     
     margin-bottom: 3px;
   }
-  .Festudiante select {
+  .Festudianteh select {
     width: 100%;
     font-size: 12px;
     padding: 2px;
   }
 
   
-.Festudiante .estado {
+.Festudianteh .estado {
   width: 30%;
   display: inline-block;
   font-weight: bold;
@@ -217,52 +173,32 @@ width: 85%;
   margin-left: 3px; /* Mueve el h5 hacia la derecha */
 }
 
-.Festudiante button {
+.Festudianteh button {
   padding: 6px 15px;
   margin-bottom: 39px;
   margin-left: 1%;
   border-radius: 5px;
   cursor: pointer;
-}
+}}
 
-
-
-
-.Festudiante .button-afirmar {
-  
-  padding: 4px 10px;
- margin-bottom: 2%;
-}
-
-.Festudiante .button-cancelare {
-  padding: 4px 7px;
-  
-}
-
-
-
-
-
-
-}
 
 @media (max-width: 426px) {
 
-  .Festudiante {
+  .Festudianteh {
     width: 100%;
     font-size: 14px;
     overflow: scroll;
     margin: 0px;
     padding: 0px;
-    margin-top: -530px;
+    margin-top: 0%;
   }
 
-  .Festudiante table {
+  .Festudianteh table {
     max-width: 100px;
     font-size: 6px;
   }
 
-  .Festudiante label {
+  .Festudianteh label {
     width: 100%;
     /* Ocupar el ancho completo en pantallas pequeñas */
     margin-bottom: 5px;
@@ -270,27 +206,27 @@ width: 85%;
     font-size: 12px;
   }
 
-  .Festudiante input[type="text"],
-  .Festudiante input[type="number"],
-  .Festudiante input[type="date"] {
+  .Festudianteh input[type="text"],
+  .Festudianteh input[type="number"],
+  .Festudianteh input[type="date"] {
     width: 100%;
     padding: 2px;
     font-size: 12px;
   }
 
-  .Festudiante .btnCp{
+  .Festudianteh .btnCp{
     width: 100%;
     
     margin-bottom: 3px;
   }
-  .Festudiante select {
+  .Festudianteh select {
     width: 100%;
     font-size: 12px;
     padding: 2px;
   }
 
   
-.Festudiante .estado {
+.Festudianteh .estado {
   width: 30%;
   display: inline-block;
   font-weight: bold;
@@ -301,27 +237,13 @@ width: 85%;
   margin-left: 3px; /* Mueve el h5 hacia la derecha */
 }
 
-.Festudiante button {
+.Festudianteh button {
   padding: 6px 15px;
   margin-bottom: 39px;
   margin-left: 1%;
   border-radius: 5px;
   cursor: pointer;
 }
-
-
-.Festudiante .button-afirmar {
-  
-  padding: 4px 10px;
- margin-bottom: 2%;
-}
-
-.Festudiante .button-cancelare {
-  padding: 4px 7px;
-  
-}
-
-
 
 
 }

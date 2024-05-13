@@ -37,7 +37,7 @@ const estado_tramite = () => {
       },
     })
     .then((response) => {
-      console.log(response.data.data);
+      
       setEstadoTramite(response.data.data);
     })
     .catch((error) => {

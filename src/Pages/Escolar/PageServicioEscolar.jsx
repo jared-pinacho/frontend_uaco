@@ -58,9 +58,9 @@ export const PageServicioEscolar = ({dato}) => {
     <div className="estudiantesPage">
       <div className="contenidoDinamico"></div>
  
-      <div className="barraBusqueda">
+      <div className="barraBusquedas">
         {isLoading ? (
-          <div className="cargando">Obteniendo datos, por favor espere...</div>
+          <div className="cargandos">Obteniendo datos, por favor espere...</div>
         ) : null}
       </div>
 

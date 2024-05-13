@@ -5,6 +5,13 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import logo from "../../assets/img/logoUACO.png";
 import { saveAs } from 'file-saver';
+import axios from "axios";
+import Cookies from "js-cookie";
+import { URL_API } from "../../Services/Const";
+import { VentanaRevisar } from "../VentanaRevisar/VentanaRevisar";
+import { VentanaPresentacion } from "../VentanaRevisar/VentanaPresentacion";
+import { VentanaAceptacion } from "../VentanaRevisar/VentanaAceptacion";
+
 
 // Configuración de las fuentes necesarias para pdfmake
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -15,8 +22,16 @@ export const Escolar = ({informacion}) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const [dateTime, setDateTime] = useState(new Date());
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [visible, setVisible] = useState(0);
+  const apiUrl = URL_API;
+  const token = Cookies.get("tok");
+  const [mostrarBoton, setMostrarBoton] = useState(true);
+  const [mostrarComponente, setMostrarComponente] = useState(false);
+  const [mostrarBoton2, setMostrarBoton2] = useState(true);
+  const [mostrarComponente2, setMostrarComponente2] = useState(false);
+  const [matricula, setMatricula] = useState(true);
+  const [visible2, setVisible2] = useState(0);
 
-   
 
   const [formData, setFormData] = useState({
    nombre_dep: "",
@@ -37,10 +52,12 @@ export const Escolar = ({informacion}) => {
    actividad:"",
    fecha_inicio:"",
    fecha_final:"",
-   horas:""
-
-
-   
+   horas:"",
+   estado_pres:"",
+   estado_acep:"",
+   carta_pres:"",
+   carta_acep:"",
+   comentario_pres:"",
   });
 
 
@@ -48,33 +65,42 @@ export const Escolar = ({informacion}) => {
 
 
   useEffect(() => {
+    if (informacion) {
       setFormData({
-       nombre_dep: informacion.servicio.nombre_dep || "",
-       cuc_calle: informacion.cuc.direccion.calle || "", 
-       cuc_numEx: informacion.cuc.direccion.num_exterior || "", 
-       cuc_colonia: informacion.cuc.direccion.colonia.nombre || "",
-       cuc_municipio: informacion.cuc.direccion.colonia.municipio.nombre || "",
-       cuc_estado: informacion.cuc.direccion.colonia.municipio.estado.nombre || "",
-       grado_tit: informacion.servicio.grado_tit || "",
-       titular: informacion.servicio.titular_dep || "",
-       cargo_tit: informacion.servicio.cargo_tit || "",
-       consejero:obtenerNombreCompleto(informacion) ||"",
-       sexo_con:informacion.consejero.sexo || "",
-       sexo_est:informacion.estudiante.sexo || "",
-       cuc_nombre:informacion.cuc.nombre.substring(6) || "",
-       estudiante:nombreCompleto(informacion).toUpperCase() ||"",
-       matricula:informacion.estudiante.matricula || "",
-       carrera:informacion.carrera || "",
-       proyecto:informacion.servicio.programa || "",
-       responsable:informacion.servicio.responsable || "",
-       actividad:informacion.servicio.actividad || "",
-       fecha_inicio:informacion.servicio.fecha_ini || "",
-       fecha_final:informacion.servicio.fecha_fin || "",
-       horas:informacion.servicio.horas || "",
-       cuc_cp:informacion.cuc.direccion.colonia.id_cp || ""
+        nombre_dep: informacion.servicio?.nombre_dep || "",
+        cuc_calle: informacion.cuc?.direccion?.calle || "", 
+        cuc_numEx: informacion.cuc?.direccion?.num_exterior || "", 
+        cuc_colonia: informacion.cuc?.direccion?.colonia?.nombre || "",
+        cuc_municipio: informacion.cuc?.direccion?.colonia?.municipio?.nombre || "",
+        cuc_estado: informacion.cuc?.direccion?.colonia?.municipio?.estado?.nombre || "",
+        grado_tit: informacion.servicio?.grado_tit || "",
+        titular: informacion.servicio?.titular_dep || "",
+        cargo_tit: informacion.servicio?.cargo_tit || "",
+        consejero: obtenerNombreCompleto(informacion) || "",
+        sexo_con: informacion.consejero?.sexo || "",
+        sexo_est: informacion.estudiante?.sexo || "",
+        cuc_nombre: informacion.cuc?.nombre?.substring(6) || "",
+        estudiante: nombreCompleto(informacion)?.toUpperCase() || "",
+        matricula: informacion.estudiante?.matricula || "",
+        carrera: informacion.carrera || "",
+        proyecto: informacion.servicio?.programa || "",
+        responsable: informacion.servicio?.responsable || "",
+        actividad: informacion.servicio?.actividad || "",
+        fecha_inicio: informacion.servicio?.fecha_ini || "",
+        fecha_final: informacion.servicio?.fecha_fin || "",
+        horas: informacion.servicio?.horas || "",
+        cuc_cp: informacion.cuc?.direccion?.colonia?.id_cp || "",
+        estado_pres: informacion.faseUno?.pres_estado || "",
+        carta_pres: informacion.faseUno?.carta_presentacion || "",
+        carta_acep: informacion.faseUno?.carta_aceptacion || "",
+        comentario_pres: informacion.faseUno?.com_pres || "",
+        estado_acep: informacion.faseUno?.acep_estado || "",
       });
-    
-  }, []);
+      setVisible(informacion.faseUno?.pres_estado);
+      setMatricula(informacion.estudiante?.matricula);
+      setVisible2(informacion.faseUno?.acep_estado);
+    }
+  }, [informacion]);
 
 
   useEffect(() => {
@@ -101,6 +127,76 @@ export const Escolar = ({informacion}) => {
  };
 
 
+ const handleMostrarBoton = () => {
+  setMostrarBoton(false); // Establece el estado para mostrar el componente
+};
+
+const handleMostrarComponente = () => {
+  setMostrarComponente(true); // Establece el estado para mostrar el componente
+};
+
+
+
+const handleMostrarBoton2 = () => {
+  setMostrarBoton2(false); // Establece el estado para mostrar el componente
+};
+
+const handleMostrarComponente2 = () => {
+  setMostrarComponente2(true); // Establece el estado para mostrar el componente
+};
+
+
+
+
+const cambiarEstado = (estado) => {
+  axios
+    .patch(
+      `${apiUrl}cambio/estado/presentacion/${informacion.estudiante.matricula}/${estado}`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    .then((response) => {
+      console.log('actualizado a enviado');
+
+    })
+    .catch((error) => {
+     
+      console.error('Error al activar el enviado:', error);
+    });
+};
+
+
+
+
+const cambiarEstadoAceptacion = (estado) => {
+  axios
+    .patch(
+      `${apiUrl}cambio/estado/aceptacion/${informacion.estudiante.matricula}/${estado}`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    .then((response) => {
+      console.log('actualizado a enviado');
+
+    })
+    .catch((error) => {
+     
+      console.error('Error al activar el enviado:', error);
+    });
+};
+
+
+
+
+
  const loadImageAsBase64 = (imageUrl, callback) => {
   const img = new Image();
   img.onload = () => {
@@ -115,6 +211,33 @@ export const Escolar = ({informacion}) => {
   img.src = imageUrl;
 };
  
+
+const descargarArchivo = (nombreArchivo) => {
+  axios.get(`${apiUrl}archivos/${nombreArchivo}`, {
+    headers: {
+      Authorization: `Bearer ${token}`   
+    },
+    responseType: 'arraybuffer'
+  })
+  .then(response => {
+    const blob = new Blob([response.data], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
+
+    if (windowWidth < 769 || windowWidth === 1024 || windowWidth === 1440 ) { 
+
+      saveAs(blob);
+
+    }else{
+      setPdfUrl(url);
+      setModalIsOpen(true); 
+    }
+
+  })
+  .catch(error => {
+    console.error('Error al descargar el archivo:', error);
+  });
+};
+
 
 
   const generarSolicitud = () => {
@@ -139,8 +262,6 @@ export const Escolar = ({informacion}) => {
    }
 
 
-
-   
    if(formData.sexo_est === "H"){
     articulo_estudiante="el";
     articulo_may="El";
@@ -152,6 +273,9 @@ export const Escolar = ({informacion}) => {
 
   
     let formattedDate = dateTime.toLocaleDateString(undefined, options);
+    let fechainicio = new Date(formData.fecha_inicio).toLocaleDateString('es-MX');
+    let fechafinal = new Date(formData.fecha_final).toLocaleDateString('es-MX');
+
   
 const documentDefinition = {
   content: [
@@ -171,7 +295,7 @@ const documentDefinition = {
  { text: '|', margin: [151,-11, 0, 0],bold:false,color:"#135585" ,fontSize:33},
 
  
- { text: `${formData.cuc_nombre}`, margin: [162,-60, 250, 0],bold:false,color:"#135585" ,fontSize:11},
+ { text: `${formData.cuc_nombre}`, margin: [162,-60, 200, 0],bold:false,color:"#135585" ,fontSize:11},
 
     // Encabezado con dirección y fecha
     { text: `${formData.cuc_colonia}, ${formData.cuc_municipio}, ${formData.cuc_estado} a ${formattedDate}`, style: 'header' },
@@ -206,9 +330,9 @@ const documentDefinition = {
         { text: `La supervisión directa estará a cargo de ${formData.responsable}`, style: 'parrafo' },
         { text: ` realizando las siguientes actividades: ${formData.actividad}.\n`, style: 'parrafo' },
         { text: `Asimismo, le informo que las fechas de Servicio Social comprenden desde`, style: 'parrafo' },
-        { text: ` ${formData.fecha_inicio}`, style: 'parrafoBold' },
+        { text: ` ${fechainicio}`, style: 'parrafoBold' },
         { text: ` al `, style: 'parrafo' },
-        { text: ` ${formData.fecha_final}`, style: 'parrafoBold' },
+        { text: ` ${fechafinal}`, style: 'parrafoBold' },
         { text: ` cubriendo un total de `, style: 'parrafo' },
         { text: ` ${formData.horas}`, style: 'parrafoBold' },
         { text: ` horas.\n\n\n `, style: 'parrafo' },
@@ -225,21 +349,23 @@ const documentDefinition = {
     { text:  `${consejer} `, style: 'con' },
 
     {canvas: [ {
+      position: 'absolute',
           type: 'rect',
           x: 0,
-          y: 70,
+          y: 65,
           w: 72, // Ancho del rectángulo
-          h: 37, // Alto del rectángulo
+          h: 45, // Alto del rectángulo
           color: '#135585', // Color de fondo del rectángulo
         },  ],},
 
     {
       text: 'UACO',
       bold: true, // Negrita estándar
+     
       color: 'white', // Color del texto
       fontSize: 25,
       alignment: 'left', // Alineación del texto
-      absolutePosition: { x: 44, y: 726 }, // Posición absoluta para centrar verticalmente en el rectángulo
+      absolutePosition: { x: 44, y: 710 }, // Posición absoluta para centrar verticalmente en el rectángulo
       width: 100, // Ancho del texto igual al ancho del rectángulo
       height: 30, // Alto del texto igual al alto del rectángulo
     },
@@ -250,7 +376,7 @@ const documentDefinition = {
       fontSize: 8.5,
       alignment: 'left', // Alineación del texto
      
-      margin: [76,-38, 350, 0]// Margen [left, top, right, bottom]
+      margin: [76,-38, 330, 4]// Margen [left, top, right, bottom]
     },
     {
       text: `UACO-${formData.cuc_nombre}`,
@@ -259,7 +385,7 @@ const documentDefinition = {
       fontSize: 8,
       alignment: 'left', // Alineación del texto
      
-      margin: [0,2, 260, 0]// Margen [left, top, right, bottom]
+      margin: [0,5, 260, 0]// Margen [left, top, right, bottom]
     },
 
     {
@@ -388,39 +514,197 @@ const documentDefinition = {
           {pdfUrl && (
             <iframe title="Visor de PDF" width="100%" height="600" src={pdfUrl} />
           )}
-          <button className="calificar" onClick={closeModal}>
+          <button className="cale" onClick={closeModal}>
             Cerrar
           </button>
         </Modal>
 
+        {visible===0  && (
+        <div className="ggx">
+          
+          <label className="estado-0">Estado: Archivo no enviado </label>
+
+      </div> )}
+
+
+      {visible===1  && (
+
         <div className="gg">
           <label className="archivo">Archivo subido: </label>
           <input type="text"
-        />
-          <button className="ver">Ver</button>
+          value={formData.carta_pres}
+          disabled
+          />
+          <button className="ver" onClick={() => descargarArchivo(formData.carta_pres)} >Ver</button>
         
-          <div className="acciones">
-           <label className="es">Estado: </label>
-            <button className="cal">Aceptar</button>
-            <button className="calificar-no">Rechazar</button>
-          </div>
-        </div>
-      </div>
+          {!mostrarComponente && mostrarBoton && (
 
+          <div className="acciones">
+            <button 
+             onClick={() => {
+              cambiarEstado(2);
+              handleMostrarBoton();
+             }}
+
+            className="cal">Aceptar</button>
+            <button 
+            
+            onClick={()=> {
+              handleMostrarComponente();
+              cambiarEstado(3);          
+             }}
+            
+            className="calificar-no">Rechazar</button>
+          </div>
+          )}
+
+
+{!mostrarComponente && !mostrarBoton && (
+  <label className="estado-2-revisado">Archivo aprobado</label>
+)}
+
+
+{mostrarComponente && <VentanaPresentacion
+             
+             matricula={matricula}
+             
+             />}
+
+        </div> )}
+
+
+
+        {visible===2  && (
+        <div className="gg-2">
+        <label className="archivo-2">Archivo subido: </label>
+        <input type="text"
+        value={formData.carta_pres}
+        disabled
+        />
+        <button className="ver-2" onClick={() => descargarArchivo(formData.carta_pres)} >Ver</button>
+        <div> 
+        <label className="estado-2">Archivo revisado y aprobado </label>
+
+        </div>
+       
+        </div> )}
+      
+
+
+        {visible===3  && (
+        <div className="gg-2">
+        <label className="archivo-2">Archivo subido: </label>
+        <input type="text"
+        value={formData.carta_pres}
+        disabled
+        />
+        <button className="ver-2" onClick={() => descargarArchivo(formData.carta_pres)} >Ver</button>
+        <div> 
+        <label className="estado-3">Archivo revisado no aprobado </label>
+
+        </div>
+       
+        </div> )}
+
+
+        
+
+
+      </div>
+   
       <div className="contenedor">
         <label className="titulo-contenedor2">Carta de aceptación</label>
 
-        <div className="gg2">
-          <label className="archivo">Archivo subido: </label>
-          <input type="text" />
-          <button className="ver">Ver</button>
+        {visible2===0  && (
+        <div className="ggx">
+          
+          <label className="estado-0">Estado: Archivo no enviado </label>
+
+      </div> )}
         
-          <div className="acciones">
-           <label className="es">Estado: </label>
-            <button className="cal">Aceptar</button>
-            <button className="calificar-no">Rechazar</button>
-          </div>
+
+     
+      {visible2===1  && (
+
+<div className="gg">
+  <label className="archivo">Archivo subido: </label>
+  <input type="text"
+  value={formData.carta_acep}
+  disabled
+  />
+  <button className="ver" onClick={() => descargarArchivo(formData.carta_acep)} >Ver</button>
+
+  {!mostrarComponente2 && mostrarBoton2 && (
+
+  <div className="acciones">
+    <button 
+     onClick={() => {
+      cambiarEstadoAceptacion(2);
+      handleMostrarBoton2();
+     }}
+
+    className="cal">Aceptar</button>
+    <button 
+    
+    onClick={()=> {
+      handleMostrarComponente2();
+      cambiarEstadoAceptacion(3);          
+     }}
+    
+    className="calificar-no">Rechazar</button>
+  </div>
+  )}
+
+
+{!mostrarComponente2 && !mostrarBoton2 && (
+<label className="estado-2-revisado">Archivo aprobado</label>
+)}
+
+
+{mostrarComponente2 && <VentanaAceptacion
+     
+     matricula={matricula}
+     
+     />}
+
+</div> )}
+
+
+
+
+{visible2===2  && (
+        <div className="gg-2">
+        <label className="archivo-2">Archivo subido: </label>
+        <input type="text"
+        value={formData.carta_acep}
+        disabled
+        />
+        <button className="ver-2" onClick={() => descargarArchivo(formData.carta_acep)} >Ver</button>
+        <div> 
+        <label className="estado-2">Archivo revisado y aprobado </label>
+
         </div>
+       
+        </div> )}
+
+
+        {visible2===3  && (
+        <div className="gg-2">
+        <label className="archivo-2">Archivo subido: </label>
+        <input type="text"
+        value={formData.carta_acep}
+        disabled
+        />
+        <button className="ver-2" onClick={() => descargarArchivo(formData.carta_acep)} >Ver</button>
+        <div> 
+        <label className="estado-3">Archivo revisado no aprobado </label>
+
+        </div>
+       
+        </div> )}
+
+
+
 
       </div>
     </div>

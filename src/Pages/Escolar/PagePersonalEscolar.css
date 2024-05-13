@@ -45,6 +45,21 @@
     
 }
 
+.PagePersonalEscolar .barraBusquedas {
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+}
+.cargandos{
+    font-weight: bold;
+    color: rgb(226, 55, 43);
+    font-size: 20px;
+    margin-top: -62%;
+    margin-bottom: 3%;
+}
+
+
+
 .cargando{
     font-weight: bold;
     color: red;
@@ -53,12 +68,73 @@
     margin-bottom: 1%;
 }
 
-@media (max-width: 768px) {
+
+
+
+
+
+
+
+
+
+@media (min-width: 1024px) and (max-width: 1028px) {
+
+    .cargandos{
+      
+        margin-top: -102%;
+       
+    }
+
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
     .PagePersonalEscolar {
         padding: 5px;
     }
     .cargando{ 
         font-size: 14px;
     }
+
+
+    .cargandos{
+        font-weight: bold;
+        color: rgb(226, 55, 43);
+        font-size: 15px;
+        margin-top: -550px;
+        margin-bottom: 0%;
+    }
+
+
+    .PagePersonalEscolar.contenidoDinamico {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+
+}
+
+
+
+
+@media (max-width: 426px) {
+    .PagePersonalEscolar {
+        padding: 5px;
+    }
+    .cargando{ 
+        font-size: 14px;
+    }
+
+
+    .cargandos{
+        font-weight: bold;
+        color: rgb(226, 55, 43);
+        font-size: 12px;
+        margin-top: -565px;
+        margin-bottom: 50%;
+    }
+
+
+    
 
 }

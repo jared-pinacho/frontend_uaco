@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
-import "../BarraFases/BarraStyloEscolar.css";
+import "../BarraFases/BarraStylo.css";
 import { TramiteServicio } from "../../Pages/Estudiante/TramiteServicio";
 import { Contenido } from "../Contenido/Contenido";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 const MY_AUTH_APP = "DoFA45-M0pri";
 import axios from "axios";
+import { FaseUnoEstudiante } from '../../Components/FaseUno/FaseUnoEstudiante';
+
+
 
 export const UpSideBar = ({estadoTramite}) => {
+  const [informacion, setInformacion] = useState(null);
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
   const [componenteActivo, setComponenteActivo] = useState(null);
@@ -19,6 +23,32 @@ export const UpSideBar = ({estadoTramite}) => {
 
 
 
+
+  const obtenerInformacio = () => {
+    axios.get(`${apiUrl}obten/info/general/propia/est`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setInformacion(response.data.data);
+   
+      })
+      .catch((error) => {
+        console.error("Error al obtener los datos:", error);
+      });
+  };
+
+  useEffect(()=>{
+
+    obtenerInformacio();
+    
+},[]);
+
+
+
+
+
   // Función auxiliar para renderizar el componente activo
   const renderComponenteActivo = () => {
     switch (componenteActivo) {
@@ -26,7 +56,7 @@ export const UpSideBar = ({estadoTramite}) => {
         return <TramiteServicio />;
 
       case "momentoUno":
-        return <Contenido/>;
+        return <FaseUnoEstudiante informacion={informacion} />;
 
       case "momentoDos":
         return <Contenido />;
@@ -45,9 +75,9 @@ export const UpSideBar = ({estadoTramite}) => {
 
   return (
     <>
-      <div className="sidebaro-containero">
-        <div className="sidebaro">
-          <div className="encabezadi">
+      <div className="sidebaro-containerov">
+        <div className="sidebarov">
+          <div className="encabezadiv">
 
 
             <div
@@ -68,10 +98,10 @@ export const UpSideBar = ({estadoTramite}) => {
             <div
               className={`itemo ${
                 componenteActivo === "momentoUno"  ? "activo" : ""}`}
-                onClick={estadoTramite === "Información de servicio"  ? () => handleClick("momentoUno") : null}
+                onClick={estadoTramite === "Información de servicio" || estadoTramite === "Inicio de servicio"  ? () => handleClick("momentoUno") : null}
                 style={{
                   // Aplicar estilos condicionales para cursor y otras propiedades CSS
-                  ...(estadoTramite === "Información de servicio"
+                  ...(estadoTramite === "Información de servicio" || estadoTramite === "Inicio de servicio"
                     ? { cursor: 'pointer', opacity: 1, backgroundColor: '#ffffff', color: '#333333' }
                     : { cursor: 'not-allowed', opacity: 0.5, backgroundColor: '#f2f2f2', color: '#999999' }),
                   // Otros estilos existentes o adicionales según sea necesario
@@ -81,7 +111,7 @@ export const UpSideBar = ({estadoTramite}) => {
                 className={`texto-opciono ${componenteActivo === "momentoUno"  ? "activo": ""  }`} 
                 
                 >
-                MOMENTO 1
+                INICIO DE SERVICIO
               </span>
             </div>
 
@@ -91,15 +121,15 @@ export const UpSideBar = ({estadoTramite}) => {
             <div
               className={`itemo ${
                 componenteActivo === "momentoDos"  ? "activo" : ""}`}
-                onClick={estadoTramite === "Momento 1"  ? () => handleClick("momentoDos") : null}
+                onClick={estadoTramite === "Inicio de servicio"  ? () => handleClick("momentoDos") : null}
                 style={{          
-                  ...(estadoTramite === "Momento 1"
+                  ...(estadoTramite === "Inicio de servicio"
                     ? { cursor: 'pointer', opacity: 1, backgroundColor: '#ffffff', color: '#333333' }
                     : { cursor: 'not-allowed', opacity: 0.5, backgroundColor: '#f2f2f2', color: '#999999' }),}}
               >
               <span
                 className={`texto-opciono ${componenteActivo === "momentoDos"  ? "activo": ""  }`}  >
-                MOMENTO 2
+                INFORME BIMESTRAL 1
               </span>
             </div>
 
@@ -116,7 +146,7 @@ export const UpSideBar = ({estadoTramite}) => {
               >
               <span
                 className={`texto-opciono ${componenteActivo === "momentoTres"  ? "activo": ""  }`}  >
-                MOMENTO 3
+                REPORTE BIMESTRAL 2
               </span>
             </div>
 
@@ -133,7 +163,7 @@ export const UpSideBar = ({estadoTramite}) => {
               >
               <span
                 className={`texto-opciono ${componenteActivo === "momentoCuatro"  ? "activo": ""  }`}  >
-                MOMENTO 4
+                INFORME BIMESTRAL 3
               </span>
             </div>
 
@@ -150,7 +180,7 @@ export const UpSideBar = ({estadoTramite}) => {
               >
               <span
                 className={`texto-opciono ${componenteActivo === "momentoCinco"  ? "activo": ""  }`}  >
-                MOMENTO 5
+               CARTA DE TERMINACIÓN
               </span>
             </div>
 
@@ -168,7 +198,7 @@ export const UpSideBar = ({estadoTramite}) => {
               >
               <span
                 className={`texto-opciono ${componenteActivo === "momentoFinal"  ? "activo": ""  }`}  >
-                MOMENTO FINAL
+                CONSTACIA DE LIBERACIÓN
               </span>
             </div>
 

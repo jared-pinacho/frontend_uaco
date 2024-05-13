@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Estudiante/InfoPersonal.css";
 import axios from "axios";
-import { BarraBusquedaC } from "../../Components/BarraBusquedaC/BarraBusquedaC";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";

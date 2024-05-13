@@ -5,25 +5,26 @@ import { UpSideBarEscolar } from '../BarraFases/UpSideBarEscolar '
 import { PagePersonalEscolar } from '../../Pages/Escolar/PagePersonalEscolar'
 import '../TramiteServicio/PanelTramite.css'
 
-export const PanelTramite = ({estudiante}) => {
-    const queryString = window.location.search;
-    const [dataReceived, setDataReceived] = useState(null);
- 
-// Eliminar el signo de interrogación '?' del inicio de la cadena de consulta
-const queryStringWithoutQuestionMark = queryString.slice(1);
-
-// Separar el valor del parámetro (antes del último '=')
-const dato = queryStringWithoutQuestionMark.split('=')[0];
+export const PanelTramite = ({dato,onBack,estado}) => {
 
   return (
    
     <div className='panel'>
+
+<button className="regresa" onClick={onBack}>&lt;----</button>
       <UpSideBarEscolar
     dato={dato}
+    estado={estado}
     />
-  <PagePersonalEscolar
+
+  {/* { <PagePersonalEscolar
   dato={dato}
-  />
+  /> } */}
+
+
+
+
+
 
     </div>
    

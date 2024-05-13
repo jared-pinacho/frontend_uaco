@@ -61,12 +61,12 @@ export const VentanaRevisarSocial = ( {matricula}) => {
           rows='2'
           onChange={(event) => setTexto(event.target.value)}
         ></textarea>
-        <button onClick={handleButtonClick}>Enviar</button>
+        <button className='button-enviar' onClick={handleButtonClick}>Enviar</button>
       </div>
     ) : (
       <div>
         {/* Etiqueta o mensaje que se muestra después de enviar el comentario */}
-        <label>Información revisada</label>
+        <label  className='label' >Información revisada</label>
         {/* Puedes agregar más contenido aquí según tus necesidades */}
       </div>
     )}

@@ -5,13 +5,15 @@
     background-color: #E0E0E0;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow: hidden;
+   
 }
 
 .estudiantesPage .contenidoDinamico {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    overflow: hidden;
 }
 
 .estudiantesPage .BtnOpciones {
@@ -49,13 +51,85 @@
     font-size: 20px;
 }
 
-@media (max-width: 768px) {
+
+
+.Page {
+   
+    /* Hace que el contenido principal ocupe todo el espacio restante */
+    padding: 20px;
+    background-color: #E0E0E0;
+   height: 150vh;
+   
+    overflow: hidden;
+   
+}
+
+.Page .Dinamico {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    overflow: hidden;
+}
+
+.Page .BtnOpciones {
+    align-items: center;
+    padding-left: 0px;
+    /* Agrega espacio interno si es necesario */
+    margin-top: 10px;
+
+}
+
+.Page .barraBusqueda {
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+}
+
+.Page .tituloEstudiantes {
+    align-items: center;
+    padding-left: 0px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 8px #9dc5c2;
+    color: #135a7a;
+}
+
+
+
+
+@media (min-width: 426px) and (max-width: 768px) {
+
+
     .estudiantesPage {
         padding: 5px;
     }
     .cargando{ 
         font-size: 14px;
     }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
     
+
+
+    .Page {
+        padding: 5px;
+    }
+
+
+    
+
+
 
 }

@@ -731,7 +731,7 @@ export const EscolarSocial = ({
            }
           }
            
-           className="button-cancelar">Rechazar</button>
+           className="button-cancelare">Rechazar</button>
             
       <button 
            onClick={() => {

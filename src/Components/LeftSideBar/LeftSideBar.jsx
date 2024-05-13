@@ -55,12 +55,13 @@ export const LeftSideBar = () => {
         },
       })
       .then((response) => {
-      //  console.log(response.data.data);
+        // Manejar la respuesta exitosa aquí
         setEstado(response.data.data);
         setIsLoading(false);
       })
       .catch((error) => {
-       // console.error("Error al obtener los datos", error);
+        // No hacer nada en caso de error para evitar imprimir en la consola
+        // El error se maneja silenciosamente aquí
       });
   };
 
@@ -73,7 +74,10 @@ export const LeftSideBar = () => {
   };
 
   useEffect(() => {
-   obtenerEstatusServicio();
+
+      obtenerEstatusServicio();
+   
+   
   }, [token]); // Se ejecuta cada que el usuario que inicie sesion cambie
 
   const toggleSidebar = () => {
@@ -430,7 +434,7 @@ export const LeftSideBar = () => {
                         >
                           <div className="subitem">
                             <span className="texto-subopcion">
-                              Preestadores foráneos
+                              Prestadores foráneos
                             </span>
                           </div>
                         </NavLink>

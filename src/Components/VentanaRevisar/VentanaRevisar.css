@@ -7,7 +7,7 @@
 }
 
 
-.VentanaRevisar label {
+.VentanaRevisar .label {
   background-color: #9dc5c2;
   color: #135a7a;
   font-size: bold;
@@ -26,7 +26,7 @@
   margin-left: 71%;
 }
 
-.VentanaRevisar button {
+.VentanaRevisar .button-enviar {
   background-color: #135a7a;
   color: #fff;
   padding: 1% 5%;
@@ -49,7 +49,7 @@
   }
  
   
-  .VentanaRevisar button {
+  .VentanaRevisar .button-enviar {
     background-color: #135a7a;
     color: #fff;
     padding: 4px 10px;

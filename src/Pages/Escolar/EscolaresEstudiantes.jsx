@@ -16,7 +16,8 @@ export const EscolaresEstudiantes = () => {
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
   const [isLoading, setIsLoading] = useState(true);
-  
+  const [botonesVisibles, setBotonesVisibles] = useState(true); // Inicialmente visibles
+
   
   //   const [documentos,setDocumentos]=useState([]);
   const obtenerEstudiantes = () => {
@@ -161,37 +162,37 @@ export const EscolaresEstudiantes = () => {
 
   
   return (
-    <div className="estudiantesPage">
-    <div className="contenidoDinamico">
+    <div className="Page">
+    <div className="Dinamico">
       <div className="tituloEstudiantes">
-        <h1>Estudiantes preestadores de servicio</h1>
+        <h1>Estudiantes prestadores de servicio</h1>
       </div>
+      
+      {botonesVisibles && (
         <div className="BtnOpciones">
-          <BotonCRUD
-            modoActual={modo}
-            modo="tabla"
-            texto="Tabla"
-            cambiarModo={cambiarModo}
-          />
-          <BotonCRUD
-            modoActual={modo}
-            modo="activar"
-            texto="Activar"
-            cambiarModo={cambiarModo}
-          />
-          <BotonCRUD
-            modoActual={modo}
-            modo="cancelar"
-            texto="Cancelar"
-            cambiarModo={cambiarModo}
-          />
-          {/* <BotonCRUD
-                        modoActual={modo}
-                        modo="eliminar"
-                        texto="Eliminar"
-                        cambiarModo={cambiarModo}
-                    /> */}
+  <>
+    <BotonCRUD
+      modoActual={modo}
+      modo="tabla"
+      texto="Tabla"
+      cambiarModo={cambiarModo}
+    />
+    <BotonCRUD
+      modoActual={modo}
+      modo="activar"
+      texto="Activar"
+      cambiarModo={cambiarModo}
+    />
+    <BotonCRUD
+      modoActual={modo}
+      modo="cancelar"
+      texto="Cancelar"
+      cambiarModo={cambiarModo}
+    />
+  </>
+
         </div>
+        )}
         <div className="barraBusqueda">
            
         </div>
@@ -225,15 +226,14 @@ export const EscolaresEstudiantes = () => {
         )}
 
 
-
-
         {modo === "tabla" && (
           <>
             <div className="tablaEstudiante">
               <TablaEstudiantesServicio
                 estudiantes={estudiantes}
                 isLoading={isLoading}
-                
+                setBotonesVisibles={setBotonesVisibles}
+
               />
             </div>
           </>

@@ -1072,7 +1072,7 @@ export const FormInfoPersonal = ({
           />
         </div>
 
-        {estatus_envio === 0 || estatus_envio === 3 && (
+        {estatus_envio === 0 || estatus_envio === 3 || estatus_envio === 1 && (
           <div>
             <button
               // onClick={prepararDatosAEnviar}

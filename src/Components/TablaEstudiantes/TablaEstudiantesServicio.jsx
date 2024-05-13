@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../TablaEstudiantes/TablaEstudiantes.css";
 import Loader from "../Loader/Loader";
-import { useState } from 'react';
-
-
-
+import { PanelTramite } from '../TramiteServicio/PanelTramite';
 
 export const TablaEstudiantesServicio = ({
   estudiantes,
   isLoading,
+  setBotonesVisibles
 }) => {
   const [filtro, setFiltro] = useState("");
   const [datoAPasar, setDatoAPasar] = useState(null);
-  
+  const [estado, setEstado] = useState(null);
+
   const filasFiltradas = estudiantes.filter((estudiante) => {
     const termino = filtro.toLowerCase();
     const nombreCompleto = `${estudiante.nombre} ${estudiante.apellido_paterno} ${estudiante.apellido_materno}`.toLowerCase();
@@ -27,84 +26,90 @@ export const TablaEstudiantesServicio = ({
     );
   });
 
-  function redirectTo(url, data) {
-    const queryString = new URLSearchParams(data).toString();
-    const fullUrl = `${url}?${queryString}`;
-   
-    window.location.href = fullUrl;
-  }
-  
-let estatus= "";
+  const handleButtonClick = (matricula,estado) => {
+    // Aquí podrías realizar alguna lógica adicional si es necesario con el dato de matrícula
+    setDatoAPasar(matricula);
+    setEstado(estado);
+    setBotonesVisibles(false); // Oculta los botones
 
-  const handleButtonClick = (mat) => {
-    // Datos que deseas pasar al siguiente componente
-    const dataToSend = mat;
-    redirectTo('/escolarInfoPersonal', dataToSend);
   };
 
+  const handleBackToTable = () => {
+    // Función para limpiar el estado datoAPasar y volver a mostrar la tabla de estudiantes
+    setDatoAPasar(null);
+    setBotonesVisibles(true); // Oculta los botones
 
+  };
 
+  const renderComponent = () => {
+    if (datoAPasar) {
+      // Si datoAPasar tiene un valor (matrícula), renderiza el componente PanelTramite
+      return (
+        <PanelTramite
+          dato={datoAPasar}
+          estado={estado}
+          onBack={handleBackToTable} // Pasa la función de regreso como prop a PanelTramite
 
- 
-  
-  const filas = filasFiltradas.map((estudiante, index) => (
-    <tr
-      key={index}
-    >
-      <td>{estudiante.matricula}</td>
-      <td>{estudiante.nombre}</td>
-      <td>{estudiante.apellido_paterno}</td>
-      <td>{estudiante.apellido_materno}</td>
-      <td>{estudiante.usuario.email}</td>
-      <td>{estudiante.telefono}</td>
-      <td>{estudiante.estado_tramite}</td>
-      <td>
-        <button
-        //to="/homePage"
-          className="btnDoc"
-          id={estudiante.matricula}
-          onClick={() => handleButtonClick(estudiante.matricula)}
-        >
-          Ingresar
-        </button>
-      </td>
-    </tr>
-  ));
+          />
+      );
+    } else {
+      // Si datoAPasar es null, renderiza la tabla de estudiantes
+      return (
+        <div className="table-responsive contenedorTablaEstudiantes">
+          <input
+            className="campoBusqueda"
+            type="text"
+            placeholder="Buscar..."
+            value={filtro}
+            onChange={(e) => setFiltro(e.target.value)}
+          />
+          <table className="table-responsive table tablita">
+            <thead>
+              <tr>
+                <th>Matrícula</th>
+                <th>Nombre</th>
+                <th>Apellido paterno</th>
+                <th>Apellido materno</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                <th>Momento aprobado</th>
+                <th>Perfil</th>
+              </tr>
+            </thead>
+            <tbody>
+              {isLoading ? (
+                <tr>
+                  <td colSpan="8">
+                    <Loader />
+                  </td>
+                </tr>
+              ) : (
+                filasFiltradas.map((estudiante, index) => (
+                  <tr key={index}>
+                    <td>{estudiante.matricula}</td>
+                    <td>{estudiante.nombre}</td>
+                    <td>{estudiante.apellido_paterno}</td>
+                    <td>{estudiante.apellido_materno}</td>
+                    <td>{estudiante.usuario.email}</td>
+                    <td>{estudiante.telefono}</td>
+                    <td>{estudiante.estado_tramite}</td>
+                    <td>
+                      <button
+                        className="btnDoc"
+                        onClick={() => handleButtonClick(estudiante.matricula,estudiante.estado_tramite)}
+                      >
+                        Ver
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+  };
 
-  return (
-    <div className="table-responsive contenedorTablaEstudiantes">
-      <input
-        className="campoBusqueda"
-        type="text"
-        placeholder="Buscar..."
-        value={filtro}
-        onChange={(e) => setFiltro(e.target.value)}
-      />
-      <table className="table-responsive table tablita">
-        <thead>
-          <tr>
-            <th>Matricula</th>
-            <th>Nombre</th>
-            <th>Apellido paterno</th>
-            <th>Apellido materno</th>
-            <th>Correo</th>
-            <th>Telefono</th>
-            <th>Momento aprobado</th>
-            <th>Perfil</th>
-          </tr>
-        </thead>
-        <tbody>
-          {isLoading ? (
-            <tr>
-              <td colSpan="25">
-                <Loader />
-              </td>
-            </tr>
-          ) : (
-            filas
-          )}
-        </tbody>
-      </table>
-    </div>
-  );
+  return renderComponent();
 };

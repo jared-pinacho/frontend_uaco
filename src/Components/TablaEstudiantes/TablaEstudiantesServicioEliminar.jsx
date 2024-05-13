@@ -58,6 +58,8 @@ export const TablaEstudiantesServicioEliminar = ({estudiantes,isLoading,eliminar
       <td>{estudiante.apellido_materno}</td>
       <td>{estudiante.usuario.email}</td>
       <td>{estudiante.telefono}</td>
+      <td>{estudiante.semestre}</td>
+      <td>{estudiante.creditos_acumulados}</td>
       <td>
         <button
           className="btnDoc"
@@ -87,7 +89,8 @@ export const TablaEstudiantesServicioEliminar = ({estudiantes,isLoading,eliminar
             <th>Apellido materno</th>
             <th>Correo</th>
             <th>Telefono</th>
-         
+            <th>Semestre</th>
+            <th>Creditos acumulados</th>
             <th>Cancelar servicio</th>
           </tr>
         </thead>

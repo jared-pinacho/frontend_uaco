@@ -1,4 +1,7 @@
-.EscolarPersonal {
+
+
+
+.EscolarPersonale {
     width: 100%;
     max-width: 800px;
     padding: 30px;
@@ -9,12 +12,12 @@
     background-color: #9dc5c2;
     height: 450%;
     margin-bottom: 0%;
-    margin-top: 4%;
+    margin-top: -59%;
   }
   
   
   
-  .EscolarPersonal label {
+  .EscolarPersonale label {
     width: 35%;
     display: inline-block;
     font-weight: bold;
@@ -27,7 +30,7 @@
   }
 
 
-  .EscolarPersonal .info {
+  .EscolarPersonale .info {
    
     width: 50%;
  
@@ -46,7 +49,7 @@ margin-left: 54%;
 
 }
   
-  .EscolarPersonal input[type="text"] {
+  .EscolarPersonale input[type="text"] {
     width: 50%;
     padding: 10px;
     margin-bottom: 15px;
@@ -59,7 +62,7 @@ margin-left: 54%;
     font-weight: bold;
   }
   
-  .EscolarPersonal select {
+  .EscolarPersonale select {
     width: 50%;
     padding: 10px;
     margin-bottom: 15px;
@@ -67,7 +70,7 @@ margin-left: 54%;
     border: 1px solid #ccc;
   }
   
-  .button-afirmar {
+  .EscolarPersonale .button-afirmar {
     background-color: #135a7a;
     color: #fff;
     padding: 8px 25px;
@@ -77,7 +80,7 @@ margin-left: 54%;
     
   }
 
-  .button-cancelar {
+  .EscolarPersonale .button-cancelare {
     background-color: #dd3131;
     color: #fff;
     padding: 8px 25px;
@@ -97,10 +100,16 @@ margin-left: 54%;
     margin-bottom: 5px;
   }
   
-  .EscolarPersonal utton:hover {
-    background-color: #0056b3;
+  .EscolarPersonale .button-cancelare:hover {
+    background-color: #b31b00;
   }
   
+
+  .EscolarPersonale .button-afirmar:hover {
+    background-color: #2e6aeb;
+  }
+
+
   .estudiantes {
     font-size: 18px;
     color: black;
@@ -111,7 +120,7 @@ margin-left: 54%;
     right: 200px; /* Mueve el h5 hacia la derecha */
   }
   
-  .EscolarPersonal .estado {
+  .EscolarPersonale .estado {
     width: 100%;
     display: inline-block;
     font-weight: bold;
@@ -127,7 +136,7 @@ margin-left: 54%;
   }
   
   
-  .EscolarPersonal .estado-actualizado {
+  .EscolarPersonale .estado-actualizado {
     width: 100%;
     display: inline-block;
     font-weight:bold;
@@ -142,101 +151,222 @@ margin-left: 54%;
   
   }
   
-  @media (max-width: 768px) {
-    /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
-    .EscolarPersonal {
-      width: 100%;
-      font-size: 14px;
-      overflow: scroll;
-      margin-top: 0%;
-      padding: 0px;
-    }
-  
-    .Festudiantes table {
-      max-width: 100px;
-      font-size: 6px;
-    }
-  
-    .EscolarPersonal label {
-      width: 100%;
-      /* Ocupar el ancho completo en pantallas pequeñas */
-      margin-bottom: 5px;
-      /* Espacio menor para pantallas pequeñas */
-      font-size: 12px;
-    }
-  
-    .EscolarPersonal input[type="text"],
-    .Festudiantes input[type="number"],
-    .Festudiantes input[type="date"] {
-      width: 100%;
-      padding: 2px;
-      font-size: 12px;
-    }
-  
+  @media (min-width: 1024px) and (max-width: 1028px) {
 
-.EscolarPersonal .info{
+    .EscolarPersonale {
+     
+      margin-top: -540px;
+     
+      
+    }
+  }
+
+
+
+
+  @media (min-width: 426px) and (max-width: 768px) {
+
+ /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
+ .EscolarPersonale {
   width: 100%;
-      padding: 2px;
-      font-size: 12px;
+  font-size: 14px;
+  overflow: scroll;
+  margin-top: -530px;
+  padding: 0px;
+  
 }
 
-    .Festudiantes .btnCp{
-      width: 100%;
-      
-      margin-top: 0;
-      margin-bottom: 3px;
-    }
-    .EscolarPersonal select {
-      width: 100%;
-      font-size: 12px;
-      padding: 2px;
-    }
+.Festudiantes table {
+  max-width: 100px;
+  font-size: 6px;
+}
+
+.EscolarPersonale label {
+  width: 100%;
+  /* Ocupar el ancho completo en pantallas pequeñas */
+  margin-bottom: 5px;
+  /* Espacio menor para pantallas pequeñas */
+  font-size: 12px;
+}
+
+.EscolarPersonale input[type="text"],
+.Festudiantes input[type="number"],
+.Festudiantes input[type="date"] {
+  width: 100%;
+  padding: 2px;
+  font-size: 12px;
+}
+
+
+.EscolarPersonale .info{
+width: 100%;
+  padding: 2px;
+  font-size: 12px;
+}
+
+.Festudiantes .btnCp{
+  width: 100%;
   
-    
-  .Festudiantes .estado {
-    width: 55%;
-    display: inline-block;
-    font-weight: bold;
-    font-size: 12px;
-    margin-bottom: 40px;
-    color: #135a7a;
-    padding: 5px;
-    position: relative; /* Establece posicionamiento relativo */
-    top: 3px; /* Mueve el h5 hacia arriba */
-    right: -16px; /* Mueve el h5 hacia la derecha */
-  
-  }
+  margin-top: 0;
+  margin-bottom: 3px;
+}
+.EscolarPersonale select {
+  width: 100%;
+  font-size: 12px;
+  padding: 2px;
+}
+
+
+.Festudiantes .estado {
+width: 55%;
+display: inline-block;
+font-weight: bold;
+font-size: 12px;
+margin-bottom: 40px;
+color: #135a7a;
+padding: 5px;
+position: relative; /* Establece posicionamiento relativo */
+top: 3px; /* Mueve el h5 hacia arriba */
+right: -16px; /* Mueve el h5 hacia la derecha */
+
+}
 
 
 
-  .EscolarPersonal .estado {
+.EscolarPersonale .estado {
 margin-bottom: 10%;
-    font-size: 12px;
-  }
+font-size: 12px;
+}
 
-  .EscolarPersonal .estado-actualizado {
+.EscolarPersonale .estado-actualizado {
 
-    font-size: medium;
-  }
+font-size: medium;
+}
 
 
-  .botones{
-    margin-left: 2%;
-    margin-bottom: 11%;
-    margin-top: 0%;
-    }
-      
-
-    .button-afirmar {
-      
-      padding: 4px 10px;
-     margin-bottom: 2%;
-    }
+.botones{
+margin-left: 2%;
+margin-bottom: 11%;
+margin-top: 0%;
+}
   
-    .button-cancelar {
-      padding: 4px 7px;
-      
-    }
+
+.EscolarPersonale .button-afirmar {
+  
+  padding: 4px 10px;
+ margin-bottom: 2%;
+}
+
+.EscolarPersonale .button-cancelare {
+  padding: 4px 7px;
+  
+}
+
+
+  }
+
+
+
+  @media (max-width: 426px) {
+   
+ /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
+ .EscolarPersonale {
+  width: 120%;
+  font-size: 14px;
+  overflow: scroll;
+  margin-top: -530px;
+  padding: 0px;
+  margin-left: -15px;
+  
+}
+
+.Festudiantes table {
+  max-width: 100px;
+  font-size: 6px;
+}
+
+.EscolarPersonale label {
+  width: 100%;
+  /* Ocupar el ancho completo en pantallas pequeñas */
+  margin-bottom: 5px;
+  /* Espacio menor para pantallas pequeñas */
+  font-size: 12px;
+}
+
+.EscolarPersonale input[type="text"],
+.Festudiantes input[type="number"],
+.Festudiantes input[type="date"] {
+  width: 100%;
+  padding: 2px;
+  font-size: 12px;
+}
+
+
+.EscolarPersonale .info{
+width: 100%;
+  padding: 2px;
+  font-size: 12px;
+}
+
+.Festudiantes .btnCp{
+  width: 100%;
+  
+  margin-top: 0;
+  margin-bottom: 3px;
+}
+.EscolarPersonale select {
+  width: 100%;
+  font-size: 12px;
+  padding: 2px;
+}
+
+
+.Festudiantes .estado {
+width: 55%;
+display: inline-block;
+font-weight: bold;
+font-size: 12px;
+margin-bottom: 40px;
+color: #135a7a;
+padding: 5px;
+position: relative; /* Establece posicionamiento relativo */
+top: 3px; /* Mueve el h5 hacia arriba */
+right: -16px; /* Mueve el h5 hacia la derecha */
+
+}
+
+
+
+.EscolarPersonale .estado {
+margin-bottom: 10%;
+font-size: 12px;
+}
+
+.EscolarPersonale .estado-actualizado {
+
+font-size: medium;
+}
+
+
+.botones{
+margin-left: 2%;
+margin-bottom: 11%;
+margin-top: 0%;
+}
+  
+
+.EscolarPersonale .button-afirmar {
+  
+  padding: 4px 10px;
+ margin-bottom: 2%;
+}
+
+.EscolarPersonale .button-cancelare {
+  padding: 4px 7px;
+  
+}
+
+
 
 
 

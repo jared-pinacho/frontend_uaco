@@ -58,6 +58,8 @@ export const TablaEstudiantesServicioActivar = ({candidatos,isLoading,activarSer
       <td>{estudiante.apellido_materno}</td>
       <td>{estudiante.usuario.email}</td>
       <td>{estudiante.telefono}</td>
+      <td>{estudiante.semestre}</td>
+      <td>{estudiante.creditos_acumulados}</td>
       <td>
         <button
           className="btnDoc"
@@ -87,7 +89,8 @@ export const TablaEstudiantesServicioActivar = ({candidatos,isLoading,activarSer
             <th>Apellido materno</th>
             <th>Correo</th>
             <th>Telefono</th>
-         
+            <th>Semestre</th>
+            <th>Creditos acumulados</th>
             <th>Activacion</th>
           </tr>
         </thead>

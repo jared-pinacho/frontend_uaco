@@ -11,6 +11,25 @@
     }
 
 
+    .panel button {
+        background-color: #16a529;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-top: -6px;
+        margin-bottom: 5px;
+        position: relative; /* Mantener la posición relativa */
+        left: 0; /* Mantener la posición horizontal */
+        transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+      }
+      
+      .panel button:hover {
+        background-color: #11c547;
+      }
+
+
 @media (max-width: 768px) {
     .panel {
         width: 100%;

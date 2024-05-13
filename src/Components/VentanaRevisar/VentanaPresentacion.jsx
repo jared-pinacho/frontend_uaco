@@ -1,5 +1,5 @@
 
-import '../VentanaRevisar/VentanaRevisar.css'
+import '../VentanaRevisar/VentanaPresentacion.css'
 import React, { useState } from 'react';
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 
 
-export const VentanaRevisar = ( {matricula}) => {
+export const VentanaPresentacion = ( {matricula}) => {
   const [texto, setTexto] = useState('');
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
@@ -23,7 +23,7 @@ export const VentanaRevisar = ( {matricula}) => {
 
     axios
       .patch(
-        `${apiUrl}envia/comentario/${matricula}/${texto}`,
+        `${apiUrl}envia/comentario/presentacion/${matricula}/${texto}`,
         {},
         {
           headers: {
@@ -49,10 +49,10 @@ export const VentanaRevisar = ( {matricula}) => {
   };
 
   return (
-    <div className='VentanaRevisar'>
+    <div className='Ventana'>
     {/* Renderizar diferentes contenidos según mostrarComponente */}
     {mostrarComponente ? (
-      <div >
+      <div  >
         <label>Comentarios</label>
         <textarea
           value={texto}
@@ -61,12 +61,12 @@ export const VentanaRevisar = ( {matricula}) => {
           rows='2'
           onChange={(event) => setTexto(event.target.value)}
         ></textarea>
-        <button  className='button-enviar'  onClick={handleButtonClick}>Enviar</button>
+        <button className='button-enviar' onClick={handleButtonClick}>Enviar</button>
       </div>
     ) : (
       <div>
         {/* Etiqueta o mensaje que se muestra después de enviar el comentario */}
-        <label className='label' >Información revisada</label>
+        <label  className='labe' >Archivo revisado</label>
         {/* Puedes agregar más contenido aquí según tus necesidades */}
       </div>
     )}

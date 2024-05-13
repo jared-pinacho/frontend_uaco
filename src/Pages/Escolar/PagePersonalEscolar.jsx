@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../Escolar/PagePersonalEscolar.css";
-import axios from "axios";
-import { BarraBusquedaC } from "../../Components/BarraBusquedaC/BarraBusquedaC";
-import { toast } from "react-toastify";
+import axios from "axios"
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 import { EscolarPersonal } from "../../Components/Servicio/EscolarPersonal";
-import { UpSideBarEscolar } from "../../Components/BarraFases/UpSideBarEscolar ";
+
 
 export const PagePersonalEscolar = ({dato}) => {
 
@@ -60,14 +58,14 @@ export const PagePersonalEscolar = ({dato}) => {
 
 
   return (
-    <div className="estudiantesPage">
-      <div className="contenidoDinamico"></div>
+    <div className="estudiantesPag">
+      <div className="contenidoDinamic"></div>
       
     
 
-      <div className="barraBusqueda">
+      <div className="barraBusquedas">
         {isLoading ? (
-          <div className="cargando">Obteniendo datos, por favor espere...</div>
+          <div className="cargandos">Obteniendo datos, por favor espere...</div>
         ) : null}
       </div>
 

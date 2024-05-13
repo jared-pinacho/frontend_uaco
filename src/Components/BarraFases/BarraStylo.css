@@ -1,11 +1,11 @@
-.sidebare-containere {
+.sidebaro-containerov {
   display: flex;
   flex-direction:column;
   position: relative;
-  height: 60px;
-  margin-top: 2%;
-  margin-bottom: -65%;
-  margin-left: 6%;
+  height: 55px;
+  margin-top: 5%;
+  margin-bottom: -10%;
+  margin-left: 4%;
   width: 90%;
   border-radius: 0%;
   
@@ -13,7 +13,7 @@
 }
 
 /* Estilo base para el sidebar */
-.sidebare {
+.sidebarov {
   width: 100%;
   background-color: white;
   padding: 0px;
@@ -23,12 +23,12 @@
   border: 2px solid #fff; /* Ejemplo de propiedad border con ancho y color */
   border-radius: 10px; /* Radio de borde para todas las esquinas */
   overflow-y: hidden; /* Permitir el desplazamiento vertical */
-    overflow-x: auto; 
+    overflow-x: hidden; 
 }
 
 
 
-.encabezade {
+.encabezadiv {
   display: flex;
   align-items: center;
   margin-bottom: 0%;
@@ -37,7 +37,7 @@
   /*D34646 este color lo usaremos cuando la opcion este seleccionada*/
 }
 
-.iteme {
+.itemo {
   display: flex;
   align-items: center;
   padding: 13px;
@@ -50,14 +50,24 @@
   margin-bottom: 0%;
   transition:transform .5s;
   margin-top: 0px;
-  height: 100%;}
+  height: 100%;
 
-.active{
+  
+
+}
+
+
+  
+
+
+
+
+.activo{
 
   display: flex;
   align-items: center;
   padding: 13px;
-  width: 138px;
+  width: 158px;
   border-radius: 10px;
   margin-right: 1px;
   margin-left: 0px;
@@ -66,30 +76,31 @@
   margin-bottom: 0%;
   transition:transform .5s;
   margin-top: 0px;
-  height: 100%;
+  height: 142%;
 }
 
 
-.iteme:hover {
+.itemo:hover {
   transform: translateY(-2px);
 }
-.active .iteme {
+.active .itemo {
   background-color: #135585;
 
 }
 
-.active .iteme .texto-opcione{
+.active .itemo .texto-opciono{
   color: white;
 }
 
 
-.texto-opcione.active {
+.texto-opciono.activo {
   /* Estilos para el texto de la opción activa */
   color: rgb(238, 238, 243); /* Cambia el color a azul cuando está activo */
   font-weight: bold; /* Texto en negrita cuando está activo */
+  
 }
 
-.texto-opcione {
+.texto-opciono {
   font-size: 16px;
   color: #135585;
   font-weight: bold;
@@ -97,23 +108,62 @@
 text-align: center;
 }
 
-@media (max-width: 768px) {
+
+@media (min-width: 1024px) and (max-width: 1028px) {
+
+  .sidebaro-containerov {
+   
+    height: 75px;
+   
+  }
+  
+  /* Estilo base para el sidebar */
+  .sidebarov {
+  
+    height: 98%;
+    overflow-x: auto; 
+  
+  }
+  
+  
+  
+  .encabezadiv {
+    
+    height: 100%;
+   
+  }
+  
+  .itemo {
+   
+    height: 100%;
+ 
+    
+  
+  }
+  }
 
 
-  .sidebaro-containero {
+
+
+
+
+@media (min-width: 426px) and (max-width: 768px) {
+
+
+  .sidebaro-containerov {
     display: flex;
     flex-direction: fill;
     position: relative;
     height: 45px;
     margin-top: 5%; /* Ajusta el margen superior según tus necesidades */
-    margin-left: 5%;
+    margin-left: 1%;
     margin-bottom: -70px;
-    width: 90%; /* Ancho inicial de la barra lateral */
+    width: 98%; /* Ancho inicial de la barra lateral */
     
   }
   
-  .sidebaro {
-    width: 65%;
+  .sidebarov {
+    width: 100%;
     background-color: white;
     padding: 0px;
     overflow-y: hidden; /* Permitir el desplazamiento vertical */
@@ -125,7 +175,7 @@ text-align: center;
     
   }
   
-  .encabezadi {
+  .encabezadiv {
     display: flex;
     flex-direction:fill; /* Cambia la dirección a columna para apilar elementos */
     align-items: center;
@@ -140,11 +190,110 @@ text-align: center;
     padding: 3px;
     border-radius: 5px;
     margin-bottom: 1px; /* Espacio entre elementos */
-    background-color: #9dc5c2;
+    background-color: #ffffff;
+    width:80%; /* Ancho del elemento ajustado automáticamente */
+    margin-top: 0%;
+    margin-left: -5px;
+    margin-right: 5px;
+    height: 100%;
+  }
+  
+  .itemo:hover {
+    transform: translateY(2px);
+  }
+
+
+  .activo{
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    border-radius: 5px;
+    margin-bottom: 0px; /* Espacio entre elementos */
+    background-color: #135585;
+    width:100%; /* Ancho del elemento ajustado automáticamente */
+    margin-top: 0%;
+    margin-left: -5px;
+    margin-right: 5px;
+    height: 110%;
+    border-radius: 8px;
+  }
+
+
+
+  
+  .activo .itemo {
+    background-color: #135585;
+  }
+  
+  .activo .itemo .texto-opciono {
+    color: white;
+  }
+  
+  .texto-opciono {
+    font-size: 11px;
+    color: #135585;
+    font-weight:bold;
+    margin-left: 5px;
+    
+  }
+
+
+
+}
+
+
+
+@media (max-width: 426px) {
+
+
+  .sidebaro-containerov {
+    display: flex;
+    flex-direction: fill;
+    position: relative;
+    height: 60px;
+    margin-top: 4%; /* Ajusta el margen superior según tus necesidades */
+    margin-left: 30px;
+    margin-bottom: -70px;
+    width: 60%; /* Ancho inicial de la barra lateral */
+    
+  }
+  
+  .sidebarov {
+    width: 100%;
+    background-color: white;
+    padding: 0px;
+    overflow-y: hidden; /* Permitir el desplazamiento vertical */
+    overflow-x: auto; /* Ocultar el desplazamiento horizontal */
+    border-radius: 10px;
+    height: 90%;
+    border-radius:0%;
+    scrollbar-width: auto; /* Ancho de la barra de desplazamiento */
+    
+  }
+  
+  .encabezadiv {
+    display: flex;
+    flex-direction:fill; /* Cambia la dirección a columna para apilar elementos */
+    align-items: center;
+    
+  }
+  
+  .itemo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    border-radius: 5px;
+    margin-bottom: 1px; /* Espacio entre elementos */
+    background-color: #ffffff;
     width:50%; /* Ancho del elemento ajustado automáticamente */
     margin-top: 0%;
     margin-left: -5px;
-    margin-right: 15px;
+    margin-right: 5px;
     height: 105%;
   }
   
@@ -166,8 +315,8 @@ text-align: center;
     width:100%; /* Ancho del elemento ajustado automáticamente */
     margin-top: 0%;
     margin-left: -5px;
-    margin-right: 15px;
-    height: 100%;
+    margin-right: 5px;
+    height: 110%;
     border-radius: 8px;
   }
 

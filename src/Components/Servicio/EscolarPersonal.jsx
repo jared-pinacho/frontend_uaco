@@ -290,7 +290,7 @@ const handleMostrarBoton = () => {
 
   
   return (
-    <div className="EscolarPersonal">
+    <div className="EscolarPersonale">
       
      
       {estatus_envio === 0 && (
@@ -548,7 +548,7 @@ const handleMostrarBoton = () => {
            }
           }
            
-           className="button-cancelar">Rechazar</button>
+           className="button-cancelare">Rechazar</button>
             
             <button 
            onClick={() => {

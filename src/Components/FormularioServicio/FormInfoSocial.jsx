@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-//import "../Servicio/FormInfoSocial.css";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
-import { SelectInput } from "../SelecInput/SelectInput";
-import "./Social.css";
+import "./SocialEstudiante.css";
 import { VentanaConfirmacion } from "../../Components/VentanaConfirmacion/VentanaConfirmacion";
 
 export const FormInfoSocial = ({
@@ -317,7 +315,7 @@ export const FormInfoSocial = ({
 
 
   return (
-    <div className="Festudiante">
+    <div className="Festudianteh">
       <form onSubmit={handleSubmit}>
         <div>
           <label>Modalidad:</label>

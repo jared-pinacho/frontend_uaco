@@ -93,67 +93,15 @@ export const ForaneosPage = () => {
       });
   };
 
-  const enviarEstadoDocumentacion = (data) => {
-    if (!data) {
-      toast.info(
-        "No hay un estudiante seleccionado para enviar su documentacion"
-      );
-    }
+ 
+ 
 
-    axios
-      .put(`${apiUrl}documentacion/${data.matricula}`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        toast.success("Estado de documentacion actualizada");
-        actualizarTabla();
-        setEstudianteDocumentacion("");
-        setAbiertaDocumentacion(false);
-      })
-      .catch((error) => {
-        toast.error("No se pudo actualizar es estado de documentacion");
-        setEstudianteDocumentacion("");
-        setAbiertaDocumentacion(false);
-      });
-  };
 
-  const abrirDocumentacion = (estudiante) => {
-    if (!estudiante) {
-      return;
-    }
-
-    setEstudianteDocumentacion(estudiante);
-    // setDocumentos(estudiante.documentacion);
-    setAbiertaDocumentacion(true);
-  };
-
-  const abrirKardex = (estudiante) => {
-    if (!estudiante) {
-      return;
-    }
-    setEstudianteKardex(estudiante);
-    
-    setAbiertoKardex(true);
-  };
-
-  const cerrarDocumentacion = () => {
-    setEstudianteDocumentacion("");
-
-    // setDocumentos([]);
-    setAbiertaDocumentacion(false);
-  };
-
-  const cerrarKardex = () => {
-    setEstudianteKardex("");
-    setAbiertoKardex(false);
-  };
   return (
     <div className="estudiantesPage">
       <div className="contenidoDinamico">
         <div className="tituloEstudiantes">
-          <h1>Preestadores foráneos</h1>
+          <h1>Prestadores foráneos</h1>
         </div>
         <div className="BtnOpciones">
           <BotonCRUD
@@ -208,36 +156,21 @@ export const ForaneosPage = () => {
               <TablaForaneos
                 estudiantes={estudiantes}
                 isLoading={isLoading}
-                abrirDocumentacion={abrirDocumentacion}
-                abrirKardex={abrirKardex}
+               // abrirDocumentacion={abrirDocumentacion}
+               
               />
             </div>
           </>
         )}
-        {estudianteDocumentacion ? (
-          <VentanaEstadoDocumentacion
-            abierto={abiertaDocumentacion}
-            estudiante={estudianteDocumentacion}
-            enviar={enviarEstadoDocumentacion}
-            onCancel={() => cerrarDocumentacion()}
-            editable={true}
-            grado={
-              estudianteDocumentacion &&
-              estudianteDocumentacion.grupo &&
-              estudianteDocumentacion.grupo.carrera
-                ? estudianteDocumentacion.grupo.carrera.grado
-                : ""
-            }
-          />
-        ) : null}
+      
 
-        {estudianteKardex ? (
+        {/* {estudianteKardex ? (
           <VentanaModalKardex
           abierto={abiertoKardex}
           estudiante={estudianteKardex}
           onCancel={()=>cerrarKardex()}
           />
-        ) : null}
+        ) : null} */}
       </div>
     </div>
   );
