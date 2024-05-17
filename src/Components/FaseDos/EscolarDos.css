@@ -1,0 +1,618 @@
+.Festudian {
+  width: 100%;
+  height: 80%;
+  max-width: 890px;
+  padding: 30px;
+  margin-left: 70px;
+  margin-top: 30px;
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 1px 1px 10px #135a7a;
+  background-color: #9dc5c2;
+}
+
+.contenedor {
+  width: 85%;
+  height: 55%;
+  margin-left: 70px;
+  margin-top: 15px;
+  margin-bottom: 5%;
+  overflow:hidden;
+  background-color: #ffffff;
+  /* Estilos para centrar el contenido interno */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el contenido */
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Festudian .boton {
+  background-color: #1f92c7;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 40%;
+  cursor: pointer;
+  margin-top: 5px;
+margin-bottom: -3%;
+  width: 18%;
+  transition: background-color 0.3s ease; /* Transición suave de color */
+}
+
+.Festudian .boton:hover {
+  background-color: #1e85ad; /* Color diferente al pasar el puntero */
+}
+
+
+.Festudian .ver{
+  background-color: #22b336;
+  color: #fff;
+  border-radius: 5px;
+  margin-left:3% ;
+  cursor: pointer;
+  margin-top: 0%;
+  width: 10%;
+  padding: 0.3%;
+}
+
+.cale{
+  background-color: #135a7a;
+  color: #fff;
+  border-radius: 8px;
+  margin-left:50% ;
+  cursor: pointer;
+  margin-top: 2%;
+  width: 15%;
+  margin-bottom: 0%;
+  padding: 1%;
+}
+
+.Festudian .cal{
+  background-color: #135a7a;
+  color: #fff;
+  border-radius: 8px;
+  margin-left:50% ;
+  cursor: pointer;
+  margin-top: 2%;
+  width: 15%;
+  margin-bottom: 0%;
+  padding: 1%;
+  transition: background-color 0.3s ease;
+}
+.Festudian .cal:hover {
+  background-color: #1e85ad; /* Color diferente al pasar el puntero */
+}
+
+.Festudian .calificar-no{
+  background-color: red;
+  color: #fff;
+  border-radius: 8px;
+  margin-left:10% ;
+  cursor: pointer;
+  margin-top: 2%;
+  width: 16%;
+  margin-bottom: 0%;
+  transition: background-color 0.3s ease;
+}
+
+.Festudian .calificar-no:hover {
+  background-color: #ad231e; /* Color diferente al pasar el puntero */
+}
+
+
+.Festudian .estado-0 {
+  
+  margin-left: -30px;
+  font-size: large;
+  font-weight: bold;
+  color: red;
+  margin-bottom: -5px;
+ 
+ }
+
+
+
+
+
+
+
+.es {
+ margin-left: -25%;
+ margin-bottom: 0%;
+ margin-right: 5%;
+}
+
+
+.Festudian h1 {
+  font-size: 22px;
+ text-align: center;
+ color: black;
+ margin-top: 0%;
+}
+
+
+
+.titul {
+  width: 100%;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 160%;
+  padding:0%;
+  margin-top: -50%;
+  color: #135a7a;
+  text-align: center;
+  margin-bottom: -10%;
+}
+
+.gg {
+  margin-top: 7%;
+  margin-left:23%;
+  width: 85%;
+}
+
+
+
+.Festudian .estado-2 {
+  
+  margin-left: -200px;
+  font-size: large;
+  font-weight: bold;
+  color: #135a7a;
+  margin-bottom: 0px;
+  margin-top: 20px;
+ 
+ }
+
+
+ .Festudian .estado-3 {
+  
+  margin-left: -200px;
+  font-size: large;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 0px;
+  margin-top: 20px;
+ 
+ }
+
+
+
+ .Festudian .estado-2-revisado {
+  
+  margin-left: 9px;
+  font-size: large;
+  font-weight: bold;
+  color: #135a7a;
+  margin-bottom: 0px;
+  margin-top: 20px;
+ 
+ }
+
+ .Festudian .gg-2 {
+  margin-top: 50px;
+  margin-left:33%;
+  width: 580px;
+}
+.Festudian .archivo-2{
+  margin-left:-20px;
+}
+.Festudian .ver-2{
+  background-color: #22b336;
+  color: #fff;
+  border-radius: 5px;
+  margin-left:3% ;
+  cursor: pointer;
+  margin-top: 0%;
+  width: 15%;
+  padding: 0.3%;
+  margin-right: 80px;
+}
+
+
+.titulo-contenedor {
+  width: 100%;
+  font-weight: bold;
+  font-size: 120%;
+  margin-top: 0%;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 4%;
+  background-color: #135a7a;
+}
+.titulo-contenedor2 {
+  width: 100%;
+  font-weight: bold;
+  font-size: 120%;
+  margin-top: 0%;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 4%;
+  background-color: #135a7a;
+}
+
+
+
+.Festudian input[type="text"]
+ {
+  width: 30%;
+  padding: 1px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  margin-left: 1%;
+}
+
+
+
+.archivo{
+  margin-left:-20px;
+}
+
+.Festudian .acciones{
+  width: 90%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
+
+
+@media (min-width: 1024px) and (max-width: 1028px) {
+
+  .Festudian {
+   
+    margin-left: 0px;
+   
+  } 
+  }
+
+
+
+@media (min-width: 426px) and (max-width: 768px) {
+
+
+  .Festudian {
+    width: 100%;
+    height: 100%;
+    
+    margin-left: 0%;
+    margin-top: 88px;
+   
+    overflow: auto;
+    
+  }
+
+
+  .contenedor {
+    width: 120%;
+    height: 55%;
+    margin-left: -23px;
+    margin-top: -25px;
+  }
+
+  
+.titul {
+  width: 100%;
+ margin-left: -65px;
+  font-size: 100%;
+padding: 30px;
+ margin-top: -100%;
+  margin-bottom: 0%;
+}
+
+.titulo-contenedor {
+  width: 100%;
+  margin-left: 0%;
+  font-size: 100%;
+  margin-top: -1px;
+  margin-bottom: 6%;
+  
+}
+.titulo-contenedor2 {
+  width: 100%;
+  margin-left: 0%;
+  font-size: 100%;
+  margin-top:0%;
+  margin-bottom: 10%;
+  
+}
+
+
+.boton {
+ padding: 0.5%;
+  border-radius: 9px;
+  margin-left: 41%;
+  font-size: 100%;
+  margin-top: -2%;
+margin-bottom: -1%;
+  width: 120px;
+  
+}
+
+
+.gg {
+  margin-top: 5%;
+  margin-left:8%;
+  width: 100%;
+}
+
+
+.Festudian input[type="text"]
+ {
+  width: 30%;
+  font-size: 85%;
+  border: 1px solid #0639c5;
+  margin-left: -10px;
+}
+
+.archivo{
+  margin-left:0px;
+  margin-right: 12px;
+}
+
+.ver{
+ border-radius: 9px;
+  margin-left:5% ;
+  width: 10%;
+  padding: 0.6%;
+}
+
+
+.Festudian .acciones{
+  width: 100%;
+  margin-top: 3%;
+  margin-bottom: 45px;
+  margin-left: 230px;
+  
+}
+
+
+.Festudian .cal{
+  border-radius: 9px;
+  margin-left:0% ;
+  margin-right:8% ;
+  margin-top: 0%;
+  width: 10%;
+  font-size: 80%;
+  margin-bottom: 0%;
+ 
+}
+.Festudian .calificar-no{
+  margin-left:0% ;
+  margin-right:8% ;
+  margin-top: 0%;
+  width: 10%;
+  font-size: 80%;
+  margin-bottom: 0%;
+ padding: 0.9%;
+}
+
+
+
+.es {
+  margin-left: -5%;
+  margin-bottom: 1%;
+  margin-right: 15%;
+  width: 20%;
+ }
+
+
+
+ .Festudian .estado-0 {
+  margin-left: 0px;
+  font-size: medium;
+  
+ }
+
+
+ .Festudian .archivo-2{
+  margin-left:-80px;
+  margin-right: 15px;
+}
+
+
+
+
+}
+
+
+
+
+
+@media (max-width: 425px) {
+  /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
+
+
+  .Festudian {
+    width: 100%;
+    height: 100%;
+    
+    margin-left: 0%;
+    margin-top: 30px;
+   
+    overflow: auto;
+    
+  }
+
+
+  .contenedor {
+    width: 140%;
+    height: 320px;
+    margin-left: -23px;
+    margin-top: -25px;
+  }
+
+  
+.titul {
+  width: 100%;
+ margin-left: 0px;
+  font-size: 100%;
+padding: 0px;
+ margin-top: -50%;
+  margin-bottom: 30px;
+}
+
+.titulo-contenedor {
+  width: 124%;
+  margin-left: -25%;
+  font-size: 90%;
+  margin-top: -62px;
+  margin-bottom: 4%;
+  
+}
+.titulo-contenedor2 {
+  width: 124%;
+  margin-left: -25%;
+  font-size: 90%;
+  margin-top: -8%;
+  color: #ffffff;
+  margin-bottom: 8%;
+}
+
+
+.Festudian .boton {
+ padding: 0.5%;
+  border-radius: 9px;
+  margin-left: 20%;
+  font-size: 90%;
+  margin-top: 10px;
+margin-bottom: 5%;
+  width: 120px;
+  
+}
+
+
+.Festudian .gg {
+  margin-top: 7%;
+  margin-left:20px;
+  width: 90%;
+}
+
+
+.Festudian input[type="text"]
+ {
+  width: 35%;
+  font-size: 85%;
+  border: 1px solid #0639c5;
+  margin-left: 0px;
+}
+
+
+
+.Festudian .archivo{
+  margin-left:-15px;
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+.Festudian .ver{
+ 
+  margin-left:10% ;
+  width: 30%;
+  padding: 0.3%;
+}
+
+
+.gg2 {
+  margin-top: 5%;
+  margin-left:6%;
+  width: 50%;
+}
+
+.Festudian .acciones{
+  width: 100%;
+  margin-top: 8%;
+  
+}
+
+
+.Festudian .cal{
+  border-radius: 9px;
+  margin-left:0% ;
+  margin-right:8% ;
+  margin-top: 0%;
+  width: 40%;
+  font-size: 90%;
+  margin-bottom: 0%;
+ 
+}
+.Festudian .calificar-no{
+
+  border-radius: 10px;
+  margin-left:0% ;
+  margin-right:8% ;
+  margin-top: 0%;
+  width: 40%;
+  font-size: 90%;
+  margin-bottom: 0%;
+ padding: 0.9%;
+}
+
+
+
+.es {
+  margin-left: -2%;
+  margin-bottom: 1%;
+  margin-right: 15%;
+  width: 100%;
+ }
+
+
+ .Festudian .archivo-2{
+  margin-left:-40px;
+  margin-right: 15px;
+}
+
+
+.Festudian .estado-2 {
+  
+  margin-left: -50px;
+  font-size: small;
+  font-weight: bold;
+  color: #135a7a;
+  margin-bottom: 0px;
+  margin-top: 5px;
+ 
+ }
+
+ .Festudian .gg-2 {
+  margin-top: 50px;
+  margin-left:33%;
+  width: 200px;
+}
+
+.Festudian .ver-2{
+  background-color: #22b336;
+  color: #fff;
+  border-radius: 5px;
+  margin-left:3% ;
+  cursor: pointer;
+  margin-top: 0%;
+  width: 20%;
+  padding: 0.3%;
+  margin-right: 80px;
+  margin-top: 10px;
+}
+
+
+.Festudian .estado-3 {
+  
+  margin-left: -45px;
+  font-size:small;
+  font-weight: bold;
+ 
+  margin-bottom: 0px;
+  margin-top: 20px;
+ 
+ }
+
+ .Festudian .estado-0 {
+  
+  margin-left: -40px;
+  font-size:small;
+  font-weight: bold;
+ 
+  margin-bottom: 0px;
+  margin-top: 0px;
+ 
+ }
+
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../FaseUno/Estudiantx.css";
+import "../FaseCinco/EstudianteCinco.css";
 import Modal from 'react-modal';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
@@ -14,52 +14,46 @@ import { URL_API } from "../../Services/Const";
 // Configuración de las fuentes necesarias para pdfmake
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-export const FaseUnoEstudiante = ({informacion, actualizar,setActualizar}) => {
+export const FaseCincoEstudiante = ({informacion, actualizar,setActualizar}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [pdfUrl, setPdfUrl] = useState(null);
   const [visible, setVisible] = useState(0);
-  const [visible2, setVisible2] = useState(0);
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  const [dateTime, setDateTime] = useState(new Date());
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedFile, setSelectedFile] = useState(null);
   const [textInputValue, setTextInputValue] = useState('');
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
+  const [matricula, setMatricula] = useState(null);
+
+
 
   const [formData, setFormData] = useState({
-   
-   estado_pres:"",
-   estado_acep:"",
-   carta_pres:"",
-   carta_acep:"",
-   comentario_pres:"",
-   comentario_acep:"",
-
+   carta:"",
+   estatus_envio:"",
+   comentario:"",
   });
 
 
   useEffect(() => {
-    if (informacion?.faseUno !==null) {
+    if (informacion?.faseCinco !==null) {
     setFormData({
-     estado_pres:informacion.faseUno.pres_estado || "",
-     estado_acep:informacion.faseUno.acep_estado || "",
-     carta_pres:informacion.faseUno.carta_presentacion || "",
-     carta_acep:informacion.faseUno.carta_aceptacion || "",
-     comentario_pres:informacion.faseUno.com_pres || "",
-     comentario_acep:informacion.faseUno.come_acep || ""
+      carta: informacion.faseCinco?.carta_terminacion || "",
+      estado: informacion.faseCinco?.estatus_envio || "",
+      comentario: informacion.faseCinco?. comentario || "",
     
     });
-    setVisible(informacion.faseUno.pres_estado);
-    setVisible2(informacion.faseUno.acep_estado);
+    setVisible(informacion.faseCinco.estatus_envio);
+    setMatricula(informacion.estudiante?.matricula);
   }
+
+  setMatricula(informacion.estudiante?.matricula);
 }, []);
 
 
 const cambiarPresentacion = (dato) => {
   axios
     .patch(
-      `${apiUrl}estado/cambio/presentacion/carta/${dato}`,
+      `${apiUrl}estado/cambio/carta/terminacion/${dato}`,
       {},
       {
         headers: {
@@ -75,28 +69,6 @@ const cambiarPresentacion = (dato) => {
       console.error("Error al activar el enviado:", error);
     });
 };
-
-
-const cambiarAceptacion = (dato) => {
-  axios
-    .patch(
-      `${apiUrl}estado/cambio/aceptacion/carta/${dato}`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-    .then((response) => {
-      console.log("estado cambiado");
-    })
-    .catch((error) => {
-      
-      console.error("Error al activar el enviado:", error);
-    });
-};
-
 
 
 
@@ -175,8 +147,12 @@ const cambiarAceptacion = (dato) => {
   };
 
 
+  const actualizarDesdeHijo = () => {
+    const nuevoValor = !actualizar; // Cambiar el valor de 'actualizar' (alternar entre true y false)
+    setActualizar(nuevoValor); // Cambiar 'actualizar' desde el componente hijo
+  };
 
-  const handleSubmit = async () => {
+  const handleSubmitTerminacion = async () => {
     // Verificar si se ha seleccionado un archivo
     if (selectedFile) {
         // Crear un objeto FormData para enviar el archivo al servidor
@@ -184,7 +160,7 @@ const cambiarAceptacion = (dato) => {
         formData.append('archivo', selectedFile);
      
         axios
-        .post(`${apiUrl}subir`, formData, {
+        .post(`${apiUrl}subir/doc/terminacion`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data'
@@ -192,7 +168,7 @@ const cambiarAceptacion = (dato) => {
         })
         .then((response) => {
           toast.success(response.data.message);    
-          setVisible(1);
+          setVisible(4);
           cambiarPresentacion(1);
           actualizarDesdeHijo();
         })
@@ -207,51 +183,13 @@ const cambiarAceptacion = (dato) => {
   };
 
 
-  const actualizarDesdeHijo = () => {
-    const nuevoValor = !actualizar; // Cambiar el valor de 'actualizar' (alternar entre true y false)
-    setActualizar(nuevoValor); // Cambiar 'actualizar' desde el componente hijo
-  };
-
-  const handleSubmitAceptacion = async () => {
-    // Verificar si se ha seleccionado un archivo
-    if (selectedFile) {
-        // Crear un objeto FormData para enviar el archivo al servidor
-        const formData = new FormData();
-        formData.append('archivo', selectedFile);
-     
-        axios
-        .post(`${apiUrl}subir/aceptacion`, formData, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'multipart/form-data'
-          },
-        })
-        .then((response) => {
-          toast.success(response.data.message);    
-          setVisible2(1);
-          cambiarAceptacion(1);
-          actualizarDesdeHijo();
-        })
-        .catch((error) => {
-          toast.error(error.response.data.message);
-        });   
-        
-    } else {
-      // No se ha seleccionado ningún archivo, mostrar mensaje de error
-      toast.info('Por favor selecciona un archivo antes de enviar.');
-    }
-  };
-
-
-
-
 
   return (
     <div className="Festudianx">
-      <label className="titulx">Inicio de Servicio Social Comunitario</label>
+      <label className="titulx">Final de Servicio Social Comunitario</label>
        
       <div className="contenedorx">
-        <label className="titulo-contenedorx">Carta de solicitud</label>
+        <label className="titulo-contenedorx">Carta de terminación</label>
        
         
         <Modal
@@ -291,7 +229,7 @@ const cambiarAceptacion = (dato) => {
         onChange={handleFileChange}
       />
 
-<button className="subir-3" onClick={handleSubmit}>Subir</button>
+<button className="subir-3" onClick={handleSubmitTerminacion}>Subir</button>
 <div>
 <label className="estado-0">Estado: No enviado </label>
 </div>
@@ -304,7 +242,7 @@ const cambiarAceptacion = (dato) => {
 {visible === 2  && (
 <div className="accionesx">
           
-<button className="verx-2" onClick={() => descargarArchivo(formData.carta_pres)} >Ver</button>
+<button className="verx-2" onClick={() => descargarArchivo(formData.carta)} >Ver</button>
           <label className="estado-0">Estado: Revisado aceptado </label>
           </div>    
 )}
@@ -313,8 +251,8 @@ const cambiarAceptacion = (dato) => {
 {visible === 1  && (
 <div className="accionesx-1">
        
-       <button className="verx-1" onClick={() => descargarArchivo(formData.carta_pres)} >Ver</button>
-<p className="arc-1" >Archivo subido: {formData.carta_pres}</p>
+       <button className="verx-1" onClick={() => descargarArchivo(formData.carta)} >Ver</button>
+<p className="arc-1" >Archivo subido: {formData.carta}</p>
        
 
           <label className="esx-1">Estado: Enviado no revisado </label>
@@ -339,114 +277,39 @@ const cambiarAceptacion = (dato) => {
         defaultValue={selectedFile ? selectedFile.name : textInputValue}
       />
 
-<button className="subir-3" onClick={handleSubmit}>Subir</button>
-<button className="verx-3" onClick={() => descargarArchivo(formData.carta_pres)} >Ver</button>
-<p className="arc-3" >Archivo subido: {formData.carta_pres}</p>
+<button className="subir-3" onClick={handleSubmitTerminacion}>Subir</button>
+<button className="verx-3" onClick={() => descargarArchivo(formData.carta)} >Ver</button>
+<p className="arc-3" >Archivo subido: {formData.carta}</p>
                
 
 <label className="esx-3">Estado: Revisado no aprobado </label>
            <label className="coment">Comentarios: </label> 
            <div className="comentario">
-           <span >{formData.comentario_pres}</span>
+           <span >{formData.comentario}</span>
 
            </div>
-          
-
           </div>    
-
-
   </div>
 
 )}
 
-</div>
 
 
-
-
-      <div className="contenedorx">
-        <label className="titulo-contenedor2x">Carta de aceptación</label>
+{visible === 4  && (
+<div className="accionesz-4">
        
-
-        {visible2===0  && (
-        <div className="ggx">
-          
-          <input
-        type="file"
-        id="fileUpload"
-        accept="application/pdf"
-        onChange={handleFileChange}
-      />
-
-<button className="subir-3" onClick={handleSubmitAceptacion}>Subir</button>
-<div>
-<label className="estado-0">Estado: No enviado </label>
-</div>
-
-
-      </div> )}
-
-
-
-      {visible2 === 1  && (
-<div className="accionesx-1">
+<p className="arc-1z-4" >Archivo subido:termino{matricula}</p>
        
-       <button className="verx-1" onClick={() => descargarArchivo(formData.carta_acep)} >Ver</button>
-<p className="arc-1" >Archivo subido: {formData.carta_acep}</p>
-       
-
-          <label className="esx-1">Estado: Enviado no revisado </label>
+          <label className="esz-1">Estado: Enviado no revisado </label>
          
           </div>    
 )}
 
-{visible2 === 2  && (
-<div className="accionesx">
-          
-<button className="verx-2" onClick={() => descargarArchivo(formData.carta_acep)} >Ver</button>
-          <label className="estado-0">Estado: Revisado aceptado </label>
-          </div>    
-)}
-
-         
-      
-{ visible2 === 3   && (
-
-<div className="contener-3">
-
-<div className="accionesx-3">
-        
-<input
-      
-      
-      type="file"
-      id="fileUpload"
-      accept="application/pdf"
-      onChange={handleFileChange}
-      defaultValue={selectedFile ? selectedFile.name : textInputValue}
-    />
-
-<button className="subir-3" onClick={handleSubmitAceptacion}>Subir</button>
-<button className="verx-3" onClick={() => descargarArchivo(formData.carta_acep)} >Ver</button>
-<p className="arc-3" >Archivo subido: {formData.carta_acep}</p>
-             
-
-<label className="esx-3">Estado: Revisado no aprobado </label>
-         <label className="coment">Comentarios: </label> 
-         <div className="comentario">
-         <span >{formData.comentario_acep}</span>
-
-         </div>
-        
-
-        </div>    
 
 
 </div>
 
-)}
+</div>
 
-      </div>
-    </div>
   );
 };

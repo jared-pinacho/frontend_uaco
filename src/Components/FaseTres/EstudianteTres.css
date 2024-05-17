@@ -1,4 +1,4 @@
-.Festudianx {
+.Festudianz {
   width: 100%;
   height: 80%;
   max-width: 890px;
@@ -11,7 +11,7 @@
   background-color: #9dc5c2;
 }
 
-.contenedorx {
+.contenedorz {
   width: 85%;
   height: 55%;
   margin-left: 70px;
@@ -29,34 +29,9 @@
 }
 
 
-.calificarz{
-
-  background-color: #1f92c7;
-  color: #fff;
-  border-radius: 5px;
-}
 
 
-
-
-.botonx {
-  background-color: #1f92c7;
-  color: #fff;
-  border-radius: 5px;
-  margin-left: 40%;
-  cursor: pointer;
-  margin-top: 0%;
-margin-bottom: -3%;
-  width: 18%;
-  transition: background-color 0.3s ease; /* Transición suave de color */
-}
-
-.botonx:hover {
-  background-color: #1e85ad; /* Color diferente al pasar el puntero */
-}
-
-
-.Festudianx .verx{
+.Festudianz .verz{
   background-color: #06c52f;
   color: #fff;
   border-radius: 5px;
@@ -67,31 +42,39 @@ margin-bottom: -3%;
   padding: 0.3%;
 }
 
-.accionesx{
-  width: 90%;
+.accionesz{
+  width: 100%;
   margin-top: 10%;
-  margin-bottom: 13%;
-  margin-left: 20px;
+  margin-bottom: 12%;
+  margin-left: 60px;
 }
 
-.Festudianx .verx-2{
+.Festudianz .ver-2z{
   background-color: #06c52f;
   color: #fff;
   border-radius: 5px;
-  margin-left:270px ;
+  margin-left:2px ;
   cursor: pointer;
   margin-top: 0%;
-  width: 15%;
+  width: 10%;
   padding: 0.3%;
   margin-right: 200px;
 }
 
-.accionesx-1{
+.accionesz-1{
   width: 100%;
   margin-top: 12%;
   margin-bottom: 13px;
 }
-.Festudianx .verx-1{
+
+
+.accionesz-4{
+  width: 100%;
+  margin-top: 18%;
+  margin-bottom: 13px;
+}
+
+.Festudianz .verz-1{
   background-color: #06c52f;
   color: #fff;
   border-radius: 5px;
@@ -102,7 +85,7 @@ margin-bottom: -3%;
   padding: 0.8%;
   
 }
-.Festudianx .esx-1 {
+.Festudianz .esz-1 {
   margin-left: 0px;
   margin-bottom:0%;
   margin-left: 50px;
@@ -111,7 +94,7 @@ margin-bottom: -3%;
   font-weight: bold; /* Aplica negrita */
  }
 
- .Festudianx .arc-1 {
+ .Festudianz .arc-1z {
   margin-left: 0px;
   margin-bottom:60px;
   margin-left: 170px;
@@ -120,7 +103,16 @@ margin-bottom: -3%;
  }
 
 
- .Festudianx .estado-0 {
+ .Festudianz .arc-1z-4 {
+  margin-left: 0px;
+  margin-bottom:60px;
+  margin-left: 170px;
+  margin-top: -30px;
+  text-decoration: underline; 
+ }
+
+
+ .Festudianz .estado-0z {
   margin-left: 0px;
   margin:  0px;
   margin-left: 0px;
@@ -129,17 +121,24 @@ margin-bottom: -3%;
   font-weight: bold; /* Aplica negrita */
  }
 
- .contener-3{
-  margin-left: 200px;
+ .contener-3z{
+  margin-left: 250px;
   margin-top: 25px;
-  margin-bottom: 14px;
+  margin-bottom: 9px;
 }
-.accionesx-3{
-  width: 450px;
+.accionesz-3{
+  width: 430px;
   margin-top: 6%;
   margin-bottom: 0%;
 }
-.Festudianx .subir-3 {
+
+.ff {
+margin-bottom: -12px;
+margin-top: 5px;
+margin-left: -100px;
+}
+
+.Festudianz .subir-3z {
   background-color: #135a7a;
   color: #fff;
   border-radius: 9px;
@@ -151,21 +150,22 @@ margin-left: 5px;
   transition: background-color 0.3s ease; /* Transición suave de color */
 }
 
-.Festudianx .subir-3:hover {
+.Festudianz .subir-3z:hover {
   background-color: #1e85ad; /* Color diferente al pasar el puntero */
 }
-.Festudianx .verx-3{
+.Festudianz .verz-3{
   background-color: #06c52f;
   color: #fff;
   border-radius: 5px;
-  margin-left:3% ;
+  margin-left:-15% ;
   cursor: pointer;
   margin-top: 10px;
+  margin-bottom: -30px;
   width: 10%;
   padding: 0.3%;
 }
 
-.Festudianx .esx-3 {
+.Festudianz .esz-3 {
   margin-left: 0px;
   margin-bottom:0%;
   margin-left: -190px;
@@ -174,15 +174,35 @@ margin-left: 5px;
   font-weight: bold; /* Aplica negrita */
  }
 
- .Festudianx .arc-3 {
+ .Festudianx .arc-3z {
   margin-left: 0px;
-  margin-bottom:20px;
+  margin-bottom:18px;
   margin-left: 70px;
   margin-top: -25px;
   text-decoration: underline; 
  }
 
- .Festudianx .coment {
+
+ .Festudianz .arc-3z {
+  margin-left: 0px;
+  margin-bottom:18px;
+  margin-left: 0px;
+  margin-top: -25px;
+  text-decoration: underline; 
+ }
+
+
+
+ .Festudianz .arc-2z {
+  margin-left: 0px;
+  margin-bottom:12px;
+  margin-left: 80px;
+  margin-top: -25px;
+  text-decoration: underline; 
+ }
+
+
+ .Festudianz .comentz {
   color: #135a7a;
   margin-left: 40px;
   margin-top: 0px;
@@ -190,7 +210,7 @@ margin-left: 5px;
   margin-bottom: 0px;
  }
 
- .Festudianx .comentario {
+ .Festudianz .comentarioz {
   color: #000000;
   margin-left: 2px;
   font-size: 14px;
@@ -203,7 +223,7 @@ margin-left: 5px;
  }
 
 
-.calx{
+.calz{
   background-color: #135a7a;
   color: #fff;
   border-radius: 8px;
@@ -214,7 +234,7 @@ margin-left: 5px;
   margin-bottom: 0%;
   padding: 1%;
 }
-.calificar-nox{
+.calificar-noz{
   background-color: #135a7a;
   color: #fff;
   border-radius: 8px;
@@ -231,7 +251,7 @@ margin-left: 5px;
 
 
 
-.Festudianx h1 {
+.Festudianz h1 {
   font-size: 22px;
  text-align: center;
  color: black;
@@ -240,7 +260,7 @@ margin-left: 5px;
 
 
 
-.titulx {
+.titulz {
   width: 100%;
   display: inline-block;
   font-weight: bold;
@@ -252,21 +272,15 @@ margin-left: 5px;
   margin-bottom: -10%;
 }
 
-.ggx {
-  margin-top:100px;
-  margin-bottom: 53px;
+.ggz {
+  margin-top:80px;
+  margin-bottom: 23px;
   margin-left:23%;
   width: 85%;
 }
 
 
-.gg2x {
-  margin-top: 0%;
-  margin-left:23%;
-  width: 85%;
-}
-
-.titulo-contenedorx {
+.titulo-contenedorz {
   width: 100%;
   font-weight: bold;
   font-size: 120%;
@@ -276,20 +290,8 @@ margin-left: 5px;
   margin-bottom: -4%;
   background-color: #135a7a;
 }
-.titulo-contenedor2x {
-  width: 100%;
-  font-weight: bold;
-  font-size: 120%;
-  margin-top: -18px;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: -20px;
-  background-color: #135a7a;
-}
 
-
-
-.Festudianx input[type="file"]
+.Festudianz input[type="file"]
  {
   width: 360px;
   padding: 1px;
@@ -298,14 +300,14 @@ margin-left: 5px;
   margin-left: -25px;
 }
 
-.accionesx p {
- margin-left: 80px;
+.accionesz p {
+ margin-left: 90px;
 margin-top: -30px;
-width: 285px;
+width: 385px;
 text-decoration: underline; /* Subrayar el texto dentro del párrafo */
 }
 
-.archivox{
+.archivoz{
   margin-left:-20px;
  
 }
@@ -314,22 +316,89 @@ text-decoration: underline; /* Subrayar el texto dentro del párrafo */
 
 
 
+.Festudianz .botonz {
+  background-color: #1f92c7;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 39%;
+  cursor: pointer;
+  margin-top: 50px;
+margin-bottom: -80px;
+  width: 22%;
+  transition: background-color 0.3s ease; /* Transición suave de color */
+}
+
+.Festudianz .botonz:hover {
+  background-color: #1e85ad; /* Color diferente al pasar el puntero */
+}
+
+
+
+.Festudianz .botonz-0 {
+  background-color: #1f92c7;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 15%;
+  cursor: pointer;
+  margin-top: -5%;
+margin-bottom: 25px;
+  width: 32%;
+  transition: background-color 0.3s ease; /* Transición suave de color */
+}
+
+.Festudianz .botonz-0:hover {
+  background-color: #1e85ad; /* Color diferente al pasar el puntero */
+}
+
+
+
+.Festudianz .botonz-3 {
+  background-color: #1f92c7;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 5%;
+  margin-right: 40px;
+  cursor: pointer;
+  margin-top: -10px;
+margin-bottom: 0px;
+  width: 35%;
+  transition: background-color 0.3s ease; /* Transición suave de color */
+  font-size: 15px;
+}
+
+.Festudianz .botonz-3:hover {
+  background-color: #1e85ad; /* Color diferente al pasar el puntero */
+}
+
+
+
+
+
+.calificarx{
+
+  background-color: #1f92c7;
+  color: #fff;
+  border-radius: 5px;
+}
+
+
+
 @media (min-width: 1024px) and (max-width: 1028px) {
 
-  .Festudianx { 
-    margin-left: 0px;  } 
+  .Festudianz { 
+    margin-left: -50px;  } 
 
 
 
-    .titulo-contenedorx {
+    .titulo-contenedorz {
       width: 100%;
       margin-left: 0%;
       font-size: 100%;
-      margin-top: 5px;
+      margin-top: -67px;
       margin-bottom: -25px;
     }
     
-    .titulo-contenedor2x {
+    .titulo-contenedor2z {
       width: 100%;
       margin-left: 0%;
       font-size: 100%;
@@ -338,34 +407,49 @@ text-decoration: underline; /* Subrayar el texto dentro del párrafo */
       
     }
 
+    .accionesz-4{
+      width: 100%;
+      margin-top: 19%;
+      margin-bottom: 13px;
+    }
+.Festudianz .arc-1z-4 {
+  margin-left: 0px;
+  margin-bottom:60px;
+  margin-left: 170px;
+  margin-top: -30px;
+  text-decoration: underline; 
+ }
 
 
+ .ff {
+  margin-bottom: -12px;
+  margin-top: 5px;
+  margin-left: -50px;
+  }
+ 
 
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
 
 
-  .Festudianx {
+  .Festudianz {
     width: 100%;
     height: 100%;
-    
     margin-left: 0%;
-    margin-top: 88px;
-   
+    margin-top: 88px; 
     overflow: auto;
-    
   }
 
-  .contenedorx {
-    width: 120%;
+  .contenedorz {
+    width: 100%;
     height: 40%;
     margin-left: -23px;
     margin-top: -25px;
   }
 
   
-.titulx {
+.titulz {
   width: 100%;
  margin-left: -65px;
   font-size: 100%;
@@ -374,10 +458,39 @@ padding: 30px;
   margin-bottom: 0%;
 }
 
+.accionesz-4{
+  width: 100%;
+  margin-top: 11%;
+  margin-bottom: 13px;
+}
+.Festudianz .arc-1z-4 {
+margin-left: 0px;
+margin-bottom:20px;
+margin-left: 170px;
+margin-top: 11px;
+text-decoration: underline; 
+}
 
 
+.ff {
+  margin-bottom: -12px;
+  margin-top: 5px;
+  margin-left: -50px;
+  }
 
-.Festudianx .arc-3 {
+  .contener-3z{
+    margin-left: 180px;
+    margin-top: 25px;
+    margin-bottom: 9px;
+     width: 490px;
+  }
+  .accionesz-3{
+    width: 490px;
+    margin-top: 6%;
+    margin-bottom: 0%;
+  }
+
+.Festudianz .arc-3 {
  
   margin-bottom:41px;
   margin-left: 50px;
@@ -387,7 +500,7 @@ padding: 30px;
  }
 
 
-.Festudianx .subir {
+.Festudianz .subir {
  
   border-radius: 5px;
  
@@ -399,7 +512,7 @@ font-size: 13px;
 }
 
 
-.Festudianx .subir-3 {
+.Festudianz .subir-3 {
  
 
  font-size: 12px;
@@ -411,26 +524,33 @@ margin-right: 15px;
 }
 
 
-.botonx {
- padding: 0.5%;
+.Festudianz .botonz {
   border-radius: 9px;
-  margin-left: 41%;
-  font-size: 100%;
-  margin-top: -2%;
-margin-bottom: -1%;
-  width: 120px;
+  margin-left: 40%;
+
+  margin-top: 50px;
+margin-bottom: -80px;
+  width: 19%;
+ font-size: 14px;
+}
+
+.Festudianz .botonz-3 {
+  background-color: #1f92c7;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 15%;
+  margin-right: 40px;
   
+  margin-top: -10px;
+margin-bottom: 0px;
+  width: 38%;
+  
+  font-size: 13px;
 }
 
 
-.ggx {
-  margin-top: 5%;
-  margin-left:8%;
-  width: 100%;
-}
 
-
-.Festudianx input[type="file"]
+.Festudianz input[type="file"]
  {
   width: 70%;
   font-size: 85%;
@@ -438,12 +558,12 @@ margin-bottom: -1%;
   margin-left: 0px;
 }
 
-.archivox{
+.archivoz{
   margin-left:0px;
   margin-right: 12px;
 }
 
-.verx{
+.verz{
  border-radius: 9px;
   margin-left:5% ;
   width: 10%;
@@ -451,15 +571,15 @@ margin-bottom: -1%;
 }
 
 
-.accionesx{
+.accionesz{
   width: 100%;
-  margin-top: 5%;
-  margin-bottom: 65px;
+  margin-top: 9%;
+  margin-bottom: 38px;
   
 }
 
 
-.Festudianx .verx-2{
+.Festudianz .verz-2{
   margin-left:270px ;
   margin-top: 2%;
   padding: 0.3%;
@@ -471,26 +591,26 @@ margin-bottom: -1%;
 
 
 
-.accionesx-3{
+.accionesz-3{
   width: 330px;
   margin-top: 5%;
-  margin-bottom: -6%;
+  margin-bottom: -4%;
   margin-left: -80px;
 }
 
 
-.Festudianx .coment {
+.Festudianz .comentz {
  
   font-size: 14px;
  margin-left: 20px;
  }
 
- .Festudianx .comentario {
+ .Festudianz .comentarioz {
   
   
   font-size: 13px;
   width:100%;
-  margin-left: 190px;
+  margin-left: 188px;
  
   height: 50px;
   
@@ -498,16 +618,29 @@ margin-bottom: -1%;
  }
 
 
- .ggx {
-  margin-top:70px;
-  margin-bottom: 73px;
-  margin-left:20px;
-  width: 85%;
+
+
+ .Festudianz .botonz-0 {
+  border-radius: 9px;
+  margin-left: 29%;
+  font-size: 12px;
+  margin-top: -10%;
+margin-bottom: 10px;
+  width: 25%;
 }
 
 
 
-.calx{
+
+ .ggz {
+  margin-top:60px;
+  margin-bottom: 45px;
+  margin-left:95px;
+  width: 85%;
+}
+
+
+.calz{
   border-radius: 9px;
   margin-left:0% ;
   margin-right:8% ;
@@ -517,7 +650,7 @@ margin-bottom: -1%;
   margin-bottom: 0%;
  
 }
-.calificar-nox{
+.calificar-noz{
 
  
   margin-left:0% ;
@@ -531,21 +664,21 @@ margin-bottom: -1%;
 
 
 
-.esx {
+.esz {
   margin-left: -5%;
   margin-bottom: 1%;
   margin-right: 15%;
   width: 20%;
  }
 
- .Festudianx .esx-3 {
+ .Festudianz .esz-3 {
   margin-left: -90px;
 font-size: 14px;
 
  }
 
 
- .titulo-contenedorx {
+ .titulo-contenedorz {
   width: 100%;
   margin-left: 0%;
   font-size: 100%;
@@ -553,26 +686,14 @@ font-size: 14px;
   margin-bottom: -25px;
 }
 
-.titulo-contenedor2x {
+
+
+ .accionesz-1{
   width: 100%;
-  margin-left: 0%;
-  font-size: 100%;
-  margin-top:0px;
-  margin-bottom: -30px;
-  
+  margin-top: 44px;
+  margin-bottom: 20px;
 }
-
-
-
-
-
-
- .accionesx-1{
-  width: 100%;
-  margin-top: 80px;
-  margin-bottom: 45px;
-}
-.Festudianx .verx-1{
+.Festudianz .verz-1{
   border-radius: 10px;
   margin-left:50px;
   margin-top: 0%;
@@ -581,7 +702,7 @@ font-size: 14px;
   border-radius: 15px;
   font-size: 14px;
 }
-.Festudianx .esx-1 {
+.Festudianz .esz-1 {
   margin-left: 0px;
   margin-top:30px;
   margin-left: 50px;
@@ -590,7 +711,7 @@ font-size: 14px;
   
  }
 
- .Festudianx .arc-1 {
+ .Festudianz .arc-1 {
  
   margin-bottom:0px;
   margin-left: 150px;
@@ -599,7 +720,13 @@ font-size: 14px;
   font-size: 14px;
  }
 
+ .Festudianz .arc-2z {
 
+  margin-bottom:42px;
+  margin-left: 80px;
+  margin-top: -27px;
+  
+ }
 
 }
 
@@ -611,47 +738,41 @@ font-size: 14px;
   /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
 
 
-  .Festudianx {
+  .Festudianz {
     width: 100%;
     height: 100%; 
     margin-left: 0%;
     margin-top: 88px;
-    overflow: auto;
+   
     
   }
-  .contenedorx {
-    width: 130%;
+  .contenedorz {
+    width: 100%;
     height: 40%;
     margin-left: -23px;
     margin-top: -25px;
+    overflow: auto;
   }
 
   
-.titulx {
-  width: 150%;
- margin-left: -65px;
+.titulz {
+  width: 100%;
+ margin-left: -50px;
   font-size: 100%;
 padding: 30px;
  margin-top: -50%;
   margin-bottom: 0%;
 }
 
-.titulo-contenedorx {
-  width: 140%;
-  margin-left: -130px;
+.titulo-contenedorz {
+  width: 100%;
+  margin-left: 0px;
   font-size: 80%;
   margin-top: -5px;
   margin-bottom: 0px;
   
 }
-.titulo-contenedor2x {
-  width: 140%;
-  margin-left: -130px;
-  font-size: 80%;
-  margin-top:-4px;
-  margin-bottom: 0px;
-  
-}
+
 
 
 .boton {
@@ -673,7 +794,7 @@ margin-bottom: -3%;
 }
 
 
-.Festudian input[type="text"]
+.Festudianz input[type="text"]
  {
   width: 60%;
   font-size: 85%;
@@ -681,12 +802,12 @@ margin-bottom: -3%;
   margin-left: -15px;
 }
 
-.archivo{
+.archivoz{
   margin-left:0px;
   margin-right: 12px;
 }
 
-.ver{
+.verz{
  
   margin-left:10% ;
   width: 30%;
@@ -694,7 +815,7 @@ margin-bottom: -3%;
 }
 
 
-.gg2 {
+.gg2z {
   margin-top: 5%;
   margin-left:6%;
   width: 50%;
@@ -707,7 +828,7 @@ margin-bottom: -3%;
 }
 
 
-.cal{
+.calz{
   border-radius: 9px;
   margin-left:0% ;
   margin-right:8% ;
@@ -717,17 +838,7 @@ margin-bottom: -3%;
   margin-bottom: 0%;
  
 }
-.calificar-no{
 
-  border-radius: 10px;
-  margin-left:0% ;
-  margin-right:8% ;
-  margin-top: 0%;
-  width: 40%;
-  font-size: 90%;
-  margin-bottom: 0%;
- padding: 0.9%;
-}
 
 
 
@@ -740,21 +851,23 @@ margin-bottom: -3%;
 
 
 
- .accionesx-1{
+ .accionesz-1{
   width: 100%;
-  margin-top: 25px;
-  margin-bottom: 35px;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
-.Festudianx .verx-1{
+.Festudianz .verz-1{
   border-radius: 5px;
-  margin-left:3%;
-  margin-top: 7%;
+  margin-left:5%;
+
+  margin-top: 10%;
+  margin-bottom: 25px;
   width: 15%;
   padding: 1%;
   border-radius: 15px;
   font-size: 12px;
 }
-.Festudianx .esx-1 {
+.Festudianz .esz-1 {
   margin-left: 0px;
   margin-top:10px;
   margin-left: 20px;
@@ -763,7 +876,7 @@ margin-bottom: -3%;
   
  }
 
- .Festudianx .arc-1 {
+ .Festudianz .arc-1z {
  
   margin-bottom:0px;
   margin-left: 2%;
@@ -775,13 +888,13 @@ margin-bottom: -3%;
 
 
 
- .accionesx-3{
+ .accionesz-3{
   width: 200px;
   margin-top: -4px;
   margin-bottom: 0%;
   margin-left: -158px;
 }
-.Festudianx .verx-3{
+.Festudianz .verz-3{
   border-radius: 5px;
   margin-left:3%;
   margin-top: 7%;
@@ -790,7 +903,7 @@ margin-bottom: -3%;
   border-radius: 15px;
   font-size: 12px;
 }
-.Festudianx .esx-3 {
+.Festudianz .esz-3 {
 
   margin-top:0px;
   margin-left: -30px;
@@ -799,7 +912,7 @@ margin-bottom: -3%;
   
  }
 
- .Festudianx .arc-3 {
+ .Festudianz .arc-3z {
  
   margin-bottom:0px;
   margin-left: -40px;
@@ -808,7 +921,7 @@ margin-bottom: -3%;
   font-size: 12px;
  }
 
- .Festudianx input[type="file"]
+ .Festudianz input[type="file"]
  {
   width: 60%;
   font-size: 85%;
@@ -816,21 +929,25 @@ margin-bottom: -3%;
   margin-left: -40px;
 }
 
-.Festudianx .subir-3 {
+
+
+
+
+.Festudianz .subir-3z {
   background-color: #135a7a;
   color: #fff;
   border-radius: 9px;
-  width: 60px;
- 
+  width: 45px;
+ font-size: 12px;
 }
 
-.Festudianx .coment {
+.Festudianz .comentz {
  
   font-size: 0px;
  margin-left: 0px;
  }
 
- .Festudianx .comentario {
+ .Festudianz .comentarioz {
   
   
   font-size: 10px;
@@ -842,14 +959,33 @@ margin-bottom: -3%;
 
  }
 
- .ggx {
-  margin-top:30px;
-  margin-bottom: 73px;
-  margin-left:45px;
-  width: 85%;
+ .ggz {
+  margin-top:28px;
+  margin-bottom: 10px;
+  margin-left:35px;
+  width: 100%;
 }
 
-.Festudianx .estado-0 {
+
+.ggz input[type="file"]
+{
+ width: 40%;
+ font-size: 75%;
+ border: 1px solid #0639c5;
+ margin-left: -25px;
+ margin-bottom: 0px;
+}
+
+.Festudianz .botonz-0 {
+  border-radius: 9px;
+  margin-left: 0px;
+  font-size: 10px;
+  margin-top: 10px;
+margin-bottom: 40px;
+  width: 100px;
+}
+
+.Festudianz .estado-0z {
   
   margin-left: -30px;
   font-size: medium;
@@ -857,15 +993,15 @@ margin-bottom: -3%;
  }
 
 
- .accionesx{
+ .accionesz{
   width: 80%;
   margin-top: 5%;
   margin-bottom: 65px;
-  margin-left:35px ;
+  margin-left:45px ;
 }
 
 
-.Festudianx .verx-2{
+.Festudianz .verz-2{
   margin-left:0px ;
   margin-top: 2%;
   padding: 0.3%;
@@ -875,4 +1011,69 @@ margin-bottom: -3%;
 
 
 
+
+.Festudianz .botonz {
+  border-radius: 9px;
+  margin-left: 5%;
+  margin-top: 30px;
+margin-bottom: -75px;
+  width: 150px;
+ font-size: 12px;
+}
+
+.accionesz-4{
+  width: 100%;
+  margin-top: 11%;
+  margin-bottom: 13px;
+}
+
+.Festudianz .arc-2z {
+
+  margin-bottom:10px;
+  margin-left: -5px;
+  margin-top: -25px;
+  font-size: 11px;
+  }
+
+
+  .Festudianz .botonz-3 {
+   
+    margin-left: 20px;
+    margin-right: 40px;
+    
+    margin-top: -10px;
+  margin-bottom: -10px;
+    width: 100px;
+    
+    font-size: 10px;
+  }
+
+  .accionesz-3{
+    width: 350px;
+    margin-top: 5%;
+    margin-bottom: -4%;
+    margin-left: -200px;
+  }
+ 
+
+  .Festudianz .contener-3z{
+    margin-left: 245px;
+    margin-top: -20px;
+    margin-bottom: 0px;
+     width: 490px;
+  }
+
+
+  .Festudianz .arc-1z-4 {
+    margin-left: 0px;
+    margin-bottom:60px;
+    margin-left: 5px;
+    margin-top: 15px;
+    font-size: 12px;
+    text-decoration: underline; 
+   }
+.ff {
+  margin-left: 4px;
+  font-size: 12px;
+}
 }

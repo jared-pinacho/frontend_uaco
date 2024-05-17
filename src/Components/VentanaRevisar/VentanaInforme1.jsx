@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 
 
-export const VentanaPresentacion = ( {matricula,actualizar,setActualizar}) => {
+export const VentanaInforme1 = ( {matricula,actualizar,setActualizar}) => {
   const [texto, setTexto] = useState('');
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
@@ -20,6 +20,8 @@ export const VentanaPresentacion = ( {matricula,actualizar,setActualizar}) => {
       const nuevoValor = !actualizar; // Cambiar el valor de 'actualizar' (alternar entre true y false)
       setActualizar(nuevoValor); // Cambiar 'actualizar' desde el componente hijo
     };
+    
+
 
 
 
@@ -31,7 +33,7 @@ export const VentanaPresentacion = ( {matricula,actualizar,setActualizar}) => {
 
     axios
       .patch(
-        `${apiUrl}envia/comentario/presentacion/${matricula}/${texto}`,
+        `${apiUrl}envia/comentario/informe1/${matricula}/${texto}`,
         {},
         {
           headers: {
@@ -40,10 +42,9 @@ export const VentanaPresentacion = ( {matricula,actualizar,setActualizar}) => {
         }
       )
       .then((response) => {
-        console.log('comentaio enviado');
+        console.log('comentario enviado');
         setMostrarComponente(false);
-        actualizarDesdeHijo();
-
+actualizarDesdeHijo();
       })
       .catch((error) => {
         toast.error(error.message);

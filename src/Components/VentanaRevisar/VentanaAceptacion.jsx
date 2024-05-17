@@ -7,13 +7,23 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 
 
-export const VentanaAceptacion = ( {matricula}) => {
+export const VentanaAceptacion = ( {matricula,actualizar,setActualizar}) => {
   const [texto, setTexto] = useState('');
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
   const [mostrarComponente, setMostrarComponente] = useState(true);
 
   const enviaComentario = ( ) => {
+
+
+    const actualizarDesdeHijo = () => {
+      const nuevoValor = !actualizar; // Cambiar el valor de 'actualizar' (alternar entre true y false)
+      setActualizar(nuevoValor); // Cambiar 'actualizar' desde el componente hijo
+    };
+
+
+
+
 
     if (texto.trim()==='') {
       // Si el campo de texto está vacío o solo contiene espacios en blanco
@@ -34,6 +44,7 @@ export const VentanaAceptacion = ( {matricula}) => {
       .then((response) => {
         console.log('comentario enviado');
         setMostrarComponente(false);
+        actualizarDesdeHijo();
 
       })
       .catch((error) => {

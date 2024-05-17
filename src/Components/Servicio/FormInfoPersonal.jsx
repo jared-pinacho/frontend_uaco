@@ -1072,7 +1072,8 @@ export const FormInfoPersonal = ({
           />
         </div>
 
-        {estatus_envio === 0 || estatus_envio === 3 || estatus_envio === 1 && (
+        {
+          (estatus_envio === 3 || estatus_envio === 0 && (
           <div>
             <button
               // onClick={prepararDatosAEnviar}
@@ -1084,7 +1085,7 @@ export const FormInfoPersonal = ({
             </button>
             {errors.cp && <p>{errors.cp}</p>}
           </div>
-        )}
+        ))}
         <div>
           <label>Estado:</label>
           <input

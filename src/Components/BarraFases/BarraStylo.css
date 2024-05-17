@@ -158,8 +158,8 @@ text-align: center;
     margin-top: 5%; /* Ajusta el margen superior según tus necesidades */
     margin-left: 1%;
     margin-bottom: -70px;
-    width: 98%; /* Ancho inicial de la barra lateral */
-    
+    width: 90%; /* Ancho inicial de la barra lateral */
+    overflow: auto;
   }
   
   .sidebarov {
@@ -240,6 +240,11 @@ text-align: center;
     
   }
 
+  .texto-opciono.activo {
+   
+    font-size: 11px;
+    
+  }
 
 
 }
@@ -251,14 +256,14 @@ text-align: center;
 
   .sidebaro-containerov {
     display: flex;
-    flex-direction: fill;
-    position: relative;
+ 
+    
     height: 60px;
     margin-top: 4%; /* Ajusta el margen superior según tus necesidades */
-    margin-left: 30px;
+    margin-left: 5px;
     margin-bottom: -70px;
     width: 60%; /* Ancho inicial de la barra lateral */
-    
+    overflow: auto;
   }
   
   .sidebarov {
@@ -340,7 +345,11 @@ text-align: center;
   }
 
 
-
+  .texto-opciono.activo {
+   
+    font-size: 11px;
+    
+  }
 
 
 }

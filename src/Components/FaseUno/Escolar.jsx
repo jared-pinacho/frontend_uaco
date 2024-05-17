@@ -16,7 +16,7 @@ import { VentanaAceptacion } from "../VentanaRevisar/VentanaAceptacion";
 // Configuración de las fuentes necesarias para pdfmake
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-export const Escolar = ({informacion}) => {
+export const Escolar = ({informacion, actualizar, setActualizar}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [pdfUrl, setPdfUrl] = useState(null);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -31,6 +31,9 @@ export const Escolar = ({informacion}) => {
   const [mostrarComponente2, setMostrarComponente2] = useState(false);
   const [matricula, setMatricula] = useState(true);
   const [visible2, setVisible2] = useState(0);
+
+
+
 
 
   const [formData, setFormData] = useState({
@@ -96,9 +99,17 @@ export const Escolar = ({informacion}) => {
         comentario_pres: informacion.faseUno?.com_pres || "",
         estado_acep: informacion.faseUno?.acep_estado || "",
       });
-      setVisible(informacion.faseUno?.pres_estado);
+
+      if(informacion.faseUno ===null){
+        setVisible(0);
+        setVisible2(0);
+      }else{
+
+        setVisible(informacion.faseUno?.pres_estado);
+       
+        setVisible2(informacion.faseUno?.acep_estado);
+      }
       setMatricula(informacion.estudiante?.matricula);
-      setVisible2(informacion.faseUno?.acep_estado);
     }
   }, [informacion]);
 
@@ -146,6 +157,10 @@ const handleMostrarComponente2 = () => {
 };
 
 
+const actualizarDesdeHijo = () => {
+  const nuevoValor = !actualizar; // Cambiar el valor de 'actualizar' (alternar entre true y false)
+  setActualizar(nuevoValor); // Cambiar 'actualizar' desde el componente hijo
+};
 
 
 const cambiarEstado = (estado) => {
@@ -160,8 +175,9 @@ const cambiarEstado = (estado) => {
       }
     )
     .then((response) => {
-      console.log('actualizado a enviado');
-
+      if(estado===2){
+        actualizarDesdeHijo();
+      }
     })
     .catch((error) => {
      
@@ -184,8 +200,9 @@ const cambiarEstadoAceptacion = (estado) => {
       }
     )
     .then((response) => {
-      console.log('actualizado a enviado');
-
+      if(estado===2){
+        actualizarDesdeHijo();
+      }
     })
     .catch((error) => {
      
@@ -295,7 +312,7 @@ const documentDefinition = {
  { text: '|', margin: [151,-11, 0, 0],bold:false,color:"#135585" ,fontSize:33},
 
  
- { text: `${formData.cuc_nombre}`, margin: [162,-60, 200, 0],bold:false,color:"#135585" ,fontSize:11},
+ { text: `${formData.cuc_nombre}`, margin: [162,-60, 200, 0],bold:true,color:"#135585" ,fontSize:11},
 
     // Encabezado con dirección y fecha
     { text: `${formData.cuc_colonia}, ${formData.cuc_municipio}, ${formData.cuc_estado} a ${formattedDate}`, style: 'header' },
@@ -348,63 +365,37 @@ const documentDefinition = {
     { text:  `${formData.consejero} `, style: 'con' },
     { text:  `${consejer} `, style: 'con' },
 
-    {canvas: [ {
-      position: 'absolute',
-          type: 'rect',
-          x: 0,
-          y: 65,
-          w: 72, // Ancho del rectángulo
-          h: 45, // Alto del rectángulo
-          color: '#135585', // Color de fondo del rectángulo
-        },  ],},
-
     {
-      text: 'UACO',
-      bold: true, // Negrita estándar
-     
-      color: 'white', // Color del texto
-      fontSize: 25,
-      alignment: 'left', // Alineación del texto
-      absolutePosition: { x: 44, y: 710 }, // Posición absoluta para centrar verticalmente en el rectángulo
-      width: 100, // Ancho del texto igual al ancho del rectángulo
-      height: 30, // Alto del texto igual al alto del rectángulo
+      
     },
     {
-      text: `${formData.cuc_nombre}`,
-      bold: true, // Negrita estándar
-      color: '#135585', // Color del texto
-      fontSize: 8.5,
-      alignment: 'left', // Alineación del texto
-     
-      margin: [76,-38, 330, 4]// Margen [left, top, right, bottom]
+      text: 'UACO',
+      bold: true,
+      color: '#135585',
+      fontSize: 28,
+      absolutePosition: { x: 81, y: 734 }, // Posición absoluta del texto dentro del rectángulo
+      backgroundColor: 'red'
     },
     {
       text: `UACO-${formData.cuc_nombre}`,
-      bold: true, // Negrita estándar
-      color: '#135585', // Color del texto
+      bold: true,
+      color: '#135585',
       fontSize: 8,
-      alignment: 'left', // Alineación del texto
-     
-      margin: [0,5, 260, 0]// Margen [left, top, right, bottom]
+      absolutePosition: { x: 80, y: 770 } // Posición absoluta del texto
     },
-
     {
       text: `${formData.cuc_calle} ${formData.cuc_numEx}, ${formData.cuc_colonia},`,
-      bold: true, // Negrita estándar
-      color: '#135585', // Color del texto
+      bold: true,
+      color: '#135585',
       fontSize: 9,
-      alignment: 'left', // Alineación del texto
-     
-      margin: [0,0, 300,0]// Margen [left, top, right, bottom]
+      absolutePosition: { x: 80, y: 780 } // Posición absoluta del texto
     },
     {
       text: `${formData.cuc_municipio}, Oaxaca C.P. ${formData.cuc_cp}`,
-      bold: true, // Negrita estándar
-      color: '#135585', // Color del texto
+      bold: true,
+      color: '#135585',
       fontSize: 9,
-      alignment: 'left', // Alineación del texto
-     
-      margin: [0,0, 305, 0]// Margen [left, top, right, bottom]
+      absolutePosition: { x: 80, y: 790 } // Posición absoluta del texto
     },
 
   ],
@@ -453,6 +444,7 @@ const documentDefinition = {
 
   },
  
+
 };
 
     // Generar el PDF y obtener la URL del PDF
@@ -486,7 +478,7 @@ const documentDefinition = {
   return (
     <div className="Festudian">
       <label className="titul">Inicio de Servicio Social Comunitario</label>
-       
+      
       <div className="contenedor">
         <label className="titulo-contenedor">Carta de solicitud</label>
         <button className="boton" onClick={generarSolicitud}>
@@ -565,7 +557,8 @@ const documentDefinition = {
 
 
 {mostrarComponente && <VentanaPresentacion
-             
+             actualizar={actualizar}
+             setActualizar={setActualizar}
              matricula={matricula}
              
              />}
@@ -662,9 +655,9 @@ const documentDefinition = {
 
 
 {mostrarComponente2 && <VentanaAceptacion
-     
+     actualizar={actualizar}
+     setActualizar={setActualizar}
      matricula={matricula}
-     
      />}
 
 </div> )}

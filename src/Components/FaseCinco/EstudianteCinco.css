@@ -312,6 +312,31 @@ text-decoration: underline; /* Subrayar el texto dentro del párrafo */
 
 
 
+.accionesz-4{
+  width: 100%;
+  margin-top: 18%;
+  margin-bottom: 13px;
+}
+
+
+.Festudianx .arc-1z-4 {
+  margin-left: 0px;
+  margin-bottom:60px;
+  margin-left: 170px;
+  margin-top: -30px;
+  text-decoration: underline; 
+ }
+ 
+
+.Festudianx .esz-1 {
+  margin-left: 0px;
+  margin-bottom:0%;
+  margin-left: 50px;
+  font-size: large;
+  color: #135a7a;
+  font-weight: bold; /* Aplica negrita */
+ }
+
 
 
 @media (min-width: 1024px) and (max-width: 1028px) {
@@ -339,7 +364,12 @@ text-decoration: underline; /* Subrayar el texto dentro del párrafo */
     }
 
 
-
+    .accionesz-4{
+      width: 100%;
+      margin-top: 150px;
+      margin-bottom: 65px;
+      margin-left: -40px;
+    }
 
 }
 
@@ -553,14 +583,7 @@ font-size: 14px;
   margin-bottom: -25px;
 }
 
-.titulo-contenedor2x {
-  width: 100%;
-  margin-left: 0%;
-  font-size: 100%;
-  margin-top:0px;
-  margin-bottom: -30px;
-  
-}
+
 
 
 
@@ -600,6 +623,32 @@ font-size: 14px;
  }
 
 
+ .accionesz-4{
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom: 5px;
+}
+
+
+.Festudianx .arc-1z-4 {
+  
+  margin-bottom:70px;
+  margin-left: 150px;
+  margin-top: 0px;
+ 
+ }
+ 
+
+.Festudianx .esz-1 {
+  margin-left: 0px;
+  margin-bottom:0%;
+  margin-left: 50px;
+  font-size: large;
+  
+ }
+
+
+
 
 }
 
@@ -629,8 +678,8 @@ font-size: 14px;
   
 .titulx {
   width: 150%;
- margin-left: -65px;
-  font-size: 100%;
+ margin-left: -110px;
+  font-size: 90%;
 padding: 30px;
  margin-top: -50%;
   margin-bottom: 0%;
@@ -644,14 +693,7 @@ padding: 30px;
   margin-bottom: 0px;
   
 }
-.titulo-contenedor2x {
-  width: 140%;
-  margin-left: -130px;
-  font-size: 80%;
-  margin-top:-4px;
-  margin-bottom: 0px;
-  
-}
+
 
 
 .boton {
@@ -874,5 +916,31 @@ margin-bottom: -3%;
 }
 
 
+
+
+.accionesz-4{
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  margin-left: -40px;
+}
+
+
+.Festudianx .arc-1z-4 {
+  
+  margin-bottom:50px;
+  margin-left: 50px;
+  margin-top: 6px;
+ font-size: small;
+ }
+ 
+
+.Festudianx .esz-1 {
+  margin-left: 0px;
+  margin-bottom:0%;
+  margin-left: 50px;
+  font-size: small;
+  
+ }
 
 }

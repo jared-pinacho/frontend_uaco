@@ -307,7 +307,12 @@ export const FormInfoSocial = ({
       });
   };
 
-  const handleCancelSubmit = () => {
+ 
+
+
+
+  const handleCancelSubmit = (event) => {
+    event.preventDefault();
     // Cancelar el envío del formulario
     setShowConfirmDialog(false);
   };
@@ -519,8 +524,10 @@ export const FormInfoSocial = ({
           />
         </div>
 
-        {estatus_envio === 0 ||
-          (estatus_envio === 3 && (
+       
+
+        {
+          (estatus_envio === 3 || estatus_envio === 0 && (
             <div>
               <button
                 // onClick={prepararDatosAEnviar}
@@ -613,12 +620,27 @@ export const FormInfoSocial = ({
           isOpen={showConfirmDialog}
           message="¿Estás seguro de enviar los datos?"
           onConfirm={() => {
-            handleConfirmSubmitEdit();
+
+            if(estatus_envio === 0){
+              handleConfirmSubmit();
+
+            }else{
+              handleConfirmSubmitEdit();
+            }
+           
 
             handleOcultar();
           }}
           onCancel={handleCancelSubmit}
         />
+
+
+
+
+
+
+
+
 
         {estatus_envio === 1 && (
           <div>
