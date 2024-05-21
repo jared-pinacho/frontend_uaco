@@ -96,7 +96,7 @@ export const UpSideBar = ({estadoTramite}) => {
             <div
               className={`itemo ${
                 componenteActivo === "momentoUno"  ? "activo" : ""}`}
-                onClick={estadoTramite === "Información de servicio" || estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 2"  || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación" ? () => handleClick("momentoUno") : null}
+                onClick={estadoTramite === "Información de servicio" ||  estadoTramite === "Informe bimestral 1" || estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 2"  || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación" ? () => handleClick("momentoUno") : null}
                 style={{
                   // Aplicar estilos condicionales para cursor y otras propiedades CSS
                   ...(estadoTramite === "Información de servicio" || estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"
@@ -107,14 +107,10 @@ export const UpSideBar = ({estadoTramite}) => {
               >
               <span
                 className={`texto-opciono ${componenteActivo === "momentoUno"  ? "activo": ""  }`} 
-                
                 >
                 INICIO DE SERVICIO
               </span>
             </div>
-
-
-
 
             <div
               className={`itemo ${

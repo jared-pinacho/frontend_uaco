@@ -78,19 +78,19 @@ export const UpSideBarEscolar = ({dato,estado}) => {
           return <PagePersonalEscolar dato={dato} />;
         } 
         if (estado === 'Información de servicio') {
-          return <Escolar informacion={informacion} />;
+          return <Escolar informacion={informacion} actualizar={actualizar} setActualizar={setActualizar} />;
         } 
         if (estado === 'Inicio de servicio') {
-          return <FaseDosEscolar informacion={informacion} />;
+          return <FaseDosEscolar informacion={informacion} actualizar={actualizar} setActualizar={setActualizar} />;
         } 
         if (estado === 'Informe bimestral 1') {
-           return <FaseTresEscolar informacion={informacion} />;
+           return <FaseTresEscolar informacion={informacion} actualizar={actualizar} setActualizar={setActualizar} />;
          } 
          if (estado === 'Informe bimestral 2') {
-          return <FaseCuatroEscolar informacion={informacion} />;
+          return <FaseCuatroEscolar informacion={informacion} actualizar={actualizar} setActualizar={setActualizar}  />;
         } 
         if (estado === 'Informe bimestral 3') {
-          return <FaseCincoEscolar informacion={informacion} />;
+          return <FaseCincoEscolar informacion={informacion} actualizar={actualizar} setActualizar={setActualizar} />;
         } 
     }
   };

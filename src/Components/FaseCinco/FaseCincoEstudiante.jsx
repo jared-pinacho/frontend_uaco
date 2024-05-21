@@ -178,7 +178,7 @@ const cambiarPresentacion = (dato) => {
         
     } else {
       // No se ha seleccionado ningún archivo, mostrar mensaje de error
-      toast.info('Por favor selecciona un archivo antes de enviar.');
+      toast.info('Por favor selecciona un archivo valido antes de enviar.');
     }
   };
 

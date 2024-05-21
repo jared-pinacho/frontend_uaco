@@ -24,19 +24,12 @@ export const FaseDosEscolar = ({informacion,actualizar,setActualizar}) => {
   const [visible2, setVisible2] = useState(0);
 
 
-
-
-
   const [formData, setFormData] = useState({
    reporte: "",
    estado:"",
    comentario:"",
    
   });
-
-
- 
-
 
   useEffect(() => {
     if (informacion) {
@@ -113,7 +106,7 @@ const cambiarEstadoInforme = (estado) => {
     })
     .catch((error) => {
      
-      console.error('Error al activar el enviado:', error);
+     // console.error('Error al activar el enviado:', error);
     });
 };
 
