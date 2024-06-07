@@ -98,7 +98,7 @@ const cambiarEstadoInforme = (estado) => {
       }
     )
     .then((response) => {
-      console.log('actualizado a enviado');
+     // console.log('actualizado a enviado');
 
       if(estado===2){
         actualizarDesdeHijo();

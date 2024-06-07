@@ -62,7 +62,7 @@ const cambiarPresentacion = (dato) => {
       }
     )
     .then((response) => {
-      console.log("estado cambiado");
+    //  console.log("estado cambiado");
     })
     .catch((error) => {
       
@@ -90,7 +90,7 @@ const cambiarPresentacion = (dato) => {
         }
       } else {
         // Tipo de archivo no válido, mostrar mensaje de error
-        toast.info('Por favor selecciona un archivo PDF.');
+        toast.info('Por favor selecciona un archivo valido.');
       }
     }
   };

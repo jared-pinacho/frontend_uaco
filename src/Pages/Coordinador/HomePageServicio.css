@@ -1,0 +1,120 @@
+.homePageCoordinadore {
+  display: flex;
+  flex-grow: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
+  padding: 5px;
+  background-color: white;
+  flex-direction: column;
+  overflow: auto;
+  height: 100vh;
+  padding-top: 40px;
+}
+.homePageCoordinadore .contenedorArribae {
+  width: 100%;
+  height: 50%;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: auto;
+}
+.homePageCoordinadore .contenedorArribae .tarjetaTotalEstudiantese {
+  width: 100%;
+  border-radius: 15px;
+  margin: 5px 50px 5px 50px;
+  
+}
+
+.homePageCoordinadore .contenedorArribae .tarjetaTotalEstudiantese .tituloe{
+  font-size: 110%;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 0px;
+  color: black;
+  height: 20%;
+}
+
+.homePageCoordinadore .contenedorArribae .tarjetaTotalEstudiantese .contenidoe {
+  display: flex;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-top: 0px;
+  height: 50%;
+  background-color: #9dc5c2;
+  clip-path: inset(0% 0% 0% 0%); /* Ajuste para convertir el pentágono en un rectángulo */
+  align-items: center;
+  justify-content: center;
+}
+
+.homePageCoordinadore .contenedorArribae .tarjetaTotalEstudiantese .contenidoe:hover{
+  background-color:#135585; 
+  color: white;
+}
+
+
+.homePageCoordinadore .contenedorArribae .tarjetaTotalEstudiantese .contenidoe2 {
+  display: flex;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-top: 0px;
+  height: 50%;
+  background-color: #81c784;
+  clip-path: inset(0% 0% 0% 0%); /* Ajuste para convertir el pentágono en un rectángulo */
+  align-items: center;
+  justify-content: center;
+}
+
+.homePageCoordinadore .contenedorArribae .tarjetaTotalEstudiantese .contenidoe2:hover{
+  background-color:#218838; 
+  color: white;
+}
+
+
+
+
+
+
+.homePageCoordinadore .contenedorArribae .contenedorTarjetae {
+  display: flex;
+  /* background-color: white; */
+  width: 30%;
+  height: 95%;
+  margin: 1px;
+  justify-content: center;
+}
+
+.homePageCoordinadore .contenedorAbajoe {
+  width: 100%;
+  height: 50%;
+  overflow: auto;
+  /* background-color: green; */
+}
+
+.homePageCoordinadore .graficaProgramase {
+  width: 150%;
+  height: 230%;
+  overflow: auto;
+  /* background-color: green; */
+}
+
+.homePageCoordinadore .graficaProgramasEe {
+  width: 110%;
+  height: 110%;
+  overflow: auto;
+  /* background-color: green; */
+}
+
+@media (max-width: 768px) {
+  .cargandoe {
+    font-size: 14px;
+  }
+  .homePageCoordinadore .contenedorArribae .contenedorTarjetae {
+    width: 100%;
+  }
+}
+
+

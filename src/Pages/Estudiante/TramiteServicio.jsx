@@ -61,7 +61,7 @@ export const TramiteServicio = () => {
 
       <div className="barraBusqueda">
         {isLoading ? (
-          <div className="cargando-letra">Obteniendo datos, por favor espere...</div>
+          <div className="cargando-letras">Obteniendo datos, por favor espere...</div>
         ) : null}
       </div>
 

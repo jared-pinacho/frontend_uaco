@@ -44,9 +44,12 @@ margin-left: -50px;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 71%;
- 
 }
 
+
+.Ventana .button-enviar:hover {
+  background-color: #1e85ad; /* Cambia este color al que prefieras */
+}
 
 @media (min-width: 426px) and (max-width: 768px) {
  

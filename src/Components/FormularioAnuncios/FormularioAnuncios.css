@@ -1,0 +1,142 @@
+.Festudianteso {
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+  margin: 30px auto;
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 1px 1px 10px #135a7a;
+  background-color: #9dc5c2;
+}
+
+.Festudianteso h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #135a7a;
+  
+}
+
+.Festudianteo label {
+  width: 25%;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: white;
+  background-color: #135a7a;
+  padding: 5px;
+}
+
+.Festudianteso input[type="text"],
+.Festudianteso input[type="number"],
+.Festudianteso input[type="date"] {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+.Festudianteso p {
+  color: red;
+  font-weight: bold;
+}
+
+.Festudianteso select {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+.Festudianteso button {
+  background-color: #135a7a;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Festudianteso .btnCp {
+  width: 25%;
+
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.Festudianteso utton:hover {
+  background-color: #0056b3;
+}
+
+
+.textarea-des{
+font-size: 18px;
+  width: 89%;
+    height: 100px;
+    padding: 10px;
+  margin-top: -18px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+
+
+
+@media (max-width: 768px) {
+  /* Ajusta los estilos del formulario para pantallas más pequeñas si es necesario */
+  .Festudianteso {
+    width: 100%;
+    font-size: 14px;
+    overflow: scroll;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .Festudianteso table {
+    max-width: 100px;
+    font-size: 6px;
+  }
+
+  .Festudianteso label {
+    width: 100%;
+    /* Ocupar el ancho completo en pantallas pequeñas */
+    margin-bottom: 5px;
+    /* Espacio menor para pantallas pequeñas */
+    font-size: 12px;
+  }
+
+  .Festudianteso input[type="text"],
+  .Festudianteso input[type="number"],
+  .Festudianteso input[type="date"] {
+    width: 100%;
+    padding: 2px;
+    font-size: 12px;
+  }
+
+  .Festudianteso .btnCp{
+    width: 100%;
+    
+    margin-top: 0;
+    margin-bottom: 3px;
+  }
+  .Festudianteso select {
+    width: 100%;
+    font-size: 12px;
+    padding: 2px;
+  }
+
+
+  .textarea-des{
+
+    width: 100%;
+     font-size: 12px;
+      padding: 5px;
+    margin-top: 0px;
+   height: 60px;
+  }
+  
+
+
+}

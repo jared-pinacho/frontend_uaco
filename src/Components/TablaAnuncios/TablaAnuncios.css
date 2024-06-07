@@ -1,0 +1,90 @@
+.contenedorTablaEstudiantes{
+    overflow: auto;
+    max-height: 100%;
+    
+  }
+  .contenedorTablaEstudiantes .tablita thead{
+    position: sticky;
+    top: 0;
+  }
+  
+  .contenedorTablaEstudiantes .tablita thead th {
+      background-color: #135A7A;
+      color: white;
+  }
+
+  .contenedorTablaEstudiantes .tablita .inactivo td {
+    background-color: red;
+    color: white;
+}
+
+.contenedorTablaEstudiantes .tablita .irregular td {
+  background-color: rgb(206, 21, 159);
+  color: white;
+}
+  
+.contenedorTablaEstudiantes .campoBusqueda{
+    background-color: #BFF7C6;
+  }
+  .contenedorTablaEstudiantes .btnAcep{
+    background-color: #135A7A;
+    width: 80%;
+    border-radius: 15px;
+    transition: background-color 0.3s ease; /* Transición suave de color */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.contenedorTablaEstudiantes .btnTer{
+  background-color: #0eaa28;
+  width: 80%;
+  border-radius: 15px;
+  transition: background-color 0.3s ease; /* Transición suave de color */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.btnTer:hover {
+  background-color: #43da35; /* Color diferente al pasar el puntero */
+}
+
+
+
+  .btnAcep:hover {
+  background-color: #1e85ad; /* Color diferente al pasar el puntero */
+}
+
+
+
+
+.contenedorTablaEstudiantes .btnElim{
+  background-color: #e23131;
+  width: 80%;
+  border-radius: 15px;
+  transition: background-color 0.3s ease; /* Transición suave de color */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.btnElim:hover {
+  background-color: #a80e0e; /* Color diferente al pasar el puntero */
+}
+
+
+
+  @media (max-width: 768px) {
+      
+    
+      .table, .table tbody, .table tr, .table td, .table th {
+        width: 100%;
+      }
+    
+      .table td, .table th {
+        text-align: left;
+        padding: 8px; /* Reduce el espacio entre el contenido y los bordes en dispositivos móviles */
+        font-size: 12px;
+      }
+    }

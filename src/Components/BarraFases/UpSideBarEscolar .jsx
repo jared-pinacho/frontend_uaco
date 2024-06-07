@@ -12,6 +12,7 @@ import { FaseTresEscolar } from "../FaseTres/FaseTresEscolar";
 import { FaseCuatroEscolar } from "../FaseCuatro/FaseCuatroEscolar";
 import { FaseCincoEstudiante } from "../FaseCinco/FaseCincoEstudiante";
 import { FaseCincoEscolar } from "../FaseCinco/FaseCincoEscolar";
+import { FaseFinalEscolar } from "../FaseFinal/FaseFinalEscolar";
 
 
 const MY_AUTH_APP = "DoFA45-M0pri";
@@ -68,7 +69,7 @@ export const UpSideBarEscolar = ({dato,estado}) => {
       case "momentoCinco":
         return <FaseCincoEscolar informacion={informacion} actualizar={actualizar} setActualizar={setActualizar}/>;
       case "momentoFinal":
-        return <Contenido />;
+        return <FaseFinalEscolar informacion={informacion} actualizar={actualizar} setActualizar={setActualizar}  />;
       default:
         if (estado === 'Iniciado') {
           return <h1 style={{ color: "red" }}>Información no actualizada</h1>;
@@ -92,6 +93,10 @@ export const UpSideBarEscolar = ({dato,estado}) => {
         if (estado === 'Informe bimestral 3') {
           return <FaseCincoEscolar informacion={informacion} actualizar={actualizar} setActualizar={setActualizar} />;
         } 
+
+        if (estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ) {
+          return <FaseFinalEscolar informacion={informacion} actualizar={actualizar} setActualizar={setActualizar} />;
+        } 
     }
   };
 
@@ -102,78 +107,84 @@ export const UpSideBarEscolar = ({dato,estado}) => {
           <div className="encabezadi">
             
           <div
-              className={`itemo ${componenteActivo === "informacionPersonal"   || estado === 'Información de servicio' || estado === 'Información personal' || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' ? "activo" : ""}`}
+              className={`itemo ${componenteActivo === "informacionPersonal"   || estado === 'Información de servicio' || estado === 'Información personal' || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}
               onClick={() => handleClick("informacionPersonal","inframcion")}
             >
-              <span className={`texto-opciono ${componenteActivo === "informacionPersonal"  || estado === 'Información de servicio'    || estado === 'Información personal' || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' ? "activo" : ""}`}   >INFORMACIÓN PERSONAL</span>
+              <span className={`texto-opciono ${componenteActivo === "informacionPersonal"  || estado === 'Información de servicio'    || estado === 'Información personal' || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}   >INFORMACIÓN PERSONAL</span>
             </div>
 
 
 
             
-            <div  className={`itemo ${componenteActivo === "informacionServicio" || estado === 'Información de servicio'|| estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' ? "activo" : ""}`}
+            <div  className={`itemo ${componenteActivo === "informacionServicio" || estado === 'Información de servicio'|| estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}
               onClick={() => handleClick("informacionServicio")}
             >
-               <span className={`texto-opciono ${componenteActivo === "informacionServicio"  || estado === 'Información de servicio'  || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' ? "activo" : ""}`}   >INFORMACIÓN SERVICIO </span>
+               <span className={`texto-opciono ${componenteActivo === "informacionServicio"  || estado === 'Información de servicio'  || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}   >INFORMACIÓN SERVICIO </span>
             </div>
 
 
 
 
 
-            <div  className={`itemo ${  estado === 'Inicio de servicio' || estado === "Información de servicio" || componenteActivo === "momentoUno" || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' ? "activo" : ""}`}
+            <div  className={`itemo ${  estado === 'Inicio de servicio' || estado === "Información de servicio" || componenteActivo === "momentoUno" || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}
               onClick={() => handleClick("momentoUno")}
             >
-               <span className={`texto-opciono ${componenteActivo === "momentoUno"  || estado === 'Inicio de servicio' || estado === "Información de servicio" || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' ? "activo" : ""}`} >INICIO DE SERVICIO</span>
+               <span className={`texto-opciono ${componenteActivo === "momentoUno"  || estado === 'Inicio de servicio' || estado === "Información de servicio" || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`} >INICIO DE SERVICIO</span>
             </div>
 
 
 
 
 
-            <div className={`itemo ${  estado === 'Inicio de servicio' || componenteActivo === "momentoDos" || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' ? "activo" : ""}`}
+            <div className={`itemo ${  estado === 'Inicio de servicio' || componenteActivo === "momentoDos" || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}
               onClick={() => handleClick("momentoDos")}>
 
 
-              <span className={`texto-opciono ${componenteActivo === "momentoDos"  || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' ? "activo" : ""}`}>INFORME BIMESTRAL 1</span>
+              <span className={`texto-opciono ${componenteActivo === "momentoDos"  || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}>INFORME BIMESTRAL 1</span>
             </div>
 
 
 
 
-            <div className={`itemo ${  estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || componenteActivo === "momentoTres" ? "activo" : ""}`}
+            <div className={`itemo ${  estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || componenteActivo === "momentoTres" || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}
             onClick={() => handleClick("momentoTres")}>
 
 
-              <span className={`texto-opciono ${componenteActivo === "momentoTres"  || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' ? "activo" : ""}`}>INFORME BIMESTRAL 2</span>
+              <span className={`texto-opciono ${componenteActivo === "momentoTres"  || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}>INFORME BIMESTRAL 2</span>
             </div>
 
 
 
 
 
-            <div className={`itemo ${ estado === 'Informe bimestral 2' || componenteActivo === "momentoCuatro"  || estado === 'Informe bimestral 3' ? "activo" : ""}`}
+            <div className={`itemo ${ estado === 'Informe bimestral 2' || componenteActivo === "momentoCuatro"  || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}
             onClick={() => handleClick("momentoCuatro")}>
 
-              <span className={`texto-opciono ${componenteActivo === "momentoCuatro"  || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3'  ? "activo" : ""}`}>INFORME BIMESTRAL 3</span>
+              <span className={`texto-opciono ${componenteActivo === "momentoCuatro"  || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}>INFORME BIMESTRAL 3</span>
             </div>
 
 
 
 
            
-            <div className={`itemo ${  componenteActivo === "momentoCinco"  || estado === 'Informe bimestral 3' ? "activo" : ""}`}
+            <div className={`itemo ${  componenteActivo === "momentoCinco"  || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}
             onClick={() => handleClick("momentoCinco")}>
 
 
-<span className={`texto-opciono ${componenteActivo === "momentoCinco"  || estado === 'Informe bimestral 3'  ? "activo" : ""}`}>CARTA DE TERMINACIÓN</span>
+<span className={`texto-opciono ${componenteActivo === "momentoCinco"  || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}>CARTA DE TERMINACIÓN</span>
             </div>
 
 
 
+
+            <div className={`itemo ${  componenteActivo === "momentoFinal"  || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}
+            onClick={() => handleClick("momentoFinal")}>
+
             
-             <div className="itemo" onClick={() => handleClick("momentoFinal")}>
-              <span className="texto-opciono">CONSTANCIA DE LIBERACIÓN</span>
+             {/* <div className="itemo" onClick={() => handleClick("momentoFinal")}> */}
+
+             <span className={`texto-opciono ${componenteActivo === "momentoFinal" || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}>CONSTANCIA LIBERACIÓN</span>
+         
             </div> 
           </div>
         </div>

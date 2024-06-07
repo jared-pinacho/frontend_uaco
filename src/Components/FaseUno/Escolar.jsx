@@ -481,7 +481,7 @@ const documentDefinition = {
       
       <div className="contenedor">
         <label className="titulo-contenedor">Carta de solicitud</label>
-        <button className="boton" onClick={generarSolicitud}>
+        <button className="botonf" onClick={generarSolicitud}>
           Generar Carta
         </button>
         

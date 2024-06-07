@@ -112,7 +112,7 @@ const cambiarInforme1 = (dato) => {
       }
     )
     .then((response) => {
-      console.log("estado cambiado");
+     // console.log("estado cambiado");
       
     })
     .catch((error) => {
@@ -142,7 +142,7 @@ const cambiarInforme1 = (dato) => {
         }
       } else {
         // Tipo de archivo no válido, mostrar mensaje de error
-        toast.info('Por favor selecciona un archivo PDF.');
+        toast.info('Por favor selecciona un archivo valido.');
       }
     }
   };

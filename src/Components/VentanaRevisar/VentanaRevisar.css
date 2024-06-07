@@ -38,6 +38,11 @@
 }
 
 
+.VentanaRevisar .button-enviar:hover {
+  background-color: #1e85ad; /* Cambia este color al que prefieras */
+}
+
+
 @media (max-width: 768px) {
  
 

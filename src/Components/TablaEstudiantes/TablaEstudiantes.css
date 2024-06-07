@@ -32,6 +32,26 @@
     border-radius: 15px;
   }
   
+  .contenedorTablaEstudiantes .btnDoc2{
+    background-color: #0eaa28;
+    width: 100%;
+    border-radius: 15px;
+  }
+
+
+
+
+  .contenedorTablaEstudiantes .btnDoc2:hover {
+    background-color: #43da35; /* Color diferente al pasar el puntero */
+  }
+  
+  
+  
+  .contenedorTablaEstudiantes .btnDoc:hover {
+    background-color: #1e85ad; /* Color diferente al pasar el puntero */
+  }
+  
+
   @media (max-width: 768px) {
       
     

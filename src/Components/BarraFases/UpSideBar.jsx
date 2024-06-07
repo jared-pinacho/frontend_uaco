@@ -11,6 +11,7 @@ import { FaseDosEstudiante } from "../FaseDos/FaseDosEstudiante";
 import { FaseTresEstudiante } from "../FaseTres/FaseTresEstudiante";
 import { FaseCuatroEstudiante } from "../FaseCuatro/FaseCuatroEstudiante";
 import { FaseCincoEstudiante } from "../FaseCinco/FaseCincoEstudiante";
+import { FaseFinalEstudiante } from "../FaseFinal/FaseFinalEstudiante";
 
 
 
@@ -65,7 +66,7 @@ export const UpSideBar = ({estadoTramite}) => {
       case "momentoCinco":
         return <FaseCincoEstudiante  setActualizar={setActualizar} informacion={informacion} actualizar={actualizar} />;
       case "momentoFinal":
-        return <Contenido />;
+        return <FaseFinalEstudiante setActualizar={setActualizar} informacion={informacion} actualizar={actualizar} />;
       default:
         return null;
     }
@@ -96,10 +97,10 @@ export const UpSideBar = ({estadoTramite}) => {
             <div
               className={`itemo ${
                 componenteActivo === "momentoUno"  ? "activo" : ""}`}
-                onClick={estadoTramite === "Información de servicio" ||  estadoTramite === "Informe bimestral 1" || estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 2"  || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación" ? () => handleClick("momentoUno") : null}
+                onClick={estadoTramite === "Información de servicio" ||  estadoTramite === "Informe bimestral 1" || estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 2"  || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación" || estadoTramite === 'Constancia solicitada' ? () => handleClick("momentoUno") : null}
                 style={{
                   // Aplicar estilos condicionales para cursor y otras propiedades CSS
-                  ...(estadoTramite === "Información de servicio" || estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"
+                  ...(estadoTramite === "Información de servicio" || estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada'
                     ? { cursor: 'pointer', opacity: 1, backgroundColor: '#ffffff', color: '#333333' }
                     : { cursor: 'not-allowed', opacity: 0.5, backgroundColor: '#f2f2f2', color: '#999999' }),
                   // Otros estilos existentes o adicionales según sea necesario
@@ -115,9 +116,9 @@ export const UpSideBar = ({estadoTramite}) => {
             <div
               className={`itemo ${
                 componenteActivo === "momentoDos"  ? "activo" : ""}`}
-                onClick={estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3"  || estadoTramite === "Carta de terminación" ? () => handleClick("momentoDos") : null}
+                onClick={estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3"  || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada' ? () => handleClick("momentoDos") : null}
                 style={{          
-                  ...(estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"
+                  ...(estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada'
                     ? { cursor: 'pointer', opacity: 1, backgroundColor: '#ffffff', color: '#333333' }
                     : { cursor: 'not-allowed', opacity: 0.5, backgroundColor: '#f2f2f2', color: '#999999' }),}}
               >
@@ -132,9 +133,9 @@ export const UpSideBar = ({estadoTramite}) => {
             <div
               className={`itemo ${
                 componenteActivo === "momentoTres"  ? "activo" : ""}`}
-                onClick={estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación" ? () => handleClick("momentoTres") : null}
+                onClick={estadoTramite === "Inicio de servicio" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada' ? () => handleClick("momentoTres") : null}
                 style={{          
-                  ...(estadoTramite === "Momento 3" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"
+                  ...(estadoTramite === "Momento 3" || estadoTramite === "Informe bimestral 1" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada'
                     ? { cursor: 'pointer', opacity: 1, backgroundColor: '#ffffff', color: '#333333' }
                     : { cursor: 'not-allowed', opacity: 0.5, backgroundColor: '#f2f2f2', color: '#999999' }),}}
               >
@@ -149,9 +150,9 @@ export const UpSideBar = ({estadoTramite}) => {
             <div
               className={`itemo ${
                 componenteActivo === "momentoCuatro"  ? "activo" : ""}`}
-                onClick={estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación" ? () => handleClick("momentoCuatro") : null}
+                onClick={estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada' ? () => handleClick("momentoCuatro") : null}
                 style={{          
-                  ...(estadoTramite === "Momento 4" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"
+                  ...(estadoTramite === "Momento 4" || estadoTramite === "Informe bimestral 2" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada'
                     ? { cursor: 'pointer', opacity: 1, backgroundColor: '#ffffff', color: '#333333' }
                     : { cursor: 'not-allowed', opacity: 0.5, backgroundColor: '#f2f2f2', color: '#999999' }),}}
               >
@@ -167,9 +168,9 @@ export const UpSideBar = ({estadoTramite}) => {
             <div
               className={`itemo ${
                 componenteActivo === "momentoCinco"  ? "activo" : ""}`}
-                onClick={estadoTramite === "Momento 5" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación" ? () => handleClick("momentoCinco") : null}
+                onClick={estadoTramite === "Momento 5" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada' ? () => handleClick("momentoCinco") : null}
                 style={{          
-                  ...(estadoTramite === "Momento 5" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"
+                  ...(estadoTramite === "Momento 5" || estadoTramite === "Informe bimestral 3" || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada'
                     ? { cursor: 'pointer', opacity: 1, backgroundColor: '#ffffff', color: '#333333' }
                     : { cursor: 'not-allowed', opacity: 0.5, backgroundColor: '#f2f2f2', color: '#999999' }),}}
               >
@@ -185,9 +186,9 @@ export const UpSideBar = ({estadoTramite}) => {
             <div
               className={`itemo ${
                 componenteActivo === "momentoFinal"  ? "activo" : ""}`}
-                onClick={estadoTramite === "Momento Final" || estadoTramite === "Carta de terminación"  ? () => handleClick("momentoFinal") : null}
+                onClick={estadoTramite === "Momento Final" || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada' ? () => handleClick("momentoFinal") : null}
                 style={{          
-                  ...(estadoTramite === "Momento Final" || estadoTramite === "Carta de terminación"
+                  ...(estadoTramite === "Momento Final" || estadoTramite === "Carta de terminación"  || estadoTramite === 'Constancia solicitada'
                     ? { cursor: 'pointer', opacity: 1, backgroundColor: '#ffffff', color: '#333333' }
                     : { cursor: 'not-allowed', opacity: 0.5, backgroundColor: '#f2f2f2', color: '#999999' }),}}
               >

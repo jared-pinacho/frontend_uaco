@@ -162,8 +162,8 @@ export const EscolaresEstudiantes = () => {
 
   
   return (
-    <div className="Page">
-    <div className="Dinamico">
+    <div className="estudiantesPage">
+    <div className="contenidoDinamico">
       <div className="tituloEstudiantes">
         <h1>Estudiantes prestadores de servicio</h1>
       </div>

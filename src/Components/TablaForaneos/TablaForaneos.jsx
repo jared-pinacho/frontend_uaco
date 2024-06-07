@@ -216,67 +216,48 @@ const documentDefinition = {
     { text:  `${informacion.consejero?.nombre} ${informacion.consejero?.apellido_paterno} ${informacion.consejero?.apellido_materno}`, style: 'con' },
     { text:  `${consejer} `, style: 'con' },
 
-    {canvas: [ {
-      position: 'absolute',
-          type: 'rect',
-          x: 0,
-          y: 135,
-          w: 72, // Ancho del rectángulo
-          h: 45, // Alto del rectángulo
-          color: '#135585', // Color de fondo del rectángulo
-        },  ],},
+    // {canvas: [ {
+    //   position: 'absolute',
+    //       type: 'rect',
+    //       x: 0,
+    //       y: 135,
+    //       w: 72, // Ancho del rectángulo
+    //       h: 45, // Alto del rectángulo
+    //       color: '#135585', // Color de fondo del rectángulo
+    //     },  ],},
 
     {
       text: 'UACO',
-      bold: true, // Negrita estándar
-     
-      color: 'white', // Color del texto
-      fontSize: 25,
-      alignment: 'left', // Alineación del texto
-      absolutePosition: { x: 44, y: 710 }, // Posición absoluta para centrar verticalmente en el rectángulo
-      width: 100, // Ancho del texto igual al ancho del rectángulo
-      height: 30, // Alto del texto igual al alto del rectángulo
+      bold: true,
+      color: '#135585',
+      fontSize: 28,
+      absolutePosition: { x: 81, y: 734 }, // Posición absoluta del texto dentro del rectángulo
+      backgroundColor: 'red'
     },
+   
     {
-      text: `${informacion.cuc?.nombre.substring(6)}`,
-      bold: true, // Negrita estándar
-      color: '#135585', // Color del texto
-      fontSize: 8.5,
-      alignment: 'left', // Alineación del texto
-     
-      margin: [76,-38, 330, 4]// Margen [left, top, right, bottom]
-    },
-    {
-      text: `UACO-${informacion.cuc?.nombre.substring(6)}`,
-      bold: true, // Negrita estándar
-      color: '#135585', // Color del texto
+      text: `${informacion.cuc?.nombre}`,
+      bold: true,
+      color: '#135585',
       fontSize: 8,
-      alignment: 'left', // Alineación del texto
-     
-      margin: [0,5, 260, 0]// Margen [left, top, right, bottom]
+      absolutePosition: { x: 80, y: 770 } // Posición absoluta del texto
     },
-
     {
       text: `${informacion.cuc?.direccion?.calle} ${informacion.cuc?.direccion?.num_exterior}, ${informacion.cuc?.direccion?.colonia?.nombre},`,
-     bold: true, // Negrita estándar
-     color: '#135585', // Color del texto
+      bold: true,
+      color: '#135585',
       fontSize: 9,
-      alignment: 'left', // Alineación del texto
-     
-      margin: [0,0, 300,0]// Margen [left, top, right, bottom]
+      absolutePosition: { x: 80, y: 780 } // Posición absoluta del texto
     },
-     {
-     text: `${informacion.cuc?.direccion?.colonia?.municipio?.nombre}, Oaxaca C.P. ${informacion.cuc?.direccion?.colonia?.id_cp}`,
-      bold: true, // Negrita estándar
-      color: '#135585', // Color del texto
+    {
+      text: `${informacion.cuc?.direccion?.colonia?.municipio?.nombre}, Oaxaca C.P. ${informacion.cuc?.direccion?.colonia?.id_cp}`,
+      bold: true,
+      color: '#135585',
       fontSize: 9,
-      alignment: 'left', // Alineación del texto
-     
-      margin: [0,0, 305, 0]// Margen [left, top, right, bottom]
-     },
+      absolutePosition: { x: 80, y: 790 } // Posición absoluta del texto
+    },
 
-
-
+  
   ],
   styles: {
     header: {
@@ -479,64 +460,46 @@ content: [
   { text:  `${informacion.consejero?.nombre} ${informacion.consejero?.apellido_paterno} ${informacion.consejero?.apellido_materno}`, style: 'con' },
   { text:  `${consejer} `, style: 'con' },
 
-  {canvas: [ {
-    position: 'absolute',
-        type: 'rect',
-        x: 0,
-        y: 135,
-        w: 72, // Ancho del rectángulo
-        h: 45, // Alto del rectángulo
-        color: '#135585', // Color de fondo del rectángulo
-      },  ],},
+  // {canvas: [ {
+  //   position: 'absolute',
+  //       type: 'rect',
+  //       x: 0,
+  //       y: 135,
+  //       w: 72, // Ancho del rectángulo
+  //       h: 45, // Alto del rectángulo
+  //       color: '#135585', // Color de fondo del rectángulo
+  //     },  ],},
 
   {
     text: 'UACO',
-    bold: true, // Negrita estándar
-   
-    color: 'white', // Color del texto
-    fontSize: 25,
-    alignment: 'left', // Alineación del texto
-    absolutePosition: { x: 44, y: 710 }, // Posición absoluta para centrar verticalmente en el rectángulo
-    width: 100, // Ancho del texto igual al ancho del rectángulo
-    height: 30, // Alto del texto igual al alto del rectángulo
+    bold: true,
+    color: '#135585',
+    fontSize: 28,
+    absolutePosition: { x: 81, y: 734 }, // Posición absoluta del texto dentro del rectángulo
+    backgroundColor: 'red'
   },
+ 
   {
-    text: `${informacion.cuc?.nombre.substring(6)}`,
-    bold: true, // Negrita estándar
-    color: '#135585', // Color del texto
-    fontSize: 8.5,
-    alignment: 'left', // Alineación del texto
-   
-    margin: [76,-38, 330, 4]// Margen [left, top, right, bottom]
-  },
-  {
-    text: `UACO-${informacion.cuc?.nombre.substring(6)}`,
-    bold: true, // Negrita estándar
-    color: '#135585', // Color del texto
+    text: `${informacion.cuc?.nombre}`,
+    bold: true,
+    color: '#135585',
     fontSize: 8,
-    alignment: 'left', // Alineación del texto
-   
-    margin: [0,5, 260, 0]// Margen [left, top, right, bottom]
+    absolutePosition: { x: 80, y: 770 } // Posición absoluta del texto
   },
-
   {
     text: `${informacion.cuc?.direccion?.calle} ${informacion.cuc?.direccion?.num_exterior}, ${informacion.cuc?.direccion?.colonia?.nombre},`,
-   bold: true, // Negrita estándar
-   color: '#135585', // Color del texto
+    bold: true,
+    color: '#135585',
     fontSize: 9,
-    alignment: 'left', // Alineación del texto
-   
-    margin: [0,0, 300,0]// Margen [left, top, right, bottom]
+    absolutePosition: { x: 80, y: 780 } // Posición absoluta del texto
   },
-   {
-   text: `${informacion.cuc?.direccion?.colonia?.municipio?.nombre}, Oaxaca C.P. ${informacion.cuc?.direccion?.colonia?.id_cp}`,
-    bold: true, // Negrita estándar
-    color: '#135585', // Color del texto
+  {
+    text: `${informacion.cuc?.direccion?.colonia?.municipio?.nombre}, Oaxaca C.P. ${informacion.cuc?.direccion?.colonia?.id_cp}`,
+    bold: true,
+    color: '#135585',
     fontSize: 9,
-    alignment: 'left', // Alineación del texto
-   
-    margin: [0,0, 305, 0]// Margen [left, top, right, bottom]
-   },
+    absolutePosition: { x: 80, y: 790 } // Posición absoluta del texto
+  },
 
 
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import "../TablaEstudiantes/TablaEstudiantes.css";
 import Loader from "../Loader/Loader";
 import { PanelTramite } from '../TramiteServicio/PanelTramite';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export const TablaEstudiantesServicio = ({
   estudiantes,
@@ -98,7 +100,7 @@ export const TablaEstudiantesServicio = ({
                         className="btnDoc"
                         onClick={() => handleButtonClick(estudiante.matricula,estudiante.estado_tramite)}
                       >
-                        Ver
+                       <FontAwesomeIcon icon={faUser} /> ir
                       </button>
                     </td>
                   </tr>

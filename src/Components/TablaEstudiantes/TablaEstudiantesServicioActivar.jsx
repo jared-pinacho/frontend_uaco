@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../TablaEstudiantes/TablaEstudiantes.css";
 import Loader from "../Loader/Loader";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faDotCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 
 export const TablaEstudiantesServicioActivar = ({candidatos,isLoading,activarServicio}) => {
@@ -65,7 +68,7 @@ export const TablaEstudiantesServicioActivar = ({candidatos,isLoading,activarSer
           className="btnDoc"
           onClick={() => activarServicio(estudiante.matricula)}
         >
-          Activar
+       <FontAwesomeIcon icon={faDotCircle} />   Activar
         </button>
       </td>
     </tr>

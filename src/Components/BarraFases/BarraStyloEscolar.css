@@ -67,8 +67,8 @@
   display: flex;
   align-items: center;
   padding: 13px;
-  font-size: 97%;
-  width: 130px;
+  font-size: 100%;
+  width: 100%;
   border-radius: 10px;
   margin-right: 1px;
   margin-left: 0px;
@@ -77,7 +77,7 @@
   margin-bottom: 0%;
   transition:transform .5s;
   margin-top: 0px;
-  height: 159px;
+  height: 100px;
 }
 
 
@@ -99,7 +99,7 @@
   /* Estilos para el texto de la opción activa */
   color: rgb(238, 238, 243); /* Cambia el color a azul cuando está activo */
   font-weight: bold; /* Texto en negrita cuando está activo */
-  font-size: 14px;
+  font-size: 13.6px;
 }
 
 .texto-opciono {

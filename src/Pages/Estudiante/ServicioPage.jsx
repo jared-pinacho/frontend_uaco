@@ -8,12 +8,14 @@ import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 import { FormInfoSocial } from "../../Components/FormularioServicio/FormInfoSocial";
 import { EstudianteInfo } from "../../Components/PresentaInfo/EstudianteInfo"
+import { AvisosInfo } from "../../Components/PresentaAvisos/AvisosInfo";
 
 
 
 export const ServicioPage = () => {
 
 const [estudianteAEditar, setEstudianteAEditar] = useState("");
+const [avisos, setAvisos] = useState("");
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +24,7 @@ const [estudianteAEditar, setEstudianteAEditar] = useState("");
 
   useEffect(() => {
     handleBuscarEstudiante();
-    
+    handleBuscarAvisos();
   }, []);
 
 
@@ -39,7 +41,7 @@ const [estudianteAEditar, setEstudianteAEditar] = useState("");
         // console.log(response);
         setEstudianteAEditar(response.data.data);
         setIsLoading(false);
-        console.log(response.data.data);
+        
       })
       .catch((error) => {
         //Para limpiar el formulario cuando no se encuentre la clave ingresada
@@ -49,15 +51,49 @@ const [estudianteAEditar, setEstudianteAEditar] = useState("");
       });
   }; 
 
+
+
+  const handleBuscarAvisos = () => {
+    setIsLoading(true);
+    
+    axios
+      .get(`${apiUrl}anuncios/Cuc`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        // console.log(response);
+        setAvisos(response.data.data);
+        setIsLoading(false);
+        
+      })
+      .catch((error) => {
+        //Para limpiar el formulario cuando no se encuentre la clave ingresada
+        setIsLoading(false);
+        setAvisos("");
+     //   toast.error("Verifique los datos ingresados");
+      });
+  }; 
+
+
   return (
-   
     <div className="estudiantesPage">
     <div className="contenidoDinamico">
+     
       <EstudianteInfo
       estudianteAEditar={estudianteAEditar}
       isLoading={isLoading}
-    
       />
+    
+      
+
+<AvisosInfo
+      avisos={avisos}
+      isLoading={isLoading}
+      />
+
+    
 
     
     </div>

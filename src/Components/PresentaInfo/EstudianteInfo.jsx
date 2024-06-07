@@ -27,7 +27,7 @@ export const EstudianteInfo = ({estudianteAEditar}) => {
         semestre: estudianteAEditar.semestre || "",
       });
     
-      console.log(formData.apellidopaterno);
+    
 
   }, [estudianteAEditar]);
 

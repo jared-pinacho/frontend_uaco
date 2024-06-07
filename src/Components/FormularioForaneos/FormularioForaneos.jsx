@@ -197,8 +197,7 @@ export const FormularioForaneos = ({
         })
         .then((response) => {
           toast.success(response.data.message);
-          actualizarTabla();
-          //setCarreraRegistrada(response.data.data);
+          actualizarTabla();    
         })
         .catch((error) => {
           toast.error(error.response.data.message);

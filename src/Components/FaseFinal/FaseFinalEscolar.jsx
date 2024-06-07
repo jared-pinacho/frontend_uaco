@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../FaseCinco/EscolarCinco.css";
+import "../FaseFinal/EscolarFinal.css";
 import Modal from 'react-modal';
 import { saveAs } from 'file-saver';
 import axios from "axios";
@@ -7,10 +7,11 @@ import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 import { VentanaInforme3 } from "../VentanaRevisar/VentanaInforme3";
 import { VentanaTermino } from "../VentanaRevisar/VentanaTermino";
+import { VentanaRecibo } from "../VentanaRevisar/VentanaRecibo";
 
 
 
-export const FaseCincoEscolar = ({informacion,actualizar,setActualizar}) => {
+export const FaseFinalEscolar = ({informacion,actualizar,setActualizar}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [pdfUrl, setPdfUrl] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -22,9 +23,6 @@ export const FaseCincoEscolar = ({informacion,actualizar,setActualizar}) => {
   const [visible2, setVisible2] = useState(0);
 
 
-
-
-
   const [formData, setFormData] = useState({
    reporte: "",
    estado:"",
@@ -33,25 +31,22 @@ export const FaseCincoEscolar = ({informacion,actualizar,setActualizar}) => {
   });
 
 
- 
-
-
   useEffect(() => {
     if (informacion) {
       setFormData({
-        reporte: informacion.faseCinco?.carta_terminacion || "",
-        estado: informacion.faseCinco?.estatus_envio || "",
-        comentario: informacion.faseCinco?. comentario || "",
+        reporte: informacion.faseFinal?.recibo || "",
+        estado: informacion.faseFinal?.estatus_envio || "",
+        comentario: informacion.faseFinal?.comentario || "",
       });
 
-      if(informacion.faseCinco ===null){
+      if(informacion.faseFinal===null){
      
         setVisible2(0);
       }else{
 
        
        
-        setVisible2(informacion.faseCinco?.estatus_envio);
+        setVisible2(informacion.faseFinal?.estatus_envio);
       }
       setMatricula(informacion.estudiante?.matricula);
     }
@@ -73,8 +68,6 @@ export const FaseCincoEscolar = ({informacion,actualizar,setActualizar}) => {
 
 
 
-
-
 const handleMostrarBoton2 = () => {
   setMostrarBoton2(false); // Establece el estado para mostrar el componente
 };
@@ -90,10 +83,10 @@ const actualizarDesdeHijo = () => {
 };
 
 
-const cambiarEstadoInforme3 = (estado) => {
+const cambiarEstadoRecibo = (estado) => {
   axios
     .patch(
-      `${apiUrl}cambio/estado/terminacion/${informacion.estudiante.matricula}/${estado}`,
+      `${apiUrl}cambio/estado/recibo/${informacion.estudiante.matricula}/${estado}`,
       {},
       {
         headers: {
@@ -102,9 +95,9 @@ const cambiarEstadoInforme3 = (estado) => {
       }
     )
     .then((response) => {
-     // console.log('actualizado a enviado');
+      console.log('actualizado a enviado');
 
-      if(estado===2){
+      if(estado===2 || estado===4){
         actualizarDesdeHijo();
       }
 
@@ -158,10 +151,10 @@ const descargarArchivo = (nombreArchivo) => {
 
   return (
     <div className="Festudian">
-      <label className="titul">Fin de Servicio Social Comunitario</label>
+      <label className="titul">Solicitud Constancia de Liberación</label>
       
       <div className="contenedor">
-        <label className="titulo-contenedor">Carta de terminación</label>
+        <label className="titulo-contenedor">Comprobante de pago</label>
       
         <Modal
           isOpen={modalIsOpen}
@@ -207,7 +200,7 @@ const descargarArchivo = (nombreArchivo) => {
   <div className="acciones">
     <button 
      onClick={() => {
-      cambiarEstadoInforme3(2);
+      cambiarEstadoRecibo(2);
       handleMostrarBoton2();
      }}
 
@@ -216,7 +209,7 @@ const descargarArchivo = (nombreArchivo) => {
     
     onClick={()=> {
       handleMostrarComponente2();
-      cambiarEstadoInforme3(3);          
+      cambiarEstadoRecibo(3);          
      }}
     
     className="calificar-no">Rechazar</button>
@@ -229,7 +222,7 @@ const descargarArchivo = (nombreArchivo) => {
 )}
 
 
-{mostrarComponente2 && <VentanaTermino
+{mostrarComponente2 && <VentanaRecibo
      actualizar={actualizar}
      setActualizar={setActualizar}
      matricula={matricula}
@@ -247,15 +240,15 @@ const descargarArchivo = (nombreArchivo) => {
       </div> )}
 
 {visible2===2  && (
-        <div className="gg-2">
-        <label className="archivo-2">Archivo subido: </label>
-        <input type="text"
-        value={formData.reporte}
-        disabled
-        />
-        <button className="ver-2" onClick={() => descargarArchivo(formData.reporte)} >Ver</button>
+        <div className="ggg-2">
+       
+       
+       <button className="boton" onClick={() => cambiarEstadoRecibo(4)}>
+          Solicitar Constancia
+        </button>
+       
         <div> 
-        <label className="estado-2">Archivo revisado y aprobado </label>
+        <label className="estado-2">Recibo revisado y aprobado </label>
 
         </div>
        
@@ -278,6 +271,19 @@ const descargarArchivo = (nombreArchivo) => {
         </div>
        
         </div> )}
+
+
+        {visible2===4  && (
+        <div className="ggg-2">
+       
+       
+        <div> 
+        <label className="estados-2">Constancia de liberación de servicio solicitada </label>
+
+        </div>
+       
+        </div> )}
+
         
       </div>
    

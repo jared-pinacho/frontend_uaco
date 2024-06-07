@@ -46,6 +46,7 @@ export const LeftSideBar = () => {
   const token = Cookies.get("tok");
   const [estado, setEstado] = useState(0);
   const [menuVisible, setMenuVisible] = useState(false);
+  const [menuVisible2, setMenuVisible2] = useState(false);
 
   const obtenerEstatusServicio = () => {
     axios
@@ -63,22 +64,32 @@ export const LeftSideBar = () => {
         // No hacer nada en caso de error para evitar imprimir en la consola
         // El error se maneja silenciosamente aquí
       });
-  };
+};
+
 
   const handleMenuClick = () => {
     setMenuVisible(true);
   };
 
+  const handleMenuClick2 = () => {
+    setMenuVisible2(true);
+  };
+
+
+
   const handle = () => {
     setMenuVisible(false);
   };
 
-  useEffect(() => {
 
-      obtenerEstatusServicio();
-   
-   
-  }, [token]); // Se ejecuta cada que el usuario que inicie sesion cambie
+  const handle2 = () => {
+    setMenuVisible2(false);
+  };
+
+  useEffect(() => {
+        obtenerEstatusServicio(); 
+  }, [token]); // Se ejecuta cada vez que el token cambia
+
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
@@ -142,7 +153,7 @@ export const LeftSideBar = () => {
                 {/* Coordinador */}
                 {rol === "coordinador" && (
                   <>
-                    <li>
+                    <li onClick={handle2}>
                       <NavLink
                         to="/homePageCoordinador"
                         activeclassname="active"
@@ -157,7 +168,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
+                    <li onClick={handle2}>
                       <NavLink to="/cucs" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -169,7 +180,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
+                    <li onClick={handle2}>
                       <NavLink to="/carreras" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -181,7 +192,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
+                    <li onClick={handle2}>
                       <NavLink to="/periodos" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -193,7 +204,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
+                    <li onClick={handle2}>
                       <NavLink to="/materias" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -205,22 +216,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
-                      <NavLink
-                        to="/servicioCoordinador"
-                        activeclassname="active"
-                      >
-                        <div className="item">
-                          <FontAwesomeIcon
-                            className="icono"
-                            icon={faSchoolFlag}
-                            color="#135585"
-                          />
-                          <span className="texto-opcion">Servicio social</span>
-                        </div>
-                      </NavLink>
-                    </li>
-                    <li>
+                    <li onClick={handle2}>
                       <NavLink to="/datosGenerales" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -232,7 +228,7 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
-                    <li>
+                    <li onClick={handle2}>
                       <NavLink to="/reportesRecibidos" activeclassname="active">
                         <div className="item">
                           <FontAwesomeIcon
@@ -246,8 +242,46 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
+
+
+                    <li onClick={handleMenuClick2}>
+                      <NavLink
+                        to="/servicioCoordinador"
+                        activeclassname="active"
+                      >
+                        <div className="item">
+                          <FontAwesomeIcon
+                            className="icono"
+                            icon={faSchoolFlag}
+                            color="#135585"
+                          />
+                          <span className="texto-opcion">
+                            Servicio social comunitario
+                          </span>
+                        </div>
+                      </NavLink>
+                    </li>
+
+                    {menuVisible2 && (
+                      <div className="menu">
+                        <NavLink
+                          to="/metricasCoordinador"
+                          activeclassname="active"
+                          style={{ textDecoration: "none" }}
+                        >
+                          <div className="subitem">
+                            <span className="texto-subopcion">
+                              Estadísticas
+                            </span>
+                          </div>
+                        </NavLink>
+                        
+                      </div>
+                    )}
                   </>
                 )}
+                
+
 
                 {/* Consejero */}
                 {rol === "consejero" && (
@@ -295,6 +329,25 @@ export const LeftSideBar = () => {
                         </div>
                       </NavLink>
                     </li>
+
+                    <li>
+                      <NavLink
+                        to="/servicioConsejero"
+                        activeclassname="active"
+                      >
+                        <div className="item">
+                          <FontAwesomeIcon
+                            className="icono"
+                            icon={faSchoolFlag}
+                            color="#135585"
+                          />
+                          <span className="texto-opcion">
+                            Servicio social comunitario
+                          </span>
+                        </div>
+                      </NavLink>
+                    </li>
+
                   </>
                 )}
 
@@ -438,6 +491,18 @@ export const LeftSideBar = () => {
                             </span>
                           </div>
                         </NavLink>
+
+
+                        <NavLink
+                          to="/escolarAnuncios"
+                          activeclassname="active"
+                          style={{ textDecoration: "none" }}
+                        >
+                          <div className="subitem">
+                            <span className="texto-subopcion">Anuncios</span>
+                          </div>
+                        </NavLink>
+
                       </div>
                     )}
                   </>

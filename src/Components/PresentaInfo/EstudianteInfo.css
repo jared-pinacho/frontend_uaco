@@ -2,14 +2,16 @@
 .contenedor-info{
     width: 100%;
     max-width: 900px;
-    padding: 30px;
+    padding: 10px;
     margin: 30px auto;
     border-radius: 10px;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     box-shadow: 1px 1px 10px #135a7a;
     background-color: #9dc5c2;
-    margin-top: 10%;
-    height: 40%;
+    margin-top: 6%;
+  margin-bottom: 0px;
+    height: 55%;
     
 }
   
@@ -17,7 +19,7 @@
     font-size: 20px;
     font-weight:100%;
     margin-bottom: 2%;
-    color:black;
+    color:#135a7a;
     text-align: center;
     margin-top: 0%;
     
@@ -128,6 +130,21 @@
   }
 
 
+
+  @media (min-width: 1024px) and (max-width: 1028px) {
+
+    .contenedor-info{
+     
+      overflow-y: auto;
+      overflow-x: auto;
+      
+      
+  }
+    
+  }
+
+
+
   @media (max-width: 768px) {
   
     .contenedor-info{
@@ -189,6 +206,13 @@
       width: 25%;
       margin-left: 0%;
       margin-top: 0%;
+    }
+
+
+    .contenedor-info h1 {
+      font-size: 100%;
+     
+      
     }
 
   }

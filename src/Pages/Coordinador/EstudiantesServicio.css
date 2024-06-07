@@ -5,13 +5,15 @@
     background-color: #E0E0E0;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow: hidden;
+   
 }
 
 .estudiantesPage .contenidoDinamico {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    overflow: hidden;
 }
 
 .estudiantesPage .BtnOpciones {
@@ -25,7 +27,7 @@
 .estudiantesPage .barraBusqueda {
     align-items: center;
     padding-left: 0px;
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 .estudiantesPage .tituloEstudiantes {
@@ -33,52 +35,43 @@
     padding-left: 0px;
     margin-top: 10px;
     text-shadow: 1px 1px 8px #9dc5c2;
-    color: #7a1313;
+    color: #135a7a;
 }
 
 .tablaEstudiante {
-    height: 70%;
+    height: 80%;
     overflow: auto;
     
     
 }
 
-.cargando-letra{
+.cargando{
     font-weight: bold;
     color: red;
     font-size: 20px;
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
-
-.cargando-letras{
-    font-weight: bold;
-    color: red;
-    font-size: 20px;
-    margin-top: 3%;
-    margin-bottom: 1%;
 }
 
 
-.estudiantesPag {
-    flex-grow: 1;
+
+.Page {
+   
     /* Hace que el contenido principal ocupe todo el espacio restante */
-    padding: 15px;
+    padding: 20px;
     background-color: #E0E0E0;
+   height: 150vh;
+   
+    overflow: hidden;
+   
+}
+
+.Page .Dinamico {
     display: flex;
     flex-direction: column;
-    height: 75%;
+    height: 80%;
     overflow: hidden;
 }
 
-.estudiantesPag .contenidoDinamic {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.estudiantesPag .BtnOpciones {
+.Page .BtnOpciones {
     align-items: center;
     padding-left: 0px;
     /* Agrega espacio interno si es necesario */
@@ -86,27 +79,26 @@
 
 }
 
-.estudiantesPag .barraBusqueda {
+.Page .barraBusqueda {
     align-items: center;
     padding-left: 0px;
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
-.estudiantesPag .tituloEstudiantes {
+.Page .tituloEstudiantes {
     align-items: center;
     padding-left: 0px;
     margin-top: 10px;
     text-shadow: 1px 1px 8px #9dc5c2;
-    color: #7a1313;
+    color: #135a7a;
 }
-
-
 
 
 
 
 @media (min-width: 426px) and (max-width: 768px) {
 
+
     .estudiantesPage {
         padding: 5px;
     }
@@ -114,45 +106,30 @@
         font-size: 14px;
     }
 
-    .cargando-letra{
-        font-weight: bold;
-        color: red;
-        font-size: 14px;
-        margin-top: 1%;
-        margin-bottom: 1%;
-    }
-    .cargando-letras{
-        font-weight: bold;
-        color: red;
-        font-size: 14px;
-        margin-top: 1%;
-        margin-bottom: 1%;
-    }
+
+
+
+
 }
 
 
 
-@media (max-width: 426px) {
-    .estudiantesPage {
+
+
+
+
+@media (max-width: 768px) {
+
+    
+
+
+    .Page {
         padding: 5px;
     }
-    .cargando{ 
-        font-size: 14px;
-    }
 
-    .cargando-letra{
-        font-weight: bold;
-        color: red;
-        font-size: 12px;
-       
-        margin-top: -15px;
-    }
-    .cargando-letras{
-        font-weight: bold;
-        color: red;
-        font-size: 12px;
-       
-        margin-top: -15px;
-    }
+
+    
+
+
 
 }

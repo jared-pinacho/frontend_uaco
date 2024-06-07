@@ -38,7 +38,10 @@ import { ServicioPage } from "../Pages/Estudiante/ServicioPage";
 import { PanelTramite } from "../../src/Components/TramiteServicio/PanelTramite";
 import { PanelTramiteEstudiante } from "../Components/TramiteServicio/PanelTramiteEstudiante";
 import { ForaneosPage } from "../Pages/Escolar/ForaneosPage";
-
+import { EstudiantesServicio } from "../Pages/Coordinador/EstudiantesServicio";
+import { AnunciosPage } from "../Pages/Escolar/AnunciosPage";
+import { HomeServicio } from "../Pages/Escolar/HomeServicio";
+import { PageSocialCoordinador } from "../Pages/Coordinador/PageSocialCoordinador";
 
 //import { EstudianteInfo } from "../Pages/Escolar/EscolaresEstudiantes"
 //import { EstudiantesPage } from "../Pages/Escolar/EstudiantesPage";
@@ -119,6 +122,29 @@ export const AppRoutes = () => {
         }
       />
 
+<Route
+        path="/servicioCoordinador"
+        element={
+          <PrivateRoutes
+            element={<EstudiantesServicio />}
+            requiredRole="coordinador"
+          />
+        }
+      />
+
+<Route
+        path="/metricasCoordinador"
+        element={
+          <PrivateRoutes
+            element={<PageSocialCoordinador />}
+            requiredRole="coordinador"
+          />
+        }
+      />
+
+
+
+
       {/* Administrativo */}
       <Route
         path="/consejeros"
@@ -177,6 +203,16 @@ export const AppRoutes = () => {
         }
       />
 
+<Route
+        path="/servicioConsejero"
+        element={
+          <PrivateRoutes element={<HomeServicio />} requiredRole="consejero" />
+        }
+      />
+
+
+
+
       {/* escolar */}
       <Route
         path="/homePageEscolar"
@@ -232,7 +268,7 @@ export const AppRoutes = () => {
       <Route
         path="/servicioEscolar"
         element={
-          <PrivateRoutes element={<HomePageEscolar />} requiredRole="escolar" />
+          <PrivateRoutes element={<HomeServicio />} requiredRole="escolar" />
         }
       />
 
@@ -262,6 +298,13 @@ export const AppRoutes = () => {
         }
       />
 
+
+<Route
+        path="/escolarAnuncios"
+        element={
+          <PrivateRoutes element={<AnunciosPage />} requiredRole="escolar" />
+        }
+      />
 
 
 

@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from "react";
-import "../Escolar/EstudiantesPage.css";
+import "../Escolar/AnunciosPage.css";
 import axios from "axios";
 import { BarraBusquedaC } from "../../Components/BarraBusquedaC/BarraBusquedaC";
 import { BotonCRUD } from "../../Components/BotonCRUD/BotonCRUD";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
-import { TablaForaneos } from "../../Components/TablaForaneos/TablaForaneos";
-import { FormularioForaneos } from "../../Components/FormularioForaneos/FormularioForaneos";
+import { TablaAnuncios } from "../../Components/TablaAnuncios/TablaAnuncios";
+import { FormularioAnuncios } from "../../Components/FormularioAnuncios/FormularioAnuncios";
 
-export const ForaneosPage = () => {
-  const [estudiantes, setEstudiantes] = useState([]);
+export const AnunciosPage = () => {
+  const [anuncios, setAnuncios] = useState([]);
   const [modo, setModo] = useState("tabla");
   const [estudianteAEditar, setEstudianteAEditar] = useState("");
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
   const [isLoading, setIsLoading] = useState(true);
   
-  const obtenerEstudiantes = () => {
+  const obtenerAnuncios = () => {
     axios
-      .get(`${apiUrl}obc/foraneos/cuc`, {
+      .get(`${apiUrl}obc/anuncios/cuc`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
-        setEstudiantes(response.data.data);
+        setAnuncios(response.data.data);
         // console.log(response.data.data);
         setIsLoading(false);
       })
@@ -36,14 +36,14 @@ export const ForaneosPage = () => {
       });
   };
 
+
+
   useEffect(() => {
-    obtenerEstudiantes();
-   
-    
+    obtenerAnuncios(); 
   }, []);
 
   const actualizarTabla = () => {
-    obtenerEstudiantes();
+    obtenerAnuncios();
     setModo("tabla");
   };
 
@@ -60,7 +60,7 @@ export const ForaneosPage = () => {
     }
     setIsLoading(true);
     axios
-      .get(`${apiUrl}foraneo/${clave}`, {
+      .get(`${apiUrl}anuncio/${clave}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -86,13 +86,13 @@ export const ForaneosPage = () => {
     <div className="estudiantesPage">
       <div className="contenidoDinamico">
         <div className="tituloEstudiantes">
-          <h1>Prestadores foráneos</h1>
+          <h1>Anuncios y vacantes</h1>
         </div>
         <div className="BtnOpciones">
           <BotonCRUD
             modoActual={modo}
             modo="tabla"
-            texto="Tabla"
+            texto="Anuncios"
             cambiarModo={cambiarModo}
           />
           <BotonCRUD
@@ -117,7 +117,7 @@ export const ForaneosPage = () => {
         <div className="barraBusqueda">
           {modo === "editar" || modo === "eliminar" ? (
             <BarraBusquedaC
-              placeholdero="Identificador foraneo"
+              placeholdero="Identificador de anuncio"
               onBuscar={handleBuscarEstudiante}
             />
           ) : null}
@@ -128,7 +128,7 @@ export const ForaneosPage = () => {
           ) : null}
         </div>
         {(modo === "agregar" || modo === "editar" || modo === "eliminar") && (
-          <FormularioForaneos
+          <FormularioAnuncios
             modo={modo}
             estudianteAEditar={estudianteAEditar}
             actualizarTabla={actualizarTabla}
@@ -138,8 +138,9 @@ export const ForaneosPage = () => {
         {modo === "tabla" && (
           <>
             <div className="tablaEstudiante">
-              <TablaForaneos
-                estudiantes={estudiantes}
+              <TablaAnuncios
+                actualizarTabla={actualizarTabla}
+                anuncios={anuncios}
                 isLoading={isLoading}               
               />
             </div>
