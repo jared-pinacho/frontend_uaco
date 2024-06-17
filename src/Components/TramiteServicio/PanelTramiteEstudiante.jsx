@@ -58,10 +58,10 @@ useEffect(() => {
       
      
      
-      {estadoTramite !=="Iniciado" ? <UpSideBar estadoTramite={estadoTramite} /> : null}
+      {estadoTramite !=="Inicio" || estadoTramite ===" "   ? <UpSideBar estadoTramite={estadoTramite} /> : null}
       
 
-      {estadoTramite !=="Iniciado" ? <TramiteServicio dato={dato} /> :  <h3>La información personal aún no ha sido aprobada</h3>}
+      {estadoTramite !=="Inicio" || estadoTramite ===" "   ? <TramiteServicio dato={dato} /> :  <h3>La información personal aún no ha sido aprobada</h3>}
 
 
     </div>

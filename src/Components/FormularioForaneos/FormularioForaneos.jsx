@@ -29,6 +29,7 @@ export const FormularioForaneos = ({
     semestre: "",
     discapacidad: "",
     lengua_indigena: "",
+    otra_lengua: "",
     institucion:"",
     matricula_escolar:"",
     licenciatura:"",
@@ -90,9 +91,11 @@ export const FormularioForaneos = ({
         cargo_tit:"",
         grado_tit:"",
         resp_seg:"",
+        otra_lengua: "",
         fecha_inicio:"",
         fecha_final:"",
         horas:"",
+        
       });
     }
   }, [modo, estudianteAEditar]);

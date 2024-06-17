@@ -5,11 +5,12 @@ import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 import { EstudiantesLiberacion } from "../../Components/TablaEstudiantes/EstudiantesLiberacion";
-
+import { BotonCRUD } from "../../Components/BotonCRUD/BotonCRUD";
+import { EstudiantesBaja } from "../../Components/TablaEstudiantes/EstudiantesBaja";
 
 export const EstudiantesServicio = () => {
   const [estudiantes, setEstudiantes] = useState([]);
-  const [candidatos, setCantidatos] = useState([]);
+  const [estudiantes2, setEstudiantes2] = useState([]);
   const [modo, setModo] = useState("tabla");
   const [estudianteAEditar, setEstudianteAEditar] = useState("");
   const apiUrl = URL_API;
@@ -18,7 +19,6 @@ export const EstudiantesServicio = () => {
   const [botonesVisibles, setBotonesVisibles] = useState(true); // Inicialmente visibles
 
   
-  //   const [documentos,setDocumentos]=useState([]);
   const obtenerEstudiantes = () => {
     axios
       .get(`${apiUrl}obc/estudiantes/estudiantess/prestadores/tramite`, {
@@ -39,7 +39,24 @@ export const EstudiantesServicio = () => {
   };
 
 
- 
+  const obtenerEstudiantes2 = () => {
+    axios
+      .get(`${apiUrl}obc/estudiantes/estudiantess/servicio/bajas`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setEstudiantes2(response.data.data);
+        // console.log(response.data.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        // console.error("Error al obtener los datos:", error);
+        setIsLoading(false);
+      });
+  };
 
 
 
@@ -53,32 +70,18 @@ export const EstudiantesServicio = () => {
 
   useEffect(() => {
     obtenerEstudiantes();
+    obtenerEstudiantes2();
   
    
    
   }, []);
 
-  const actualizarTabla = () => {
-   
-   
-    obtenerEstudiantes();
-  };
-
-
-  const tablaActualizar = () => {
-   
-    obtenerEstudiantes();
-  };
-
-
+  
   const cambiarModo = (nuevoModo) => {
     setModo(nuevoModo);
     setEstudianteAEditar("");
    
   };
-
- 
-
   
   return (
     <div className="estudiantesPage">
@@ -87,42 +90,60 @@ export const EstudiantesServicio = () => {
         <h1>Estudiantes prestadores de servicio</h1>
       </div>
       
-      {/* {botonesVisibles && (
+       {botonesVisibles && (
         <div className="BtnOpciones">
   <>
     <BotonCRUD
       modoActual={modo}
       modo="tabla"
-      texto="Tabla"
+      texto="Prestadores"
       cambiarModo={cambiarModo}
     />
     <BotonCRUD
       modoActual={modo}
-      modo="activar"
-      texto="Activar"
+      modo="bajas"
+      texto="Bajas"
       cambiarModo={cambiarModo}
     />
-    <BotonCRUD
-      modoActual={modo}
-      modo="cancelar"
-      texto="Cancelar"
-      cambiarModo={cambiarModo}
-    />
+    
   </>
 
         </div>
-        )} */}
+        )} 
+
+
         <div className="barraBusqueda">
            
         </div>
       
 
-        <EstudiantesLiberacion
+
+        {modo === "tabla" && (
+          <>
+            <div className="tablaEstudiante">
+            <EstudiantesLiberacion
                 estudiantes={estudiantes}
+                isLoading={isLoading}
+              />
+            </div>
+          </>
+        )}
+
+
+{modo === "bajas" && (
+          <>
+            <div className="tablaEstudiante">
+            <EstudiantesBaja
+                estudiantes2={estudiantes2}
                 isLoading={isLoading}
                 
 
               />
+            </div>
+          </>
+        )}
+
+       
       
      
       </div>

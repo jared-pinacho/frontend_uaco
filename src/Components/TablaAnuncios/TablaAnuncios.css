@@ -22,6 +22,24 @@
   background-color: rgb(206, 21, 159);
   color: white;
 }
+
+
+.contenedorTablaEstudiantes .tablita .irregulares td {
+  background-color: rgba(241, 26, 37, 0.651);
+  color: white;
+}
+
+.contenedorTablaEstudiantes .tablita .irregularese td {
+  background-color: rgba(245, 8, 20, 0.692);
+  color: white;
+}
+
+
+.contenedorTablaEstudiantes .tablita .pendiente td {
+  background-color: rgba(38, 156, 202, 0.651);
+  color: white;
+}
+
   
 .contenedorTablaEstudiantes .campoBusqueda{
     background-color: #BFF7C6;

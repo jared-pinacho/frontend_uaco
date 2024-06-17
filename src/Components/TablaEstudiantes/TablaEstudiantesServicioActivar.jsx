@@ -47,10 +47,8 @@ export const TablaEstudiantesServicioActivar = ({candidatos,isLoading,activarSer
     <tr
       key={index}
       className={
-        estudiante.estatus !== "Activo"
-          ? "inactivo"
-          : estudiante.regular !== "Si"
-          ? "irregular"
+        estudiante.estado_tramite == "BAJA POR INCUMPLIMIENTO"
+          ? "irregularese"
           : ""
       }
     >

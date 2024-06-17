@@ -95,7 +95,7 @@ const cambiarEstadoRecibo = (estado) => {
       }
     )
     .then((response) => {
-      console.log('actualizado a enviado');
+    //  console.log('actualizado a enviado');
 
       if(estado===2 || estado===4){
         actualizarDesdeHijo();
@@ -108,11 +108,6 @@ const cambiarEstadoRecibo = (estado) => {
     });
 };
 
-
-
-
-
- 
 
 const descargarArchivo = (nombreArchivo) => {
   axios.get(`${apiUrl}archivos/${nombreArchivo}`, {

@@ -68,7 +68,7 @@
 }
 
 
-.accionesz-4{
+.accionesz-4i{
   width: 100%;
   margin-top: 18%;
   margin-bottom: 13px;
@@ -280,7 +280,7 @@ margin-left: 5px;
 }
 
 
-.titulo-contenedorz {
+.titulo-contenedorzi {
   width: 100%;
   font-weight: bold;
   font-size: 120%;
@@ -390,7 +390,7 @@ margin-bottom: 0px;
 
 
 
-    .titulo-contenedorz {
+    .titulo-contenedorzi {
       width: 100%;
       margin-left: 0%;
       font-size: 100%;
@@ -407,7 +407,7 @@ margin-bottom: 0px;
       
     }
 
-    .accionesz-4{
+    .accionesz-4i{
       width: 100%;
       margin-top: 19%;
       margin-bottom: 13px;
@@ -458,7 +458,7 @@ padding: 30px;
   margin-bottom: 0%;
 }
 
-.accionesz-4{
+.accionesz-4i{
   width: 100%;
   margin-top: 11%;
   margin-bottom: 13px;
@@ -678,7 +678,7 @@ font-size: 14px;
  }
 
 
- .titulo-contenedorz {
+ .titulo-contenedorzi {
   width: 100%;
   margin-left: 0%;
   font-size: 100%;
@@ -764,7 +764,7 @@ padding: 30px;
   margin-bottom: 0%;
 }
 
-.titulo-contenedorz {
+.titulo-contenedorzi {
   width: 100%;
   margin-left: 0px;
   font-size: 80%;
@@ -1021,7 +1021,7 @@ margin-bottom: -75px;
  font-size: 12px;
 }
 
-.accionesz-4{
+.accionesz-4i{
   width: 100%;
   margin-top: 11%;
   margin-bottom: 13px;

@@ -44,7 +44,7 @@ export const PageServicioEscolar = ({dato}) => {
         // console.log(response);
         setEstudianteAEditar(response.data.data);
         setIsLoading(false);
-        console.log(response.data.data);
+      //  console.log(response.data.data);
       })
       .catch((error) => {
         //Para limpiar el formulario cuando no se encuentre la clave ingresada
@@ -60,7 +60,7 @@ export const PageServicioEscolar = ({dato}) => {
  
       <div className="barraBusquedas">
         {isLoading ? (
-          <div className="cargandos">Obteniendo datos, por favor espere...</div>
+          <div className="cargandosi">Obteniendo datos, por favor espere...</div>
         ) : null}
       </div>
 

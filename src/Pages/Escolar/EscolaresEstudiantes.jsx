@@ -10,6 +10,7 @@ import { TablaEstudiantesServicioActivar } from "../../Components/TablaEstudiant
 import { TablaEstudiantesServicioEliminar } from "../../Components/TablaEstudiantes/TablaEstudiantesServicioEliminar";
 export const EscolaresEstudiantes = () => {
   const [estudiantes, setEstudiantes] = useState([]);
+  const [estudiantes2, setEstudiantes2] = useState([]);
   const [candidatos, setCantidatos] = useState([]);
   const [modo, setModo] = useState("tabla");
   const [estudianteAEditar, setEstudianteAEditar] = useState("");
@@ -38,6 +39,29 @@ export const EscolaresEstudiantes = () => {
         setIsLoading(false);
       });
   };
+
+
+
+  const obtenerBajas = () => {
+    axios
+      .get(`${apiUrl}obc/estudiantes/estudiantess/prestadores/bajas`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setEstudiantes2(response.data.data);
+        // console.log(response.data.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        // console.error("Error al obtener los datos:", error);
+        setIsLoading(false);
+      });
+  };
+
+
 
 
   const obtenerCandidatos = () => {
@@ -89,14 +113,11 @@ export const EscolaresEstudiantes = () => {
         },
       })
       .then((response) => {
-        //console.log(response.data);
-        // Puedes realizar otras acciones después de que se haya activado el servicio
-         
         tablaActualizar();
       })
       .catch((error) => {
         toast.error(error.message);
-        console.error("Error al activar el servicio:", error);
+        console.error("Error al dar de baja el servicio:", error);
       });
      
   };
@@ -104,12 +125,30 @@ export const EscolaresEstudiantes = () => {
 
 
 
+  const borrarServicio = (matricula) => {
+    axios
+      .delete(`${apiUrl}obc/estudiantes/matricula/eliminar/${matricula}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        tablaActualizar();
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        console.error("Error al dar de baja el servicio:", error);
+      });
+     
+  };
+
+
 
 
   useEffect(() => {
     obtenerEstudiantes();
     obtenerCandidatos();
-   
+    obtenerBajas();
    
   }, []);
 
@@ -118,14 +157,23 @@ export const EscolaresEstudiantes = () => {
     obtenerCandidatos();
     setModo("activar");
     obtenerEstudiantes();
+    obtenerBajas();
   };
+
+  const actualizarTabla2 = () => {
+    obtenerCandidatos();
+    setModo("tabla");
+    obtenerEstudiantes();
+    obtenerBajas();
+  };
+
 
 
   const tablaActualizar = () => {
    
     obtenerCandidatos();
     setModo("cancelar");
-    obtenerEstudiantes();
+    obtenerBajas();
   };
 
 
@@ -174,7 +222,7 @@ export const EscolaresEstudiantes = () => {
     <BotonCRUD
       modoActual={modo}
       modo="tabla"
-      texto="Tabla"
+      texto="Prestadores"
       cambiarModo={cambiarModo}
     />
     <BotonCRUD
@@ -186,7 +234,7 @@ export const EscolaresEstudiantes = () => {
     <BotonCRUD
       modoActual={modo}
       modo="cancelar"
-      texto="Cancelar"
+      texto="Bajas"
       cambiarModo={cambiarModo}
     />
   </>
@@ -205,7 +253,7 @@ export const EscolaresEstudiantes = () => {
                 candidatos={candidatos}
                 isLoading={isLoading}
                 activarServicio={activarServicio}
-
+              
                 
               />
             </div>
@@ -216,10 +264,10 @@ export const EscolaresEstudiantes = () => {
           <>
             <div className="tablaEstudiante">
               <TablaEstudiantesServicioEliminar
-                estudiantes={estudiantes}
+                estudiantes2={estudiantes2}
                 isLoading={isLoading}
                 eliminarServicio={eliminarServicio}
-                
+                borrarServicio={borrarServicio}
               />
             </div>
           </>
@@ -233,7 +281,7 @@ export const EscolaresEstudiantes = () => {
                 estudiantes={estudiantes}
                 isLoading={isLoading}
                 setBotonesVisibles={setBotonesVisibles}
-
+               actualizarTabla2={actualizarTabla2}
               />
             </div>
           </>

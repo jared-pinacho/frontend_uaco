@@ -284,18 +284,18 @@ const documentDefinition = {
    
 {
   table: {
-    widths: [150, '*'], // Ancho de las columnas (ambas columnas con ancho automático)
+    widths: [125, '*'], // Ancho de las columnas (ambas columnas con ancho automático)
     body: [
       [
         { text: 'PLANTEL', style: 'tabla' },
-        { text:`${formData.cuc_nombre}` , style: 'tabla' }
+        { text:`${formData.cuc_nombre}` , style: 'tablacuc' }
     ], // Primera fila
     [
       { text: 'NOMBRE ESTUDIANTE', style: 'tabla' },
       { text: `${formData.estudiante}`, style: 'tabla' }
   ], // Primera fila
   [
-    { text: 'PROGRAMA O PROYECTO', style: 'tabla' },
+    { text: 'PROGRAMA', style: 'tabla' },
     { text: `${formData.proyecto}`, style: 'tabla' }
 ],
 [
@@ -316,12 +316,7 @@ const documentDefinition = {
 ],
 
        
-        // ['NOMBRE ESTUDIANTE', 'Celda 2, Fila 2'],
-        // ['PROGRAMA O PROYECTO', 'Celda 2, Fila 2'],
-        // ['NOMBRE RESPONSABLE', 'Celda 2, Fila 2'],
-        // ['FECHA INICIO', 'Celda 2, Fila 2'],
-        // ['FECHA TERMINO', 'Celda 2, Fila 2'],
-        // ['NÚMERO DE REPORTE', 'Celda 2, Fila 2'],  // Segunda fila
+
     ]
 }
 },
@@ -408,6 +403,12 @@ const documentDefinition = {
     },
     tabla: {
       fontSize: 11,
+      bold: false,
+      alignment: 'left',
+     
+    },
+    tablacuc: {
+      fontSize: 10,
       bold: false,
       alignment: 'left',
      
@@ -550,7 +551,7 @@ const documentDefinition = {
       <label className="titulz">Primer Reporte Bimestral</label>
        
       <div className="contenedorz">
-        <label className="titulo-contenedorz">Reporte bimestal 1</label>
+        <label className="titulo-contenedorzi">Reporte bimestral 1</label>
        
         
         <Modal
@@ -684,11 +685,9 @@ Generar Informe 1
 
 
 {visible === 4  && (
-<div className="accionesz-4">
+<div className="accionesz-4i">
        
-      
-
-
+    
 <p className="arc-1z-4" >Archivo subido:informeUno{matricula}</p>
        
           <label className="esz-1">Estado: Enviado no revisado </label>

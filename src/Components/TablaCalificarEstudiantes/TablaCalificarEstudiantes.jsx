@@ -119,7 +119,7 @@ export const TablaCalificarEstudiantes = ({
     </tr>
   ));
   return (
-    <div className="table-responsive contenedor">
+    <div className="table-responsive contenedorTablaEstudiantes">
       <input
         className="campoBusqueda"
         type="text"

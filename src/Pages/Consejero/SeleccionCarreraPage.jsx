@@ -37,7 +37,7 @@ export const SeleccionCarreraPage = () => {
 
   const obtenerCarrerasDeCuc = () => {
     axios
-      .get(`${apiUrl}cucs/carreras/carreritas`, {
+      .get(`${apiUrl}cucs/carreras/carreritass`, {
         headers: {
           'Authorization': `Bearer ${token}`, 
         },

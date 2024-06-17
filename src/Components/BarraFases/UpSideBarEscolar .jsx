@@ -71,11 +71,11 @@ export const UpSideBarEscolar = ({dato,estado}) => {
       case "momentoFinal":
         return <FaseFinalEscolar informacion={informacion} actualizar={actualizar} setActualizar={setActualizar}  />;
       default:
-        if (estado === 'Iniciado') {
+        if (estado === ' ') {
           return <h1 style={{ color: "red" }}>Información no actualizada</h1>;
         } 
 
-        if (estado === 'Información personal') {
+        if (estado === 'Inicio' || estado === 'Información personal') {
           return <PagePersonalEscolar dato={dato} />;
         } 
         if (estado === 'Información de servicio') {
@@ -107,10 +107,10 @@ export const UpSideBarEscolar = ({dato,estado}) => {
           <div className="encabezadi">
             
           <div
-              className={`itemo ${componenteActivo === "informacionPersonal"   || estado === 'Información de servicio' || estado === 'Información personal' || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}
+              className={`itemo ${componenteActivo === "informacionPersonal"   || estado === 'Información de servicio' || estado === 'Información personal' || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Inicio' || estado === 'Constancia solicitada' ? "activo" : ""}`}
               onClick={() => handleClick("informacionPersonal","inframcion")}
             >
-              <span className={`texto-opciono ${componenteActivo === "informacionPersonal"  || estado === 'Información de servicio'    || estado === 'Información personal' || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}   >INFORMACIÓN PERSONAL</span>
+              <span className={`texto-opciono ${componenteActivo === "informacionPersonal"  ||  estado === 'Inicio' || estado === 'Información de servicio'  || estado === 'Información personal' || estado === 'Inicio de servicio' || estado === 'Informe bimestral 1' || estado === 'Informe bimestral 2' || estado === 'Informe bimestral 3' || estado === 'Carta de terminación' || estado === 'Comprobante de pago' || estado === 'Constancia solicitada' ? "activo" : ""}`}   >INFORMACIÓN PERSONAL</span>
             </div>
 
 

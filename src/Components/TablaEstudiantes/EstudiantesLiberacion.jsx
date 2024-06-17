@@ -7,10 +7,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 import pdfMake from 'pdfmake/build/pdfmake';
-
 import logo from "../../assets/img/logoUACO.png";
-
-
 
 
 export const EstudiantesLiberacion = ({ estudiantes, isLoading }) => {

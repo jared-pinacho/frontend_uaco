@@ -17,6 +17,7 @@ export const PageSocialCoordinador = () => {
     labels: ["Hombres", "Mujeres"],
     datasets: [
       {
+        label:'Total',
         data: [datosGenerales.total_hombres, datosGenerales.total_mujeres],
         backgroundColor: ["#135585", "#9dc5c2"],
         hoverBackgroundColor: ["#135585", "#9dc5c2"],
@@ -24,13 +25,14 @@ export const PageSocialCoordinador = () => {
     ],
   };
 
-  const dataModalidad = {
-    labels: ["Internos", "Externos"],
+
+  const dataModalidad  = {
+    labels: datosGenerales.label_estudiantes,
+
     datasets: [
       {
-        label: "Cantidad",
-        data: [
-          datosGenerales.internos, datosGenerales.externos],
+        label: "Prestadores",
+        data: datosGenerales.data_estudiantes,
         backgroundColor: ["#135585", "#9dc5c2"],
       },
     ],
@@ -41,7 +43,7 @@ export const PageSocialCoordinador = () => {
     labels: ["Hombres", "Mujeres"],
     datasets: [
       {
-        label: "Cantidad",
+        label: "Total",
         data: [datosGenerales.hombres_foraneos,datosGenerales.mujeres_foraneos],
         backgroundColor: ["#218838", "#81c784"],
         hoverBackgroundColor: ["#218838", "#81c784"],
@@ -50,20 +52,19 @@ export const PageSocialCoordinador = () => {
   };
 
 
-  const dataEdad = {
-    labels: ["14-21 años", "21-30 años","31 o más años"],
+
+  const dataEdad  = {
+    labels: datosGenerales.label_foraneos,
+
     datasets: [
       {
-        label: "Cantidad",
-        data: [datosGenerales.foraneos1,datosGenerales.foraneos2,datosGenerales.foraneos3],
+        label: "Foráneos",
+        data: datosGenerales.data_foraneos,
         backgroundColor: ["#218838", "#81c784"],
         hoverBackgroundColor: ["#218838", "#81c784"],
       },
     ],
   };
-
-
-
 
  
 
@@ -144,7 +145,7 @@ export const PageSocialCoordinador = () => {
     plugins: {
       title: {
         display: true,
-        text: "Modalidad de Servicio",
+        text: "Estudiantes prestadores por año",
         color: "black",
         font: {
           size: 16,
@@ -220,7 +221,7 @@ export const PageSocialCoordinador = () => {
     plugins: {
       title: {
         display: true,
-        text: "Edad Prestadores Foráneos",
+        text: "Prestadores Foráneos por año",
         color: "black",
         font: {
           size: 16,

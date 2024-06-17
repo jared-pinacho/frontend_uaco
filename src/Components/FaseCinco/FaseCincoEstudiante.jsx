@@ -189,7 +189,7 @@ const cambiarPresentacion = (dato) => {
       <label className="titulx">Final de Servicio Social Comunitario</label>
        
       <div className="contenedorx">
-        <label className="titulo-contenedorx">Carta de terminación</label>
+        <label className="titulo-contenedorxj">Carta de terminación</label>
        
         
         <Modal
@@ -296,7 +296,7 @@ const cambiarPresentacion = (dato) => {
 
 
 {visible === 4  && (
-<div className="accionesz-4">
+<div className="accionesz-4i">
        
 <p className="arc-1z-4" >Archivo subido:termino{matricula}</p>
        

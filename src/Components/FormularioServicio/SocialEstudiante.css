@@ -73,6 +73,10 @@ width: 85%;
   cursor: pointer;
 }
 
+.Festudianteh button:hover {
+  background-color: #0056b3;
+}
+
 .Festudianteh .btnCp {
   width: 25%;
 
@@ -80,7 +84,7 @@ width: 85%;
   margin-bottom: 5px;
 }
 
-.Festudianteh utton:hover {
+.Festudianteh .btnCp:hover {
   background-color: #0056b3;
 }
 

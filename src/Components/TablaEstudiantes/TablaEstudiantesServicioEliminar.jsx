@@ -3,14 +3,23 @@ import "../TablaEstudiantes/TablaEstudiantes.css";
 import Loader from "../Loader/Loader";
 
 
-export const TablaEstudiantesServicioEliminar = ({estudiantes,isLoading,eliminarServicio}) => {
-
-
+export const TablaEstudiantesServicioEliminar = ({estudiantes2,isLoading,eliminarServicio,borrarServicio}) => {
   const [filtro, setFiltro] = useState("");
-  const filasFiltradas = estudiantes.filter((estudiante) => {
+
+  const handleClick = (matricula) => {
+    eliminarServicio(matricula);
+    // Llama a tu otra función aquí
+    borrarServicio(matricula);
+  };
+
+  const filasFiltradas = estudiantes2.filter((estudiante) => {
     const termino = filtro.toLowerCase();
     const nombreCompleto =
       `${estudiante.nombre} ${estudiante.apellido_paterno} ${estudiante.apellido_materno}`.toLowerCase();
+
+
+     
+
     return (
       estudiante.matricula.toLowerCase().includes(termino) ||
       estudiante.nombre.toLowerCase().includes(termino) ||
@@ -43,13 +52,7 @@ export const TablaEstudiantesServicioEliminar = ({estudiantes,isLoading,eliminar
   const filas = filasFiltradas.map((estudiante, index) => (
     <tr
       key={index}
-      className={
-        estudiante.estatus !== "Activo"
-          ? "inactivo"
-          : estudiante.regular !== "Si"
-          ? "irregular"
-          : ""
-      }
+      className= 'irregulares' 
     >
       <td>{estudiante.matricula}</td>
 
@@ -59,13 +62,12 @@ export const TablaEstudiantesServicioEliminar = ({estudiantes,isLoading,eliminar
       <td>{estudiante.usuario.email}</td>
       <td>{estudiante.telefono}</td>
       <td>{estudiante.semestre}</td>
-      <td>{estudiante.creditos_acumulados}</td>
+      <td>Mas de 65 dias ....</td>
       <td>
         <button
-          className="btnDoc"
-          onClick={() => eliminarServicio(estudiante.matricula)}
-        >
-          Cancelar
+          className="btnDoc3"
+          onClick={() => handleClick(estudiante.matricula)}
+        >Baja
         </button>
       </td>
     </tr>
@@ -90,8 +92,8 @@ export const TablaEstudiantesServicioEliminar = ({estudiantes,isLoading,eliminar
             <th>Correo</th>
             <th>Telefono</th>
             <th>Semestre</th>
-            <th>Creditos acumulados</th>
-            <th>Cancelar servicio</th>
+            <th>Dias de inactividad</th>
+            <th>Dar de baja</th>
           </tr>
         </thead>
         <tbody>

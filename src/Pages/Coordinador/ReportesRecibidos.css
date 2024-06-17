@@ -75,6 +75,7 @@
   .tablaCalificarEstudiantes {
     height: 70%;
     overflow: auto;
+   
   }
   .btnEnviar button{
     background-color:#135585;

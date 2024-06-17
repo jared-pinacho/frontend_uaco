@@ -266,7 +266,7 @@ margin-left: 5px;
   width: 85%;
 }
 
-.titulo-contenedorx {
+.titulo-contenedorxj {
   width: 100%;
   font-weight: bold;
   font-size: 120%;
@@ -346,12 +346,12 @@ text-decoration: underline; /* Subrayar el texto dentro del párrafo */
 
 
 
-    .titulo-contenedorx {
+    .titulo-contenedorxj {
       width: 100%;
       margin-left: 0%;
       font-size: 100%;
-      margin-top: 5px;
-      margin-bottom: -25px;
+      margin-top: -63px;
+      margin-bottom: -20px;
     }
     
     .titulo-contenedor2x {
@@ -575,7 +575,7 @@ font-size: 14px;
  }
 
 
- .titulo-contenedorx {
+ .titulo-contenedorxj {
   width: 100%;
   margin-left: 0%;
   font-size: 100%;
@@ -685,7 +685,7 @@ padding: 30px;
   margin-bottom: 0%;
 }
 
-.titulo-contenedorx {
+.titulo-contenedorxj {
   width: 140%;
   margin-left: -130px;
   font-size: 80%;

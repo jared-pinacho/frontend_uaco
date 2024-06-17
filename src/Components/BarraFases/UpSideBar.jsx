@@ -21,6 +21,7 @@ export const UpSideBar = ({estadoTramite}) => {
   const token = Cookies.get("tok");
   const [componenteActivo, setComponenteActivo] = useState(null);
   const [actualizar, setActualizar]=useState(false);
+  // const [matricula,setMatricula]=useState(null);
 
   const handleClick = (componente) => {
     setComponenteActivo(componente);
@@ -36,6 +37,7 @@ export const UpSideBar = ({estadoTramite}) => {
         },
       });
       setInformacion(response.data.data);
+      // setMatricula(response.data.estudiante);
     } catch (error) {
       console.error("Error al obtener los datos:", error);
     }

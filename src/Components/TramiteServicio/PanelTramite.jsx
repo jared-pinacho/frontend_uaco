@@ -7,13 +7,19 @@ import '../TramiteServicio/PanelTramite.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
-export const PanelTramite = ({dato,onBack,estado}) => {
+export const PanelTramite = ({dato,onBack,estado,actualizarTabla2}) => {
+
+
+  const handleBackClick = () => {
+    onBack();
+    actualizarTabla2();
+};
 
   return (
    
     <div className='panel'>
 
-<button className="regresa" onClick={onBack}>  <FontAwesomeIcon icon={faArrowAltCircleLeft} /> Volver</button>
+<button className="regresa" onClick={handleBackClick}>  <FontAwesomeIcon icon={faArrowAltCircleLeft} /> Volver</button>
       <UpSideBarEscolar
     dato={dato}
     estado={estado}

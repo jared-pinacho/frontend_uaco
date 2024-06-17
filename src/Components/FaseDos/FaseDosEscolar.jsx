@@ -156,7 +156,7 @@ const descargarArchivo = (nombreArchivo) => {
       <label className="titul">Primer Reporte Bimestral</label>
       
       <div className="contenedor">
-        <label className="titulo-contenedor">Reporte bimestal 1</label>
+        <label className="titulo-contenedor">Reporte bimestral 1</label>
       
         <Modal
           isOpen={modalIsOpen}

@@ -32,6 +32,20 @@
     border-radius: 15px;
   }
   
+  .contenedorTablaEstudiantes .btnDoc3{
+    background-color: #eb0a0a;
+    width: 100%;
+    border-radius: 15px;
+  }
+
+
+  .contenedorTablaEstudiantes .btnDoc3:hover {
+    background-color: #db4040; /* Color diferente al pasar el puntero */
+  }
+  
+
+
+
   .contenedorTablaEstudiantes .btnDoc2{
     background-color: #0eaa28;
     width: 100%;

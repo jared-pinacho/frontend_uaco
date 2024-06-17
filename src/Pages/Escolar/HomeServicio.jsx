@@ -21,8 +21,11 @@ export const HomeServicio = () => {
     labels: ["Hombres", "Mujeres"],
     datasets: [
       {
-        label: "%",
-        data: [calcularPorcentaje(datosGenerales.total_hombres, datosGenerales.total_hombres + datosGenerales.total_mujeres), calcularPorcentaje(datosGenerales.total_mujeres, datosGenerales.total_hombres + datosGenerales.total_mujeres)],
+        label: "Total",
+        data: [
+        datosGenerales.total_hombres, 
+          
+        datosGenerales.total_mujeres],
         backgroundColor: ["#135585", "#9dc5c2"],
         hoverBackgroundColor: ["#135585", "#9dc5c2"],
       },
@@ -30,15 +33,12 @@ export const HomeServicio = () => {
   };
 
   const dataModalidad = {
-    labels: ["Internos", "Externos"],
+    labels: datosGenerales.label_estudiantes,
     datasets: [
       {
-        label: "%",
-        data: [
-          calcularPorcentaje(datosGenerales.internos, datosGenerales.internos + datosGenerales.externos),
-
-          calcularPorcentaje(datosGenerales.externos, datosGenerales.externos + datosGenerales.internos)
-        ],
+        label: 'Estudiantes prestadores',
+        data: datosGenerales.data_estudiantes, // Array de totales
+        
         backgroundColor: ["#135585", "#9dc5c2"],
       },
     ],
@@ -47,31 +47,29 @@ export const HomeServicio = () => {
 
 
   const dataEdad = {
-    labels: ["14-21 años", "21-30 años","31 o más años"],
+    labels: datosGenerales.label_foraneos,
+
     datasets: [
       {
-        label: "%",
-        data: [
-          calcularPorcentaje(datosGenerales.foraneos1, datosGenerales.foraneos1 +datosGenerales.foraneos2+datosGenerales.foraneos3),
-
-          calcularPorcentaje(datosGenerales.foraneos2, datosGenerales.foraneos1 +datosGenerales.foraneos2+datosGenerales.foraneos3),
-
-          calcularPorcentaje(datosGenerales.foraneos3, datosGenerales.foraneos1 + datosGenerales.foraneos2+datosGenerales.foraneos3),
-        ],
+        label: 'Foraneos',
+        data: datosGenerales.data_foraneos, // Array de totales
+        
         backgroundColor: ["#218838", "#81c784"],
-        hoverBackgroundColor: ["#218838", "#81c784"],
       },
     ],
   };
+
 
 
   const dataHombreMujeresForaneos = {
     labels: ["Hombres", "Mujeres"],
     datasets: [
       {
-        label: "%",
-        data: [calcularPorcentaje(datosGenerales.hombres_foraneos, datosGenerales.hombres_foraneos + datosGenerales.mujeres_foraneos),
-        calcularPorcentaje(datosGenerales.mujeres_foraneos, datosGenerales.hombres_foraneos + datosGenerales.mujeres_foraneos)],
+        label: "Total",
+        data: [
+        datosGenerales.hombres_foraneos,
+        datosGenerales.mujeres_foraneos
+      ],
         backgroundColor: ["#218838", "#81c784"],
         hoverBackgroundColor: ["#218838", "#81c784"],
       },
@@ -133,7 +131,7 @@ export const HomeServicio = () => {
                 plugins: {
                   title: {
                     display: true,
-                    text: "% Hombres y Mujeres",
+                    text: "Prestadores Hombres y Mujeres",
                     color: "black", // Color del texto del título
                     font: {
                       size: 16, // Tamaño del texto del título
@@ -160,13 +158,21 @@ export const HomeServicio = () => {
                 scales: {
                   x: {
                     beginAtZero: true,
+                    ticks: {
+                      stepSize: 1, // Asegura que los pasos sean de uno en uno, mostrando solo enteros
+                      callback: function(value) {
+                        if (Number.isInteger(value)) {
+                          return value; // Muestra solo valores enteros
+                        }
+                      }
+                    },
                   },
                 },
                 maintainAspectRatio: false,
                 plugins: {
                   title: {
                     display: true,
-                    text: "% Prestadores Modalidad",
+                    text: "Prestadores por año",
                     color: "black",
                     font: {
                       size: 16,
@@ -187,7 +193,7 @@ export const HomeServicio = () => {
                     align: 'end',
                     anchor: 'end',
                     formatter: (value, context) => {
-                      return (value * 100).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
+                      return (value * 100).toLocaleString(undefined, { style: 'inter', minimumFractionDigits: 1 });
                     },
                   },
                 },
@@ -218,7 +224,7 @@ export const HomeServicio = () => {
                 plugins: {
                   title: {
                     display: true,
-                    text: "% Foráneos Hombres y Mujeres",
+                    text: "Foráneos Hombres y Mujeres",
                     color: "black", // Color del texto del título
                     font: {
                       size: 16, // Tamaño del texto del título
@@ -243,15 +249,18 @@ export const HomeServicio = () => {
               options={{
                 indexAxis: "x",
                 scales: {
-                  x: {
+                  y: {
                     beginAtZero: true,
+                    ticks: {
+                      stepSize: 1, // Asegura que los pasos sean de uno en uno, mostrando solo enteros
+                    },
                   },
                 },
                 maintainAspectRatio: false,
                 plugins: {
                   title: {
                     display: true,
-                    text: "% Edad foráneos",
+                    text: "Foráneos por año",
                     color: "black",
                     font: {
                       size: 16,

@@ -84,7 +84,7 @@ const dateTime = new Date(); // Asegúrate de que dateTime es una instancia de D
         })
         .catch((error) => {
           toast.error(error.response.data.message);
-          console.log(error.response.data.message);
+          
         });
     } 
   };

@@ -221,13 +221,14 @@ const loadImageAsBase64 = (imageUrl, callback) => {
 
     loadImageAsBase64(logo, (imageData) => {
 
-    
-   var articulo_consejero = "";
+
+
+      var articulo_consejero = "";
    var articulo = "";
    var consejer = "";
    var articulo_estudiante="";
    var articulo_may="";
-
+    
    if(formData.sexo_con === "H"){
      articulo_consejero="El";
      consejer="Consejero académico";
@@ -284,18 +285,18 @@ const documentDefinition = {
    
 {
   table: {
-    widths: [150, '*'], // Ancho de las columnas (ambas columnas con ancho automático)
+    widths: [120, '*'], // Ancho de las columnas (ambas columnas con ancho automático)
     body: [
       [
         { text: 'PLANTEL', style: 'tabla' },
-        { text:`${formData.cuc_nombre}` , style: 'tabla' }
+        { text:`${formData.cuc_nombre}` , style: 'tablacuc' }
     ], // Primera fila
     [
       { text: 'NOMBRE ESTUDIANTE', style: 'tabla' },
       { text: `${formData.estudiante}`, style: 'tabla' }
   ], // Primera fila
   [
-    { text: 'PROGRAMA O PROYECTO', style: 'tabla' },
+    { text: 'PROGRAMA', style: 'tabla' },
     { text: `${formData.proyecto}`, style: 'tabla' }
 ],
 [
@@ -399,7 +400,13 @@ const documentDefinition = {
       margin: [0, 45, 0, 0] // Margen inferior
     },
     tabla: {
-      fontSize: 11,
+      fontSize: 10,
+      bold: false,
+      alignment: 'left',
+     
+    },
+    tablacuc: {
+      fontSize: 10,
       bold: false,
       alignment: 'left',
      
@@ -542,7 +549,7 @@ const documentDefinition = {
       <label className="titulz">Segundo Reporte Bimestral</label>
        
       <div className="contenedorz">
-        <label className="titulo-contenedorz">Reporte bimestal 2</label>
+        <label className="titulo-contenedorz">Reporte bimestral 2</label>
        
         
         <Modal
@@ -676,7 +683,7 @@ Generar Informe 2
 
 
 {visible === 4  && (
-<div className="accionesz-4">
+<div className="accionesz-4i">
        
       
 

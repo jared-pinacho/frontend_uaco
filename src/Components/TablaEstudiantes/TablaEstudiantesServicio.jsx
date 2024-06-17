@@ -8,7 +8,8 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 export const TablaEstudiantesServicio = ({
   estudiantes,
   isLoading,
-  setBotonesVisibles
+  setBotonesVisibles,
+  actualizarTabla2
 }) => {
   const [filtro, setFiltro] = useState("");
   const [datoAPasar, setDatoAPasar] = useState(null);
@@ -51,7 +52,7 @@ export const TablaEstudiantesServicio = ({
           dato={datoAPasar}
           estado={estado}
           onBack={handleBackToTable} // Pasa la función de regreso como prop a PanelTramite
-
+         actualizarTabla2={actualizarTabla2}
           />
       );
     } else {
@@ -87,7 +88,7 @@ export const TablaEstudiantesServicio = ({
                 </tr>
               ) : (
                 filasFiltradas.map((estudiante, index) => (
-                  <tr key={index}>
+                  <tr key={index} className={estudiante.estatus_envio=="1"?"pendiente":""}>
                     <td>{estudiante.matricula}</td>
                     <td>{estudiante.nombre}</td>
                     <td>{estudiante.apellido_paterno}</td>

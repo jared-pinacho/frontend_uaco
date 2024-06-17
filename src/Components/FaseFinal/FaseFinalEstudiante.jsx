@@ -26,9 +26,10 @@ export const FaseFinalEstudiante = ({informacion, actualizar,setActualizar}) => 
 
 
   const [formData, setFormData] = useState({
-   carta:"",
+    carta:"",
    estatus_envio:"",
    comentario:"",
+  matricula:informacion?.matricula || ""
   });
 
 
@@ -293,11 +294,15 @@ const cambiarRecibo = (dato) => {
 
 
 
+
+
 {visible === 4  && (
 <div className="accionesz-4">
        
+
+       
 {/* <p className="arc-1z-4" >Archivo subido:termino{matricula}</p> */}
-<button className="verx-2s" onClick={() => descargarArchivo(formData.carta)} >Ver</button>
+<button className="verx-2s" onClick={() => descargarArchivo(`recibo${formData.matricula}.pdf`)} >Ver</button>
           <label className="esz-1">Estado: Constancia solicitada </label>
          
           </div>    

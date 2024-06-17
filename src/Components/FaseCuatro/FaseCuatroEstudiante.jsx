@@ -270,7 +270,7 @@ const documentDefinition = {
    
 {
   table: {
-    widths: [150, '*'], // Ancho de las columnas (ambas columnas con ancho automático)
+    widths: [120, '*'], // Ancho de las columnas (ambas columnas con ancho automático)
     body: [
       [
         { text: 'PLANTEL', style: 'tabla' },
@@ -281,7 +281,7 @@ const documentDefinition = {
       { text: `${formData.estudiante}`, style: 'tabla' }
   ], // Primera fila
   [
-    { text: 'PROGRAMA O PROYECTO', style: 'tabla' },
+    { text: 'PROGRAMA', style: 'tabla' },
     { text: `${formData.proyecto}`, style: 'tabla' }
 ],
 [
@@ -385,7 +385,7 @@ const documentDefinition = {
       margin: [0, 45, 0, 0] // Margen inferior
     },
     tabla: {
-      fontSize: 11,
+      fontSize: 10,
       bold: false,
       alignment: 'left',
      
@@ -525,7 +525,7 @@ const documentDefinition = {
       <label className="titulz">Tercer Reporte Bimestral</label>
        
       <div className="contenedorz">
-        <label className="titulo-contenedorz">Reporte bimestal 3</label>
+        <label className="titulo-contenedorz">Reporte bimestral 3</label>
        
         
         <Modal
@@ -659,7 +659,7 @@ Generar Informe 3
 
 
 {visible === 4  && (
-<div className="accionesz-4">
+<div className="accionesz-4i">
        
 <p className="arc-1z-4" >Archivo subido:InformeTres{matricula}</p>
        

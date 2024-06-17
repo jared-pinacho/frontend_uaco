@@ -120,7 +120,7 @@ export const EscolarSocial = ({
         },
       })
       .then((response) => {
-        console.log(response.data.data);
+       // console.log(response.data.data);
         setEstados(response.data.data);
       })
       .catch((error) => {
@@ -255,7 +255,7 @@ export const EscolarSocial = ({
         }
       )
       .then((response) => {
-        console.log('actualizado a enviado');
+      //  console.log('actualizado a enviado');
         actualizarTabla(); // Llamar a actualizarTabla después de activar el estado de enviado
       })
       .catch((error) => {

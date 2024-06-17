@@ -14,7 +14,7 @@ import { URL_API } from "../../Services/Const";
 // Configuración de las fuentes necesarias para pdfmake
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-export const FaseUnoEstudiante = ({informacion, actualizar,setActualizar}) => {
+export const FaseUnoEstudiante = ({informacion, actualizar,setActualizar,matricula}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [pdfUrl, setPdfUrl] = useState(null);
   const [visible, setVisible] = useState(0);
@@ -35,19 +35,20 @@ export const FaseUnoEstudiante = ({informacion, actualizar,setActualizar}) => {
    carta_acep:"",
    comentario_pres:"",
    comentario_acep:"",
-
+matricula:informacion?.matricula || "",
   });
 
 
   useEffect(() => {
     if (informacion?.faseUno !==null) {
     setFormData({
-     estado_pres:informacion.faseUno.pres_estado || "",
-     estado_acep:informacion.faseUno.acep_estado || "",
-     carta_pres:informacion.faseUno.carta_presentacion || "",
-     carta_acep:informacion.faseUno.carta_aceptacion || "",
-     comentario_pres:informacion.faseUno.com_pres || "",
-     comentario_acep:informacion.faseUno.come_acep || ""
+     estado_pres:informacion?.faseUno.pres_estado || "",
+     estado_acep:informacion?.faseUno.acep_estado || "",
+     carta_pres:informacion?.faseUno.carta_presentacion || "",
+     carta_acep:informacion?.faseUno.carta_aceptacion || "",
+     comentario_pres:informacion?.faseUno.com_pres || "",
+     comentario_acep:informacion?.faseUno.come_acep || "",
+     matricula:informacion?.matricula || "",
     
     });
     setVisible(informacion.faseUno.pres_estado);
@@ -194,7 +195,8 @@ const cambiarAceptacion = (dato) => {
           toast.success(response.data.message);    
           setVisible(1);
           cambiarPresentacion(1);
-          actualizarDesdeHijo();
+          setActualizar(prev => !prev);
+          
         })
         .catch((error) => {
           toast.error(error.response.data.message);
@@ -313,8 +315,8 @@ const cambiarAceptacion = (dato) => {
 {visible === 1  && (
 <div className="accionesx-1">
        
-       <button className="verx-1" onClick={() => descargarArchivo(formData.carta_pres)} >Ver</button>
-<p className="arc-1" >Archivo subido: {formData.carta_pres}</p>
+       <button className="verx-1" onClick={() => descargarArchivo(`solicitud${formData.matricula}.pdf`)} >Ver</button>
+<p className="arc-1" >Archivo subido: solicitud{formData.matricula}</p>
        
 
           <label className="esx-1">Estado: Enviado no revisado </label>
@@ -365,7 +367,7 @@ const cambiarAceptacion = (dato) => {
 
 
       <div className="contenedorx">
-        <label className="titulo-contenedor2x">Carta de aceptación</label>
+        <label className="titulo-contenedor2xi">Carta de aceptación</label>
        
 
         {visible2===0  && (
@@ -391,9 +393,10 @@ const cambiarAceptacion = (dato) => {
       {visible2 === 1  && (
 <div className="accionesx-1">
        
-       <button className="verx-1" onClick={() => descargarArchivo(formData.carta_acep)} >Ver</button>
-<p className="arc-1" >Archivo subido: {formData.carta_acep}</p>
-       
+      
+
+<button className="verx-1" onClick={() => descargarArchivo(`aceptacion${formData.matricula}.pdf`)} >Ver</button>
+<p className="arc-1" >Archivo subido: aceptacion{formData.matricula}</p>
 
           <label className="esx-1">Estado: Enviado no revisado </label>
          
