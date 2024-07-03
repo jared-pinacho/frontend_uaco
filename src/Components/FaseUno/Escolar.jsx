@@ -13,8 +13,7 @@ import { VentanaPresentacion } from "../VentanaRevisar/VentanaPresentacion";
 import { VentanaAceptacion } from "../VentanaRevisar/VentanaAceptacion";
 
 
-// Configuración de las fuentes necesarias para pdfmake
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 
 export const Escolar = ({informacion, actualizar, setActualizar}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);

@@ -10,8 +10,7 @@ import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 import Modal from 'react-modal';
 
-// Configuración de las fuentes necesarias para pdfmake
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 
 export const TablaForaneos = ({ estudiantes, isLoading, abrirDocumentacion, abrirKardex }) => {
   const [filtro, setFiltro] = useState("");

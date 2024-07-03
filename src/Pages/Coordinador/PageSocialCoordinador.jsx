@@ -75,11 +75,8 @@ export const PageSocialCoordinador = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {
-       
+      .then((response) => {      
         setDatosGenerales(response.data.data);
-      
-
         setIsLoading(false);
       })
       .catch((error) => {

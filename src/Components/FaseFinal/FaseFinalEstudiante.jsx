@@ -9,8 +9,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 
-// Configuración de las fuentes necesarias para pdfmake
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export const FaseFinalEstudiante = ({informacion, actualizar,setActualizar}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
