@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../FaseDos/EstudianteDos.css";
 import Modal from 'react-modal';
 import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
 import logo from "../../assets/img/logoUACO.png";
 import { saveAs } from 'file-saver';
 import { Toast } from "bootstrap";
@@ -11,8 +10,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 
-// Configuración de las fuentes necesarias para pdfmake
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export const FaseDosEstudiante = ({informacion, actualizar,setActualizar}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
