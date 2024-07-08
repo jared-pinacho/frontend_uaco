@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "../TablaForaneos/TablaForaneos.css";
 import Loader from "../Loader/Loader";
 import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
 import logo from "../../assets/img/logoUACO.png";
 import { saveAs } from 'file-saver';
 import axios from "axios";
 import Cookies from "js-cookie";
 import { URL_API } from "../../Services/Const";
 import Modal from 'react-modal';
+import pdfFonts from "pdfmake/build/vfs_fonts";
 
 
 

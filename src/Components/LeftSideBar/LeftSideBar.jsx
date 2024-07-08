@@ -44,11 +44,17 @@ export const LeftSideBar = () => {
   const [isLoading, setIsLoading] = useState(true);
   const apiUrl = URL_API;
   const token = Cookies.get("tok");
-  const [estado, setEstado] = useState(0);
+  const [estado, setEstado] = useState(null);
   const [menuVisible, setMenuVisible] = useState(false);
   const [menuVisible2, setMenuVisible2] = useState(false);
 
   const obtenerEstatusServicio = () => {
+    // Asegúrate de que el token no es nulo ni indefinido
+    if (!token) {
+      setIsLoading(false);
+      return;
+    }
+  
     axios
       .get(`${apiUrl}estado/servicio`, {
         headers: {
@@ -61,11 +67,18 @@ export const LeftSideBar = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        // No hacer nada en caso de error para evitar imprimir en la consola
-        // El error se maneja silenciosamente aquí
+        // Manejar el error de forma silenciosa sin imprimir en la consola
+        if (error.response && error.response.status === 403) {
+          // Acción adicional si es necesario para un error 403 (Forbidden)
+          // Puedes simplemente establecer isLoading en false aquí
+          setIsLoading(false);
+        } else {
+          // Otros errores pueden ser manejados de la misma manera silenciosa
+          setIsLoading(false);
+        }
       });
-};
-
+  };
+  
 
   const handleMenuClick = () => {
     setMenuVisible(true);
@@ -87,8 +100,14 @@ export const LeftSideBar = () => {
   };
 
   useEffect(() => {
-        obtenerEstatusServicio(); 
-  }, [token]); // Se ejecuta cada vez que el token cambia
+    // Verificar si el usuario está autenticado y tiene el rol de Estudiante
+    if (isAuthenticated && decrypt(Cookies.get("rol")) === "estudiante") {
+      obtenerEstatusServicio();
+    } else {
+      setIsLoading(false); // Si el usuario no es Estudiante, detener el loading
+    }
+  }, [isAuthenticated, token]); // Se ejecuta cada vez que isAuthenticated o token cambia
+
 
 
   const toggleSidebar = () => {
@@ -106,6 +125,10 @@ export const LeftSideBar = () => {
       //const nombre =Cookies.get("id");
       const nombre = Cookies.get("nombre");
 
+
+
+
+      
       return (
         <>
           <div className="sidebar-container">

@@ -14,7 +14,6 @@ import { VentanaAceptacion } from "../VentanaRevisar/VentanaAceptacion";
 
 
 
-
 export const Escolar = ({informacion, actualizar, setActualizar}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [pdfUrl, setPdfUrl] = useState(null);
