@@ -57,7 +57,7 @@ export const FaseDosEstudiante = ({informacion, actualizar,setActualizar}) => {
 
 
   useEffect(() => {
-    
+    if (informacion) {
     setFormData({
       nombre_dep: informacion.servicio?.nombre_dep || "",
       cuc_calle: informacion.cuc?.direccion?.calle || "", 
@@ -73,7 +73,7 @@ export const FaseDosEstudiante = ({informacion, actualizar,setActualizar}) => {
       sexo_est: informacion.estudiante?.sexo || "",
       cuc_nombre: informacion.cuc?.nombre?.substring(6) || "",
       estudiante: nombreCompleto(informacion) || "",
-      matricula: informacion.estudiante?.matricula || "",
+      matricula: informacion?.matricula || "",
       carrera: informacion.carrera || "",
       proyecto: informacion.servicio?.programa || "",
       responsable: informacion.servicio?.responsable || "",
@@ -86,15 +86,18 @@ export const FaseDosEstudiante = ({informacion, actualizar,setActualizar}) => {
       estado_r1:informacion.faseDos?.estatus_envio || "",
       comentario_r1:informacion.faseDos?.comentario || "", 
     });
-setVisible(informacion.faseDos?.estatus_envio);
-setMatricula(informacion.estudiante?.matricula);
 
 
-if (informacion?.faseDos ===null) {
-  setVisible(0);
-  }
-    setMatricula(informacion.estudiante?.matricula);
-}, []);
+    if(informacion.faseDos ===null){
+     
+      setVisible(0);
+     
+    }
+    else{
+      setVisible(informacion.faseDos.estatus_envio);
+    }
+
+}}, [informacion]);
 
 
 const cambiarInforme1 = (dato) => {
@@ -498,8 +501,6 @@ const documentDefinition = {
 
 
 
-
-
   const actualizarDesdeHijo = () => {
     const nuevoValor = !actualizar; // Cambiar el valor de 'actualizar' (alternar entre true y false)
     setActualizar(nuevoValor); // Cambiar 'actualizar' desde el componente hijo
@@ -535,11 +536,6 @@ const documentDefinition = {
       toast.info('Por favor selecciona un archivo antes de enviar.');
     }
   };
-
-
-
-
-
 
 
 
@@ -685,7 +681,7 @@ Generar Informe 1
 <div className="accionesz-4i">
        
     
-<p className="arc-1z-4" >Archivo subido:informeUno{matricula}</p>
+<p className="arc-1z-4" >Archivo subido:informeUno{formData.matricula}</p>
        
           <label className="esz-1">Estado: Enviado no revisado </label>
          

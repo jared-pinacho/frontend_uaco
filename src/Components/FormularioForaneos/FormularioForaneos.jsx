@@ -108,7 +108,7 @@ export const FormularioForaneos = ({
 
   const obtenerLenguasIndigenas = () => {
     axios
-      .get(`${apiUrl}lenguasindigenas/`, {
+      .get(`${apiUrl}lenguasindigenas`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

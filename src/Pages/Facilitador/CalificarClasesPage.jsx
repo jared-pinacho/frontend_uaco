@@ -118,7 +118,7 @@ export const CalificarClasesPage = () => {
       return;
     }
     axios
-      .get(`${apiUrl}periodos/`, {
+      .get(`${apiUrl}periodos`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -134,7 +134,7 @@ export const CalificarClasesPage = () => {
   const obtenerClases = () => {
     if (!formData.id_periodo || !formData.clave_cuc) {
       setClases([]);
-      console.log("vacio");
+    
       return;
     }
     axios
@@ -156,7 +156,7 @@ export const CalificarClasesPage = () => {
 
   const obtenerEstudiantesDeClase = () => {
     if (!formData.id_periodo || !formData.clave_clase || !formData.clave_cuc) {
-      console.log("vacio");
+     // console.log("vacio");
       // toast.info(
       //   "Primero verifique si ha seleccionado cuc, un periodo y una clase antes de presionar el boton de Obtener estudiantes"
       // );

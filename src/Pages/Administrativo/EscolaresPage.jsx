@@ -21,7 +21,7 @@ export const EscolaresPage = (props) => {
 
     const obtenerEscolares = () => {
         axios
-            .get(`${apiUrl}escolares/`, {
+            .get(`${apiUrl}escolares`, {
                 headers: {
                   'Authorization': `Bearer ${token}`, 
                 },
@@ -144,7 +144,7 @@ export const EscolaresPage = (props) => {
                     {isLoading && (modo === "editar" || modo === "eliminar") ? <div className="cargando">Obteniendo datos, por favor espere...</div> : null}
                     {modo === "escolaresPorCuc" ? (
                         <BarraSelect
-                            urlOpciones={`${apiUrl}cucs/`}
+                            urlOpciones={`${apiUrl}cucs`}
                             txtBoton="Obtener "
                             clave={"clave_cuc"}
                             mostrar={"nombre"}

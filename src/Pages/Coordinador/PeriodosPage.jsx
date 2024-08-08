@@ -19,7 +19,7 @@ export const PeriodosPage = () => {
   
   const obtenerPeriodos=()=>{
     axios
-            .get(`${apiUrl}periodos/`, {
+            .get(`${apiUrl}periodos`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },

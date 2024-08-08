@@ -157,7 +157,7 @@ export const FormularioFacilitadores = ({
   };
   const obtenerTipoSangre = () => {
     axios
-      .get(`${apiUrl}tiposangre/`, {
+      .get(`${apiUrl}tiposangre`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

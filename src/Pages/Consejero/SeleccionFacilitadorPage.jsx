@@ -155,7 +155,7 @@ export const SeleccionFacilitadorPage = () => {
                 <div className="botonSeleccionarFacilitadores">
                     {modo === "agregar" ? (
                         <BarraSelect
-                            urlOpciones={`${apiUrl}facilitadores/`}
+                            urlOpciones={`${apiUrl}facilitadores`}
                             txtBoton="Agregar facilitador"
                             clave={"matricula"}
                             mostrar={"nombreC"}

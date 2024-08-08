@@ -183,7 +183,7 @@ export const FormInfoSocial = ({
       );
       return;
     }
-    console.log(formData.cp);
+  //  console.log(formData.cp);
     axios
       .get(`${apiUrl}cp/${formData.cp}/colonias/municipio/estado`, {
         headers: {
@@ -248,7 +248,7 @@ export const FormInfoSocial = ({
         }
       )
       .then((response) => {
-        console.log("actualizado a enviado");
+      //  console.log("actualizado a enviado");
         setShowConfirmDialog(false);
       })
       .catch((error) => {

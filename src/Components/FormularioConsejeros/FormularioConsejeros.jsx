@@ -186,7 +186,7 @@ export const FormularioConsejeros = ({
 
   const obtenerTipoSangre = () => {
     axios
-      .get(`${apiUrl}tiposangre/`, {
+      .get(`${apiUrl}tiposangre`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -1042,7 +1042,7 @@ export const FormularioConsejeros = ({
         {modo === "agregar" ? (
           <div className="opcionesDias">
             <CheckBoxList
-              urlOpciones={`${apiUrl}areasconsejerias/`}
+              urlOpciones={`${apiUrl}areasconsejerias`}
               clave={"id_areaconsejero"}
               mostrar={"nombre"}
               texto={"Seleccione el tipo de consejero"}

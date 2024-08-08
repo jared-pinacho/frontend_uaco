@@ -84,7 +84,7 @@ export const ValidarGrupoParaReporte = () => {
   };
   const obtenerCarreras = () => {
     axios
-      .get(`${apiUrl}cucs/carreras/carreritas/`, {
+      .get(`${apiUrl}cucs/carreras/carreritas`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -188,7 +188,7 @@ export const ValidarGrupoParaReporte = () => {
           } else {
             g.final = 1;
           }
-          console.log(g)
+          
           return;
         }
         let dataVisto = {};

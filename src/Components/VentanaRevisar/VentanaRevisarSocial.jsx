@@ -32,7 +32,7 @@ export const VentanaRevisarSocial = ( {matricula}) => {
         }
       )
       .then((response) => {
-        console.log('comentaio enviado');
+       
         setMostrarComponente(false);
 
       })

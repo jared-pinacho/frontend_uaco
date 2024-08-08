@@ -200,7 +200,7 @@ export const FormularioMaterias = ({
 
         <div className="opcionesCarreras">
           <CheckBoxList
-            urlOpciones={`${apiUrl}carreras/`}
+            urlOpciones={`${apiUrl}carreras`}
             clave={"clave_carrera"}
             mostrar={"nombre"}
             texto={"Seleccione los programas que imparten esta materia"}

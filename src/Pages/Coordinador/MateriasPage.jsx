@@ -18,7 +18,7 @@ export const MateriasPage = () => {
 
   const obtenerMaterias=()=>{
     axios
-            .get(`${apiUrl}materias/`, {
+            .get(`${apiUrl}materias`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },

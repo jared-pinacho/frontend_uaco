@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const GeneradorReporteGrupo = (grupo, cucEspecifica, infoReporte,periodo,tipo)=>{
     
         if (!grupo || !cucEspecifica || !infoReporte) {
-          console.log("Ocurrion un error en la generacion del reporte");
+         // console.log("Ocurrion un error en la generacion del reporte");
         }
         // console.log(infoReporte);
         toast.info("Generando reporte");

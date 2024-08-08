@@ -122,7 +122,7 @@ export const EscolarPersonal = ({
       })
       .then((response) => {
         setCarreras(response.data.data);
-        console.log("carreras")
+       // console.log("carreras")
       })
       .catch((error) => {
         toast.error("Error al obtener los datos");
@@ -138,7 +138,7 @@ export const EscolarPersonal = ({
       })
       .then((response) => {
         setLenguasIndigenas(response.data.data);
-        console.log("lenguas")
+       // console.log("lenguas")
       })
       .catch((error) => {
         toast.error("Error al obtener las lenguas indigenas");
@@ -154,7 +154,7 @@ export const EscolarPersonal = ({
       })
       .then((response) => {
         setPueblosIndigenas(response.data.data);
-        console.log("pueblos")
+      //  console.log("pueblos")
       })
       .catch((error) => {
         toast.error("Error al obtener los pueblos indigenas");
@@ -195,7 +195,7 @@ const handleMostrarBoton = () => {
         }
       )
       .then((response) => {
-        console.log('actualizado a enviado');
+      //  console.log('actualizado a enviado');
 
       })
       .catch((error) => {

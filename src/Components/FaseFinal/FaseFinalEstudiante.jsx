@@ -27,24 +27,29 @@ export const FaseFinalEstudiante = ({informacion, actualizar,setActualizar}) => 
     carta:"",
    estatus_envio:"",
    comentario:"",
-  matricula:informacion?.matricula || ""
+  matricula:""
   });
 
 
   useEffect(() => {
-    if (informacion?.faseFinal !==null) {
+    if (informacion) {
     setFormData({
       carta: informacion.faseFinal?.recibo || "",
       estado: informacion.faseFinal?.estatus_envio || "",
       comentario: informacion.faseFinal?. comentario || "",
-    
+      matricula: informacion?.matricula || "",
     });
+
+    if(informacion.faseFinal ===null){
+     
+      setVisible(0);
+    }
+    else{
     setVisible(informacion.faseFinal.estatus_envio);
-    setMatricula(informacion.estudiante?.matricula);
+    }
   }
 
-  setMatricula(informacion.estudiante?.matricula);
-}, []);
+}, [informacion]);
 
 
 const cambiarRecibo = (dato) => {

@@ -93,7 +93,7 @@ export const ClasesCalificadasRevision = () => {
 
   const obtenerCarreras = () => {
     axios
-      .get(`${apiUrl}cucs/carreras/carreritas/`, {
+      .get(`${apiUrl}cucs/carreras/carreritas`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -118,7 +118,7 @@ export const ClasesCalificadasRevision = () => {
         clave_clase: "",
         id_periodo:""
       })
-      console.log("Vacio");
+      //console.log("Vacio");
       return;
     }
     // console.log("Ejecute consulta");
@@ -230,7 +230,7 @@ export const ClasesCalificadasRevision = () => {
         calitext[index] = estudiante.calificacion_letra;
         retroalim[index] = estudiante.retroalimentacion;
         asis[index] = estudiante.asistencia;
-        console.log("wasa");
+      
       });
       setCalificacionesNumericas(cali);
       setCalificacionesTexto(calitext);

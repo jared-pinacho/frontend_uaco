@@ -153,7 +153,7 @@ export const SeleccionCarreraPage = () => {
         <div className="botonSeleccionarCarrera">
           {modo === "agregar" ? (
             <BarraSelect
-              urlOpciones={`${apiUrl}carreras/`}
+              urlOpciones={`${apiUrl}carreras`}
               txtBoton="Agregar programa"
               clave={"clave_carrera"}
               mostrar={"nombre"}

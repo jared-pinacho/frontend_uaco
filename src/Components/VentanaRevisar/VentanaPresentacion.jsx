@@ -40,7 +40,7 @@ export const VentanaPresentacion = ( {matricula,actualizar,setActualizar}) => {
         }
       )
       .then((response) => {
-        console.log('comentaio enviado');
+      //  console.log('comentaio enviado');
         setMostrarComponente(false);
         actualizarDesdeHijo();
 

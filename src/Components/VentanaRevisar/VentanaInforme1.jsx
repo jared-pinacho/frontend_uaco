@@ -42,7 +42,7 @@ export const VentanaInforme1 = ( {matricula,actualizar,setActualizar}) => {
         }
       )
       .then((response) => {
-        console.log('comentario enviado');
+       // console.log('comentario enviado');
         setMostrarComponente(false);
 actualizarDesdeHijo();
       })

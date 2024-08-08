@@ -58,7 +58,7 @@ export const FaseCuatroEstudiante = ({informacion, actualizar,setActualizar}) =>
 
 
   useEffect(() => {
-  
+  if(informacion){
     setFormData({
       nombre_dep: informacion.servicio?.nombre_dep || "",
       cuc_calle: informacion.cuc?.direccion?.calle || "", 
@@ -74,7 +74,7 @@ export const FaseCuatroEstudiante = ({informacion, actualizar,setActualizar}) =>
       sexo_est: informacion.estudiante?.sexo || "",
       cuc_nombre: informacion.cuc?.nombre?.substring(6) || "",
       estudiante: nombreCompleto(informacion) || "",
-      matricula: informacion.estudiante?.matricula || "",
+      matricula: informacion?.matricula || "",
       carrera: informacion.carrera || "",
       proyecto: informacion.servicio?.programa || "",
       responsable: informacion.servicio?.responsable || "",
@@ -87,17 +87,19 @@ export const FaseCuatroEstudiante = ({informacion, actualizar,setActualizar}) =>
       estado_r2:informacion.faseCuatro?.estatus_envio || "",
       comentario_r2:informacion.faseCuatro?.comentario || "", 
     });
-setVisible(informacion.faseCuatro?.estatus_envio);
-setMatricula(informacion.estudiante?.matricula);
- 
-if (informacion?.faseCuatro ===null) {
-  setVisible(0);
-}
 
 
+    if(informacion.faseCuatro ===null){
+     
+      setVisible(0);
+     
+    }
+    else{
+      setVisible(informacion.faseCuatro.estatus_envio);
+    }
 
-    setMatricula(informacion.estudiante?.matricula);
-}, []);
+  }
+}, [informacion]);
 
 
 const cambiarInforme3 = (dato) => {
@@ -660,7 +662,7 @@ Generar Informe 3
 {visible === 4  && (
 <div className="accionesz-4i">
        
-<p className="arc-1z-4" >Archivo subido:InformeTres{matricula}</p>
+<p className="arc-1z-4" >Archivo subido:InformeTres{formData.matricula}</p>
        
           <label className="esz-1">Estado: Enviado no revisado </label>
          

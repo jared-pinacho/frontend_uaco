@@ -190,7 +190,7 @@ export const EscolarSocial = ({
       );
       return;
     }
-    console.log(formData.cp);
+   // console.log(formData.cp);
     axios
       .get(`${apiUrl}cp/${formData.cp}/colonias/municipio/estado`, {
         headers: {
@@ -289,7 +289,7 @@ export const EscolarSocial = ({
         }
       )
       .then((response) => {
-        console.log('actualizado a enviado');
+       // console.log('actualizado a enviado');
 
       })
       .catch((error) => {

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { URL_API } from "../../Services/Const";
 
 export const TablaCarrera = () => {
     const [carrera, setCarrera] = useState([]);
     const [clavecu, setClaveCu] = useState("");
-
+    const apiUrl = URL_API;
     const handleChange = (event) => {
     setClaveCu(event.target.value);
     };
@@ -12,10 +13,10 @@ export const TablaCarrera = () => {
     const buscarCarrera = () => {
     // Realiza una solicitud GET para obtener los detalles de la carrera por clave.
     
-    axios.get(`http://127.0.0.1:8000/api/cucs/${clavecu}/carreras`)
+    axios.get(`${apiUrl}cucs/${clavecu}/carreras`)
         .then((response) => {
         // Almacena los detalles de la carrera en el estado del componente.
-        console.log(response.data);
+       // console.log(response.data);
         setCarrera(response.data.data);
         
         })

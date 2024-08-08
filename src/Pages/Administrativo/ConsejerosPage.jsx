@@ -20,7 +20,7 @@ export const ConsejerosPage = (props) => {
 
     const obtenerConsejeros = () => {
         axios
-            .get(`${apiUrl}consejeros/`, {
+            .get(`${apiUrl}consejeros`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -143,7 +143,7 @@ export const ConsejerosPage = (props) => {
                     {isLoading && (modo === "editar" || modo === "eliminar") ? <div className="cargando">Obteniendo datos, por favor espere...</div> : null}
                     {modo === "consejeroPorCuc" ? (
                         <BarraSelect
-                            urlOpciones={`${apiUrl}cucs/`}
+                            urlOpciones={`${apiUrl}cucs`}
                             txtBoton="Obtener Consejeros"
                             clave={"clave_cuc"}
                             mostrar={"nombre"}

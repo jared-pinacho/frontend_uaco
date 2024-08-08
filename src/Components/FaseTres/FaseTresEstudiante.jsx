@@ -58,7 +58,7 @@ export const FaseTresEstudiante = ({informacion, actualizar, setActualizar}) => 
 
 
   useEffect(() => {
-  
+   if (informacion) {
     setFormData({
       nombre_dep: informacion.servicio?.nombre_dep || "",
       cuc_calle: informacion.cuc?.direccion?.calle || "", 
@@ -74,7 +74,7 @@ export const FaseTresEstudiante = ({informacion, actualizar, setActualizar}) => 
       sexo_est: informacion.estudiante?.sexo || "",
       cuc_nombre: informacion.cuc?.nombre?.substring(6) || "",
       estudiante: nombreCompleto(informacion) || "",
-      matricula: informacion.estudiante?.matricula || "",
+      matricula: informacion?.matricula || "",
       carrera: informacion.carrera || "",
       proyecto: informacion.servicio?.programa || "",
       responsable: informacion.servicio?.responsable || "",
@@ -87,16 +87,20 @@ export const FaseTresEstudiante = ({informacion, actualizar, setActualizar}) => 
       estado_r2:informacion.faseTres?.estatus_envio || "",
       comentario_r2:informacion.faseTres?.comentario || "", 
     });
-setVisible(informacion.faseTres?.estatus_envio);
-setMatricula(informacion.estudiante?.matricula);
- 
-if (informacion?.faseTres ===null) {
+
+if(informacion.faseTres ===null){
+     
   setVisible(0);
+ 
+}
+else{
+  setVisible(informacion.faseTres.estatus_envio);
 }
 
 
-    setMatricula(informacion.estudiante?.matricula);
-}, []);
+  }
+
+}, [informacion]);
 
 
 const cambiarInforme2 = (dato) => {
@@ -687,7 +691,7 @@ Generar Informe 2
       
 
 
-<p className="arc-1z-4" >Archivo subido:InformeDos{matricula}</p>
+<p className="arc-1z-4" >Archivo subido:InformeDos{formData.matricula}</p>
        
           <label className="esz-1">Estado: Enviado no revisado </label>
          

@@ -74,7 +74,7 @@ export const AsignarClaseEstudiantes = () => {
 
   const obtenerCarreras = () => {
     axios
-      .get(`${apiUrl}cucs/carreras/carreritas/`, {
+      .get(`${apiUrl}cucs/carreras/carreritas`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

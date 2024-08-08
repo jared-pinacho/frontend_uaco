@@ -34,7 +34,7 @@ export const TablaAnuncios = ({ anuncios, isLoading,actualizarTabla}) => {
         },
       })
       .then((response) => {
-        console.log(response); // Imprime la respuesta completa en la consola
+      //  console.log(response); // Imprime la respuesta completa en la consola
         if (response.data && response.data.message) {
           toast.success(response.data.message);
         } else {

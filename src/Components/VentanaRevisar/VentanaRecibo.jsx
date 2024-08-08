@@ -39,7 +39,7 @@ export const VentanaRecibo = ( {matricula,actualizar,setActualizar}) => {
         }
       )
       .then((response) => {
-        console.log('comentario enviado');
+      
         setMostrarComponente(false);
 actualizarDesdeHijo();
       })

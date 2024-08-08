@@ -34,12 +34,12 @@ export const FaseUnoEstudiante = ({informacion, actualizar,setActualizar,matricu
    carta_acep:"",
    comentario_pres:"",
    comentario_acep:"",
-matricula:informacion?.matricula || "",
+   matricula: "",
   });
 
 
   useEffect(() => {
-    if (informacion?.faseUno !==null) {
+    if (informacion) {
     setFormData({
      estado_pres:informacion?.faseUno.pres_estado || "",
      estado_acep:informacion?.faseUno.acep_estado || "",
@@ -50,10 +50,22 @@ matricula:informacion?.matricula || "",
      matricula:informacion?.matricula || "",
     
     });
-    setVisible(informacion.faseUno.pres_estado);
-    setVisible2(informacion.faseUno.acep_estado);
+
+
+    if(informacion.faseUno ===null){
+     
+      setVisible(0);
+      setVisible2(0);
+    }
+    else{
+      setVisible(informacion.faseUno.pres_estado);
+      setVisible2(informacion.faseUno.acep_estado);
+    }
+
+
+   
   }
-}, []);
+}, [informacion]);
 
 
 const cambiarPresentacion = (dato) => {

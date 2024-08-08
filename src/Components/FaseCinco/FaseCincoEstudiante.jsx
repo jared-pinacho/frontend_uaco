@@ -30,23 +30,28 @@ export const FaseCincoEstudiante = ({informacion, actualizar,setActualizar}) => 
    carta:"",
    estatus_envio:"",
    comentario:"",
+   matricula:""
   });
 
 
   useEffect(() => {
-    if (informacion?.faseCinco !==null) {
+    if (informacion) {
     setFormData({
       carta: informacion.faseCinco?.carta_terminacion || "",
       estado: informacion.faseCinco?.estatus_envio || "",
       comentario: informacion.faseCinco?. comentario || "",
+      matricula: informacion?.matricula || "",
     
     });
-    setVisible(informacion.faseCinco.estatus_envio);
-    setMatricula(informacion.estudiante?.matricula);
+  
+    if(informacion.faseCinco ===null){
+      setVisible(0);
+    }
+    else{
+      setVisible(informacion.faseCinco.estatus_envio);
+    } 
   }
-
-  setMatricula(informacion.estudiante?.matricula);
-}, []);
+}, [informacion]);
 
 
 const cambiarPresentacion = (dato) => {
@@ -297,7 +302,7 @@ const cambiarPresentacion = (dato) => {
 {visible === 4  && (
 <div className="accionesz-4i">
        
-<p className="arc-1z-4" >Archivo subido:termino{matricula}</p>
+<p className="arc-1z-4" >Archivo subido:termino{formData.matricula}</p>
        
           <label className="esz-1">Estado: Enviado no revisado </label>
          

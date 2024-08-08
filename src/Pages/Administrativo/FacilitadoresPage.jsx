@@ -19,7 +19,7 @@ export const FacilitadoresPage = () => {
     const [isLoading, setIsLoading] = useState(true);
     const obtenerFacilitadores = () => {
         axios
-            .get(`${apiUrl}facilitadores/`, {
+            .get(`${apiUrl}facilitadores`, {
                 headers: {
                   'Authorization': `Bearer ${token}`, 
                 },
@@ -142,7 +142,7 @@ export const FacilitadoresPage = () => {
                     {isLoading && (modo === "editar" || modo === "eliminar") ? <div className="cargando">Obteniendo datos, por favor espere...</div> : null}
                     {modo === "facilitadorPorCuc" ? (
                         <BarraSelect
-                            urlOpciones={`${apiUrl}cucs/`}
+                            urlOpciones={`${apiUrl}cucs`}
                             txtBoton="Obtener Facilitadores"
                             clave={"clave_cuc"}
                             mostrar={"nombre"}

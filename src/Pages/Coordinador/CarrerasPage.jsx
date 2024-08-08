@@ -20,9 +20,9 @@ export const CarrerasPage = () => {
   const token = Cookies.get('tok');
   const [isLoading, setIsLoading] = useState(true);
   const obtenerCarreras = () => {
-    console.log(apiUrl);
+   // console.log(apiUrl);
     axios
-      .get(`${apiUrl}carreras/`, {
+      .get(`${apiUrl}carreras`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -150,7 +150,7 @@ export const CarrerasPage = () => {
           {modo === "carreraPorCuc" ? (
             /* <OpcionesBoton cargarCarrerasCuc={setCarrerasCuc} urlOpciones={`${apiUrl}cucs/`}/> */
             <BarraSelect
-              urlOpciones={`${apiUrl}cucs/`}
+              urlOpciones={`${apiUrl}cucs`}
               txtBoton="Obtener Programas"
               clave={"clave_cuc"}
               mostrar={"nombre"}

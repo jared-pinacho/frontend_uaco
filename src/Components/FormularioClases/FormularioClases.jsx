@@ -75,7 +75,7 @@ export const FormularioClases = ({ modo, claseAEditar, actualizarTabla }) => {
   const obtenerPeriodos = () => {
   if (!formData.clave_carrera) {
     setPeriodos([]);
-    console.log("Vacio");
+    //console.log("Vacio");
     return;
   }
     axios
@@ -111,7 +111,7 @@ export const FormularioClases = ({ modo, claseAEditar, actualizarTabla }) => {
 
   const obtenerCarreras = () => {
     axios
-      .get(`${apiUrl}cucs/carreras/carreritas/`, {
+      .get(`${apiUrl}cucs/carreras/carreritas`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -493,7 +493,7 @@ export const FormularioClases = ({ modo, claseAEditar, actualizarTabla }) => {
 
         <div className="opcionesDias">
           <CheckBoxList
-            urlOpciones={`${apiUrl}dias/`}
+            urlOpciones={`${apiUrl}dias`}
             clave={"id_dia"}
             mostrar={"nombre"}
             texto={"Seleccione los dias que se impartira esta clase"}

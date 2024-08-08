@@ -20,7 +20,7 @@ export const CucsPage = (props) => {
   const obtenerCucs = () => {
 
     axios
-      .get(`${apiUrl}cucs/`, {
+      .get(`${apiUrl}cucs`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

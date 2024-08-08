@@ -39,7 +39,7 @@ export const InfoPersonal = () => {
         },
       })
       .then((response) => {
-        console.log(response);
+       
         setEstudianteAEditar(response.data.data);
 
         setIsLoading(false);

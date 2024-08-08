@@ -136,7 +136,7 @@ export const FormInfoPersonal = ({
         },
       })
       .then((response) => {
-        console.log(response.data.data);
+       // console.log(response.data.data);
         setNacionalidades(response.data.data);
       })
       .catch((error) => {
@@ -160,7 +160,7 @@ export const FormInfoPersonal = ({
         },
       })
       .then((response) => {
-        console.log(response.data.data);
+       // console.log(response.data.data);
         setComentario(response.data.data);
       })
       .catch((error) => {
@@ -179,7 +179,7 @@ export const FormInfoPersonal = ({
         },
       })
       .then((response) => {
-        console.log(response.data.data);
+        //console.log(response.data.data);
         setEstados(response.data.data);
       })
       .catch((error) => {
@@ -190,7 +190,7 @@ export const FormInfoPersonal = ({
   };
   const obtenerTipoSangre = () => {
     axios
-      .get(`${apiUrl}tipos/`, {
+      .get(`${apiUrl}tipos`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -219,7 +219,7 @@ export const FormInfoPersonal = ({
 
   const obtenerLenguasIndigenas = () => {
     axios
-      .get(`${apiUrl}lengua/`, {
+      .get(`${apiUrl}lengua`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -234,7 +234,7 @@ export const FormInfoPersonal = ({
 
   const obtenerPueblosIndigenas = () => {
     axios
-      .get(`${apiUrl}pueblos/`, {
+      .get(`${apiUrl}pueblos`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -259,7 +259,7 @@ export const FormInfoPersonal = ({
         }
       )
       .then((response) => {
-        console.log('actualizado a enviado');
+       // console.log('actualizado a enviado');
         setShowConfirmDialog(false);
         
       })
@@ -329,7 +329,7 @@ export const FormInfoPersonal = ({
       );
       return;
     }
-    console.log(formData.cp);
+    //console.log(formData.cp);
     axios
       .get(`${apiUrl}cp/${formData.cp}/colonias/municipio/estado`, {
         headers: {

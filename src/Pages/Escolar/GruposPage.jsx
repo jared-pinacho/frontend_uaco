@@ -94,8 +94,8 @@ export const GruposPage = () => {
             toast.info('Seleccione una opcion');
             return
         }
-        axios
-            .get(`http://127.0.0.1:8000/api/carreras/${clave_carrera}/cucs/grupos`, {
+        axios  
+            .get(`${apiUrl}carreras/${clave_carrera}/cucs/grupos`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },

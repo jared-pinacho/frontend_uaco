@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../TablaGrupos/TablaGrupos.css";
 import Loader from "../Loader/Loader";
-const apiUrl = "http://127.0.0.1:8000/api/";
+//const apiUrl = "http://127.0.0.1:8000/api/";
 export const TablaGrupos = ({ grupos, isLoading }) => {
   const filas = grupos.map((grupo, index) => (
     <tr key={index}>

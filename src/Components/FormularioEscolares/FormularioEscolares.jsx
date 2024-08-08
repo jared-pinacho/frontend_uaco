@@ -185,7 +185,7 @@ export const FormularioEscolares = ({
 
   const obtenerTipoSangre = () => {
     axios
-      .get(`${apiUrl}tiposangre/`, {
+      .get(`${apiUrl}tiposangre`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -238,7 +238,7 @@ export const FormularioEscolares = ({
       toast.info("El codigo postal debe contener solo numeros y deben ser 5 digitos");
       return
     }
-    console.log(formData.cp);
+    //console.log(formData.cp);
     axios
       .get(`${apiUrl}cp/${formData.cp}/colonias/municipio/estado`, {
         headers: {
@@ -438,8 +438,8 @@ export const FormularioEscolares = ({
           const inicialyconsonanteApellidoP = `${apellido_paterno.charAt(
             0
           )}${apellido_paterno.match(/[aeiou]/i)?.[0] || ""}`.toUpperCase();
-          console.log(inicialyconsonanteApellidoP);
-          console.log(formData.fecha_nacimiento);
+        //  console.log(inicialyconsonanteApellidoP);
+         // console.log(formData.fecha_nacimiento);
 
           const inicialApellidoMaterno = apellido_materno.charAt(
             0
@@ -469,12 +469,12 @@ export const FormularioEscolares = ({
           const curpParteFecha =
             dosUltimosDigitosAño + dosUltimosDigitosMes + dosUltimosDigitosDia;
 
-          console.log(curpParteFecha);
+        //  console.log(curpParteFecha);
 
           const letraSexo = formData.sexo;
-          console.log(letraSexo);
+          //console.log(letraSexo);
           const codigoEstado = obtenerCodigoEstado(formData.estado_nacimiento)
-          console.log(codigoEstado);
+          //console.log(codigoEstado);
 
           const consonanteApellidoPaterno = obtenerPrimeraConsonanteInterna(apellido_paterno).toUpperCase();
           const consonanteApellidoMaterno = obtenerPrimeraConsonanteInterna(apellido_materno).toUpperCase();

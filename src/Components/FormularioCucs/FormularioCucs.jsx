@@ -309,7 +309,7 @@ export const FormularioCucs = ({ actualizarTabla, modo, cucAEditar }) => {
           toast.error(error.response.data.message);
         });
     } else if (modo === "eliminar") {
-      console.log(`http://127.0.0.1:8000/api/cucs/${cucAEditar.clave_cuc}`);
+      console.log(`${apiUrl}cucs/${cucAEditar.clave_cuc}`);
       axios
         .delete(`${apiUrl}cucs/${cucAEditar.clave_cuc}`, {
           headers: {

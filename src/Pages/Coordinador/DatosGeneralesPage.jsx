@@ -148,7 +148,7 @@ export const DatosGeneralesPage = () => {
   const obtenerConsejeros = () => {
     setIsLoading(true);
     axios
-      .get(`${apiUrl}consejeros/`, {
+      .get(`${apiUrl}consejeros`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -168,7 +168,7 @@ export const DatosGeneralesPage = () => {
   const obtenerEscolares = () => {
     setIsLoading(true);
     axios
-      .get(`${apiUrl}escolares/`, {
+      .get(`${apiUrl}escolares`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -188,7 +188,7 @@ export const DatosGeneralesPage = () => {
   const obtenerFacilitadores = () => {
     setIsLoading(true);
     axios
-      .get(`${apiUrl}facilitadores/`, {
+      .get(`${apiUrl}facilitadores`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -227,7 +227,7 @@ export const DatosGeneralesPage = () => {
   const obtenerEstudiantes = () => {
     setIsLoading(true);
     axios
-      .get(`${apiUrl}estudiantes/`, {
+      .get(`${apiUrl}estudiantes`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -158,7 +158,7 @@ export const FormularioEstudiantes = ({
         },
       })
       .then((response) => {
-        console.log(response.data.data);
+       
         setNacionalidades(response.data.data);
       })
       .catch((error) => {
@@ -175,7 +175,7 @@ export const FormularioEstudiantes = ({
         },
       })
       .then((response) => {
-        console.log(response.data.data);
+       
         setEstados(response.data.data);
       })
       .catch((error) => {
@@ -186,7 +186,7 @@ export const FormularioEstudiantes = ({
   };
   const obtenerTipoSangre = () => {
     axios
-      .get(`${apiUrl}tiposangre/`, {
+      .get(`${apiUrl}tiposangre`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -218,7 +218,7 @@ export const FormularioEstudiantes = ({
 
   const obtenerGrupos = () => {
     if (formData.clave_carrera === "") {
-      console.log("vacio");
+   //   console.log("vacio");
       return;
     }
     axios
@@ -242,7 +242,7 @@ export const FormularioEstudiantes = ({
 
   const obtenerLenguasIndigenas = () => {
     axios
-      .get(`${apiUrl}lenguasindigenas/`, {
+      .get(`${apiUrl}lengua/regresa`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -257,7 +257,7 @@ export const FormularioEstudiantes = ({
 
   const obtenerPueblosIndigenas = () => {
     axios
-      .get(`${apiUrl}pueblosindigenas/`, {
+      .get(`${apiUrl}pueblosindigenas`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -320,7 +320,7 @@ export const FormularioEstudiantes = ({
       );
       return;
     }
-    console.log(formData.cp);
+    //console.log(formData.cp);
     axios
       .get(`${apiUrl}cp/${formData.cp}/colonias/municipio/estado`, {
         headers: {
