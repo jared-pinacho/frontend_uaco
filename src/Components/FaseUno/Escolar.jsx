@@ -98,14 +98,11 @@ export const Escolar = ({informacion, actualizar, setActualizar}) => {
         estado_acep: informacion.faseUno?.acep_estado || "",
       });
 
-      if(informacion.faseUno ===null){
+      if(informacion.faseUno===null){
         setVisible(0);
         setVisible2(0);
       }
-        setVisible(informacion.faseUno?.pres_estado);
-       
-        setVisible2(informacion.faseUno?.acep_estado);
-    
+        
       setMatricula(informacion.estudiante?.matricula);
     }
 
@@ -329,23 +326,23 @@ const documentDefinition = {
     // Párrafo principal con texto combinado y estilos específicos
     {
       text: [
-        { text: `${articulo_consejero} que suscribe ${articulo}`, style: 'parrafo' },
+        { text: `${articulo_consejero} que suscribe ${articulo} `, style: 'parrafo' },
         { text: `${consejer} `, style: 'parrafo' }, // Consejero en negrita
         { text: `${formData.consejero} del `, style: 'parrafo' },
         { text: `${formData.cuc_nombre}`, style: 'parrafoBold' }, // CUC Nombre en negrita
         { text: ' por este conducto me permito comunicar a usted que ', style: 'parrafo' },
-        { text: `${articulo_estudiante} estudiante  `, style: 'parrafo' },
+        { text: `${articulo_estudiante} estudiante `, style: 'parrafo' },
         { text: `${formData.estudiante}`, style: 'parrafoBold' },
-        { text: 'con número de matrícula ', style: 'parrafo' },
+        { text: ' con número de matrícula', style: 'parrafo' },
         { text: ` ${formData.matricula}`, style: 'parrafoBold' },
         { text: ' del programa en educación en ', style: 'parrafo' },
         { text: `${formData.carrera}`, style: 'parrafoBold' },
-        { text: ' desea realizar su servicio social dentro de su noble institución.\n', style: 'parrafo' },
+        { text: 'desea realizar su servicio social dentro de su noble institución.\n', style: 'parrafo' },
         { text: `${articulo_may} estudiante tiene la intención de colaborar en el programa denominado `, style: 'parrafo' },
         { text: `"${formData.proyecto}".`, style: 'parrafoBold' },
-        { text: `La supervisión directa estará a cargo de ${formData.responsable}`, style: 'parrafo' },
+        { text: ` La supervisión directa estará a cargo de ${formData.responsable}`, style: 'parrafo' },
         { text: ` realizando las siguientes actividades: ${formData.actividad}.\n`, style: 'parrafo' },
-        { text: `Asimismo, le informo que las fechas de Servicio Social comprenden desde`, style: 'parrafo' },
+        { text: `Asimismo,le informo que las fechas de Servicio Social comprenden desde`, style: 'parrafo' },
         { text: ` ${fechainicio}`, style: 'parrafoBold' },
         { text: ` al `, style: 'parrafo' },
         { text: ` ${fechafinal}`, style: 'parrafoBold' },

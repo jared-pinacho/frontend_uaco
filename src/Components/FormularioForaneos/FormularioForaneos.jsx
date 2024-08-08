@@ -576,7 +576,7 @@ export const FormularioForaneos = ({
         </div>
 
         <div>
-          <label>Area de actividades:</label>
+          <label>Programa o proyecto:</label>
           <input
             type="text"
             name="programa"

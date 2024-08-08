@@ -11,6 +11,8 @@ import Modal from 'react-modal';
 import pdfFonts from "pdfmake/build/vfs_fonts";
 
 
+pdfMake.vfs = pdfFonts.pdfMake.vfs; //comentar toda esta linea antes de construir la aplicación para despliegue a producción
+
 
 export const TablaForaneos = ({ estudiantes, isLoading, abrirDocumentacion, abrirKardex }) => {
   const [filtro, setFiltro] = useState("");
