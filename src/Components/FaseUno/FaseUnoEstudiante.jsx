@@ -38,32 +38,25 @@ export const FaseUnoEstudiante = ({informacion, actualizar,setActualizar,matricu
 
   useEffect(() => {
     if (informacion) {
-    setFormData({
-     estado_pres:informacion?.faseUno.pres_estado || "",
-     estado_acep:informacion?.faseUno.acep_estado || "",
-     carta_pres:informacion?.faseUno.carta_presentacion || "",
-     carta_acep:informacion?.faseUno.carta_aceptacion || "",
-     comentario_pres:informacion?.faseUno.com_pres || "",
-     comentario_acep:informacion?.faseUno.come_acep || "",
-     matricula:informacion?.matricula || "",
-    
-    });
-
-
-    if(informacion.faseUno ===null){
-     
-      setVisible(0);
-      setVisible2(0);
+      if (informacion.faseUno === null) {
+        setVisible(0);
+        setVisible2(0);
+       
+      } else {
+        setVisible(informacion.faseUno.pres_estado);
+        setVisible2(informacion.faseUno.acep_estado);
+        setFormData({
+          estado_pres: informacion.faseUno.pres_estado || "",
+          estado_acep: informacion.faseUno.acep_estado || "",
+          carta_pres: informacion.faseUno.carta_presentacion || "",
+          carta_acep: informacion.faseUno.carta_aceptacion || "",
+          comentario_pres: informacion.faseUno.com_pres || "",
+          comentario_acep: informacion.faseUno.come_acep || "",
+          matricula: informacion.matricula || "",
+        });
+      }
     }
-    else{
-      setVisible(informacion.faseUno.pres_estado);
-      setVisible2(informacion.faseUno.acep_estado);
-    }
-
-
-   
-  }
-}, [informacion]);
+  }, [informacion]);
 
 
 const cambiarPresentacion = (dato) => {

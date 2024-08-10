@@ -102,7 +102,14 @@ export const Escolar = ({informacion, actualizar, setActualizar}) => {
         setVisible(0);
         setVisible2(0);
       }
-        
+       else{
+        setVisible(informacion.faseUno.pres_estado);
+        setVisible2(informacion.faseUno.acep_estado);
+       }
+
+     
+
+
       setMatricula(informacion.estudiante?.matricula);
     }
 
